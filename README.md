@@ -7,8 +7,8 @@
         Copiez l'URL du dépôt en choisissant HTTPS.
         Dans votre terminal, exécutez la commande suivante : 
         
-git clone https://github.com/VOTRE-NOM-D-UTILISATEUR/NOM-DU-DEPOT.git
-Git va télécharger le contenu du dépôt sur votre machine dans un nouveau dossier portant le nom du dépôt.
+        git clone https://github.com/VOTRE-NOM-D-UTILISATEUR/NOM-DU-DEPOT.git
+        Git va télécharger le contenu du dépôt sur votre machine dans un nouveau dossier portant le nom du dépôt.
 
 Les bonnes manières avant de travailler
 
