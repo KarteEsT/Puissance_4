@@ -16,8 +16,7 @@
 
 Les bonnes manières avant de travailler
 
-        Il est toujours bon de rappeler les bases du workflow Git pour une collaboration efficace :
-        Mettez vous dans le dossier corresponsant cd Puissance_4.
+        Mettez vous dans le dossier corresponsant : cd Puissance_4.
         
         Récupérer les dernières modif : Avant de commencer à travailler, exécutez git pull origin main (ou git pull origin <nom-de-la-branche-principale>)
         pour vous assurer d'avoir la version la plus récente du dépôt distant.
