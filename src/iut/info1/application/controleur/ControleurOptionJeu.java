@@ -24,7 +24,7 @@ public class ControleurOptionJeu {
 	
 	@FXML
     public void gererClicSon() {
-    	//VueJeu.activerFenetreSon();
+    	VueJeu.activerFenetreSon();
     }
 	
 	@FXML

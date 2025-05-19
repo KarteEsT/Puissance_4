@@ -4,6 +4,8 @@
  */
 package iut.info1.application;
 
+import iut.info1.application.controleur.ControleurJeu;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -30,6 +32,7 @@ public class VueJeu extends Application {
     private static Scene sceneOption;
     private static Scene sceneOptionGraphique;
     private static Scene sceneOptionJeu;
+    private static Scene sceneSon;
     
     private static Stage fenetreMenu;
 
@@ -96,6 +99,12 @@ public class VueJeu extends Application {
             sceneOptionJeu = new Scene(conteneurOptionJeu, 800, 1700);
             sceneOptionJeu.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
 
+            // Paramètres Son
+            FXMLLoader chargeurFXMLOptionSon = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/optionSon.fxml"));
+            Parent conteneurOptionSon = chargeurFXMLOptionSon.load();
+            sceneSon = new Scene(conteneurOptionSon, 800, 1700);
+            sceneSon.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
+            
             // PrimaryStage
             primaryStage.setTitle("Puissance 4");
             primaryStage.setHeight(800);
@@ -149,7 +158,11 @@ public class VueJeu extends Application {
 	public static void activerFenetreOptionJeu() {
 		fenetreMenu.setScene(sceneOptionJeu);
 	}
-
+	
+	public static void activerFenetreSon() {
+		fenetreMenu.setScene(sceneSon);
+	}
+	
     public static void activerFenetreCouleur(String joueur) {
         try {
             FXMLLoader loader = new FXMLLoader(VueJeu.class.getResource("/iut/info1/application/vue/couleurPopup.fxml"));

@@ -7,6 +7,8 @@ package iut.info1.application.controleur;
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 /**
  * Contrôleur de la vue "fentreJeu"
@@ -14,47 +16,74 @@ import javafx.scene.shape.Circle;
  */
 public class ControleurJeu {
 	
-	private Circle A1;
-	private Circle A2;
-	private Circle A3;
-	private Circle A4;
-	private Circle A5;
-	private Circle A6;
+	// Labels pour afficher les noms des joueurs
+    @FXML private Label joueur1;
+    @FXML private Label joueur2;
 	
-	private Circle B1;
-	private Circle B2;
-	private Circle B3;
-	private Circle B4;
-	private Circle B5;
-	private Circle B6;
+    // Cercle de la colonne A
+	@FXML private Circle A1;
+	@FXML private Circle A2;
+	@FXML private Circle A3;
+	@FXML private Circle A4;
+	@FXML private Circle A5;
+	@FXML private Circle A6;
 	
-	private Circle C1;
-	private Circle C2;
-	private Circle C3;
-	private Circle C4;
-	private Circle C5;
-	private Circle C6;
+	// Cercle de la colonne B
+	@FXML private Circle B1;
+	@FXML private Circle B2;
+	@FXML private Circle B3;
+	@FXML private Circle B4;
+	@FXML private Circle B5;
+	@FXML private Circle B6;
 	
-	private Circle D1;
-	private Circle D2;
-	private Circle D3;
-	private Circle D4;
-	private Circle D5;
-	private Circle D6;
+	// Cercle de la colonne C
+	@FXML private Circle C1;
+	@FXML private Circle C2;
+	@FXML private Circle C3;
+	@FXML private Circle C4;
+	@FXML private Circle C5;
+	@FXML private Circle C6;
 	
-	private Circle E1;
-	private Circle E2;
-	private Circle E3;
-	private Circle E4;
-	private Circle E5;
-	private Circle E6;
+	// Cercle de la colonne D
+	@FXML private Circle D1;
+	@FXML private Circle D2;
+	@FXML private Circle D3;
+	@FXML private Circle D4;
+	@FXML private Circle D5;
+	@FXML private Circle D6;
 	
-	private Circle F1;
-	private Circle F2;
-	private Circle F3;
-	private Circle F4;
-	private Circle F5;
-	private Circle F6;
+	// Cercle de la colonne E
+	@FXML private Circle E1;
+	@FXML private Circle E2;
+	@FXML private Circle E3;
+	@FXML private Circle E4;
+	@FXML private Circle E5;
+	@FXML private Circle E6;
+	
+	// Cercle de la colonne F
+	@FXML private Circle F1;
+	@FXML private Circle F2;
+	@FXML private Circle F3;
+	@FXML private Circle F4;
+	@FXML private Circle F5;
+	@FXML private Circle F6;
+	
+	// Cercle de la colonne G
+	@FXML private Circle G1;
+	@FXML private Circle G2;
+	@FXML private Circle G3;
+	@FXML private Circle G4;
+	@FXML private Circle G5;
+	@FXML private Circle G6;
+	
+	// Boutons pour jouer dans une colonne
+	@FXML private Button colonne0;
+	@FXML private Button colonne1;
+	@FXML private Button colonne2;
+	@FXML private Button colonne3;
+	@FXML private Button colonne4;
+	@FXML private Button colonne5;
+	@FXML private Button colonne6;
 	
     @FXML
     public void gererClicOption() {

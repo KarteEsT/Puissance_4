@@ -4,6 +4,8 @@
  */
 package iut.info1.application.controleur;
 
+import iut.info1.application.controleur.ControleurJeu;
+
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,6 +17,9 @@ import javafx.scene.control.TextField;
  * @author Gabriel Robache
  */
 public class ControleurMultijoueur {
+
+	String joueur1;
+	String joueur2;
 
 	/** Bouton pour retourner au Menu */
     @FXML
@@ -48,13 +53,26 @@ public class ControleurMultijoueur {
     
     @FXML
     public void gererClicLancer() {
-    	if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
-			Alert boiteAlerte = new Alert(Alert.AlertType.ERROR);
-            boiteAlerte.setTitle("Erreur");
-	    	boiteAlerte.setHeaderText("Veuillez choisir un nom pour chaque joueur.");
-	    	boiteAlerte.showAndWait();
-		} else {
-			VueJeu.activerFenetreJeu();
-		}
+        boolean isJoueur1Empty = nomJoueur1.getText().isEmpty();
+        boolean isJoueur2Empty = nomJoueur2.getText().isEmpty();
+
+        // Mettre les noms par défaut si les champs sont vides
+        joueur1 = isJoueur1Empty ? "JOUEUR 1" : nomJoueur1.getText();
+        joueur2 = isJoueur2Empty ? "JOUEUR 2" : nomJoueur2.getText();
+
+        if (isJoueur1Empty || isJoueur2Empty) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Champs vides");
+            alert.setHeaderText("Un ou plusieurs champs sont vides.");
+            alert.setContentText("Les noms par défaut seront utilisés : " + joueur1 + " et " + joueur2 + ". Voulez-vous continuer ?");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == javafx.scene.control.ButtonType.OK) {
+                    VueJeu.activerFenetreJeu();
+                }
+            });
+        } else {
+            VueJeu.activerFenetreJeu();
+        }
     }
 }
