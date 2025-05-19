@@ -34,6 +34,26 @@ public class Joueur {
      */
     public Joueur(int id ,String nom ,String couleur) {
         
+        if (id != 1 && id != 2) {
+            throw new IllegalArgumentException("L'identifiant du joueur "
+                                                + " doit être 1 ou 2.");
+        }
+        
+        if (nom == null || nom.isEmpty()) {
+            throw new IllegalArgumentException("Le nom du joueur "
+                                                + " ne peut pas être vide.");
+        }
+        
+        if (couleur == null || couleur.isEmpty()) {
+            throw new IllegalArgumentException("La couleur du joueur "
+                                                + " ne peut pas être vide.");
+        }
+        
+        if (nom.length() > 30) {
+            throw new IllegalArgumentException("Le nom du joueur ne peut pas "
+                                                + " dépasser 30 caractères.");
+        }
+        
         this.id = id;
         this.nom = nom;
         this.couleur = couleur;
