@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import iut.info1.application.Grille;
+import iut.info1.application.Joueur;
 
 /**
  * Classe permettant de créer une Grille
@@ -59,7 +60,9 @@ class TestGrille {
      */
     @Test
     final void testGetJ1() {
-       fail("Not yet implemented");
+       Joueur j1 = new Joueur(1, "Joueur 1", "Jaune");
+       Grille grille = new Grille(6, 7, j1, null);
+       assertEquals(j1, grille.getJ1());
     }
 
     /**
@@ -67,7 +70,9 @@ class TestGrille {
      */
     @Test
     final void testGetJ2() {
-        fail("Not yet implemented");
+        Joueur j2 = new Joueur(2, "Joueur 2", "Rouge");
+        Grille grille = new Grille(6, 7, null, j2);
+        assertEquals(j2, grille.getJ2());
     }
 
     /**
@@ -102,10 +107,42 @@ class TestGrille {
 
     /**
      * Test method for {@link iut.info1.application.Grille#poserPion(int)}.
+     * Test de la méthode poserPion pour une position valide
      */
     @Test
-    final void testPoserPion() {
-        fail("Not yet implemented");
+    final void testPoserPionOk() {
+        Grille grille = new Grille(6, 7);
+        
+        assertTrue(grille.poserPion(3));
+        int[][] matrice = grille.getMatrice();
+        assertEquals(1, matrice[5][3]); // Le pion doit être placé en bas de la colonne
+        
+
+        assertTrue(grille.poserPion(3));
+        assertEquals(2, matrice[4][3]); // Le pion doit être placé juste au-dessus
+
+        assertTrue(grille.poserPion(4));
+        assertEquals(1, matrice[5][4]); // Le pion doit être placé dans une autre colonne
+    }
+    
+    /**
+     * Test method for {@link iut.info1.application.Grille#poserPion(int)}.
+     * Test de la méthode poserPion pour une position invalide (hors de la grille,
+     * ou colonne pleine)
+     */
+    @Test
+    final void testPoserPionKo() {
+        Grille grille = new Grille(6, 7);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            grille.poserPion(-1); // Colonne invalide
+        });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            grille.poserPion(7); // Colonne invalide
+        });
+        for (int i = 0; i < 6; i++) {
+            grille.poserPion(3); // Remplir la colonne
+        }
+        assertFalse(grille.poserPion(3)); // Colonne pleine
     }
 
 }

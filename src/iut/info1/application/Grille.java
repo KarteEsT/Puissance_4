@@ -4,6 +4,8 @@
  */
 package iut.info1.application;
 
+import java.util.Arrays;
+
 import iut.info1.application.Joueur;
 
 /**
@@ -107,7 +109,6 @@ public class Grille {
     }
         
     
-    
     /**
      * On va remonter la matrice en partant du bas de la colonne
      * afin de chercher une place libre, si on la trouve on pose le pion
@@ -115,21 +116,147 @@ public class Grille {
      * @param colonneJouee 
      * @return true si le pion a pu être posé
      *         false sinon
+     * @throws ArrayIndexOutOfBoundsException
      */
     public boolean poserPion(int colonneJouee) {
+        if (colonneJouee < 0 || colonneJouee >= colonne-1) {
+            throw new ArrayIndexOutOfBoundsException("Colonne invalide");
+        }
         
         int[][] mat = matrice;
         
-        for (int IndiceLigne = getLigne()-1; IndiceLigne >= 0; IndiceLigne --) {
-            
-            
+        for (int IndiceLigne = getLigne()-1; IndiceLigne >= 0; IndiceLigne--) {
             if (mat[IndiceLigne][colonneJouee] == 0 ) {
                 mat[IndiceLigne][colonneJouee] = (compteTour %2) +1;
                 compteTour ++;
+                return true;
             }
         }
+        return false;
     }
-
-
     
+    
+    /**
+     * On va verifier si il y a une victoire verticale
+     * 
+     * @return true si il y a une victoire 
+     *         false sinon
+     */
+    public boolean verifierVictoireVerticale() {
+        int[][] mat = matrice;
+        int compteur = 0;
+        for (int i = 0; i < colonne; i++) {
+            for (int j = 0; j < ligne; j++) {
+                if (mat[j][i] == (compteTour % 2) + 1) {
+                    compteur++;
+                    if (compteur == 4) {
+                        return true;
+                    }
+                } else {
+                    compteur = 0;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * On va verifier si il y a une victoire dans une ligne
+     * 
+     * @return true si il y a une victoire false sinon
+     */
+    public boolean verifierVictoireHorizontale() {
+        int[][] mat = matrice;
+        int compteur = 0;
+        for (int i = 0; i < ligne; i++) {
+            for (int j = 0; j < colonne; j++) {
+                if (mat[i][j] == (compteTour % 2) + 1) {
+                    compteur++;
+                    if (compteur == 4) {
+                        return true;
+                    }
+                } else {
+                    compteur = 0;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * On va verifier si il y a une victoire dans la diagonale montante
+     * 
+     * @return true si il y a une victoire
+     *         false sinon
+     */
+    public boolean verifierVictoireDiagonaleMontante() {
+        int[][] mat = matrice;
+        int compteur = 0;
+        for (int i = 0; i < ligne; i++) {
+            for (int j = 0; j < colonne; j++) {
+                if (mat[i][j] == (compteTour % 2) + 1) {
+                    compteur++;
+                    if (compteur == 4) {
+                        return true;
+                    }
+                } else {
+                    compteur = 0;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * On va verifier si il y a une victoire dans la diagonale descendante
+     * 
+     * @return true si il y a une victoire
+     *         false sinon
+     */
+    public boolean verifierVictoireDiagonaleDescendante() {
+        int[][] mat = matrice;
+        int compteur = 0;
+        for (int i = ligne - 1; i >= 0; i--) {
+            for (int j = 0; j < colonne; j++) {
+                if (mat[i][j] == (compteTour % 2) + 1) {
+                    compteur++;
+                    if (compteur == 4) {
+                        return true;
+                    }
+                } else {
+                    compteur = 0;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * On va verifier si il y a une victoire dans la grille
+     * @param colonneJouee par le joueur
+     * 
+     * @return true si il y a une victoire false sinon
+     */
+    public boolean verifierVictoire() {
+        return verifierVictoireVerticale() || 
+               verifierVictoireHorizontale() || 
+               verifierVictoireDiagonaleMontante() || 
+               verifierVictoireDiagonaleDescendante();
+    }
+    
+
+    /* non javadoc - @see java.lang.Object#toString() */
+    @Override
+    public String toString() {
+        String grille = "";
+        for (int i = 0; i < matrice.length; i++) {
+            for (int j = 0; j < matrice[i].length; j++) {
+                grille += matrice[i][j] + " ";
+            }
+            grille += "\n";
+        }
+        return grille;
+    }
+    
+   
 }

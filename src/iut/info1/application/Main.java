@@ -25,5 +25,22 @@ public class Main {
         Joueur j2 = new Joueur(2,"Joueur","Rouge");
         
         Grille grille = new Grille(6,7,j1,j2);
+        
+        
+        /* Test victoire verticale */
+        grille.poserPion(2);
+        grille.poserPion(3);
+
+        grille.poserPion(2);
+        grille.poserPion(3);
+
+        grille.poserPion(2);
+        grille.poserPion(3);
+
+        grille.poserPion(2);
+        System.out.println(grille.toString());
+        System.out.println(grille.verifierVictoire());
+        
+
     }
 }
