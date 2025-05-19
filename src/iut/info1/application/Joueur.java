@@ -5,7 +5,7 @@
 package iut.info1.application;
 
 /**
- * Classe permettant de créer des joueurs
+ * Cette classe représente un joueur dans le jeu Puissance 4.
  * @author Gabriel Robache
  * @author Gabriel Le Goff
  * @author Mael Massicard
@@ -21,7 +21,13 @@ public class Joueur {
     private String couleur;
     
     /**
-     * TODO commenter l'état initial crée
+     * Initialise un nouveau joueur avec l'identifiant,
+     * le nom et la couleur spécifiés.
+     * L'état initial comprend :
+     * - L'identifiant unique du joueur (`id`), qui est soit 1 soit 2.
+     * - Le nom du joueur, qui représente le nom choisi pour le joueur.
+     * - La couleur choisie par le joueur utilisée
+     * pour le représenter dans le jeu.
      * @param id identifiant du joueur, ici 1 ou 2
      * @param nom nom du joueur, ici joueur
      * @param couleur couleur du joueur qu'il aura choisit
@@ -31,5 +37,26 @@ public class Joueur {
         this.id = id;
         this.nom = nom;
         this.couleur = couleur;
+    }
+
+    /**
+     * @return nouvelle valeur de id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @return nouvelle valeur de nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @return nouvelle valeur de couleur
+     */
+    public String getCouleur() {
+        return couleur;
     }
 }
