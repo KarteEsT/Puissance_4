@@ -39,7 +39,7 @@ public class Main {
 
         grille.poserPion(2);
         System.out.println(grille.toString());
-        System.out.println(grille.verifierVictoire());
+        System.out.println(grille.verifierVictoireVerticale());
         
 
     }

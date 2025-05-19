@@ -144,5 +144,29 @@ class TestGrille {
         }
         assertFalse(grille.poserPion(3)); // Colonne pleine
     }
+    
+    /**
+     * Test method for
+     * {@link iut.info1.application.Grille#verifierVictoireVerticale()}.
+     */
+    @Test
+    final void testVerifierVictoireVerticale() {
+        Grille grille = new Grille(6, 7);
+        // Remplir une colonne avec 4 pions du même joueur
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(3);
 
+        assertTrue(grille.verifierVictoireVerticale());
+
+        // Remplir une colonne sans victoire
+        grille = new Grille(6, 7);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(4);
+        grille.poserPion(4);
+
+        assertFalse(grille.verifierVictoireVerticale());
+    }
 }
