@@ -24,7 +24,9 @@ public class VueJeu extends Application {
     private static Scene sceneMenu;
     private static Scene sceneMulti;
     private static Scene sceneOrdi;
-    private static Scene sceneChrono;
+    private static Scene sceneChronoOption;
+    private static Scene sceneChronoLancementMultijoueur;
+    private static Scene sceneChronoLancementOrdinateur;
     private static Scene sceneOption;
     private static Scene sceneOptionGraphique;
     private static Scene sceneOptionJeu;
@@ -58,11 +60,23 @@ public class VueJeu extends Application {
             sceneJeu = new Scene(conteneurJeu, 800, 1700);
             sceneJeu.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
 
-            // Paramètres Chronomètre
-            FXMLLoader chargeurFXMLChrono = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/optionChrono.fxml"));
-            Parent conteneurChrono = chargeurFXMLChrono.load();
-            sceneChrono = new Scene(conteneurChrono, 800, 1700);
-            sceneChrono.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
+            // Paramètres Chronomètre Lancement Multijoueur
+            FXMLLoader chargeurFXMLChronoLancementMultijoueur = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/optionChronoLancementMultijoueur.fxml"));
+            Parent conteneurChronoLancementMultijoueur = chargeurFXMLChronoLancementMultijoueur.load();
+            sceneChronoLancementMultijoueur = new Scene(conteneurChronoLancementMultijoueur, 800, 1700);
+            sceneChronoLancementMultijoueur.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
+            
+            // Paramètres Chronomètre Lancement Ordinateur
+            FXMLLoader chargeurFXMLChronoLancementOrdinateur = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/optionChronoLancementOrdinateur.fxml"));
+            Parent conteneurChronoLancementOrdinateur = chargeurFXMLChronoLancementOrdinateur.load();
+            sceneChronoLancementOrdinateur = new Scene(conteneurChronoLancementOrdinateur, 800, 1700);
+            sceneChronoLancementOrdinateur.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
+            
+            // Paramètres Chronomètre Option
+            FXMLLoader chargeurFXMLChronoOption = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/optionChronoOption.fxml"));
+            Parent conteneurChronoOption = chargeurFXMLChronoOption.load();
+            sceneChronoOption = new Scene(conteneurChronoOption, 800, 1700);
+            sceneChronoOption.getStylesheets().add(getClass().getResource("/iut/info1/application/css/style.css").toExternalForm());
             
             // Paramètres Options
             FXMLLoader chargeurFXMLOption = new FXMLLoader(getClass().getResource("/iut/info1/application/vue/option.fxml"));
@@ -108,8 +122,16 @@ public class VueJeu extends Application {
         fenetreMenu.setScene(sceneOrdi);
     }
 
-    public static void activerFenetreChrono() {
-        fenetreMenu.setScene(sceneChrono);
+    public static void activerFenetreChronoLancementMultijoueur() {
+        fenetreMenu.setScene(sceneChronoLancementMultijoueur);
+    }
+    
+    public static void activerFenetreChronoLancementOrdinateur() {
+        fenetreMenu.setScene(sceneChronoLancementOrdinateur);
+    }
+    
+    public static void activerFenetreChronoOption() {
+        fenetreMenu.setScene(sceneChronoOption);
     }
     
     public static void activerFenetreJeu() {

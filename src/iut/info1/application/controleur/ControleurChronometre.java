@@ -24,8 +24,17 @@ public class ControleurChronometre {
     }
 	
     @FXML
+    public void gererClicRetourMenu() {
+    	VueJeu.activerFenetreOptionJeu();
+    }
+    
+    @FXML
+    public void gererClicRetourOrdinateur() {
+    	VueJeu.activerFenetreOrdi();
+    }
+    
+    @FXML
     public void gererClicRetourMultijoueur() {
     	VueJeu.activerFenetreMulti();
     }
-    
 }

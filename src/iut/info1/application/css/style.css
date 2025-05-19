@@ -50,7 +50,7 @@
 #button {
     -fx-background-color: linear-gradient(to bottom, #F3F3F3, #A7A7A7);
     -fx-text-fill: white;
-    -fx-font-size: 50px;
+    -fx-font-size: 60px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
     -fx-cursor: hand;

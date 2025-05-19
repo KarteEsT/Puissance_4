@@ -33,7 +33,7 @@ public class ControleurMultijoueur {
     
     @FXML
     public void gererClicChrono() {
-    	VueJeu.activerFenetreChrono();
+    	VueJeu.activerFenetreChronoLancementMultijoueur();
     }
     
     @FXML

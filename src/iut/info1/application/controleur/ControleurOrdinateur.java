@@ -6,7 +6,9 @@ package iut.info1.application.controleur;
 
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * Contrôleur de la vue "contreOrdi"
@@ -17,6 +19,12 @@ public class ControleurOrdinateur {
 	/** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
+    
+    @FXML
+    private TextField nomJoueur1;
+    
+    @FXML
+    private TextField nomJoueur2;
 	
     @FXML
     public void gererClicRetourMenu() {
@@ -25,7 +33,7 @@ public class ControleurOrdinateur {
     
     @FXML
     public void gererClicChrono() {
-    	VueJeu.activerFenetreChrono();
+    	VueJeu.activerFenetreChronoLancementOrdinateur();
     }
     
     @FXML
@@ -36,5 +44,17 @@ public class ControleurOrdinateur {
     @FXML
     public void gererClicCouleurJoueur2() {
     	VueJeu.activerFenetreCouleur("Joueur 2");
+    }
+    
+    @FXML
+    public void gererClicLancer() {
+    	if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
+			Alert boiteAlerte = new Alert(Alert.AlertType.ERROR);
+            boiteAlerte.setTitle("Erreur");
+	    	boiteAlerte.setHeaderText("Veuillez choisir un nom pour chaque joueur.");
+	    	boiteAlerte.showAndWait();
+		} else {
+			VueJeu.activerFenetreJeu();
+		}
     }
 }
