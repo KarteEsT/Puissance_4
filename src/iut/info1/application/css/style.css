@@ -1,0 +1,93 @@
+/* === Style global de la fenêtre === */
+.root {
+    -fx-background-color: #D9C9C9;
+}
+
+#bordereau {
+    -fx-background-color: #A7A7A7;
+}
+
+/* === Style des titres principaux === */
+#titre200 {
+    -fx-text-fill: white;
+    -fx-font-size: 200px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box, black, 5, 0.0, 2, 2);
+}
+
+#titre150 {
+    -fx-text-fill: white;
+    -fx-font-size: 150px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box, black, 5, 0.0, 2, 2);
+}
+
+#titre100 {
+    -fx-text-fill: white;
+    -fx-font-size: 100px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box, black, 5, 0.0, 2, 2);
+}
+
+/* === Style des labels des joueurs === */
+#joueur1 {
+	-fx-background-color: #FF0000;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+#joueur2 {
+	-fx-background-color: #F3D700;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* === Style du bouton options === */
+#button {
+    -fx-background-color: linear-gradient(to bottom, #F3F3F3, #A7A7A7);
+    -fx-text-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+#buttonCouleur1 {
+    -fx-text-fill: white;
+}
+
+#buttonCouleur2 {
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #e68900;
+}
+
+/* === Style des cercles du plateau === */
+.circle {
+    -fx-fill: white;
+    -fx-stroke: black;
+    -fx-stroke-width: 1.5px;
+}
+
+/* === Style des barres de progression (minuteur) === */
+#progress-bar1 {
+    -fx-accent: #FF0000; /* couleur de la barre remplie */
+    -fx-control-inner-background: transparent;
+}
+
+#progress-bar2 {
+    -fx-accent: #F3D700; /* couleur de la barre remplie */
+    -fx-control-inner-background: transparent;
+}
+
+/* === Style du tableau de jeu === */
+#GridPane {
+    -fx-background-color: #020FFE;
+    -fx-background-radius: 10;
+}
