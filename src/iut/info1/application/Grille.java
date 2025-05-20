@@ -57,7 +57,7 @@ public class Grille {
         this.colonne = colonne;
         this.ligne = ligne;
         matrice = new int[ligne][colonne];
-        compteTour = 0;
+        compteTour = -1;
 
     }
         
@@ -128,7 +128,8 @@ public class Grille {
         for (int IndiceLigne = getLigne()-1; IndiceLigne >= 0; IndiceLigne--) {
             if (mat[IndiceLigne][colonneJouee] == 0 ) {
                 mat[IndiceLigne][colonneJouee] = (compteTour %2) +1;
-                compteTour ++;
+                System.out.println(compteTour);
+                compteTour++;
                 return true;
             }
         }
@@ -147,7 +148,7 @@ public class Grille {
         int compteur = 0;
         for (int i = 0; i < colonne; i++) {
             for (int j = 0; j < ligne; j++) {
-                if (mat[j][i] == (compteTour % 2) + 1) {
+                if (mat[j][i] == ((compteTour + 1) % 2) + 1) {
                     compteur++;
                     if (compteur == 4) {
                         return true;
