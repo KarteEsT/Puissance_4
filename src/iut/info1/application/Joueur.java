@@ -6,6 +6,8 @@ package iut.info1.application;
 
 /**
  * Cette classe représente un joueur dans le jeu Puissance 4.
+ * Un joueur a un identifiant (1 ou 2), un nom, et une couleur.
+ * 
  * @author Gabriel Robache
  * @author Gabriel Le Goff
  * @author Mael Massicard
@@ -15,9 +17,7 @@ package iut.info1.application;
 public class Joueur {
     
     private int id;
-    
     private String nom;
-    
     private String couleur;
     
     /**
@@ -28,53 +28,85 @@ public class Joueur {
      * - Le nom du joueur, qui représente le nom choisi pour le joueur.
      * - La couleur choisie par le joueur utilisée
      * pour le représenter dans le jeu.
+     * 
      * @param id identifiant du joueur, ici 1 ou 2
      * @param nom nom du joueur, ici joueur
      * @param couleur couleur du joueur qu'il aura choisit
+     * @throws IllegalArgumentException si les paramètres sont invalides
      */
-    public Joueur(int id ,String nom ,String couleur) {
-        
+    public Joueur(int id, String nom, String couleur) {
         if (id != 1 && id != 2) {
-            throw new IllegalArgumentException("L'identifiant du joueur "
-                                                + " doit être 1 ou 2.");
+            throw new IllegalArgumentException("L'id du joueur "
+                                              + " doit être 1 ou 2.");
         }
-        
-        if (nom == null || nom.isEmpty()) {
+
+        if (nom == null) {
             throw new IllegalArgumentException("Le nom du joueur "
-                                                + " ne peut pas être vide.");
+                                              + " ne peut pas être null.");
         }
-        
-        if (couleur == null || couleur.isEmpty()) {
-            throw new IllegalArgumentException("La couleur du joueur "
-                                                + " ne peut pas être vide.");
-        }
-        
-        if (nom.length() > 30) {
+
+        if (nom.trim().isEmpty()) {
             throw new IllegalArgumentException("Le nom du joueur ne peut pas "
-                                                + " dépasser 30 caractères.");
+                                     + " être vide ou uniquement des espaces.");
+        }
+
+        if (nom.length() > 30) {
+            throw new IllegalArgumentException("Le nom du joueur ne peut pas "  
+                                              + " dépasser 30 caractères.");
+        }
+
+        if (!nom.matches("[A-Za-zÀ-ÿ \\-']+")) {
+            throw new IllegalArgumentException("Le nom du joueur contient "
+                                              + " des caractères invalides.");
+        }
+
+        if (couleur == null) {
+            throw new IllegalArgumentException("La couleur du joueur ne peut "
+                                              + " pas être null.");
+        }
+
+        if (couleur.trim().isEmpty()) {
+            throw new IllegalArgumentException("La couleur du joueur ne peut "
+                                 + " pas être vide ou uniquement des espaces.");
+        }
+
+        if (couleur.length() > 30) {
+            throw new IllegalArgumentException("La couleur du joueur ne peut "
+                                              + " pas dépasser 30 caractères.");
         }
         
+        if (!couleur.matches("[A-Za-zÀ-ÿ \\-']+")) {
+            throw new IllegalArgumentException("La couleur du joueur contient "
+                                              + " des caractères invalides.");
+        }
+
         this.id = id;
         this.nom = nom;
         this.couleur = couleur;
     }
 
     /**
-     * @return nouvelle valeur de id
+     * Retourne l'identifiant du joueur (1 ou 2).
+     * 
+     * @return id du joueur
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @return nouvelle valeur de nom
+     * Retourne le nom du joueur.
+     * 
+     * @return nom du joueur
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @return nouvelle valeur de couleur
+     * Retourne la couleur du joueur.
+     * 
+     * @return couleur du joueur
      */
     public String getCouleur() {
         return couleur;
