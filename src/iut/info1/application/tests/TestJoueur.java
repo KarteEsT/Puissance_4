@@ -169,12 +169,18 @@ public class TestJoueur {
         assertThrows(IllegalArgumentException.class, () -> {
             new Joueur(1, "", "Rouge");
         });
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(2, "   ", "Jaune");
+        });
     }
     
     @Test
     void testNomInvalideNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Joueur(1, null, "Rouge");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(2, null, "Jaune");
         });
     }
     
@@ -183,12 +189,18 @@ public class TestJoueur {
         assertThrows(IllegalArgumentException.class, () -> {
             new Joueur(1, "Alice", "");
         });
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(2, "Bob", "   ");
+        });
     }
 
     @Test
     void testCouleurInvalideNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Joueur(1, "Alice", null);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(2, "Bob", null);
         });
     }
     
@@ -197,12 +209,19 @@ public class TestJoueur {
         String nomLong = "A".repeat(30);
         Joueur joueur = new Joueur(1, nomLong, "Rouge");
         assertEquals(nomLong, joueur.getNom());
+        
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(2, "A".repeat(31), "Jaune");
+        });
     }
     
     @Test
     void testIdInvalide() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Joueur(3, "Alice", "Rouge");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Joueur(0, "Bob", "Jaune");
         });
     }
     

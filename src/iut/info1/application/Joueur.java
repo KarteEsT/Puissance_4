@@ -35,50 +35,10 @@ public class Joueur {
      * @throws IllegalArgumentException si les paramètres sont invalides
      */
     public Joueur(int id, String nom, String couleur) {
-        if (id != 1 && id != 2) {
-            throw new IllegalArgumentException("L'id du joueur "
-                                              + " doit être 1 ou 2.");
-        }
 
-        if (nom == null) {
-            throw new IllegalArgumentException("Le nom du joueur "
-                                              + " ne peut pas être null.");
-        }
-
-        if (nom.trim().isEmpty()) {
-            throw new IllegalArgumentException("Le nom du joueur ne peut pas "
-                                     + " être vide ou uniquement des espaces.");
-        }
-
-        if (nom.length() > 30) {
-            throw new IllegalArgumentException("Le nom du joueur ne peut pas "  
-                                              + " dépasser 30 caractères.");
-        }
-
-        if (!nom.matches("[A-Za-zÀ-ÿ \\-']+")) {
-            throw new IllegalArgumentException("Le nom du joueur contient "
-                                              + " des caractères invalides.");
-        }
-
-        if (couleur == null) {
-            throw new IllegalArgumentException("La couleur du joueur ne peut "
-                                              + " pas être null.");
-        }
-
-        if (couleur.trim().isEmpty()) {
-            throw new IllegalArgumentException("La couleur du joueur ne peut "
-                                 + " pas être vide ou uniquement des espaces.");
-        }
-
-        if (couleur.length() > 30) {
-            throw new IllegalArgumentException("La couleur du joueur ne peut "
-                                              + " pas dépasser 30 caractères.");
-        }
-        
-        if (!couleur.matches("[A-Za-zÀ-ÿ \\-']+")) {
-            throw new IllegalArgumentException("La couleur du joueur contient "
-                                              + " des caractères invalides.");
-        }
+        validateId(id);
+        validateNom(nom);
+        validateCouleur(couleur);
 
         this.id = id;
         this.nom = nom;
@@ -86,17 +46,80 @@ public class Joueur {
     }
 
     /**
-     * Retourne l'identifiant du joueur (1 ou 2).
+     * Valide l'identifiant du joueur. L'identifiant doit être soit 1 soit 2.
      * 
+     * @param id l'identifiant du joueur à valider
+     * @throws IllegalArgumentException si l'identifiant est invalide
+     */
+    private static void validateId(int id) {
+        if (id != 1 && id != 2) {
+            throw new IllegalArgumentException
+            ("L'id du joueur doit être 1 ou 2.");
+        }
+    }
+
+    /**
+     * Valide le nom du joueur. Le nom doit être non nul,
+     * non vide, ne contenir que des caractères valides
+     * (lettres, espaces, tirets et apostrophes),
+     * et ne pas dépasser 30 caractères.
+     * 
+     * @param nom le nom du joueur à valider
+     * @throws IllegalArgumentException si le nom est invalide
+     */
+    private static void validateNom(String nom) {
+        if (nom == null) {
+            throw new IllegalArgumentException
+                      ("Le nom du joueur ne peut pas être null.");
+        }
+        if (nom.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le nom du joueur "
+                         + " ne peut pas être vide ou uniquement des espaces.");
+        }
+        if (nom.length() > 30) {
+            throw new IllegalArgumentException
+            ("Le nom du joueur ne peut pas dépasser 30 caractères.");
+        }
+        if (!nom.matches("[A-Za-zÀ-ÿ \\-']+")) {
+            throw new IllegalArgumentException("Le nom du joueur "
+                                    + " contient des caractères invalides.");
+        }
+    }
+
+    /**
+     * Valide la couleur du joueur. La couleur doit être non nulle, non vide, ne
+     * contenir que des caractères valides, et ne pas dépasser 30 caractères.
+     * 
+     * @param couleur la couleur du joueur à valider
+     * @throws IllegalArgumentException si la couleur est invalide
+     */
+    private static void validateCouleur(String couleur) {
+        if (couleur == null) {
+            throw new IllegalArgumentException
+            ("La couleur du joueur ne peut pas être null.");
+        }
+        if (couleur.trim().isEmpty()) {
+            throw new IllegalArgumentException("La couleur du joueur "
+                         + " ne peut pas être vide ou uniquement des espaces.");
+        }
+        if (couleur.length() > 30) {
+            throw new IllegalArgumentException
+            ("La couleur du joueur ne peut pas dépasser 30 caractères.");
+        }
+        if (!couleur.matches("[A-Za-zÀ-ÿ \\-']+")) {
+            throw new IllegalArgumentException
+            ("La couleur du joueur contient des caractères invalides.");
+        }
+    }
+    
+    /** 
      * @return id du joueur
      */
     public int getId() {
         return id;
     }
 
-    /**
-     * Retourne le nom du joueur.
-     * 
+    /** 
      * @return nom du joueur
      */
     public String getNom() {
@@ -104,8 +127,6 @@ public class Joueur {
     }
 
     /**
-     * Retourne la couleur du joueur.
-     * 
      * @return couleur du joueur
      */
     public String getCouleur() {
