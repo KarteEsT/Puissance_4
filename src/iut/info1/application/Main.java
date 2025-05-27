@@ -59,8 +59,6 @@ public class Main {
         System.out.println(grille.verifierVictoireHorizontale());
         
         
-        
-        
 
     }
 }
