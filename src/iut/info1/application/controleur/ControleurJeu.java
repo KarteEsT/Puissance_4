@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
  * @author Gabriel Robache
  */
 public class ControleurJeu {
+	//TODO Mettre en tableau les cercles et les boutons pour éviter la répétition de code
 	
 	// Labels pour afficher les noms des joueurs
     @FXML private Label joueur1;

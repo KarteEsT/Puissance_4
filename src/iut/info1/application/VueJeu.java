@@ -36,6 +36,8 @@ public class VueJeu extends Application {
     
     private static Stage fenetreMenu;
 
+    
+    //TODO Modularité
     @Override
     public void start(Stage primaryStage) {
         try {

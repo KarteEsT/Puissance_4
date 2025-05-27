@@ -46,20 +46,6 @@ public class Grille {
         compteTour = 0;
         matrice = new int[ligne][colonne];
     }
-    
-     /**
-     * Grille permettant de jouer au puissance 4
-     * @param ligne
-     * @param colonne
-     */
-    public Grille (int ligne , int colonne) {
-        
-        this.colonne = colonne;
-        this.ligne = ligne;
-        matrice = new int[ligne][colonne];
-        compteTour = -1;
-
-    }
         
     /**
      * 
@@ -144,20 +130,18 @@ public class Grille {
      */
     public boolean verifierVictoireVerticale() {
         int[][] mat = matrice;
-        int compteur = 0;
-        for (int i = 0; i < colonne; i++) {
-            for (int j = 0; j < ligne; j++) {
-                if (mat[j][i] == ((compteTour + 1) % 2) + 1) {
-                    compteur++;
-                    if (compteur == 4) {
-                        return true;
-                    }
-                } else {
-                    compteur = 0;
-                }
-            }
-        }
-        return false;
+        boolean isGagne = false;
+        for (int i = 0 ; i < getLigne() - 3 ; i++) {
+			for (int j = 0 ; j < getColonne() ; j++) {
+				if (mat[i][j] == (compteTour % 2) + 1 &&
+					mat[i + 1][j] == (compteTour % 2) + 1 &&
+					mat[i + 2][j] == (compteTour % 2) + 1 &&
+					mat[i + 3][j] == (compteTour % 2) + 1) {
+					isGagne = true;
+				}
+			}
+		}
+        return isGagne;
     }
     
     /**
@@ -167,20 +151,18 @@ public class Grille {
      */
     public boolean verifierVictoireHorizontale() {
         int[][] mat = getMatrice();
-        int compteur = 0;
-        for (int i = 0; i < ligne; i++) {
-            for (int j = 0; j < colonne; j++) {
-                if (mat[i][j] == (compteTour % 2)) {
-                    compteur++;
-                    if (compteur == 4) {
-                        return true;
-                    }
-                } else {
-                    compteur = 0;
-                }
-            }
-        }
-        return false;
+        boolean isGagne = false;
+        for (int i = 0 ; i < getLigne() - 3 ; i++) {
+			for (int j = 0 ; j < getColonne() - 3 ; j++) {
+				if (mat[i][j] == (compteTour % 2) + 1 &&
+					mat[i][j + 1] == (compteTour % 2) + 1 &&
+					mat[i][j + 2] == (compteTour % 2) + 1 &&
+					mat[i][j + 3] == (compteTour % 2) + 1) {
+					isGagne = true;
+				}
+			}
+		}
+        return isGagne;
     }
     
     /**
@@ -190,20 +172,18 @@ public class Grille {
      *         false sinon
      */
     public boolean verifierVictoireDiagonaleMontante() {
-        int[][] mat = matrice;
-        int compteur = 0;
-        for (int i = 0; i < ligne; i++) {
-            for (int j = 0; j < colonne; j++) {
-                if (mat[i][j] == (compteTour % 2) + 1) {
-                    compteur++;
-                    if (compteur == 4) {
-                        return true;
-                    }
-                } else {
-                    compteur = 0;
-                }
-            }
+        int[][] mat = getMatrice();
+        for (int i = 3 ; i > getLigne() - 1 ; i++ ) {
+			for (int j = 0; j < getColonne() - 4 ; j++ ) {
+				if (mat[i][j] == (compteTour % 2) + 1 &&
+					mat[i - 1][j + 1] == (compteTour % 2) + 1 &&
+					mat[i - 2][j + 2] == (compteTour % 2) + 1 &&
+					mat[i - 3][j + 3] == (compteTour % 2) + 1) {
+					return true;
+				}
+			}
         }
+        
         return false;
     }
     
@@ -214,19 +194,16 @@ public class Grille {
      *         false sinon
      */
     public boolean verifierVictoireDiagonaleDescendante() {
-        int[][] mat = matrice;
-        int compteur = 0;
-        for (int i = ligne - 1; i >= 0; i--) {
-            for (int j = 0; j < colonne; j++) {
-                if (mat[i][j] == (compteTour % 2) + 1) {
-                    compteur++;
-                    if (compteur == 4) {
-                        return true;
-                    }
-                } else {
-                    compteur = 0;
-                }
-            }
+        int[][] mat = getMatrice();
+        for (int i = 0 ; i < getLigne() - 3 ; i++) {
+        	for (int j = 0; j < getColonne() - 3; j++) {
+				if (mat[i][j] == (compteTour % 2) + 1 &&
+					mat[i + 1][j + 1] == (compteTour % 2) + 1 &&
+					mat[i + 2][j + 2] == (compteTour % 2) + 1 &&
+					mat[i + 3][j + 3] == (compteTour % 2) + 1) {
+					return true;
+				}
+			}
         }
         return false;
     }

@@ -76,7 +76,7 @@ public class Joueur {
             throw new IllegalArgumentException("Le nom du joueur "
                          + " ne peut pas être vide ou uniquement des espaces.");
         }
-        if (nom.length() > 30) {
+        if (nom.length() > 30) { //TODO 30 cste
             throw new IllegalArgumentException
             ("Le nom du joueur ne peut pas dépasser 30 caractères.");
         }
