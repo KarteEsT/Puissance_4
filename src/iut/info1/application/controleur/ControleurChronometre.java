@@ -7,12 +7,17 @@ package iut.info1.application.controleur;
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Button;
 
 /**
  * Contrôleur de la vue "optionChrono"
  * @author Gabriel Robache
  */
 public class ControleurChronometre {
+	
+	@FXML private Button activerButton;
+	
+	@FXML private Button desactiverButton;
 	
 	@FXML private ComboBox<String> choixTemps;
 	
@@ -36,5 +41,21 @@ public class ControleurChronometre {
     @FXML
     public void gererClicRetourMultijoueur() {
     	VueJeu.activerFenetreMulti();
+    }
+    
+    @FXML
+    public void gererClicActiverChrono() {
+    	activerButton.setDisable(true);
+    	activerButton.setVisible(false);
+    	desactiverButton.setDisable(false);
+    	desactiverButton.setVisible(true);
+    }
+    
+    @FXML
+    public void gererClicDesactiverChrono() {
+    	activerButton.setDisable(false);
+    	activerButton.setVisible(true);
+    	desactiverButton.setDisable(true);
+    	desactiverButton.setVisible(false);
     }
 }

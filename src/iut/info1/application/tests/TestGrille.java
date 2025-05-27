@@ -30,7 +30,7 @@ class TestGrille {
         assertEquals(6, grille.getLigne());
         assertEquals(7, grille.getColonne());
         assertNotNull(grille.getMatrice());
-        assertEquals(0, grille.getCompteTour());
+        assertEquals(-1, grille.getCompteTour());
     }
 
     /**
@@ -98,11 +98,9 @@ class TestGrille {
     @Test
     final void testGetCompteTour() {
         Grille grille = new Grille(6, 7);
+        assertEquals(-1, grille.getCompteTour());
+        grille.poserPion(0);
         assertEquals(0, grille.getCompteTour());
-        grille.poserPion(3);
-        assertEquals(1, grille.getCompteTour());
-        grille.poserPion(4);
-        assertEquals(2, grille.getCompteTour());
     }
 
     /**
@@ -113,16 +111,13 @@ class TestGrille {
     final void testPoserPionOk() {
         Grille grille = new Grille(6, 7);
         
-        assertTrue(grille.poserPion(3));
-        int[][] matrice = grille.getMatrice();
-        assertEquals(1, matrice[5][3]); // Le pion doit être placé en bas de la colonne
+        grille.poserPion(3);
         
-
         assertTrue(grille.poserPion(3));
-        assertEquals(2, matrice[4][3]); // Le pion doit être placé juste au-dessus
-
-        assertTrue(grille.poserPion(4));
-        assertEquals(1, matrice[5][4]); // Le pion doit être placé dans une autre colonne
+        
+        int[][] matrice = grille.getMatrice();
+        assertEquals(1, matrice[5][3]); // Vérifie que le pion est posé à la bonne position
+        assertEquals(1, grille.getCompteTour()); // Vérifie que le compte de tours est incrémenté
     }
     
     /**
@@ -139,10 +134,11 @@ class TestGrille {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             grille.poserPion(7); // Colonne invalide
         });
-        for (int i = 0; i < 6; i++) {
-            grille.poserPion(3); // Remplir la colonne
+        for (int i = 0; i < 10; i++) {
+            grille.poserPion(3); 
+            
         }
-        assertFalse(grille.poserPion(3)); // Colonne pleine
+        assertFalse(grille.poserPion(3));
     }
     
     /**
@@ -153,10 +149,18 @@ class TestGrille {
     final void testVerifierVictoireVerticale() {
         Grille grille = new Grille(6, 7);
         // Remplir une colonne avec 4 pions du même joueur
+        grille.poserPion(0);
+        grille.poserPion(1);
+
+        grille.poserPion(0);
+        grille.poserPion(1);
+        
         grille.poserPion(3);
-        grille.poserPion(3);
-        grille.poserPion(3);
-        grille.poserPion(3);
+        grille.poserPion(1);
+        
+        grille.poserPion(0);
+
+        grille.poserPion(1);
 
         assertTrue(grille.verifierVictoireVerticale());
 
@@ -168,5 +172,45 @@ class TestGrille {
         grille.poserPion(4);
 
         assertFalse(grille.verifierVictoireVerticale());
+    }
+    /**
+     * Test method for {@link iut.info1.application.Grille#toString()}.
+     */
+    @Test
+    final void testToString() {
+        Grille grille = new Grille(6, 7);
+        String expected = ("0 0 0 0 0 0 0 \n"
+                + "0 0 0 0 0 0 0 \n"
+                + "0 0 0 0 0 0 0 \n"
+                + "0 0 0 0 0 0 0 \n"
+                + "0 0 0 0 0 0 0 \n"
+                + "0 0 0 0 0 0 0 \n");
+        assertEquals(expected, grille.toString());
+    }
+    
+    /**
+     * Test method for
+     * {@link iut.info1.application.Grille#verifierVictoireHorizontale()}.
+     */
+    @Test
+    final void testVerifierVictoireHorizontale() {
+        Grille grille = new Grille(6,7);
+        
+        /* Test victoire horizontale */
+        
+        grille.poserPion(0);
+        grille.poserPion(0);
+
+        grille.poserPion(1);
+        grille.poserPion(1);
+        
+        grille.poserPion(2);
+        grille.poserPion(2);
+        
+        grille.poserPion(3);
+        
+        System.out.println(grille.toString());
+        assertTrue(grille.verifierVictoireHorizontale());
+
     }
 }

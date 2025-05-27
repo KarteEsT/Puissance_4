@@ -28,21 +28,21 @@ public class Main {
         
         
         /* Test victoire verticale */
-        grille.poserPion(0);
-        grille.poserPion(1);
+        
 
-        grille.poserPion(0);
         grille.poserPion(1);
+        grille.poserPion(1);
+        
+        grille.poserPion(2);
+        grille.poserPion(2);
         
         grille.poserPion(3);
-        grille.poserPion(1);
+        grille.poserPion(3);
         
-        grille.poserPion(0);
-
-        grille.poserPion(1);
+        grille.poserPion(4);
 
         System.out.println(grille.toString());
-        System.out.println(grille.verifierVictoireVerticale());
+        System.out.println(grille.verifierVictoireHorizontale());
         
         grille = new Grille(6,7,j1,j2);
         grille.poserPion(0);

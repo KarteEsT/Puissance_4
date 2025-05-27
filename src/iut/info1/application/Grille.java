@@ -128,7 +128,6 @@ public class Grille {
         for (int IndiceLigne = getLigne()-1; IndiceLigne >= 0; IndiceLigne--) {
             if (mat[IndiceLigne][colonneJouee] == 0 ) {
                 mat[IndiceLigne][colonneJouee] = (compteTour %2) +1;
-                System.out.println(compteTour);
                 compteTour++;
                 return true;
             }
@@ -171,7 +170,11 @@ public class Grille {
         int compteur = 0;
         for (int i = 0; i < ligne; i++) {
             for (int j = 0; j < colonne; j++) {
+<<<<<<< HEAD
                 if (mat[i][j] == (compteTour % 2)) {
+=======
+                if (mat[i][j] == ((compteTour +1 ) % 2) + 1) {
+>>>>>>> branch 'main' of https://github.com/KarteEsT/Puissance_4.git
                     compteur++;
                     if (compteur == 4) {
                         return true;
