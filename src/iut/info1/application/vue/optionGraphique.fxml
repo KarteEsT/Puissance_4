@@ -34,7 +34,7 @@
             <Font size="150.0" />
          </font>
       </Label>
-      <Button id="button" mnemonicParsing="false" text="Changer la couleur / speudo des joueurs" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" text="Changer la couleur / pseudo des joueurs" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="60.0" />
          </font>
