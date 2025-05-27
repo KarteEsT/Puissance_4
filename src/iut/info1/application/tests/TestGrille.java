@@ -26,11 +26,14 @@ class TestGrille {
      */
     @Test
     final void testGrille() {
-        Grille grille = new Grille(6, 7);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
         assertEquals(6, grille.getLigne());
         assertEquals(7, grille.getColonne());
         assertNotNull(grille.getMatrice());
-        assertEquals(-1, grille.getCompteTour());
+        assertEquals(0, grille.getCompteTour());
     }
 
     /**
@@ -38,7 +41,10 @@ class TestGrille {
      */
     @Test
     final void testGetLigne() {
-       Grille grille = new Grille(6, 7);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+       Grille grille = new Grille(6, 7, j1, j2);
        assertEquals(6, grille.getLigne());
        assertNotEquals(5, grille.getLigne());
        assertNotNull(grille.getLigne());
@@ -49,7 +55,11 @@ class TestGrille {
      */
     @Test
     final void testGetColonne() {
-        Grille grille = new Grille(6, 7);
+
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7,j1,j2);
         assertEquals(7, grille.getColonne());
         assertNotEquals(8, grille.getColonne());
         assertNotNull(grille.getColonne());
@@ -60,7 +70,7 @@ class TestGrille {
      */
     @Test
     final void testGetJ1() {
-       Joueur j1 = new Joueur(1, "Joueur 1", "Jaune");
+       Joueur j1 = new Joueur(1, "Joueur", "Jaune");
        Grille grille = new Grille(6, 7, j1, null);
        assertEquals(j1, grille.getJ1());
     }
@@ -70,7 +80,7 @@ class TestGrille {
      */
     @Test
     final void testGetJ2() {
-        Joueur j2 = new Joueur(2, "Joueur 2", "Rouge");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         Grille grille = new Grille(6, 7, null, j2);
         assertEquals(j2, grille.getJ2());
     }
@@ -80,7 +90,9 @@ class TestGrille {
      */
     @Test
     final void testGetMatrice() {
-        Grille grille = new Grille(6, 7);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        Grille grille = new Grille(6, 7, j1, j2);
         int[][] matrice = grille.getMatrice();
         assertNotNull(matrice);
         assertEquals(6, matrice.length);
@@ -97,10 +109,13 @@ class TestGrille {
      */
     @Test
     final void testGetCompteTour() {
-        Grille grille = new Grille(6, 7);
-        assertEquals(-1, grille.getCompteTour());
-        grille.poserPion(0);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
         assertEquals(0, grille.getCompteTour());
+        grille.poserPion(0);
+        assertEquals(1, grille.getCompteTour());
     }
 
     /**
@@ -109,7 +124,10 @@ class TestGrille {
      */
     @Test
     final void testPoserPionOk() {
-        Grille grille = new Grille(6, 7);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
         
         grille.poserPion(3);
         
@@ -117,7 +135,7 @@ class TestGrille {
         
         int[][] matrice = grille.getMatrice();
         assertEquals(1, matrice[5][3]); // Vérifie que le pion est posé à la bonne position
-        assertEquals(1, grille.getCompteTour()); // Vérifie que le compte de tours est incrémenté
+        assertEquals(2, grille.getCompteTour()); // Vérifie que le compte de tours est incrémenté
     }
     
     /**
@@ -127,7 +145,10 @@ class TestGrille {
      */
     @Test
     final void testPoserPionKo() {
-        Grille grille = new Grille(6, 7);
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             grille.poserPion(-1); // Colonne invalide
         });
@@ -147,8 +168,12 @@ class TestGrille {
      */
     @Test
     final void testVerifierVictoireVerticale() {
-        Grille grille = new Grille(6, 7);
-        // Remplir une colonne avec 4 pions du même joueur
+        
+        Joueur j1 = new Joueur(1,"Joueur","Jaune");
+        Joueur j2 = new Joueur(2,"Joueur","Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
+        
         grille.poserPion(0);
         grille.poserPion(1);
 
@@ -163,22 +188,27 @@ class TestGrille {
         grille.poserPion(1);
 
         assertTrue(grille.verifierVictoireVerticale());
+        
+        Grille grille2 = new Grille(6, 7, j1, j2);
+        
+        grille2 = new Grille(6, 7, j1, j2);
+        grille2.poserPion(3);
+        grille2.poserPion(3);
+        grille2.poserPion(4);
+        grille2.poserPion(4);
 
-        // Remplir une colonne sans victoire
-        grille = new Grille(6, 7);
-        grille.poserPion(3);
-        grille.poserPion(3);
-        grille.poserPion(4);
-        grille.poserPion(4);
-
-        assertFalse(grille.verifierVictoireVerticale());
+        assertFalse(grille2.verifierVictoireVerticale());
     }
     /**
      * Test method for {@link iut.info1.application.Grille#toString()}.
      */
     @Test
     final void testToString() {
-        Grille grille = new Grille(6, 7);
+        // Test de la méthode toString pour une grille vide
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+        
+        Grille grille = new Grille(6, 7, j1, j2);
         String expected = ("0 0 0 0 0 0 0 \n"
                 + "0 0 0 0 0 0 0 \n"
                 + "0 0 0 0 0 0 0 \n"
@@ -194,22 +224,23 @@ class TestGrille {
      */
     @Test
     final void testVerifierVictoireHorizontale() {
-        Grille grille = new Grille(6,7);
+        
+        Joueur j1 = new Joueur(1,"Joueur","Jaune");
+        Joueur j2 = new Joueur(2,"Joueur","Rouge");
+        
+        Grille grille = new Grille(6,7,j1,j2);
         
         /* Test victoire horizontale */
         
         grille.poserPion(0);
         grille.poserPion(0);
-
         grille.poserPion(1);
         grille.poserPion(1);
-        
         grille.poserPion(2);
         grille.poserPion(2);
-        
         grille.poserPion(3);
-        
-        System.out.println(grille.toString());
+
+        System.out.println(grille);
         assertTrue(grille.verifierVictoireHorizontale());
 
     }
