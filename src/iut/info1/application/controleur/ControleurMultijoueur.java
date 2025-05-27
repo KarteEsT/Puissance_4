@@ -66,7 +66,7 @@ public class ControleurMultijoueur {
     }
 
     /**
-     * Permet de lancer la partie en vérifiant les noms des joueurs
+     * Permet de lancer la partie en vérifiant les noms des joueurs.
      */
     @FXML
     public void gererClicLancer() {
