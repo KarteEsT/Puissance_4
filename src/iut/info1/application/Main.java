@@ -28,7 +28,19 @@ public class Main {
         
         
         /* Test victoire verticale */
+        grille.poserPion(1);
+        grille.poserPion(0);
+        grille.poserPion(1);
+        grille.poserPion(0);
+        grille.poserPion(1);
+        grille.poserPion(0);
+        grille.poserPion(1);
+
+        System.out.println(grille.toString());
+        System.out.println(grille.verifierVictoireVerticale());
         
+        /* Test victoire horizontale */
+        grille = new Grille(6,7,j1,j2);
 
         grille.poserPion(1);
         grille.poserPion(1);
@@ -45,6 +57,7 @@ public class Main {
         System.out.println(grille.verifierVictoireHorizontale());
         
         grille = new Grille(6,7,j1,j2);
+        grille.poserPion(5); 
         grille.poserPion(0);
         grille.poserPion(0);
         
