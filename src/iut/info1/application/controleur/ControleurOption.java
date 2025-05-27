@@ -14,35 +14,51 @@ import javafx.scene.control.ButtonType;
 
 /**
  * Contrôleur de la vue "option"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurOption {
 
-	@FXML
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicOptionGraphique() {
-    	VueJeu.activerFenetreOptionGraphique();
+        VueJeu.activerFenetreOptionGraphique();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicOptionJeu() {
-    	VueJeu.activerFenetreOptionJeu();
+        VueJeu.activerFenetreOptionJeu();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicReprendre() {
-    	VueJeu.activerFenetreJeu();
+        VueJeu.activerFenetreJeu();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicQuitter() {
-    	Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
-    			"Êtes-vous sur de vouloir quitter ?",
-    			ButtonType.YES, ButtonType.NO);
-    	boiteAlerte.setTitle("Quitter le jeu");
-    	
-    	Optional<ButtonType> option = boiteAlerte.showAndWait();
-    	if (option.get() == ButtonType.YES) {
-    		Platform.exit();
-    	}
+        Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
+                "Êtes-vous sur de vouloir quitter ?",
+                ButtonType.YES, ButtonType.NO);
+        boiteAlerte.setTitle("Quitter le jeu");
+
+        Optional<ButtonType> option = boiteAlerte.showAndWait();
+        if (option.get() == ButtonType.YES) {
+            Platform.exit();
+        }
     }
 }

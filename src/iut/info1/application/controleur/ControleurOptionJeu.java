@@ -8,28 +8,44 @@ import javafx.fxml.FXML;
 
 /**
  * Contrôleur de la vue "optionJeu"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurOptionJeu {
 
-	@FXML
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicRetourOption() {
-    	VueJeu.activerFenetreOption();
+        VueJeu.activerFenetreOption();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicChronometre() {
-    	VueJeu.activerFenetreChronoOption();
+        VueJeu.activerFenetreChronoOption();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererClicSon() {
-    	VueJeu.activerFenetreSon();
+        VueJeu.activerFenetreSon();
     }
-	
-	@FXML
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
     public void gererAide() {
-    	//TODO Permet d'activer et de désactiver l'aide avec une fenêtre pop-up
+        //TODO Permet d'activer et de désactiver l'aide avec une fenêtre pop-up
     }
-	
+
 }

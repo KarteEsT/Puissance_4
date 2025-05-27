@@ -8,13 +8,20 @@ import javafx.fxml.FXML;
 
 /**
  * Contrôleur de la vue "optionGraphique"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurOptionGraphique {
 
-	@FXML
-	public void gererClicRetourMenu() {
-		VueJeu.activerFenetreOption();
-	}
-	
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
+    @FXML
+    public void gererClicRetourMenu() {
+        VueJeu.activerFenetreOption();
+    }
+
 }

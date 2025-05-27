@@ -9,7 +9,11 @@ import javafx.scene.control.Label;
 
 /**
  * Contrôleur de la vue "couleurPopup"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurPopup {
 

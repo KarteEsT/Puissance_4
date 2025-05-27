@@ -15,45 +15,58 @@ import javafx.scene.control.ButtonType;
 
 /**
  * Contrôleur de la vue "menuPrincipal"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurMenuPrincipal {
-    
+
     /** Bouton pour aller dans le Menu Multijoueur */
     @FXML
     private Button ButtonMultiplayer;
-    
+
     /** Bouton pour aller dans le Menu Ordinateur */
     @FXML
     private Button ButtonOrdinateur;
-    
+
+    /**
+     * Pour aller dans le Menu Multijoueur
+     */
     @FXML
     public void gererClicMultiplayer() {
-    	VueJeu.activerFenetreMulti();
+        VueJeu.activerFenetreMulti();
     }
-    
+
+    /**
+     * Pour aller dans le Menu Ordinateur
+     */
     @FXML
     public void gererClicOrdinateur() {
-//		Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
-//				"Cette fonctionnalité est en cours de développement.\n"
-//						+ "Merci de votre compréhension.", ButtonType.OK);
-//    	boiteAlerte.setTitle("En travaux");
-//    	boiteAlerte.showAndWait(); // ctrl + shift + /
-    	
-    	VueJeu.activerFenetreOrdi();
+        //		Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+        //				"Cette fonctionnalité est en cours de développement.\n"
+        //						+ "Merci de votre compréhension.", ButtonType.OK);
+        //    	boiteAlerte.setTitle("En travaux");
+        //    	boiteAlerte.showAndWait(); // ctrl + shift + /
+
+        VueJeu.activerFenetreOrdi();
     }
-    
+
+    /**
+     * Pour quitter le jeu
+     */
     @FXML
     public void gererClicQuitter() {
-    	Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
-    			"Êtes-vous sur de vouloir quitter ?",
-    			ButtonType.YES, ButtonType.NO);
-    	boiteAlerte.setTitle("Quitter le jeu");
-    	
-    	Optional<ButtonType> option = boiteAlerte.showAndWait();
-    	if (option.get() == ButtonType.YES) {
-    		Platform.exit();
-    	}
+        Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
+                "Êtes-vous sur de vouloir quitter ?",
+                ButtonType.YES, ButtonType.NO);
+        boiteAlerte.setTitle("Quitter le jeu");
+
+        Optional<ButtonType> option = boiteAlerte.showAndWait();
+        if (option.get() == ButtonType.YES) {
+            Platform.exit();
+        }
     }
-    
+
 }

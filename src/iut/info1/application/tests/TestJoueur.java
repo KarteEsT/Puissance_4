@@ -16,7 +16,12 @@ import iut.info1.application.Joueur;
 
 /**
  * Cette classe permet de tester la classe Joueur.java
- * @author Esteban
+ * 
+ * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
+ * @version 1.0
  */
 public class TestJoueur {
 

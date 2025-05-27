@@ -12,49 +12,68 @@ import javafx.scene.control.TextField;
 
 /**
  * Contrôleur de la vue "contreOrdi"
+ * 
  * @author Gabriel Robache
+ * @author Gabriel Le Goff
+ * @author Mael Massicard
+ * @author Esteban Roveri
  */
 public class ControleurOrdinateur {
 
-	/** Bouton pour retourner au Menu */
+    /** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
-    
+
     @FXML
     private TextField nomJoueur1;
-    
+
     @FXML
     private TextField nomJoueur2;
-	
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
     @FXML
     public void gererClicRetourMenu() {
-    	VueJeu.activerFenetreMenu();
+        VueJeu.activerFenetreMenu();
     }
-    
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
     @FXML
     public void gererClicChrono() {
-    	VueJeu.activerFenetreChronoLancementOrdinateur();
+        VueJeu.activerFenetreChronoLancementOrdinateur();
     }
-    
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
     @FXML
     public void gererClicCouleurJoueur1() {
-    	VueJeu.activerFenetreCouleur("Joueur 1");
+        VueJeu.activerFenetreCouleur("Joueur 1");
     }
-    
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
     @FXML
     public void gererClicCouleurJoueur2() {
-    	VueJeu.activerFenetreCouleur("Joueur 2");
+        VueJeu.activerFenetreCouleur("Joueur 2");
     }
-    
+
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     */
     @FXML
     public void gererClicLancer() {
-    	if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
-			Alert boiteAlerte = new Alert(Alert.AlertType.ERROR);
+        if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
+            Alert boiteAlerte = new Alert(Alert.AlertType.ERROR);
             boiteAlerte.setTitle("Erreur");
-	    	boiteAlerte.setHeaderText("Veuillez choisir un nom pour chaque joueur.");
-	    	boiteAlerte.showAndWait();
-		} else {
-			VueJeu.activerFenetreJeu();
-		}
+            boiteAlerte.setHeaderText("Veuillez choisir un nom pour chaque joueur.");
+            boiteAlerte.showAndWait();
+        } else {
+            VueJeu.activerFenetreJeu();
+        }
     }
 }
