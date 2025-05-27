@@ -44,6 +44,23 @@ public class Main {
         System.out.println(grille.toString());
         System.out.println(grille.verifierVictoireVerticale());
         
+        grille = new Grille(6,7,j1,j2);
+        grille.poserPion(0);
+        grille.poserPion(0);
+        
+        grille.poserPion(1);
+        grille.poserPion(1);
+        
+        grille.poserPion(2);
+        grille.poserPion(2);
+        
+        grille.poserPion(3);
+        System.out.println(grille.toString());
+        System.out.println(grille.verifierVictoireHorizontale());
+        
+        
+        
+        
 
     }
 }

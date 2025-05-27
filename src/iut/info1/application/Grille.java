@@ -167,11 +167,11 @@ public class Grille {
      * @return true si il y a une victoire false sinon
      */
     public boolean verifierVictoireHorizontale() {
-        int[][] mat = matrice;
+        int[][] mat = getMatrice();
         int compteur = 0;
         for (int i = 0; i < ligne; i++) {
             for (int j = 0; j < colonne; j++) {
-                if (mat[i][j] == (compteTour % 2) + 1) {
+                if (mat[i][j] == (compteTour % 2)) {
                     compteur++;
                     if (compteur == 4) {
                         return true;
