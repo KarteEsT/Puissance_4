@@ -173,18 +173,19 @@ public class Grille {
      */
     public boolean verifierVictoireDiagonaleMontante() {
         int[][] mat = getMatrice();
+        boolean isGagne = false;
         for (int i = 3 ; i > getLigne() - 1 ; i++ ) {
 			for (int j = 0; j < getColonne() - 4 ; j++ ) {
 				if (mat[i][j] == (compteTour % 2) + 1 &&
 					mat[i - 1][j + 1] == (compteTour % 2) + 1 &&
 					mat[i - 2][j + 2] == (compteTour % 2) + 1 &&
 					mat[i - 3][j + 3] == (compteTour % 2) + 1) {
-					return true;
+					isGagne = true;
 				}
 			}
         }
         
-        return false;
+        return isGagne;
     }
     
     /**
@@ -195,17 +196,18 @@ public class Grille {
      */
     public boolean verifierVictoireDiagonaleDescendante() {
         int[][] mat = getMatrice();
+        boolean isGagne = false;
         for (int i = 0 ; i < getLigne() - 3 ; i++) {
         	for (int j = 0; j < getColonne() - 3; j++) {
 				if (mat[i][j] == (compteTour % 2) + 1 &&
 					mat[i + 1][j + 1] == (compteTour % 2) + 1 &&
 					mat[i + 2][j + 2] == (compteTour % 2) + 1 &&
 					mat[i + 3][j + 3] == (compteTour % 2) + 1) {
-					return true;
+					isGagne = true;
 				}
 			}
         }
-        return false;
+        return isGagne;
     }
     
     /**

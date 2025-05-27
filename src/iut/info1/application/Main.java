@@ -70,8 +70,5 @@ public class Main {
         grille.poserPion(3);
         System.out.println(grille.toString());
         System.out.println(grille.verifierVictoireHorizontale());
-        
-        
-
     }
 }
