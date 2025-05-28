@@ -106,12 +106,12 @@
             <Font name="System Bold" size="100.0" />
          </font>
       </Label>
-      <Label id="joueur1" text="JOUEUR 1" GridPane.halignment="CENTER">
+      <Label id="joueur1" fx:id="joueur1" text="JOUEUR 1" GridPane.halignment="CENTER">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Label id="joueur2" text="JOUEUR 2" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+      <Label id="joueur2" fx:id="joueur2" text="JOUEUR 2" GridPane.columnIndex="2" GridPane.halignment="CENTER">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
