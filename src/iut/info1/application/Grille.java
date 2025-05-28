@@ -4,10 +4,6 @@
  */
 package iut.info1.application;
 
-import java.util.Arrays;
-
-import iut.info1.application.Joueur;
-
 /**
  * Classe permettant de créer une Grille
  * @author Gabriel Robache
@@ -133,10 +129,10 @@ public class Grille {
         boolean isGagne = false;
         for (int i = 0 ; i < getLigne() - 3 ; i++) {
 			for (int j = 0 ; j < getColonne() ; j++) {
-				if (mat[i][j] == (compteTour % 2) + 1 &&
-					mat[i + 1][j] == (compteTour % 2) + 1 &&
-					mat[i + 2][j] == (compteTour % 2) + 1 &&
-					mat[i + 3][j] == (compteTour % 2) + 1) {
+				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 1][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 2][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 3][j] == ((compteTour-1) % 2) + 1) {
 					isGagne = true;
 				}
 			}
@@ -152,12 +148,12 @@ public class Grille {
     public boolean verifierVictoireHorizontale() {
         int[][] mat = getMatrice();
         boolean isGagne = false;
-        for (int i = 0 ; i < getLigne() - 3 ; i++) {
+        for (int i = 0 ; i < getLigne() ; i++) {
 			for (int j = 0 ; j < getColonne() - 3 ; j++) {
-				if (mat[i][j] == (compteTour % 2) + 1 &&
-					mat[i][j + 1] == (compteTour % 2) + 1 &&
-					mat[i][j + 2] == (compteTour % 2) + 1 &&
-					mat[i][j + 3] == (compteTour % 2) + 1) {
+				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i][j + 1] == ((compteTour-1) % 2) + 1 &&
+					mat[i][j + 2] == ((compteTour-1) % 2) + 1 &&
+					mat[i][j + 3] == ((compteTour-1) % 2) + 1) {
 					isGagne = true;
 				}
 			}
@@ -174,12 +170,12 @@ public class Grille {
     public boolean verifierVictoireDiagonaleMontante() {
         int[][] mat = getMatrice();
         boolean isGagne = false;
-        for (int i = 3 ; i > getLigne() - 1 ; i++ ) {
+        for (int i = 3 ; i < getLigne() ; i++ ) {
 			for (int j = 0; j < getColonne() - 4 ; j++ ) {
-				if (mat[i][j] == (compteTour % 2) + 1 &&
-					mat[i - 1][j + 1] == (compteTour % 2) + 1 &&
-					mat[i - 2][j + 2] == (compteTour % 2) + 1 &&
-					mat[i - 3][j + 3] == (compteTour % 2) + 1) {
+				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i - 1][j + 1] == ((compteTour-1) % 2) + 1 &&
+					mat[i - 2][j + 2] == ((compteTour-1) % 2) + 1 &&
+					mat[i - 3][j + 3] == ((compteTour-1) % 2) + 1) {
 					isGagne = true;
 				}
 			}
@@ -199,10 +195,10 @@ public class Grille {
         boolean isGagne = false;
         for (int i = 0 ; i < getLigne() - 3 ; i++) {
         	for (int j = 0; j < getColonne() - 3; j++) {
-				if (mat[i][j] == (compteTour % 2) + 1 &&
-					mat[i + 1][j + 1] == (compteTour % 2) + 1 &&
-					mat[i + 2][j + 2] == (compteTour % 2) + 1 &&
-					mat[i + 3][j + 3] == (compteTour % 2) + 1) {
+				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 1][j + 1] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 2][j + 2] == ((compteTour-1) % 2) + 1 &&
+					mat[i + 3][j + 3] == ((compteTour-1) % 2) + 1) {
 					isGagne = true;
 				}
 			}
