@@ -89,6 +89,19 @@ public class Grille {
     public int getCompteTour() {
         return compteTour;
     }
+    
+    public boolean isGrilleRemplie() {
+		if (getMatrice() == null) {
+			throw new NullPointerException("La matrice est nulle");
+		}
+		boolean isRemplie = true;
+		for (int i = 0 ; i < getColonne() ; i++) {
+			if (getMatrice()[0][i] == 0) {
+				isRemplie = false;
+			}
+		}
+		return isRemplie;
+    }
         
     
     /**
