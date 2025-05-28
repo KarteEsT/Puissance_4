@@ -72,10 +72,10 @@ public class VueJeu extends Application {
             FXMLLoader chargeurFXMLJeu = new FXMLLoader(getClass().getResource
                     ("/iut/info1/application/vue/fenetreJeu.fxml"));
             Parent conteneurJeu = chargeurFXMLJeu.load();
+            controleurJeu = chargeurFXMLJeu.getController();
             sceneJeu = new Scene(conteneurJeu, 800, 1700);
             sceneJeu.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
-            controleurJeu = chargeurFXMLJeu.getController();
 
             // Paramètres Chronomètre Lancement Multijoueur
             FXMLLoader chargeurFXMLChronoLancementMultijoueur =
@@ -207,13 +207,12 @@ public class VueJeu extends Application {
 
     /**
      * Permet d'activer la fenêtre du jeu.
+     * @param le nom du joueur1 à transmettre
+     * @param le nom du joueur2 à transmettre
      */
-    public static void activerFenetreJeu() {
+    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2) {
+    	controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
         fenetreMenu.setScene(sceneJeu);
-        
-        if (controleurJeu != null) {
-        	controleurJeu.mettreAJourLabels(); // Mise à jour des labels
-        }
     }
 
     /**

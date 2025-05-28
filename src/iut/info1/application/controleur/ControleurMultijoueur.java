@@ -10,8 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import iut.info1.application.util.GestionJoueurs;
-
 /**
  * Contrôleur de la vue "multijoueur"
  * 
@@ -75,9 +73,6 @@ public class ControleurMultijoueur {
         
     	String joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
         String joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
-        
-        GestionJoueurs.setNomJoueur1(joueur1);
-        GestionJoueurs.setNomJoueur2(joueur2);
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -87,11 +82,11 @@ public class ControleurMultijoueur {
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu();
+                    VueJeu.activerFenetreJeu(joueur1, joueur2);
                 }
             });
         } else {
-            VueJeu.activerFenetreJeu();
+            VueJeu.activerFenetreJeu(joueur1, joueur2);
         }
     }
 }
