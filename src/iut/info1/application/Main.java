@@ -4,6 +4,7 @@
  */
 package iut.info1.application;
 
+import java.util.Scanner;
 
 /**
  * Main pour lancer l'application Puissance 4
@@ -70,5 +71,30 @@ public class Main {
         grille.poserPion(3);
         System.out.println(grille.toString());
         System.out.println(grille.verifierVictoireHorizontale());
+        
+        grille = new Grille(6,7,j1,j2);
+        Scanner entree = new Scanner(System.in);
+        do {
+        	System.out.println(grille);
+        	System.out.println("Où voulez-vous jouer : ");
+			if (!entree.hasNextInt()) {
+				System.out.println("Veuillez saisir un nombre entier");
+				entree.next();
+				continue;
+			} else {
+				int colonne = entree.nextInt();
+				try {
+					if (!grille.poserPion(colonne-1)) {
+						System.out.println("Colonne pleine, veuillez en choisir une autre.");
+						continue;
+					};
+					
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println(e.getMessage());
+				}
+			}
+        } while (!grille.verifierVictoire() && !grille.isGrilleRemplie());
+        System.out.println("Le joueur n° " + ((grille.getCompteTour() - 1)%2  + 1)+ " a gagné !");
+        System.out.println(grille);
     }
 }
