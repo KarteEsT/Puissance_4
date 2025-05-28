@@ -114,7 +114,7 @@ public class Grille {
      * @throws ArrayIndexOutOfBoundsException
      */
     public boolean poserPion(int colonneJouee) {
-        if (colonneJouee < 0 || colonneJouee >= colonne-1) {
+        if (colonneJouee < 0 || colonneJouee >= getColonne()) {
             throw new ArrayIndexOutOfBoundsException("Colonne invalide");
         }
         
