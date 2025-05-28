@@ -10,6 +10,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
+import iut.info1.application.util.GestionJoueurs;
+
 /**
  * Contrôleur de la vue "fentreJeu"
  * 
@@ -24,6 +26,11 @@ public class ControleurJeu {
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
     @FXML private Label joueur2;
+    
+    public void mettreAJourLabels() {
+        joueur1.setText(GestionJoueurs.getNomJoueur1());
+        joueur2.setText(GestionJoueurs.getNomJoueur2());
+    }
 
     /* Cercle de la colonne A */
     @FXML private Circle A1;

@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import iut.info1.application.util.GestionJoueurs;
+
 /**
  * Contrôleur de la vue "multijoueur"
  * 
@@ -70,14 +72,14 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void gererClicLancer() {
-        boolean isJoueur1Empty = nomJoueur1.getText().isEmpty();
-        boolean isJoueur2Empty = nomJoueur2.getText().isEmpty();
+        
+    	String joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
+        String joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
+        
+        GestionJoueurs.setNomJoueur1(joueur1);
+        GestionJoueurs.setNomJoueur2(joueur2);
 
-        // Mettre les noms par défaut si les champs sont vides
-        joueur1 = isJoueur1Empty ? "JOUEUR 1" : nomJoueur1.getText();
-        joueur2 = isJoueur2Empty ? "JOUEUR 2" : nomJoueur2.getText();
-
-        if (isJoueur1Empty || isJoueur2Empty) {
+        if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Champs vides");
             alert.setHeaderText("Un ou plusieurs champs sont vides.");

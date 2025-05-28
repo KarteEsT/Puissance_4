@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 
+import iut.info1.application.controleur.ControleurJeu;
 
 /**
  * Classe principale de l'application Puissance 4. Cette classe gère les
@@ -36,6 +37,8 @@ public class VueJeu extends Application {
     private static Scene sceneSon;
 
     private static Stage fenetreMenu;
+    
+    private static ControleurJeu controleurJeu; // Instance du contrôleur
 
     //TODO Modularité
     @Override
@@ -72,6 +75,7 @@ public class VueJeu extends Application {
             sceneJeu = new Scene(conteneurJeu, 800, 1700);
             sceneJeu.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
+            controleurJeu = chargeurFXMLJeu.getController();
 
             // Paramètres Chronomètre Lancement Multijoueur
             FXMLLoader chargeurFXMLChronoLancementMultijoueur =
@@ -206,6 +210,10 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreJeu() {
         fenetreMenu.setScene(sceneJeu);
+        
+        if (controleurJeu != null) {
+        	controleurJeu.mettreAJourLabels(); // Mise à jour des labels
+        }
     }
 
     /**
