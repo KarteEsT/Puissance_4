@@ -55,7 +55,8 @@ public class TestJoueur {
                 new Joueur(1, "Wendy", "Azur"),
                 new Joueur(2, "Xavier", "Indigo"),
                 new Joueur(1, "Yasmine", "Saumon"),
-                new Joueur(2, "Zack", "Fuchsia"));
+                new Joueur(2, "Zack", "Fuchsia"),
+                new Joueur(1, "cxczs2", "Rouge"));
     }
     
     @Test
@@ -145,11 +146,12 @@ public class TestJoueur {
                 "Frank", "Grace", "Heidi", "Ivan", "Judy",
                 "Karl", "Laura", "Mike", "Nina", "Oscar",
                 "Paul", "Quentin", "Rachel", "Steve", "Tina",
-                "Uma", "Victor", "Wendy", "Xavier", "Yasmine", "Zack"
+                "Uma", "Victor", "Wendy", "Xavier", "Yasmine", "Zack", "cxczs2"
         );
         
         for (int index = 0; index < joueursValides.size(); index++) {
-            assertEquals(nomsAttendus.get(index), joueursValides.get(index).getNom());
+            assertEquals(nomsAttendus.get(index), joueursValides
+                                                  .get(index).getNom());
         }
     }
     
@@ -160,7 +162,8 @@ public class TestJoueur {
                 "Violet", "Rose", "Cyan", "Magenta", "Turquoise",
                 "Blanc", "Noir", "Gris", "Doré", "Argent",
                 "Marron", "Beige", "Bordeaux", "Olive", "Lavande",
-                "Sable", "Émeraude", "Azur", "Indigo", "Saumon", "Fuchsia"
+                "Sable", "Émeraude", "Azur", "Indigo", "Saumon",
+                "Fuchsia", "Rouge"
         );
 
         for (int index = 0; index < joueursValides.size(); index++) {

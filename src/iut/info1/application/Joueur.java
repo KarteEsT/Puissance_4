@@ -76,13 +76,12 @@ public class Joueur {
             throw new IllegalArgumentException("Le nom du joueur "
                          + " ne peut pas être vide ou uniquement des espaces.");
         }
-        if (nom.length() > 30) { //TODO 30 cste
+        if (nom.length() > 30) {
             throw new IllegalArgumentException
             ("Le nom du joueur ne peut pas dépasser 30 caractères.");
         }
-        if (!nom.matches("[A-Za-zÀ-ÿ \\-']+")) {
-            throw new IllegalArgumentException("Le nom du joueur "
-                                    + " contient des caractères invalides.");
+        if (!nom.matches("[A-Za-zÀ-ÿ0-9 \\-']+")) {
+            throw new IllegalArgumentException("Le nom du joueur contient des caractères invalides.");
         }
     }
 
