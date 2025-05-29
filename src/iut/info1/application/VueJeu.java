@@ -242,6 +242,13 @@ public class VueJeu extends Application {
     public static void activerFenetreSon() {
         fenetreMenu.setScene(sceneSon);
     }
+    
+    /**
+     * Permet d'activer la fenêtre de jeu sans refaire les couleurs
+     */
+    public static void activerFenetreJeuSansCouleurs() {
+    	fenetreMenu.setScene(sceneJeu);
+    }
 
     /**
      * Active une fenêtre de choix de couleur pour un joueur spécifique.

@@ -43,7 +43,7 @@ public class ControleurOption {
      */
     @FXML
     public void gererClicReprendre() {
-        VueJeu.activerFenetreJeu();
+        VueJeu.activerFenetreJeuSansCouleurs();
     }
 
     /**

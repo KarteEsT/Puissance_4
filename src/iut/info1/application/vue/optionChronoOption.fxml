@@ -55,7 +55,7 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" fx:id="desactiverButton" maxWidth="353.0" minWidth="353.0" mnemonicParsing="false" onAction="#gererClicDesactiverChrono" text="Désactiver" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button id="button" fx:id="desactiverButton" maxWidth="405.0" minWidth="353.0" mnemonicParsing="false" onAction="#gererClicDesactiverChrono" prefHeight="128.0" prefWidth="405.0" text="Désactiver" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>

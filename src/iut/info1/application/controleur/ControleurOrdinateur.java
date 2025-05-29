@@ -20,6 +20,9 @@ import javafx.scene.control.TextField;
  */
 public class ControleurOrdinateur {
 
+	String joueur1;
+	String joueur2;
+	
     /** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
@@ -63,17 +66,26 @@ public class ControleurOrdinateur {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Permet de lancer la partie en transmettant les noms des joueurs.
      */
     @FXML
     public void gererClicLancer() {
+        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
+        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
+
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
-            Alert boiteAlerte = new Alert(Alert.AlertType.ERROR);
-            boiteAlerte.setTitle("Erreur");
-            boiteAlerte.setHeaderText("Veuillez choisir un nom pour chaque joueur.");
-            boiteAlerte.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Champs vides");
+            alert.setHeaderText("Un ou plusieurs champs sont vides.");
+            alert.setContentText("Les noms par défaut seront utilisés : " + joueur1 + " et " + joueur2 + ". Voulez-vous continuer ?");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == javafx.scene.control.ButtonType.OK) {
+                    VueJeu.activerFenetreJeu(joueur1, joueur2);
+                }
+            });
         } else {
-            VueJeu.activerFenetreJeu();
+            VueJeu.activerFenetreJeu(joueur1, joueur2);
         }
     }
 }

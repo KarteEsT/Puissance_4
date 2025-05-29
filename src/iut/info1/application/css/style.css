@@ -1,3 +1,5 @@
+/* === Style global de l'application === */
+
 /* === Style global de la fenêtre === */
 .root {
     -fx-background-color: #D9C9C9;
@@ -58,10 +60,12 @@
 
 #buttonCouleur1 {
     -fx-text-fill: white;
+    -fx-background-color: black;
 }
 
 #buttonCouleur2 {
     -fx-text-fill: white;
+    -fx-background-color: black;
 }
 
 .button:hover {
