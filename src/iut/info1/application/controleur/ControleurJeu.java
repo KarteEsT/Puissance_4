@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 /**
- * Contrôleur de la vue "fentreJeu"
+ * Contrôleur de la vue "fenetreJeu"
  * 
  * @author Gabriel Robache
  * @author Gabriel Le Goff
@@ -25,7 +25,7 @@ public class ControleurJeu {
     @FXML private Label joueur1;
     @FXML private Label joueur2;
     
-    public void mettreAJourLabels(String nomJoueur1, String  nomJoueur2) {
+    public void mettreAJourLabels(String nomJoueur1, String nomJoueur2) {
     	joueur1.setText(nomJoueur1);
     	joueur2.setText(nomJoueur2);
     }

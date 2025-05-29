@@ -35,10 +35,10 @@ public class VueJeu extends Application {
     private static Scene sceneOptionGraphique;
     private static Scene sceneOptionJeu;
     private static Scene sceneSon;
-
-    private static Stage fenetreMenu;
     
     private static ControleurJeu controleurJeu; // Instance du contrôleur
+    
+    private static Stage fenetreMenu;
 
     //TODO Modularité
     @Override
@@ -161,7 +161,7 @@ public class VueJeu extends Application {
             e.printStackTrace();
         }
     }
-
+    
     /**
      * Permet d'activer la fenêtre du menu principal de l'application.
      */
@@ -211,8 +211,8 @@ public class VueJeu extends Application {
      * @param le nom du joueur2 à transmettre
      */
     public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2) {
-    	controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
         fenetreMenu.setScene(sceneJeu);
+        controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
     }
 
     /**

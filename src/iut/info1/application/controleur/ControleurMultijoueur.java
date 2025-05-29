@@ -20,8 +20,8 @@ import javafx.scene.control.TextField;
  */
 public class ControleurMultijoueur {
 
-    String joueur1;
-    String joueur2;
+    private String joueur1;
+    private String joueur2;
 
     /** Bouton pour retourner au Menu */
     @FXML
@@ -66,13 +66,12 @@ public class ControleurMultijoueur {
     }
 
     /**
-     * Permet de lancer la partie en vérifiant les noms des joueurs.
+     * Permet de lancer la partie en transmettant les noms des joueurs.
      */
     @FXML
     public void gererClicLancer() {
-        
-    	String joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
-        String joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
+        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
+        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
