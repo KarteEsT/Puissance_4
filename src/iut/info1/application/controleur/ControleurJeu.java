@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 
 /**
  * Contrôleur de la vue "fenetreJeu"
@@ -29,6 +30,12 @@ public class ControleurJeu {
     	joueur1.setText(nomJoueur1);
     	joueur2.setText(nomJoueur2);
     }
+    
+    @FXML
+    private ProgressBar progressBar1;
+    
+    @FXML
+    private ProgressBar progressBar2;
 
     /* Cercle de la colonne A */
     @FXML private Circle A1;

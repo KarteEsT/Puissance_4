@@ -116,7 +116,7 @@
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <ProgressBar id="progress-bar1" prefHeight="150.0" prefWidth="350.0" progress="1.0" rotate="270.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <ProgressBar id="progress-bar2" layoutX="10.0" layoutY="190.0" prefHeight="150.0" prefWidth="350.0" progress="1.0" rotate="270.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <ProgressBar id="progress-bar1" fx:id="progressBar1" prefHeight="150.0" prefWidth="350.0" progress="1.0" rotate="270.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <ProgressBar id="progress-bar2" fx:id="progressBar2" layoutX="10.0" layoutY="190.0" prefHeight="150.0" prefWidth="350.0" progress="1.0" rotate="270.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

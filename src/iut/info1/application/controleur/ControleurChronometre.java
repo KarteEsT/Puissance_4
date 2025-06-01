@@ -8,6 +8,7 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 
 /**
  * Contrôleur de la vue "optionChrono"
@@ -18,22 +19,51 @@ import javafx.scene.control.Button;
  * @author Esteban Roveri
  */
 public class ControleurChronometre {
+
+	@FXML private ProgressBar progressBar1;
+	@FXML private ProgressBar progressBar2;
 	
-    @FXML private Button activerButton;
-
-    @FXML private Button desactiverButton;
-
     @FXML private ComboBox<String> choixTemps;
 
-    /**
-     * TODO commenter le rôle de cette méthode (SRP)
-     */
     @FXML
     public void initialize() {
         // Remplir la ComboBox (affichés sous forme de texte)
         choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min", "30 sec", "10 sec");
         choixTemps.setValue("Désactiver"); // Valeur par défaut
+        
     }
+    
+	/**
+	 * Permet de mettre à jour la durée du chronomètre
+	 */
+    @FXML
+	public void gererClicValider() {
+		String tempsSelectionne = choixTemps.getValue();
+
+		switch (tempsSelectionne) {
+		case "Désactiver":
+			VueJeu.activerChronometre(false, 0);
+			break;
+		case "5 min":
+			VueJeu.activerChronometre(true, 300);
+			break;
+		case "2 min":
+			VueJeu.activerChronometre(true, 120);
+			break;
+		case "1 min":
+			VueJeu.activerChronometre(true, 60);
+			break;
+		case "30 sec":
+			VueJeu.activerChronometre(true, 30);
+			break;
+		case "10 sec":
+			VueJeu.activerChronometre(true, 10);
+			break;
+		default:
+			// Ne devrait pas arriver
+			break;
+		}
+	}
 
     /**
      * Permet de revenir sur le menu du jeu
@@ -57,27 +87,5 @@ public class ControleurChronometre {
     @FXML
     public void gererClicRetourMultijoueur() {
         VueJeu.activerFenetreMulti();
-    }
-
-    /**
-     * Permet d'activer le chronomètre
-     */
-    @FXML
-    public void gererClicActiverChrono() {
-        activerButton.setDisable(true);
-        activerButton.setVisible(false);
-        desactiverButton.setDisable(false);
-        desactiverButton.setVisible(true);
-    }
-
-    /**
-     * Permet de désactiver le chronomètre
-     */
-    @FXML
-    public void gererClicDesactiverChrono() {
-        activerButton.setDisable(false);
-        activerButton.setVisible(true);
-        desactiverButton.setDisable(true);
-        desactiverButton.setVisible(false);
     }
 }

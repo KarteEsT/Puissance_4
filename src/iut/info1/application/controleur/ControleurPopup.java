@@ -4,9 +4,17 @@
  */
 package iut.info1.application.controleur;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+
+import iut.info1.application.controleur.ControleurJeu;
+import iut.info1.application.controleur.ControleurMultijoueur;
+import iut.info1.application.controleur.ControleurOrdinateur;
 
 /**
  * Contrôleur de la vue "couleurPopup"
@@ -17,6 +25,18 @@ import javafx.scene.control.Label;
  * @author Esteban Roveri
  */
 public class ControleurPopup {
+	
+	@FXML
+    private Label joueur1;
+	
+    @FXML
+    private Label joueur2;
+    
+    @FXML
+    private Button buttonCouleur1;
+    
+    @FXML
+    private Button buttonCouleur2;
 
     @FXML
     private Label joueurLabel;
@@ -32,45 +52,76 @@ public class ControleurPopup {
 
     @FXML
     private void activerRouge() {
-        changerCouleur("#FF0000");
+    	ouvrirConfirmation("#FF0000");
     }
 
     @FXML
     private void activerOrange() {
-        changerCouleur("#FFBF00");
+    	ouvrirConfirmation("#FFBF00");
     }
 
     @FXML
     private void activerBleu() {
-        changerCouleur("#2600FF");
+    	ouvrirConfirmation("#2600FF");
     }
 
     @FXML
     private void activerRose() {
-        changerCouleur("#FF0088");
+    	ouvrirConfirmation("#FF0088");
     }
 
     @FXML
     private void activerVert() {
-        changerCouleur("#00FF11");
+    	ouvrirConfirmation("#00FF11");
     }
 
     @FXML
     private void activerViolet() {
-        changerCouleur("#FF00FD");
+    	ouvrirConfirmation("#FF00FD");
     }
 
     @FXML
     private void activerJaune() {
-        changerCouleur("#E5FF00");
+    	ouvrirConfirmation("#E5FF00");
     }
 
     @FXML
     private void activerTurquoise() {
-        changerCouleur("#00D1C7");
+    	ouvrirConfirmation("#00D1C7");
+    }
+    
+    private void ouvrirConfirmation(String couleur) {
+        Stage confirmationStage = new Stage();
+        confirmationStage.initModality(Modality.APPLICATION_MODAL);
+        confirmationStage.setTitle("Confirmation");
+        
+        // Positionner la fenêtre à un endroit précis
+        confirmationStage.setX(500); // Position horizontale
+        confirmationStage.setY(500); // Position verticale
+
+        Label message = new Label("Voulez-vous appliquer cette couleur ?");
+        Button validerButton = new Button("Valider");
+        Button annulerButton = new Button("Annuler");
+
+        validerButton.setOnAction(event -> {
+            //  appliquerCouleur(couleur);
+            confirmationStage.close();
+            ((Stage) joueurLabel.getScene().getWindow()).close(); // Ferme la fenêtre principale
+        });
+
+        annulerButton.setOnAction(event -> confirmationStage.close());
+
+        VBox layout = new VBox(10, message, validerButton, annulerButton);
+        layout.setStyle("-fx-padding: 10;");
+        Scene scene = new Scene(layout);
+        confirmationStage.setScene(scene);
+        confirmationStage.showAndWait();
     }
 
-    private void changerCouleur(String couleur) {
-        
+    private void appliquerCouleur(String couleur) {
+        joueur1.setStyle("-fx-background-color: " + couleur + ";");
+        joueur2.setStyle("-fx-background-color: " + couleur + ";");
+        buttonCouleur1.setStyle("-fx-background-color: " + couleur + ";");
+        buttonCouleur2.setStyle("-fx-background-color: " + couleur + ";");
     }
 }

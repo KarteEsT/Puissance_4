@@ -18,7 +18,6 @@
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -27,14 +26,14 @@
             <Font size="150.0" />
          </font>
       </Label>
-      <ComboBox id="button" fx:id="choixTemps" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <ComboBox id="button" fx:id="choixTemps" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ComboBox>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="100.0" prefWidth="274.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="100.0" prefWidth="274.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="64.0" />
          </font>
@@ -42,23 +41,13 @@
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Limite  de temps par tour" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Label text="Limite  de temps par tour" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="80.0" />
+            <Insets bottom="100.0" />
          </GridPane.margin>
       </Label>
-      <Button id="button" fx:id="activerButton" maxWidth="353.0" minWidth="353.0" mnemonicParsing="false" onAction="#gererClicActiverChrono" text="Activer" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="button" fx:id="desactiverButton" maxWidth="405.0" minWidth="353.0" mnemonicParsing="false" onAction="#gererClicDesactiverChrono" prefHeight="128.0" prefWidth="405.0" text="Désactiver" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
    </children>
 </GridPane>

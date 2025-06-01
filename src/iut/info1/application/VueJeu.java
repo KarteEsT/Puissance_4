@@ -272,6 +272,20 @@ public class VueJeu extends Application {
             erreurLancement.printStackTrace();
         }
     }
+    
+    /**
+     * Activer ou désactiver le chronomètre
+     * @param actif true pour activer, false pour désactiver
+     * @param temps le temps en secondes si actif, sinon ignoré
+     */
+    public static void activerChronometre(boolean actif, int temps) {
+    	
+    	if (actif == true) {
+			
+		} else {
+			
+		}
+    }
 
     /**
      * Point d'entrée de l'application JavaFX.

@@ -33,7 +33,6 @@
 
 /* === Style des labels des joueurs === */
 #joueur1 {
-	-fx-background-color: #FF0000;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
@@ -41,7 +40,6 @@
 }
 
 #joueur2 {
-	-fx-background-color: #F3D700;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
@@ -60,12 +58,10 @@
 
 #buttonCouleur1 {
     -fx-text-fill: white;
-    -fx-background-color: black;
 }
 
 #buttonCouleur2 {
     -fx-text-fill: white;
-    -fx-background-color: black;
 }
 
 .button:hover {
