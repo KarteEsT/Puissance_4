@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 
+import iut.info1.application.Grille;
+import iut.info1.application.Joueur;
+
 /**
  * Contrôleur de la vue "fenetreJeu"
  * 
@@ -24,6 +27,20 @@ public class ControleurJeu {
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
     @FXML private Label joueur2;
+    
+    private Grille grille;
+    
+    private String couleurJoueur1 = "red";
+    private String couleurJoueur2 = "yellow";
+    
+    @FXML
+    public void initialize() {
+    	Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1 );
+    	Joueur j2 = new Joueur(2, "Joueur", couleurJoueur2 );
+    	
+    	grille = new Grille(6, 7, j1, j2);
+    }
+   
     
     public void mettreAJourLabels(String nomJoueur1, String nomJoueur2) {
     	joueur1.setText(nomJoueur1);
@@ -108,39 +125,39 @@ public class ControleurJeu {
     
     @FXML
     public void gererColonne1() {
-    	
+    	grille.poserPion(0);
     }
     
     @FXML
 	public void gererColonne2() {
-
+    	grille.poserPion(1);
 	}
     
     @FXML
     public void gererColonne3() {
-    	
+    	grille.poserPion(2);
     }
     
     @FXML
 	public void gererColonne4() {
-
+    	grille.poserPion(3);
 	}
     
     @FXML
 	public void gererColonne5() {
-
+    	grille.poserPion(4);
 	}
     
     @FXML
 	public void gererColonne6() {
-
+    	grille.poserPion(5);
 	}
     
     @FXML
 	public void gererColonne7() {
-
+    	grille.poserPion(6);
 	}
-	
+    
     /**
      * Méthode appelée lors du clic sur le bouton "Options"
      * pour ouvrir les options du jeu.
