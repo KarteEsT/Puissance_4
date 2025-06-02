@@ -124,37 +124,37 @@ public class ControleurJeu {
     /* Boutons pour jouer dans une colonne */
     
     @FXML
-    public void gererColonne1() {
+    public void activerColonne1() {
     	grille.poserPion(0);
     }
     
     @FXML
-	public void gererColonne2() {
+	public void activerColonne2() {
     	grille.poserPion(1);
 	}
     
     @FXML
-    public void gererColonne3() {
+    public void activerColonne3() {
     	grille.poserPion(2);
     }
     
     @FXML
-	public void gererColonne4() {
+	public void activerColonne4() {
     	grille.poserPion(3);
 	}
     
     @FXML
-	public void gererColonne5() {
+	public void activerColonne5() {
     	grille.poserPion(4);
 	}
     
     @FXML
-	public void gererColonne6() {
+	public void activerColonne6() {
     	grille.poserPion(5);
 	}
     
     @FXML
-	public void gererColonne7() {
+	public void activerColonne7() {
     	grille.poserPion(6);
 	}
     
