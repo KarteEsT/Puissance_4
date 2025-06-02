@@ -17,13 +17,13 @@
       <ColumnConstraints minWidth="10.0" prefWidth="30.0" />
    </columnConstraints>
    <children>
-      <Button mnemonicParsing="false" onAction="#activerRouge" style="-fx-background-color: #ff0000;" text="   " GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerOrange" style="-fx-background-color: #ffbf00;" text="   " GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerBleu" style="-fx-background-color: #2600ff;" text="   " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerRose" style="-fx-background-color: #ff0088;" text="   " textFill="#ff0088" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerVert" style="-fx-background-color: #00ff11;" text="   " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerViolet" style="-fx-background-color: #ff00fd;" text="   " textFill="#ff00fd" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerJaune" style="-fx-background-color: #e5ff00;" text="   " textFill="#e5ff00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#activerTurquoise" style="-fx-background-color: #00d1c7;" text="   " textFill="#00d1c7" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="rouge" mnemonicParsing="false" onAction="#activerRouge" style="-fx-background-color: #ff0000;" text="   " GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="orange" mnemonicParsing="false" onAction="#activerOrange" style="-fx-background-color: #ffbf00;" text="   " GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="bleu" mnemonicParsing="false" onAction="#activerBleu" style="-fx-background-color: #2600ff;" text="   " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="rose" mnemonicParsing="false" onAction="#activerRose" style="-fx-background-color: #ff0088;" text="   " textFill="#ff0088" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="vert" mnemonicParsing="false" onAction="#activerVert" style="-fx-background-color: #00ff11;" text="   " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="violet" mnemonicParsing="false" onAction="#activerViolet" style="-fx-background-color: #ff00fd;" text="   " textFill="#ff00fd" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="jaune" mnemonicParsing="false" onAction="#activerJaune" style="-fx-background-color: #e5ff00;" text="   " textFill="#e5ff00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="turquoise" mnemonicParsing="false" onAction="#activerTurquoise" style="-fx-background-color: #00d1c7;" text="   " textFill="#00d1c7" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

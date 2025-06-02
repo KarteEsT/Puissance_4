@@ -87,13 +87,13 @@
             <Circle fx:id="A1" fill="WHITE" layoutX="30.0" layoutY="31.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
             <Circle fx:id="G1" fill="WHITE" layoutX="210.0" layoutY="240.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
             <Circle fx:id="F1" fill="WHITE" layoutX="210.0" layoutY="198.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Button fx:id="colonne0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.rowSpan="6" />
-            <Button fx:id="colonne1" layoutX="10.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="6" />
-            <Button fx:id="colonne2" layoutX="91.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="2" GridPane.rowSpan="6" />
-            <Button fx:id="colonne3" layoutX="172.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="3" GridPane.rowSpan="6" />
-            <Button fx:id="colonne4" layoutX="253.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="4" GridPane.rowSpan="6" />
-            <Button fx:id="colonne5" layoutX="334.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="5" GridPane.rowSpan="6" />
-            <Button fx:id="colonne6" layoutX="415.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="6" GridPane.rowSpan="6" />
+            <Button fx:id="colonne0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne1" visible="false" GridPane.rowSpan="6" />
+            <Button fx:id="colonne1" layoutX="10.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne2" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="6" />
+            <Button fx:id="colonne2" layoutX="91.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne3" visible="false" GridPane.columnIndex="2" GridPane.rowSpan="6" />
+            <Button fx:id="colonne3" layoutX="172.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne4" visible="false" GridPane.columnIndex="3" GridPane.rowSpan="6" />
+            <Button fx:id="colonne4" layoutX="253.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne5" visible="false" GridPane.columnIndex="4" GridPane.rowSpan="6" />
+            <Button fx:id="colonne5" layoutX="334.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne6" visible="false" GridPane.columnIndex="5" GridPane.rowSpan="6" />
+            <Button fx:id="colonne6" layoutX="415.0" layoutY="10.0" minHeight="400.0" minWidth="80.0" mnemonicParsing="false" onAction="#activerColonne7" visible="false" GridPane.columnIndex="6" GridPane.rowSpan="6" />
          </children>
       </GridPane>
       <Button id="button" alignment="CENTER" contentDisplay="CENTER" maxHeight="120.0" minHeight="8.0" mnemonicParsing="false" onAction="#gererClicOption" prefHeight="78.0" prefWidth="303.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">

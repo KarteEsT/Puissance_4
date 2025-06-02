@@ -20,7 +20,6 @@ import javafx.scene.control.ProgressBar;
  * @author Esteban Roveri
  */
 public class ControleurJeu {
-	//TODO Mettre en tableau les cercles et les boutons pour éviter la répétition de code
 	
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
@@ -92,15 +91,55 @@ public class ControleurJeu {
     @FXML private Circle G4;
     @FXML private Circle G5;
     @FXML private Circle G6;
+    
+    /* Matrice des cercles */
+    @FXML private Circle[][] matriceCercle = new Circle[7][6];
+    {
+		matriceCercle[0] = new Circle[] { A1, A2, A3, A4, A5, A6 };
+		matriceCercle[1] = new Circle[] { B1, B2, B3, B4, B5, B6 };
+		matriceCercle[2] = new Circle[] { C1, C2, C3, C4, C5, C6 };
+		matriceCercle[3] = new Circle[] { D1, D2, D3, D4, D5, D6 };
+		matriceCercle[4] = new Circle[] { E1, E2, E3, E4, E5, E6 };
+		matriceCercle[5] = new Circle[] { F1, F2, F3, F4, F5, F6 };
+		matriceCercle[6] = new Circle[] { G1, G2, G3, G4, G5, G6 };
+	}
 
     /* Boutons pour jouer dans une colonne */
-    @FXML private Button colonne0;
-    @FXML private Button colonne1;
-    @FXML private Button colonne2;
-    @FXML private Button colonne3;
-    @FXML private Button colonne4;
-    @FXML private Button colonne5;
-    @FXML private Button colonne6;
+    
+    @FXML
+    public void gererColonne1() {
+    	
+    }
+    
+    @FXML
+	public void gererColonne2() {
+
+	}
+    
+    @FXML
+    public void gererColonne3() {
+    	
+    }
+    
+    @FXML
+	public void gererColonne4() {
+
+	}
+    
+    @FXML
+	public void gererColonne5() {
+
+	}
+    
+    @FXML
+	public void gererColonne6() {
+
+	}
+    
+    @FXML
+	public void gererColonne7() {
+
+	}
 	
     /**
      * Méthode appelée lors du clic sur le bouton "Options"
