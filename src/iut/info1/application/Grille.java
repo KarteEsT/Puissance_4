@@ -90,12 +90,18 @@ public class Grille {
         return compteTour;
     }
     
+	/**
+	 * On va verifier si la grille est remplie
+	 * 
+	 * @return true si la grille est remplie false sinon
+	 * @throws NullPointerException si la matrice est nulle
+	 */
     public boolean isGrilleRemplie() {
 		if (getMatrice() == null) {
 			throw new NullPointerException("La matrice est nulle");
 		}
 		boolean isRemplie = true;
-		for (int i = 0 ; i < getColonne() ; i++) {
+		for (int i = 0 ; i < getColonne() && isRemplie ; i++) {
 			if (getMatrice()[0][i] == 0) {
 				isRemplie = false;
 			}

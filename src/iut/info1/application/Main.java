@@ -94,7 +94,7 @@ public class Main {
 				}
 			}
         } while (!grille.verifierVictoire() && !grille.isGrilleRemplie());
-        System.out.println("Le joueur n° " + ((grille.getCompteTour() - 1)%2  + 1)+ " a gagné !");
+        System.out.println(grille.isGrilleRemplie() ? "Le joueur n° " + ((grille.getCompteTour() - 1)%2  + 1)+ " a gagné !" : "grille pleine pas de gagnants");
         System.out.println(grille);
     }
 }
