@@ -28,45 +28,51 @@ public class ControleurChronometre {
 	
     @FXML private ComboBox<String> choixTemps;
 
+    /**
+     * Initialisation de la vue "optionChrono"
+     */
     @FXML
     public void initialize() {
+        
         // Remplir la ComboBox (affichés sous forme de texte)
-        choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min", "30 sec", "10 sec");
+        choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min"
+                                        , "30 sec", "10 sec");
         choixTemps.setValue("Désactiver"); // Valeur par défaut
         
     }
     
-	/**
-	 * Permet de mettre à jour la durée du chronomètre
-	 */
+    /**
+     *  Permet de mettre à jour la durée du chronomètre
+     */
     @FXML
-	public void gererClicValider() {
-		String tempsSelectionne = choixTemps.getValue();
-
-		switch (tempsSelectionne) {
-		case "Désactiver":
-			VueJeu.activerChronometre(false, 0);
-			break;
-		case "5 min":
-			VueJeu.activerChronometre(true, 300);
-			break;
-		case "2 min":
-			VueJeu.activerChronometre(true, 120);
-			break;
-		case "1 min":
-			VueJeu.activerChronometre(true, 60);
-			break;
-		case "30 sec":
-			VueJeu.activerChronometre(true, 30);
-			break;
-		case "10 sec":
-			VueJeu.activerChronometre(true, 10);
-			break;
-		default:
-			// Ne devrait pas arriver
-			break;
-		}
-	}
+    public void gererClicValider() {
+        
+       	String tempsSelectionne = choixTemps.getValue();
+        
+       	switch (tempsSelectionne) {
+       	case "Désactiver":
+       	    VueJeu.activerChronometre(false, 0);
+       	    break;
+       	case "5 min":
+       	    VueJeu.activerChronometre(true, 300);
+       	    break;
+  	case "2 min":
+  	    VueJeu.activerChronometre(true, 120);
+  	    break;
+        case "1 min":
+            VueJeu.activerChronometre(true, 60);
+            break;
+        case "30 sec":
+            VueJeu.activerChronometre(true, 30);
+            break;
+        case "10 sec":
+            VueJeu.activerChronometre(true, 10);
+            break;
+        default:
+            // Ne devrait pas arriver
+            break;
+       	}
+    }
 
     /**
      * Permet de revenir sur le menu du jeu
