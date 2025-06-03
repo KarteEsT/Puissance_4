@@ -30,16 +30,13 @@ public class ControleurMenuPrincipal {
     /** Bouton pour aller dans le Menu Ordinateur */
     @FXML
     private Button ButtonOrdinateur;
-    
-    String couleur1 = "#FF0000"; // Rouge par défaut
-    String couleur2 = "#FFFF00"; // Jaune par défaut
 
     /**
      * Pour aller dans le Menu Multijoueur
      */
     @FXML
     public void gererClicMultiplayer() {
-        VueJeu.activerFenetreMulti(couleur1, couleur2);
+        VueJeu.activerFenetreMulti();
     }
 
     /**
@@ -47,15 +44,27 @@ public class ControleurMenuPrincipal {
      */
     @FXML
     public void gererClicOrdinateur() {
-        Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+//        Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+//        		"Cette fonctionnalité est en cours de développement.\n"
+//        		+ "Merci de votre compréhension.", ButtonType.OK);
+//        boiteAlerte.setTitle("En travaux");
+//        boiteAlerte.showAndWait(); // ctrl + shift + /
+
+        VueJeu.activerFenetreOrdi();
+    }
+
+    @FXML
+    public void gererClicCharger() {
+    	
+    	Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
         		"Cette fonctionnalité est en cours de développement.\n"
         		+ "Merci de votre compréhension.", ButtonType.OK);
         boiteAlerte.setTitle("En travaux");
         boiteAlerte.showAndWait(); // ctrl + shift + /
-
-        //VueJeu.activerFenetreOrdi(couleur1, couleur2);
+        
+        //TODO
     }
-
+    
     /**
      * Permet de quitter l'application
      */
@@ -71,5 +80,4 @@ public class ControleurMenuPrincipal {
             Platform.exit();
         }
     }
-
 }

@@ -40,11 +40,11 @@
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionJeu" prefHeight="128.0" prefWidth="650.0" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicSauvegarder" prefHeight="128.0" prefWidth="650.0" text="Sauvegarder" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="60.0" />
          </font></Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionGraphique" prefHeight="128.0" prefWidth="650.0" text="Options graphiques" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionJeu" prefHeight="128.0" prefWidth="650.0" text="Options du jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="60.0" />
          </font></Button>

@@ -5,6 +5,8 @@
 package iut.info1.application.controleur;
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  * Contrôleur de la vue "optionJeu"
@@ -37,7 +39,14 @@ public class ControleurOptionJeu {
      */
     @FXML
     public void gererClicSon() {
-        VueJeu.activerFenetreSon();
+    	
+    	Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+        		"Cette fonctionnalité est en cours de développement.\n"
+        		+ "Merci de votre compréhension.", ButtonType.OK);
+        boiteAlerte.setTitle("En travaux");
+        boiteAlerte.showAndWait(); // ctrl + shift + /
+        
+        //VueJeu.activerFenetreSon();
     }
 
     /**
@@ -45,9 +54,14 @@ public class ControleurOptionJeu {
      */
     @FXML
     public void gererAide() {
-        //TODO Permet d'activer et de désactiver l'aide
-    	//avec une fenêtre pop-up
-    	//TODO a faire
+    	
+    	Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+        		"Cette fonctionnalité est en cours de développement.\n"
+        		+ "Merci de votre compréhension.", ButtonType.OK);
+        boiteAlerte.setTitle("En travaux");
+        boiteAlerte.showAndWait(); // ctrl + shift + /
+        
+        //TODO 
     }
 
 }

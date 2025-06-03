@@ -1,4 +1,3 @@
-
 /*
  * ControleurJeu.java                                              16 mai 2025
  * IUT de Rodez, Info 1 2024 - 2025 TP2, pas de copyright
@@ -55,6 +54,7 @@ public class ControleurJeu {
         matriceCercle[5] = new Circle[] { F6, F5, F4, F3, F2, F1 };
         matriceCercle[6] = new Circle[] { G6, G5, G4, G3, G2, G1 };
         
+        mettreAJourCouleur(couleurJoueur1, couleurJoueur2);
         configurerPrevisualisation();
     }
 
@@ -77,6 +77,25 @@ public class ControleurJeu {
     public void mettreAJourLabels(String nomJoueur1, String nomJoueur2) {
         joueur1.setText(nomJoueur1);
         joueur2.setText(nomJoueur2);
+    }
+    
+    /**
+     * Met à jour les couleurs des boutons de sélection
+     * @param couleur du joueur 1
+     * @param couleur du joueur 2
+     */
+    @FXML
+    public void mettreAJourCouleur(String couleur1, String couleur2) {
+        if (couleur1 != null) {
+            joueur1.setStyle("-fx-background-color: " + couleur1 + ";");
+            progressBar1.setStyle("-fx-accent: " + couleur1 + ";");
+            couleurJoueur1 = couleur1;
+        }
+        if (couleur2 != null) {
+            joueur2.setStyle("-fx-background-color: " + couleur2 + ";");
+            progressBar2.setStyle("-fx-accent: " + couleur2 + ";");
+            couleurJoueur2 = couleur2;
+        }
     }
 
     /* ProgressBar pour afficher le temps restant du joueur 1 */
@@ -317,19 +336,6 @@ public class ControleurJeu {
             alert.setContentText("La grille est pleine. Match nul !");
             alert.showAndWait();
         }
-    }
-
-	/**
-	 * Méthode pour mettre à jour les couleurs des joueurs
-	 * @param couleurJoueur1 Couleur du joueur 1
-	 * @param couleurJoueur2 Couleur du joueur 2
-	 */
-    public void mettreAJourCouleurJoueurs(String couleurJoueur1,
-                                          String couleurJoueur2) {
-    	joueur1.setStyle("-fx-background-color: " + couleurJoueur1 + ";");
-    	joueur2.setStyle("-fx-background-color: " + couleurJoueur2 + ";");
-    	progressBar1.setStyle("-fx-accent: " + couleurJoueur1 + ";");
-    	progressBar2.setStyle("-fx-accent: " + couleurJoueur2 + ";");
     }
     
     /**

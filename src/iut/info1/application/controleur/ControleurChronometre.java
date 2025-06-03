@@ -23,9 +23,6 @@ public class ControleurChronometre {
 	@FXML private ProgressBar progressBar1;
 	@FXML private ProgressBar progressBar2;
 	
-	String couleur1 = "#FF0000"; // Rouge par défaut
-	String couleur2 = "#FFFF00"; // Jaune par défaut
-	
     @FXML private ComboBox<String> choixTemps;
 
     /**
@@ -87,7 +84,7 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourOrdinateur() {
-    	VueJeu.activerFenetreMulti(couleur1, couleur2);
+    	VueJeu.activerFenetreMulti();
     }
 
     /**
@@ -95,6 +92,6 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourMultijoueur() {
-        VueJeu.activerFenetreMulti(couleur1, couleur2);
+        VueJeu.activerFenetreMulti();
     }
 }

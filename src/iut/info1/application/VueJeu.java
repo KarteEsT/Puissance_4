@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
+import iut.info1.application.controleur.ControleurPopup;
 
 /**
  * Classe principale de l'application Puissance 4. Cette classe gère les
@@ -34,7 +35,6 @@ public class VueJeu extends Application {
     private static Scene sceneChronoLancementMultijoueur;
     private static Scene sceneChronoLancementOrdinateur;
     private static Scene sceneOption;
-    private static Scene sceneOptionGraphique;
     private static Scene sceneOptionJeu;
     private static Scene sceneSon;
     
@@ -125,16 +125,6 @@ public class VueJeu extends Application {
             sceneOption.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
 
-            // Paramètres Options Graphiques
-            FXMLLoader chargeurFXMLOptionGraphique =
-                    new FXMLLoader(getClass().getResource
-                           ("/iut/info1/application/vue/optionGraphique.fxml"));
-            Parent conteneurOptionGraphique = chargeurFXMLOptionGraphique.load();
-            sceneOptionGraphique =
-                                 new Scene(conteneurOptionGraphique, 800, 1700);
-            sceneOptionGraphique.getStylesheets().add(getClass().getResource
-                    ("/iut/info1/application/css/style.css").toExternalForm());
-
             // Paramètres Options Jeu
             FXMLLoader chargeurFXMLOptionJeu =
                     new FXMLLoader(getClass().getResource
@@ -178,17 +168,15 @@ public class VueJeu extends Application {
     /**
      * Permet d'activer la fenêtre de lancement du jeu en multijoueur.
      */
-    public static void activerFenetreMulti(String couleur1, String couleur2) {
+    public static void activerFenetreMulti() {
         fenetreMenu.setScene(sceneMulti);
-        controleurMulti.mettreAJourCouleur(couleur1, couleur2); // Mise à jour des couleurs
     }
 
     /**
      * Permet d'activer la fenêtre de lancement du jeu contre l'ordinateur.
      */
-    public static void activerFenetreOrdi(String couleur1, String  couleur2) {
+    public static void activerFenetreOrdi() {
         fenetreMenu.setScene(sceneOrdi);
-        controleurOrdi.mettreAJourCouleur(couleur1, couleur2); // Mise à jour des couleurs
     }
 
     /**
@@ -218,10 +206,10 @@ public class VueJeu extends Application {
      * @param le nom du joueur1 à transmettre
      * @param le nom du joueur2 à transmettre
      */
-    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2, String couleur1,  String couleur2) {
+    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2,
+    									 String couleur1, String couleur2) {
         fenetreMenu.setScene(sceneJeu);
         controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
-        controleurJeu.mettreAJourCouleurJoueurs(couleur1, couleur2); // Mise à jour de la couleur du joueur 1
         
     }
 
@@ -230,13 +218,6 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreOption() {
         fenetreMenu.setScene(sceneOption);
-    }
-
-    /**
-     * Permet d'activer la fenêtre des options graphiques.
-     */
-    public static void activerFenetreOptionGraphique() {
-        fenetreMenu.setScene(sceneOptionGraphique);
     }
 
     /**
@@ -256,7 +237,7 @@ public class VueJeu extends Application {
     /**
      * Permet d'activer la fenêtre de jeu sans refaire les couleurs
      */
-    public static void activerFenetreJeuSansCouleurs() {
+    public static void activerFenetreJeuSansModification() {
     	fenetreMenu.setScene(sceneJeu);
     }
 
@@ -265,12 +246,15 @@ public class VueJeu extends Application {
      * @param joueur le nom du joueur pour lequel
      * la fenêtre de choix de couleur est activée.
      */
-    public static void activerFenetreCouleur(String joueur) {
+    public static void activerFenetreCouleur(String joueur, String idButton) {
         try {
             FXMLLoader loader = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/couleurPopup.fxml"));
             Parent root = loader.load();
 
+            ControleurPopup controleurPopup = loader.getController();
+            controleurPopup.setInformations(joueur, idButton); // Initialise les informations
+            
             Stage popupStage = new Stage();
             popupStage.setTitle("Choix de couleur - " + joueur);
             popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -297,12 +281,16 @@ public class VueJeu extends Application {
 		}
     }
 
-    public static void mettreAJourCouleurJoueur1(String couleur) {
-        controleurMulti.mettreAJourCouleur(couleur, null);
+    public static void mettreAJourCouleurJoueur1(String couleur1) {
+        controleurMulti.mettreAJourCouleur(couleur1, null);
+        controleurOrdi.mettreAJourCouleur(couleur1, null);
+        controleurJeu.mettreAJourCouleur(couleur1, null);
     }
 
-    public static void mettreAJourCouleurJoueur2(String couleur) {
-        controleurMulti.mettreAJourCouleur(null, couleur);
+    public static void mettreAJourCouleurJoueur2(String couleur2) {
+        controleurMulti.mettreAJourCouleur(null, couleur2);
+        controleurOrdi.mettreAJourCouleur(null, couleur2);
+        controleurJeu.mettreAJourCouleur(null, couleur2);
     }
     
     /**

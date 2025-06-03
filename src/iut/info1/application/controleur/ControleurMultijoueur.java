@@ -62,7 +62,7 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void gererClicCouleurJoueur1() {
-        VueJeu.activerFenetreCouleur("Joueur 1");
+        VueJeu.activerFenetreCouleur(nomJoueur1.getText(), buttonCouleur1.getId());
     }
 
     /**
@@ -70,7 +70,7 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void gererClicCouleurJoueur2() {
-        VueJeu.activerFenetreCouleur("Joueur 2");
+        VueJeu.activerFenetreCouleur(nomJoueur2.getText(), buttonCouleur2.getId());
     }
 
     /**
@@ -104,8 +104,8 @@ public class ControleurMultijoueur {
     
     /**
      * Met à jour les couleurs des boutons de sélection
-     * @param couleur1 
-     * @param couleur2
+     * @param couleur du joueur 1
+     * @param couleur du joueur 2
      */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {

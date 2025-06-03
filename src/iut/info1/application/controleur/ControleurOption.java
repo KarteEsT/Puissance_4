@@ -26,8 +26,15 @@ public class ControleurOption {
      * active la fenêtre des options graphiques
      */
     @FXML
-    public void gererClicOptionGraphique() {
-        VueJeu.activerFenetreOptionGraphique();
+    public void gererClicSauvegarder() {
+    	
+    	Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+        		"Cette fonctionnalité est en cours de développement.\n"
+        		+ "Merci de votre compréhension.", ButtonType.OK);
+        boiteAlerte.setTitle("En travaux");
+        boiteAlerte.showAndWait(); // ctrl + shift + /
+    	
+        //TODO
     }
 
     /**
@@ -43,8 +50,7 @@ public class ControleurOption {
      */
     @FXML
     public void gererClicReprendre() {
-        VueJeu.activerFenetreJeuSansCouleurs();
-    }
+    	VueJeu.activerFenetreJeuSansModification();    }
 
     /**
      * Active une boite d'alerte de confirmation pour quitter le jeu.

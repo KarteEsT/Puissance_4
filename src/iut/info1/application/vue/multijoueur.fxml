@@ -59,12 +59,12 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="buttonCouleur1" fx:id="buttonCouleur1" mnemonicParsing="false" onAction="#gererClicCouleurJoueur1" text="⬜​" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button id="buttonCouleur1" fx:id="buttonCouleur1" mnemonicParsing="false" onAction="#gererClicCouleurJoueur1" style="-fx-background-color: red;" text="⬜​" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="370.0" top="100.0" />
          </GridPane.margin>
       </Button>
-      <Button id="buttonCouleur2" fx:id="buttonCouleur2" mnemonicParsing="false" onAction="#gererClicCouleurJoueur2" text="⬜​" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button id="buttonCouleur2" fx:id="buttonCouleur2" mnemonicParsing="false" onAction="#gererClicCouleurJoueur2" style="-fx-background-color: yellow;" text="⬜​" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="370.0" top="100.0" />
          </GridPane.margin>

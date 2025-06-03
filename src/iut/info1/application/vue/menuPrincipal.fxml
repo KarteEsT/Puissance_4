@@ -14,30 +14,36 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button id="buttonOrange" fx:id="ButtonOrdinateur" mnemonicParsing="false" onAction="#gererClicOrdinateur" prefHeight="128.0" prefWidth="755.0" text="🤖 Contre l'ordinateur" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="buttonVert" fx:id="ButtonMultiplayer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gererClicMultiplayer" prefHeight="138.0" prefWidth="755.0" text="🎮 Multijoueur" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
       <Label id="titre200" alignment="CENTER" contentDisplay="CENTER" prefHeight="337.0" prefWidth="1315.0" text="PUISSANCE 4" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="200.0" />
          </font>
       </Label>
-      <Button id="buttonRouge" fx:id="quitter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gererClicQuitter" prefHeight="128.0" prefWidth="755.0" text="❌ Quitter le jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Button id="buttonRouge" fx:id="ButtonMultiplayer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gererClicMultiplayer" prefHeight="100.0" prefWidth="650.0" text="🎮 Multijoueur" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="60.0" />
+            <Font size="50.0" />
+         </font>
+      </Button>
+      <Button id="buttonBleu" fx:id="ButtonOrdinateur" mnemonicParsing="false" onAction="#gererClicOrdinateur" prefHeight="100.0" prefWidth="650.0" text="🤖 Contre l'ordinateur" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Button>
+      <Button id="buttonVert" fx:id="ButtonCharger" alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="651.0" mnemonicParsing="false" onAction="#gererClicCharger" prefHeight="100.0" prefWidth="650.0" text="💾 Charger une partie" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Button>
+      <Button id="buttonJaune" fx:id="quitter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gererClicQuitter" prefHeight="100.0" prefWidth="650.0" text="❌ Quitter le jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+         <font>
+            <Font size="50.0" />
          </font>
       </Button>
    </children>

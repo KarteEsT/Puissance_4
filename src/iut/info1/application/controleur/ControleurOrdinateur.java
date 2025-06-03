@@ -59,19 +59,19 @@ public class ControleurOrdinateur {
     }
 
     /**
-     * Active la fenêtre de sélection de couleur pour le joueur 1.
+     * Permet de lancer l'interface de gestion des couleurs du joueur 1
      */
     @FXML
     public void gererClicCouleurJoueur1() {
-        VueJeu.activerFenetreCouleur("Joueur 1");
+        VueJeu.activerFenetreCouleur(nomJoueur1.getText(), buttonCouleur1.getId());
     }
 
     /**
-     * Active la fenêtre de sélection de couleur pour le joueur 2.
+     * Permet de lancer l'interface de gestion des couleurs du joueur 2
      */
     @FXML
     public void gererClicCouleurJoueur2() {
-        VueJeu.activerFenetreCouleur("Joueur 2");
+        VueJeu.activerFenetreCouleur(nomJoueur2.getText(), buttonCouleur2.getId());
     }
 
     /**
@@ -80,22 +80,22 @@ public class ControleurOrdinateur {
     @FXML
     public void gererClicLancer() {
         joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
-        					: nomJoueur1.getText();
-        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
-        					: nomJoueur2.getText();
+                                                : nomJoueur1.getText();
+        joueur2 = nomJoueur2.getText().isEmpty() ? "ROBOT" 
+                                                : nomJoueur2.getText();
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Champs vides");
             alert.setHeaderText("Un ou plusieurs champs sont vides.");
-            alert.setContentText("Les noms par défaut seront utilisés : " + 
-            					 joueur1 + " et " + joueur2 
-            					 + ". Voulez-vous continuer ?");
+            alert.setContentText("Les noms par défaut seront utilisés : " 
+                                    + joueur1 + " et " + joueur2 
+                                    + ". Voulez-vous continuer ?");
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1,
-                                                               couleur2);
+                    VueJeu.activerFenetreJeu(joueur1, joueur2, 
+                                            couleur1, couleur2);
                 }
             });
         } else {
@@ -105,12 +105,16 @@ public class ControleurOrdinateur {
     
     /**
      * Met à jour les couleurs des boutons de sélection
-     * @param couleur1
-     * @param couleur2
+     * @param couleur du joueur 1
+     * @param couleur du joueur 2
      */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
-	buttonCouleur1.setStyle("-fx-background-color: "+ couleur1 + ";");
-	buttonCouleur2.setStyle("-fx-background-color: "+ couleur2 + ";");
+        if (couleur1 != null) {
+            buttonCouleur1.setStyle("-fx-background-color: " + couleur1 + ";");
+        }
+        if (couleur2 != null) {
+            buttonCouleur2.setStyle("-fx-background-color: " + couleur2 + ";");
+        }
     }
 }
