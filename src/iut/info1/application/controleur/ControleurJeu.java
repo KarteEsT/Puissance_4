@@ -54,6 +54,8 @@ public class ControleurJeu {
         matriceCercle[4] = new Circle[] { E6, E5, E4, E3, E2, E1 };
         matriceCercle[5] = new Circle[] { F6, F5, F4, F3, F2, F1 };
         matriceCercle[6] = new Circle[] { G6, G5, G4, G3, G2, G1 };
+        
+        configurerPrevisualisation();
     }
 
     /*
@@ -227,6 +229,47 @@ public class ControleurJeu {
             verifierFinDePartie();
         }
     }
+    
+	/**
+	 * Méthode pour configurer la prévisualisation des cercles lorsqu'on survole une
+	 * colonne.
+	 */
+    private void configurerPrevisualisation() {
+        for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
+            for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
+                final int colonneFinale = colonne; // Capturer la colonne
+                Circle cercle = matriceCercle[colonne][ligne];
+
+                cercle.setOnMouseEntered(event -> {
+                    // Trouver la première ligne vide dans la colonne
+                    int ligneDisponible = -1;
+                    for (int i = grille.getLigne() - 1; i >= 0; i--) {
+                        if (grille.getMatrice()[i][colonneFinale] == 0) {
+                            ligneDisponible = i;
+                            break;
+                        }
+                    }
+
+                    // Si une ligne est disponible, afficher la prévisualisation
+                    if (ligneDisponible != -1) {
+                        Circle cerclePrevisualisation = matriceCercle[colonneFinale][ligneDisponible];
+                        String couleur = (grille.getCompteTour() % 2 == 0) ? couleurJoueur1 : couleurJoueur2;
+                        cerclePrevisualisation.setFill(javafx.scene.paint.Color.web(couleur, 0.8)); // Couleur avec transparence
+                    }
+                });
+
+                cercle.setOnMouseExited(event -> {
+                    // Réinitialiser la couleur des cercles dans la colonne
+                    for (int i = 0; i < grille.getLigne(); i++) {
+                        if (grille.getMatrice()[i][colonneFinale] == 0) {
+                            matriceCercle[colonneFinale][i].setFill(javafx.scene.paint.Color.web("white"));
+                        }
+                    }
+                });
+            }
+        }
+    }
+    
     
     /**
      * Méthode pour vérifier si la partie est terminée et afficher une alerte en
