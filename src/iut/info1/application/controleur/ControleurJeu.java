@@ -30,8 +30,8 @@ public class ControleurJeu {
 
     private Grille grille;
 
-    private String couleurJoueur1;
-    private String couleurJoueur2;
+    private String couleurJoueur1 = "red";
+    private String couleurJoueur2 = "yellow";
 
     public void initialize() {
         Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1);
