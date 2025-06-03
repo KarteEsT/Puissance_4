@@ -27,14 +27,7 @@ public class ControleurOption {
      */
     @FXML
     public void gererClicSauvegarder() {
-    	
-    	Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
-        		"Cette fonctionnalité est en cours de développement.\n"
-        		+ "Merci de votre compréhension.", ButtonType.OK);
-        boiteAlerte.setTitle("En travaux");
-        boiteAlerte.showAndWait(); // ctrl + shift + /
-    	
-        //TODO
+    	VueJeu.activerFenetreSauvegarde();
     }
 
     /**

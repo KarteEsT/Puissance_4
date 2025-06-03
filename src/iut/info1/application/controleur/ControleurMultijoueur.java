@@ -90,15 +90,9 @@ public class ControleurMultijoueur {
                                                 : nomJoueur1.getText();
         joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
                                                 : nomJoueur2.getText();
-        
-        if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
-            NomsGlobals.setNomJoueur1("JOUEUR 1");
-        }
-        if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
-            NomsGlobals.setNomJoueur2("JOUEUR 2");
-        }
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
+        	
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Champs vides");
             alert.setHeaderText("Un ou plusieurs champs sont vides.");
@@ -108,6 +102,14 @@ public class ControleurMultijoueur {
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
+                	
+                	if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
+                        NomsGlobals.setNomJoueur1("JOUEUR 1");
+                    }
+                    if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
+                        NomsGlobals.setNomJoueur2("JOUEUR 2");
+                    }
+                	
                     VueJeu.activerFenetreJeu();
                 }
             });

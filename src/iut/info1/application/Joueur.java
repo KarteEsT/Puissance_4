@@ -76,9 +76,9 @@ public class Joueur {
             throw new IllegalArgumentException("Le nom du joueur "
                          + " ne peut pas être vide ou uniquement des espaces.");
         }
-        if (nom.length() > 30) {
+        if (nom.length() > 20) {
             throw new IllegalArgumentException
-            ("Le nom du joueur ne peut pas dépasser 30 caractères.");
+            ("Le nom du joueur ne peut pas dépasser 20 caractères.");
         }
         if (!nom.matches("[A-Za-zÀ-ÿ0-9 \\-']+")) {
             throw new IllegalArgumentException("Le nom du joueur contient "
@@ -105,10 +105,6 @@ public class Joueur {
         if (couleur.length() > 30) {
             throw new IllegalArgumentException
             ("La couleur du joueur ne peut pas dépasser 30 caractères.");
-        }
-        if (!couleur.matches("[A-Za-zÀ-ÿ \\-']+")) {
-            throw new IllegalArgumentException
-            ("La couleur du joueur contient des caractères invalides.");
         }
     }
     

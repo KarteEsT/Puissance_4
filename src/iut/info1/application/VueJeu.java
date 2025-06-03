@@ -273,6 +273,46 @@ public class VueJeu extends Application {
         }
     }
     
+	/**
+	 * Activer la fenêtre de sauvegarde du jeu.
+	 */
+    public static void activerFenetreSauvegarde() {
+    	try {
+			FXMLLoader loaderSauvegarde = new FXMLLoader(VueJeu.class.getResource
+                    ("/iut/info1/application/vue/sauvegarde.fxml"));
+
+			Parent root = loaderSauvegarde.load();
+			Stage popupStage = new Stage();
+			popupStage.setTitle("Sauvegarde du jeu");
+			popupStage.initModality(Modality.APPLICATION_MODAL);
+			popupStage.setScene(new Scene(root));
+			popupStage.showAndWait();
+		} catch (Exception e) {
+			System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
+			e.printStackTrace();
+		}
+    }
+    
+	/**
+	 * Activer la fenêtre de chargement du jeu.
+	 */
+    public static void activerFenetreChargement() {
+    	try {
+			FXMLLoader loaderChargement = new FXMLLoader(VueJeu.class.getResource
+                    ("/iut/info1/application/vue/charger.fxml"));
+
+			Parent root = loaderChargement.load();
+			Stage popupStage = new Stage();
+			popupStage.setTitle("Chargement du jeu");
+			popupStage.initModality(Modality.APPLICATION_MODAL);
+			popupStage.setScene(new Scene(root));
+			popupStage.showAndWait();
+		} catch (Exception e) {
+			System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+    
     /**
      * Activer ou désactiver le chronomètre
      * @param actif true pour activer, false pour désactiver

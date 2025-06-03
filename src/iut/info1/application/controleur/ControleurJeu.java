@@ -18,7 +18,6 @@ import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
 import javafx.scene.control.ButtonType;
 
-import iut.info1.application.utils.NomsGlobals;
 import iut.info1.application.utils.CouleursGlobales;
 
 /**

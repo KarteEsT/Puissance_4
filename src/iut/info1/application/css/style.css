@@ -78,6 +78,15 @@
     -fx-cursor: hand;
 }
 
+#buttonOrange {
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
 #buttonJaune {
     -fx-background-color: yellow;
     -fx-text-fill: white;
