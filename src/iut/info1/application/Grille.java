@@ -92,6 +92,21 @@ public class Grille {
         return compteTour;
     }
     
+    private static Grille instance;
+
+    // Méthode pour récupérer l'instance unique de la grille
+    public static Grille getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("La grille n'a pas encore été initialisée.");
+        }
+        return instance;
+    }
+
+    // Méthode pour définir ou mettre à jour l'instance de la grille
+    public static void setInstance(Grille nouvelleInstance) {
+        instance = nouvelleInstance;
+    }
+    
 	/**
 	 * Setter le nombre de tour
 	 * @param compteTour
@@ -137,6 +152,7 @@ public class Grille {
     		if (matrice[ligne][colonneJouee] == 0) {
     			matrice[ligne][colonneJouee] = (compteTour % 2) + 1;
     			compteTour++;
+    			setInstance(this);
     			return ligne;
     		}
     	}
