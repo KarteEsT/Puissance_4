@@ -22,10 +22,12 @@ import iut.info1.application.Joueur;
 class TestGrille {
 
     /**
-     * Test method for {@link iut.info1.application.Grille#Grille(int, int, iut.info1.application.Joueur, iut.info1.application.Joueur)}.
+     * Test method for {@link iut.info1.application.Grille#Grille
+     * (int, int, iut.info1.application.Joueur, iut.info1.application.Joueur)}.
      */
     @Test
     final void testGrille() {
+        // Test de la création d'une grille avec des joueurs
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         
@@ -41,6 +43,8 @@ class TestGrille {
      */
     @Test
     final void testGetLigne() {
+        
+        // Test de la méthode getLigne
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
 
@@ -55,7 +59,8 @@ class TestGrille {
      */
     @Test
     final void testGetColonne() {
-
+        
+        // Test de la méthode getColonne
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         
@@ -70,6 +75,8 @@ class TestGrille {
      */
     @Test
     final void testGetJ1() {
+        
+        // Test de la méthode getJ1
        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
        Grille grille = new Grille(6, 7, j1, null);
        assertEquals(j1, grille.getJ1());
@@ -80,6 +87,8 @@ class TestGrille {
      */
     @Test
     final void testGetJ2() {
+        
+        // Test de la méthode getJ2
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         Grille grille = new Grille(6, 7, null, j2);
         assertEquals(j2, grille.getJ2());
@@ -90,6 +99,8 @@ class TestGrille {
      */
     @Test
     final void testGetMatrice() {
+        
+        // Test de la méthode getMatrice
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         Grille grille = new Grille(6, 7, j1, j2);
@@ -109,6 +120,8 @@ class TestGrille {
      */
     @Test
     final void testGetCompteTour() {
+        
+        // Test de la méthode getCompteTour
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         
@@ -124,6 +137,8 @@ class TestGrille {
      */
     @Test
     final void testPoserPionOk() {
+        
+        // Test de la méthode poserPion pour une position valide
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         
@@ -134,17 +149,19 @@ class TestGrille {
         assertTrue(grille.poserPion(3)!=-1);
         
         int[][] matrice = grille.getMatrice();
-        assertEquals(1, matrice[5][3]); // Vérifie que le pion est posé à la bonne position
-        assertEquals(2, grille.getCompteTour()); // Vérifie que le compte de tours est incrémenté
+        assertEquals(1, matrice[5][3]);
+        assertEquals(2, grille.getCompteTour());
     }
     
     /**
      * Test method for {@link iut.info1.application.Grille#poserPion(int)}.
-     * Test de la méthode poserPion pour une position invalide (hors de la grille,
+     * Test de la méthode poserPion d'une position invalide (hors de la grille,
      * ou colonne pleine)
      */
     @Test
     final void testPoserPionKo() {
+        
+        // Test de la méthode poserPion d'une position invalide
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
         
@@ -169,6 +186,7 @@ class TestGrille {
     @Test
     final void testVerifierVictoireVerticale() {
         
+        // Test de la méthode verifierVictoireVerticale
         Joueur j1 = new Joueur(1,"Joueur","Jaune");
         Joueur j2 = new Joueur(2,"Joueur","Rouge");
         
@@ -187,11 +205,13 @@ class TestGrille {
         
         assertTrue(grille.verifierVictoireVerticale());
     }
+    
     /**
      * Test method for {@link iut.info1.application.Grille#toString()}.
      */
     @Test
     final void testToString() {
+        
         // Test de la méthode toString pour une grille vide
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
@@ -213,6 +233,7 @@ class TestGrille {
     @Test
     final void testVerifierVictoireHorizontale() {
         
+        // Test de la méthode verifierVictoireHorizontale
         Joueur j1 = new Joueur(1,"Joueur","Jaune");
         Joueur j2 = new Joueur(2,"Joueur","Rouge");
         
@@ -242,6 +263,7 @@ class TestGrille {
     @Test
     final void testVerifierVictoireDiagonaleMontante() {
 
+        // Test de la méthode verifierVictoireDiagonaleMontante
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
 
@@ -271,11 +293,13 @@ class TestGrille {
     
     /**
      * Test method for
-     * {@link iut.info1.application.Grille#verifierVictoireDiagonaleDescendante()}.
+     * {@link iut.info1.application.Grille
+     * #verifierVictoireDiagonaleDescendante()}.
      */
     @Test
     final void testVerifierVictoireDiagonaleDescendante() {
 
+        // Test de la méthode verifierVictoireDiagonaleDescendante
         Joueur j1 = new Joueur(1, "Joueur", "Jaune");
         Joueur j2 = new Joueur(2, "Joueur", "Rouge");
 
@@ -307,4 +331,28 @@ class TestGrille {
         System.out.println(grille);
         assertTrue(grille.verifierVictoireDiagonaleDescendante());
     }
+    
+    
+    /**
+     * Test method for {@link iut.info1.application.Grille#isGrilleRemplie()}.
+     */
+    @Test
+    final void testIsGrilleRemplie() {
+        
+        // Test de la méthode isGrilleRemplie
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+        Grille grille = new Grille(6, 7, j1, j2);
+
+        // Remplissage de la grille
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 6; j++) {
+                grille.poserPion(i);
+            }
+        }
+
+        assertTrue(grille.isGrilleRemplie());
+    }
+    
 }
