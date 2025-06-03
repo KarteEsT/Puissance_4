@@ -232,17 +232,6 @@ public class ControleurJeu {
                 Platform.exit();
             }
             
-
-            
-            alert.showAndWait();
-            
-            //désactive tout les boutons
-			for (Circle[] colonne : matriceCercle) {
-				for (Circle cercle : colonne) {
-					cercle.setDisable(true);
-				}
-			}
-            
             // Optionnel : désactiver les boutons ou relancer
         } else if (grille.isGrilleRemplie()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
