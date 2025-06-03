@@ -81,7 +81,8 @@ public class Joueur {
             ("Le nom du joueur ne peut pas dépasser 30 caractères.");
         }
         if (!nom.matches("[A-Za-zÀ-ÿ0-9 \\-']+")) {
-            throw new IllegalArgumentException("Le nom du joueur contient des caractères invalides.");
+            throw new IllegalArgumentException("Le nom du joueur contient "
+                                              + " des caractères invalides.");
         }
     }
 
