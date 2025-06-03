@@ -28,7 +28,7 @@ public class ControleurSauvegarde {
 
 	@FXML
 	private void gererClicAnnuler() {
-		//TODO fermer la fenêtre de sauvegarde
+		nomSauvegarde.getScene().getWindow().hide();
 	}
 	
 	@FXML
