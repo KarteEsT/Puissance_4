@@ -38,6 +38,9 @@ public class ControleurJeu {
     private String couleurJoueur1 = "red";
     private String couleurJoueur2 = "yellow";
 
+    /**
+     * Méthode pour initialiser le jeu avec les joueurs et la grille
+     */
     public void initialize() {
         Joueur j1 = new Joueur(1, joueur1.getText() , couleurJoueur1);
         Joueur j2 = new Joueur(2, joueur2.getText(), couleurJoueur2);
@@ -53,6 +56,9 @@ public class ControleurJeu {
         matriceCercle[6] = new Circle[] { G6, G5, G4, G3, G2, G1 };
     }
 
+    /*
+     * Méthode pour mettre à jour la grille visuelle
+     */
     private void mettreAJourGrille(int ligne, int colonne) {
         Circle cercle = matriceCercle[colonne][ligne];
         int joueurId = grille.getMatrice()[ligne][colonne];
@@ -61,15 +67,21 @@ public class ControleurJeu {
         cercle.setFill(javafx.scene.paint.Color.web(couleur));
     }
 
-
+    /**
+     * Méthode pour mettre à jour les labels des joueurs
+     * @param nomJoueur1 nom du joueur 1
+     * @param nomJoueur2 nom du joueur 2
+     */
     public void mettreAJourLabels(String nomJoueur1, String nomJoueur2) {
         joueur1.setText(nomJoueur1);
         joueur2.setText(nomJoueur2);
     }
 
+    /* ProgressBar pour afficher le temps restant du joueur 1 */
     @FXML
     private ProgressBar progressBar1;
 
+    /* ProgressBar pour afficher le temps restant du joueur 2 */
     @FXML
     private ProgressBar progressBar2;
 
@@ -132,10 +144,9 @@ public class ControleurJeu {
     /* Matrice des cercles */
     @FXML private Circle[][] matriceCercle = new Circle[7][6];
     
-    
-
-    /* Boutons pour jouer dans une colonne */
-
+    /**
+     * Méthodes pour activer la colonne 1
+     */
     @FXML
     public void activerColonne1() {
         int ligne = grille.poserPion(0);
@@ -145,6 +156,9 @@ public class ControleurJeu {
         }
     }
 
+    /**
+     * Méthodes pour activer la colonne 2
+     */
     @FXML
     public void activerColonne2() {
         int ligne = grille.poserPion(1);
@@ -154,6 +168,9 @@ public class ControleurJeu {
         }
     }
 
+    /**
+     * Méthodes pour activer la colonne 3
+     */
     @FXML
     public void activerColonne3() {
         int ligne = grille.poserPion(2);
@@ -163,6 +180,9 @@ public class ControleurJeu {
         }
     }
 
+    /**
+     * Méthodes pour activer la colonne 4
+     */
     @FXML
     public void activerColonne4() {
         int ligne = grille.poserPion(3);
@@ -172,6 +192,9 @@ public class ControleurJeu {
         }
     }
 
+    /**
+     * Méthodes pour activer la colonne 5
+     */
     @FXML
     public void activerColonne5() {
         int ligne = grille.poserPion(4);
@@ -180,7 +203,10 @@ public class ControleurJeu {
             verifierFinDePartie();
         }
     }
-
+    
+    /**
+     * Méthodes pour activer la colonne 6
+     */
     @FXML
     public void activerColonne6() {
         int ligne = grille.poserPion(5);
@@ -190,6 +216,9 @@ public class ControleurJeu {
         }
     }
 
+    /**
+     * Méthodes pour activer la colonne 7
+     */
     @FXML
     public void activerColonne7() {
         int ligne = grille.poserPion(6);
@@ -198,12 +227,17 @@ public class ControleurJeu {
             verifierFinDePartie();
         }
     }
-
+    
+    /**
+     * Méthode pour vérifier si la partie est terminée et afficher une alerte en
+     * conséquence.
+     */
     private void verifierFinDePartie() {
     	System.out.println(grille.getCompteTour());
         if (grille.verifierVictoire()) {
             int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
-            String nomGagnant = (gagnant == 1) ? joueur1.getText() : joueur2.getText();
+            String nomGagnant = (gagnant == 1) ? joueur1.getText() 
+                                                : joueur2.getText();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Victoire !");
@@ -220,13 +254,13 @@ public class ControleurJeu {
             Optional<ButtonType> option = alert.showAndWait();
             
             if (option.get() == relancer) {
-				// Réinitialiser la grille et les cercles
-				for (Circle[] colonne : matriceCercle) {
-					for (Circle cercle : colonne) {
-						cercle.setFill(javafx.scene.paint.Color.web("white"));
-					}
-				}
-				grille.reinitialiserGrille();
+                // Réinitialiser la grille et les cercles
+                for (Circle[] colonne : matriceCercle) {
+                    for (Circle cercle : colonne) {
+                        cercle.setFill(javafx.scene.paint.Color.web("white"));
+                    }
+                }
+                grille.reinitialiserGrille();
             }
             if (option.get() == quitter) {
                 Platform.exit();
@@ -247,7 +281,8 @@ public class ControleurJeu {
 	 * @param couleurJoueur1 Couleur du joueur 1
 	 * @param couleurJoueur2 Couleur du joueur 2
 	 */
-    public void mettreAJourCouleurJoueurs(String couleurJoueur1, String couleurJoueur2) {
+    public void mettreAJourCouleurJoueurs(String couleurJoueur1,
+                                          String couleurJoueur2) {
     	joueur1.setStyle("-fx-background-color: " + couleurJoueur1 + ";");
     	joueur2.setStyle("-fx-background-color: " + couleurJoueur2 + ";");
     	progressBar1.setStyle("-fx-accent: " + couleurJoueur1 + ";");
