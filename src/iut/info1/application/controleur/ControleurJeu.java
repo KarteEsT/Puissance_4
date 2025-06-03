@@ -6,13 +6,18 @@
 package iut.info1.application.controleur;
 
 import iut.info1.application.VueJeu;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
+
+import java.util.Optional;
+
 import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
+import javafx.scene.control.ButtonType;
 
 /**
  * Contrôleur de la vue "fenetreJeu"
@@ -34,8 +39,8 @@ public class ControleurJeu {
     private String couleurJoueur2 = "yellow";
 
     public void initialize() {
-        Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1);
-        Joueur j2 = new Joueur(2, "Joueur", couleurJoueur2);
+        Joueur j1 = new Joueur(1, joueur1.getText() , couleurJoueur1);
+        Joueur j2 = new Joueur(2, joueur2.getText(), couleurJoueur2);
 
         grille = new Grille(6, 7, j1, j2);
 
@@ -198,13 +203,46 @@ public class ControleurJeu {
     	System.out.println(grille.getCompteTour());
         if (grille.verifierVictoire()) {
             int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
-            String nomGagnant = (gagnant == 1) ? grille.getJ1().getNom() : grille.getJ2().getNom();
+            String nomGagnant = (gagnant == 1) ? joueur1.getText() : joueur2.getText();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Partie terminée !");
             alert.setHeaderText("Victoire !");
+            alert.setTitle("Partie terminée !");
+            
+            ButtonType relancer = new ButtonType("Relancer");
+            ButtonType quitter = new ButtonType("Quitter");
+            
             alert.setContentText(nomGagnant + " a gagné !");
+            
+            alert.getButtonTypes().clear(); // Efface les boutons par défaut
+            alert.getButtonTypes().addAll(relancer, quitter);
+            
+            Optional<ButtonType> option = alert.showAndWait();
+            
+            if (option.get() == relancer) {
+				// Réinitialiser la grille et les cercles
+				for (Circle[] colonne : matriceCercle) {
+					for (Circle cercle : colonne) {
+						cercle.setFill(javafx.scene.paint.Color.web("white"));
+					}
+				}
+				grille.reinitialiserGrille();
+            }
+            if (option.get() == quitter) {
+                Platform.exit();
+            }
+            
+
+            
             alert.showAndWait();
+            
+            //désactive tout les boutons
+			for (Circle[] colonne : matriceCercle) {
+				for (Circle cercle : colonne) {
+					cercle.setDisable(true);
+				}
+			}
+            
             // Optionnel : désactiver les boutons ou relancer
         } else if (grille.isGrilleRemplie()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
