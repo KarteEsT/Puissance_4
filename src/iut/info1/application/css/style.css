@@ -1,8 +1,13 @@
 /* === Style global de l'application === */
 
 /* === Style global de la fenêtre === */
+
+#texteBlanc {
+    -fx-text-fill: white;
+}
+
 .root {
-    -fx-background-color: #D9C9C9;
+    -fx-background-color: #3D1993;
 }
 
 #bordereau {
@@ -33,22 +38,40 @@
 
 /* === Style des labels des joueurs === */
 #joueur1 {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-padding: 10px;
 }
 
 #joueur2 {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-padding: 10px;
 }
 
 /* === Style du bouton options === */
-#button {
-    -fx-background-color: linear-gradient(to bottom, #F3F3F3, #A7A7A7);
+#buttonOrange {
+    -fx-background-color:#FF7700;
+    -fx-text-fill: white;
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+#buttonRouge {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+#buttonVert {
+    -fx-background-color: #00FF15;
     -fx-text-fill: white;
     -fx-font-size: 60px;
     -fx-font-weight: bold;
@@ -65,7 +88,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #e68900;
+    -fx-background-color: #CACACA;
 }
 
 /* === Style des cercles du plateau === */
@@ -77,12 +100,10 @@
 
 /* === Style des barres de progression (minuteur) === */
 #progress-bar1 {
-    -fx-accent: #FF0000; /* couleur de la barre remplie */
     -fx-control-inner-background: transparent;
 }
 
 #progress-bar2 {
-    -fx-accent: #F3D700; /* couleur de la barre remplie */
     -fx-control-inner-background: transparent;
 }
 
