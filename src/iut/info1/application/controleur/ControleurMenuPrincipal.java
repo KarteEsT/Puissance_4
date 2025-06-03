@@ -32,7 +32,7 @@ public class ControleurMenuPrincipal {
     private Button ButtonOrdinateur;
     
     String couleur1 = "#FF0000"; // Rouge par défaut
-	String couleur2 = "#FFFF00"; // Jaune par défaut
+    String couleur2 = "#FFFF00"; // Jaune par défaut
 
     /**
      * Pour aller dans le Menu Multijoueur
@@ -57,7 +57,7 @@ public class ControleurMenuPrincipal {
     }
 
     /**
-     * Pour quitter le jeu
+     * Permet de quitter l'application
      */
     @FXML
     public void gererClicQuitter() {

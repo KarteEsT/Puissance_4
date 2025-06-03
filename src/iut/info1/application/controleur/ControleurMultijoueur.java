@@ -78,18 +78,23 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void gererClicLancer() {
-        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
-        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
+        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
+                                                : nomJoueur1.getText();
+        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
+                                                : nomJoueur2.getText();
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Champs vides");
             alert.setHeaderText("Un ou plusieurs champs sont vides.");
-            alert.setContentText("Les noms par défaut seront utilisés : " + joueur1 + " et " + joueur2 + ". Voulez-vous continuer ?");
+            alert.setContentText("Les noms par défaut seront utilisés : " 
+                                    + joueur1 + " et " + joueur2 
+                                    + ". Voulez-vous continuer ?");
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
+                    VueJeu.activerFenetreJeu(joueur1, joueur2, 
+                                            couleur1, couleur2);
                 }
             });
         } else {
@@ -97,6 +102,11 @@ public class ControleurMultijoueur {
         }
     }
     
+    /**
+     * Met à jour les couleurs des boutons de sélection
+     * @param couleur1 
+     * @param couleur2
+     */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
         if (couleur1 != null) {
