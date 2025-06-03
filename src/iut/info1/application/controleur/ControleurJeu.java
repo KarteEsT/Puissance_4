@@ -30,8 +30,8 @@ public class ControleurJeu {
 
     private Grille grille;
 
-    private String couleurJoueur1 = "red";
-    private String couleurJoueur2 = "yellow";
+    private String couleurJoueur1;
+    private String couleurJoueur2;
 
     public void initialize() {
         Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1);
@@ -215,6 +215,18 @@ public class ControleurJeu {
         }
     }
 
+	/**
+	 * Méthode pour mettre à jour les couleurs des joueurs
+	 * @param couleurJoueur1 Couleur du joueur 1
+	 * @param couleurJoueur2 Couleur du joueur 2
+	 */
+    public void mettreAJourCouleurJoueurs(String couleurJoueur1, String couleurJoueur2) {
+    	joueur1.setStyle("-fx-background-color: " + couleurJoueur1 + ";");
+    	joueur2.setStyle("-fx-background-color: " + couleurJoueur2 + ";");
+    	progressBar1.setStyle("-fx-accent: " + couleurJoueur1 + ";");
+    	progressBar2.setStyle("-fx-accent: " + couleurJoueur2 + ";");
+    }
+    
     /**
      * Méthode appelée lors du clic sur le bouton "Options"
      * pour ouvrir les options du jeu.

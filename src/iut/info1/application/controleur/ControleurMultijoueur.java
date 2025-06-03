@@ -22,10 +22,18 @@ public class ControleurMultijoueur {
 
     private String joueur1;
     private String joueur2;
+    private String couleur1;
+    private String couleur2;
 
     /** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
+    
+    @FXML
+    private Button buttonCouleur1;
+    
+    @FXML
+    private Button buttonCouleur2;
 
     @FXML
     private TextField nomJoueur1;
@@ -81,11 +89,21 @@ public class ControleurMultijoueur {
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2);
+                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
                 }
             });
         } else {
-            VueJeu.activerFenetreJeu(joueur1, joueur2);
+            VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
+        }
+    }
+    
+    @FXML
+    public void mettreAJourCouleur(String couleur1, String couleur2) {
+        if (couleur1 != null) {
+            buttonCouleur1.setStyle("-fx-background-color: " + couleur1 + ";");
+        }
+        if (couleur2 != null) {
+            buttonCouleur2.setStyle("-fx-background-color: " + couleur2 + ";");
         }
     }
 }

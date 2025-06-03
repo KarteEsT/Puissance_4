@@ -5,16 +5,14 @@
 package iut.info1.application.controleur;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 
-import iut.info1.application.controleur.ControleurJeu;
-import iut.info1.application.controleur.ControleurMultijoueur;
-import iut.info1.application.controleur.ControleurOrdinateur;
+import java.util.Optional;
+
+import iut.info1.application.VueJeu;
 
 /**
  * Contrôleur de la vue "couleurPopup"
@@ -91,37 +89,26 @@ public class ControleurPopup {
     }
     
     private void ouvrirConfirmation(String couleur) {
-        Stage confirmationStage = new Stage();
-        confirmationStage.initModality(Modality.APPLICATION_MODAL);
-        confirmationStage.setTitle("Confirmation");
-        
-        // Positionner la fenêtre à un endroit précis
-        confirmationStage.setX(500); // Position horizontale
-        confirmationStage.setY(500); // Position verticale
-
-        Label message = new Label("Voulez-vous appliquer cette couleur ?");
-        Button validerButton = new Button("Valider");
-        Button annulerButton = new Button("Annuler");
-
-        validerButton.setOnAction(event -> {
-            //  appliquerCouleur(couleur);
-            confirmationStage.close();
-            ((Stage) joueurLabel.getScene().getWindow()).close(); // Ferme la fenêtre principale
-        });
-
-        annulerButton.setOnAction(event -> confirmationStage.close());
-
-        VBox layout = new VBox(10, message, validerButton, annulerButton);
-        layout.setStyle("-fx-padding: 10;");
-        Scene scene = new Scene(layout);
-        confirmationStage.setScene(scene);
-        confirmationStage.showAndWait();
+        Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+            "Êtes-vous sûr de vouloir changer la couleur de " + joueurLabel.getText() + " ?", ButtonType.YES, ButtonType.NO);
+        boiteAlerte.setTitle("Confirmation");
+        Optional<ButtonType> option = boiteAlerte.showAndWait();
+        if (option.isPresent() && option.get() == ButtonType.YES) {
+            if (joueurLabel.getText().contains("Joueur 1")) {
+                appliquerCouleurJoueur1(couleur);
+            } else if (joueurLabel.getText().contains("Joueur 2")) {
+                appliquerCouleurJoueur2(couleur);
+            }
+        }
+    }
+    
+    @FXML
+    private void appliquerCouleurJoueur1(String couleur) {
+        VueJeu.mettreAJourCouleurJoueur1(couleur); // Met à jour la couleur du joueur 1
     }
 
-    private void appliquerCouleur(String couleur) {
-        joueur1.setStyle("-fx-background-color: " + couleur + ";");
-        joueur2.setStyle("-fx-background-color: " + couleur + ";");
-        buttonCouleur1.setStyle("-fx-background-color: " + couleur + ";");
-        buttonCouleur2.setStyle("-fx-background-color: " + couleur + ";");
+    @FXML
+    private void appliquerCouleurJoueur2(String couleur) {
+        VueJeu.mettreAJourCouleurJoueur2(couleur); // Met à jour la couleur du joueur 2
     }
 }

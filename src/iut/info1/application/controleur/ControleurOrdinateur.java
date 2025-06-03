@@ -20,8 +20,10 @@ import javafx.scene.control.TextField;
  */
 public class ControleurOrdinateur {
 
-	String joueur1;
-	String joueur2;
+	private String joueur1;
+	private String joueur2;
+	private String couleur1;
+	private String couleur2;
 	
     /** Bouton pour retourner au Menu */
     @FXML
@@ -32,6 +34,12 @@ public class ControleurOrdinateur {
 
     @FXML
     private TextField nomJoueur2;
+    
+    @FXML
+    private Button buttonCouleur1;
+    
+    @FXML
+    private Button buttonCouleur2;
 
     /**
      * TODO commenter le rôle de cette méthode (SRP)
@@ -81,11 +89,17 @@ public class ControleurOrdinateur {
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2);
+                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
                 }
             });
         } else {
-            VueJeu.activerFenetreJeu(joueur1, joueur2);
+            VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
         }
+    }
+    
+    @FXML
+    public void mettreAJourCouleur(String couleur1, String couleur2) {
+		buttonCouleur1.setStyle("-fx-background-color: "+ couleur1 + ";");
+		buttonCouleur2.setStyle("-fx-background-color: "+ couleur2 + ";");
     }
 }

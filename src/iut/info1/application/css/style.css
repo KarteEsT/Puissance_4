@@ -61,6 +61,14 @@
     -fx-cursor: hand;
 }
 
+#button {
+    -fx-text-fill: white;
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
 #buttonRouge {
     -fx-background-color: red;
     -fx-text-fill: white;

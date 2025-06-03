@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.stage.Modality;
 
 import iut.info1.application.controleur.ControleurJeu;
+import iut.info1.application.controleur.ControleurMultijoueur;
+import iut.info1.application.controleur.ControleurOrdinateur;
 
 /**
  * Classe principale de l'application Puissance 4. Cette classe gère les
@@ -37,6 +39,8 @@ public class VueJeu extends Application {
     private static Scene sceneSon;
     
     private static ControleurJeu controleurJeu; // Instance du contrôleur
+    private static ControleurMultijoueur controleurMulti;
+    private static ControleurOrdinateur controleurOrdi;
     
     private static Stage fenetreMenu;
 
@@ -56,6 +60,7 @@ public class VueJeu extends Application {
             FXMLLoader chargeurFXMLMulti = new FXMLLoader(getClass().getResource
                     ("/iut/info1/application/vue/multijoueur.fxml"));
             Parent conteneurMulti = chargeurFXMLMulti.load();
+            controleurMulti = chargeurFXMLMulti.getController();
             sceneMulti = new Scene(conteneurMulti, 800, 1700);
             sceneMulti.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
@@ -64,6 +69,7 @@ public class VueJeu extends Application {
             FXMLLoader chargeurFXMLOrdi = new FXMLLoader(getClass().getResource
                     ("/iut/info1/application/vue/contreOrdi.fxml"));
             Parent conteneurOrdi = chargeurFXMLOrdi.load();
+            controleurOrdi = chargeurFXMLOrdi.getController();
             sceneOrdi = new Scene(conteneurOrdi, 800, 1700);
             sceneOrdi.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
@@ -172,15 +178,17 @@ public class VueJeu extends Application {
     /**
      * Permet d'activer la fenêtre de lancement du jeu en multijoueur.
      */
-    public static void activerFenetreMulti() {
+    public static void activerFenetreMulti(String couleur1, String couleur2) {
         fenetreMenu.setScene(sceneMulti);
+        controleurMulti.mettreAJourCouleur(couleur1, couleur2); // Mise à jour des couleurs
     }
 
     /**
      * Permet d'activer la fenêtre de lancement du jeu contre l'ordinateur.
      */
-    public static void activerFenetreOrdi() {
+    public static void activerFenetreOrdi(String couleur1, String  couleur2) {
         fenetreMenu.setScene(sceneOrdi);
+        controleurOrdi.mettreAJourCouleur(couleur1, couleur2); // Mise à jour des couleurs
     }
 
     /**
@@ -210,9 +218,11 @@ public class VueJeu extends Application {
      * @param le nom du joueur1 à transmettre
      * @param le nom du joueur2 à transmettre
      */
-    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2) {
+    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2, String couleur1,  String couleur2) {
         fenetreMenu.setScene(sceneJeu);
         controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
+        controleurJeu.mettreAJourCouleurJoueurs(couleur1, couleur2); // Mise à jour de la couleur du joueur 1
+        
     }
 
     /**
@@ -287,6 +297,14 @@ public class VueJeu extends Application {
 		}
     }
 
+    public static void mettreAJourCouleurJoueur1(String couleur) {
+        controleurMulti.mettreAJourCouleur(couleur, null);
+    }
+
+    public static void mettreAJourCouleurJoueur2(String couleur) {
+        controleurMulti.mettreAJourCouleur(null, couleur);
+    }
+    
     /**
      * Point d'entrée de l'application JavaFX.
      * @param args non utilisé
