@@ -80,9 +80,9 @@ public class ControleurOrdinateur {
     @FXML
     public void gererClicLancer() {
         joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
-        									     : nomJoueur1.getText();
+        					: nomJoueur1.getText();
         joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
-        										 : nomJoueur2.getText();
+        					: nomJoueur2.getText();
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -95,7 +95,7 @@ public class ControleurOrdinateur {
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
                     VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1,
-                    									   	   couleur2);
+                                                               couleur2);
                 }
             });
         } else {
@@ -103,9 +103,14 @@ public class ControleurOrdinateur {
         }
     }
     
+    /**
+     * Met à jour les couleurs des boutons de sélection
+     * @param couleur1
+     * @param couleur2
+     */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
-		buttonCouleur1.setStyle("-fx-background-color: "+ couleur1 + ";");
-		buttonCouleur2.setStyle("-fx-background-color: "+ couleur2 + ";");
+	buttonCouleur1.setStyle("-fx-background-color: "+ couleur1 + ";");
+	buttonCouleur2.setStyle("-fx-background-color: "+ couleur2 + ";");
     }
 }
