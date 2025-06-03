@@ -65,7 +65,7 @@ public class ControleurJeu {
     /*
      * Méthode pour mettre à jour la grille visuelle
      */
-    private void mettreAJourGrille(int ligne, int colonne) {
+    public void mettreAJourGrille(int ligne, int colonne) {
         Circle cercle = matriceCercle[colonne][ligne];
         int joueurId = grille.getMatrice()[ligne][colonne];
 

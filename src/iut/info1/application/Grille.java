@@ -4,6 +4,8 @@
  */
 package iut.info1.application;
 
+import iut.info1.application.controleur.ControleurJeu;
+
 /**
  * Classe permettant de créer une Grille
  * @author Gabriel Robache
@@ -91,6 +93,15 @@ public class Grille {
     }
     
 	/**
+	 * Setter le nombre de tour
+	 * @param compteTour
+	 */
+	public int setCompteTour(int compteTour) {
+		this.compteTour = compteTour;
+		return this.compteTour;
+	}
+    
+	/**
 	 * On va verifier si la grille est remplie
 	 * 
 	 * @return true si la grille est remplie false sinon
@@ -131,6 +142,26 @@ public class Grille {
     	}
 
     	return -1; // Colonne pleine
+    }
+    
+    
+	/**
+	 * Méthode pour remettre les couleurs des pions déjà joués dans la grille en
+	 * fonction de la matrice de la grille.
+	 * 
+	 * @param grille La grille dont on veut remettre les couleurs des pions.
+	 */
+    public static void remettreCouleursPions(Grille grille, ControleurJeu controleur) {
+        int[][] matrice = grille.getMatrice();
+
+        for (int ligne = 0; ligne < matrice.length; ligne++) {
+            for (int colonne = 0; colonne < matrice[ligne].length; colonne++) {
+                if (matrice[ligne][colonne] != 0) {
+                    // Met à jour la grille visuelle via le contrôleur
+                    controleur.mettreAJourGrille(ligne, colonne);
+                }
+            }
+        }
     }
 
     

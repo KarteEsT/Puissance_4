@@ -104,33 +104,31 @@ public class Main {
 //        System.out.println(grille.toString());
 //        
 //        
-        Scanner scanner = new Scanner(System.in);
+    	Scanner scanner = new Scanner(System.in);
 
         try {
-            // Demander le nom du fichier CSV
-            System.out.print("Entrez le nom du fichier CSV pour sauvegarder la grille : ");
-            String nomFichier = scanner.hasNextLine() ? scanner.nextLine() : "";
+            // Création d'une grille pour le test
+            Grille grilleTest = new Grille(6, 7, new Joueur(1, "Gabriel", "#FF0088"), new Joueur(2, "Esteban", "#00D1C7"));
 
-            // Demander l'emplacement pour sauvegarder
-            System.out.print("Entrez l'emplacement pour sauvegarder le fichier CSV : ");
-            String emplacement = scanner.hasNextLine() ? scanner.nextLine() : "";
+            // Simuler quelques tours de jeu
+            grilleTest.poserPion(0);
+            grilleTest.poserPion(1);
+            grilleTest.poserPion(0);
+            grilleTest.poserPion(1);
+            grilleTest.poserPion(0);
+
+            // Afficher la grille avant sauvegarde
+            System.out.println("Grille avant sauvegarde :");
+            System.out.println(grilleTest);
 
             // Sauvegarder la grille
-            Grille grille2 = new Grille(6, 7, new Joueur(1, "Gabriel", "Jaune"), new Joueur(2, "Esteban", "Rouge"));
-            
-            grille2.poserPion(1);
-            grille2.poserPion(1);
-          
-            grille2.poserPion(2);
-            grille2.poserPion(2);
-            
-            grille2.poserPion(3);
-            grille2.poserPion(3);
-          
-            grille2.poserPion(4);
-            
-            chargeurCSV.sauvegarderGrille(grille2, nomFichier, emplacement);
-            System.out.println("Grille sauvegardée dans le fichier : " + nomFichier);
+            System.out.print("Entrez le nom du fichier CSV pour sauvegarder la grille : ");
+            String nomFichierSauvegarde = scanner.hasNextLine() ? scanner.nextLine() : "";
+
+            System.out.print("Entrez l'emplacement pour sauvegarder le fichier CSV : ");
+            String emplacementSauvegarde = scanner.hasNextLine() ? scanner.nextLine() : "";
+
+            chargeurCSV.sauvegarderGrille(grilleTest, nomFichierSauvegarde, emplacementSauvegarde);
 
             // Charger la grille
             System.out.print("Entrez le nom du fichier CSV pour charger la grille : ");
@@ -147,16 +145,19 @@ public class Main {
             String couleurJoueur1 = CouleursGlobales.getCouleurJoueur1();
             String couleurJoueur2 = CouleursGlobales.getCouleurJoueur2();
 
-            // Afficher les informations
+            // Afficher les informations après chargement
             System.out.println("Noms des joueurs : " + nomJoueur1 + " / " + nomJoueur2);
             System.out.println("Couleurs des joueurs : " + couleurJoueur1 + " / " + couleurJoueur2);
             System.out.println("Grille après chargement :");
             System.out.println(grilleChargee);
 
+            // Vérifier le joueur actif
+            int joueurActif = (grilleChargee.getCompteTour() % 2) + 1;
+            System.out.println("Joueur actif après chargement : Joueur " + joueurActif);
+
         } finally {
             scanner.close();
         }
-        
         
     }
 

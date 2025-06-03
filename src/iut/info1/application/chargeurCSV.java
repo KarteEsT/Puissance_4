@@ -6,6 +6,7 @@ package iut.info1.application;
 
 import iut.info1.application.utils.NomsGlobals;
 import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.Grille;
 
 import java.io.*;
@@ -28,50 +29,55 @@ public class chargeurCSV {
      * @param emplacement l'emplacement du fichier CSV
      * @return la grille chargée
      */
-    public static Grille chargerGrille(String nomFichier, String emplacement) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(emplacement + File.separator + nomFichier))) {
-            // Lire les noms des joueurs
-            String nomJoueur1 = reader.readLine();
-            String nomJoueur2 = reader.readLine();
-            NomsGlobals.setNomJoueur1(nomJoueur1);
-            NomsGlobals.setNomJoueur2(nomJoueur2);
+	public static Grille chargerGrille(String nomFichier, String emplacement) {
+	    try (BufferedReader reader = new BufferedReader(new FileReader(emplacement + File.separator + nomFichier))) {
+	        // Lire les noms des joueurs
+	        String nomJoueur1 = reader.readLine();
+	        String nomJoueur2 = reader.readLine();
+	        NomsGlobals.setNomJoueur1(nomJoueur1);
+	        NomsGlobals.setNomJoueur2(nomJoueur2);
 
-            // Lire les couleurs des joueurs
-            String couleurJoueur1 = reader.readLine();
-            String couleurJoueur2 = reader.readLine();
-            CouleursGlobales.setCouleurJoueur1(couleurJoueur1);
-            CouleursGlobales.setCouleurJoueur2(couleurJoueur2);
+	        // Lire les couleurs des joueurs
+	        String couleurJoueur1 = reader.readLine();
+	        String couleurJoueur2 = reader.readLine();
+	        CouleursGlobales.setCouleurJoueur1(couleurJoueur1);
+	        CouleursGlobales.setCouleurJoueur2(couleurJoueur2);
 
-            // Lire la matrice de la grille
-            List<int[]> matrice = new ArrayList<>();
-            String ligne;
-            while ((ligne = reader.readLine()) != null) {
-                String[] valeurs = ligne.split(",");
-                int[] ligneMatrice = new int[valeurs.length];
-                for (int i = 0; i < valeurs.length; i++) {
-                    ligneMatrice[i] = Integer.parseInt(valeurs[i]);
-                }
-                matrice.add(ligneMatrice);
-            }
+	        // Lire la matrice de la grille
+	        List<int[]> matrice = new ArrayList<>();
+	        String ligne;
+	        while ((ligne = reader.readLine()) != null && !ligne.startsWith("compteTour")) {
+	            String[] valeurs = ligne.split(",");
+	            int[] ligneMatrice = new int[valeurs.length];
+	            for (int i = 0; i < valeurs.length; i++) {
+	                ligneMatrice[i] = Integer.parseInt(valeurs[i]);
+	                // Mettre à jour la couleur dans l'interface graphique
+	            }
+	            matrice.add(ligneMatrice);
+	        }
 
-            // Créer une grille avec les données chargées
-            int[][] matriceFinale = matrice.toArray(new int[0][]);
-            Grille grille = new Grille(matriceFinale.length, matriceFinale[0].length,
-                                       new Joueur(1, nomJoueur1, couleurJoueur1),
-                                       new Joueur(2, nomJoueur2, couleurJoueur2));
+	        // Lire le compteTour
+	        int compteTour = Integer.parseInt(ligne.split(":")[1].trim());
 
-            // Mettre à jour la matrice de la grille
-            int[][] matriceGrille = grille.getMatrice();
-            for (int i = 0; i < matriceFinale.length; i++) {
-                System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
-            }
+	        // Créer une grille avec les données chargées
+	        int[][] matriceFinale = matrice.toArray(new int[0][]);
+	        Grille grille = new Grille(matriceFinale.length, matriceFinale[0].length,
+	                                   new Joueur(1, nomJoueur1, couleurJoueur1),
+	                                   new Joueur(2, nomJoueur2, couleurJoueur2));
 
-            return grille;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+	        // Mettre à jour la matrice et le compteTour de la grille
+	        int[][] matriceGrille = grille.getMatrice();
+	        for (int i = 0; i < matriceFinale.length; i++) {
+	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
+	        }
+	        grille.setCompteTour(compteTour);
+
+	        return grille;
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
 
     /**
      * Sauvegarde une grille dans un fichier CSV
@@ -105,6 +111,10 @@ public class chargeurCSV {
                 }
                 writer.newLine();
             }
+
+            // Écrire le compteTour
+            writer.write("compteTour:" + grille.getCompteTour());
+            writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }

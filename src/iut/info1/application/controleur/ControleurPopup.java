@@ -13,6 +13,8 @@ import java.util.Optional;
 import iut.info1.application.VueJeu;
 import iut.info1.application.utils.CouleursGlobales;
 
+import javafx.scene.control.Button;
+
 /**
  * Contrôleur de la vue "couleurPopup"
  * 
@@ -25,6 +27,9 @@ public class ControleurPopup {
 
 	private String idButton;
 	private String joueur;
+	
+	@FXML
+	private Button rouge; //utiliser pour la fermeture de la fenêtre
 	
 	/**
      * Initialise les informations nécessaires pour la gestion des couleurs.
@@ -92,6 +97,7 @@ public class ControleurPopup {
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == oui) {
+        	rouge.getScene().getWindow().hide();
             if ("buttonCouleur1".equals(idButton)) {
                 appliquerCouleurJoueur1(couleur);
             } else if ("buttonCouleur2".equals(idButton)) {
