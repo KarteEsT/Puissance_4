@@ -13,6 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
+import iut.info1.application.utils.CouleursGlobales;
+
 /**
  * Contrôleur de la vue "menuPrincipal"
  * 
@@ -30,7 +32,7 @@ public class ControleurMenuPrincipal {
     /** Bouton pour aller dans le Menu Ordinateur */
     @FXML
     private Button ButtonOrdinateur;
-
+    
     /**
      * Pour aller dans le Menu Multijoueur
      */

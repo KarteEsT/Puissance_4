@@ -15,6 +15,8 @@ import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
+import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.utils.NomsGlobals;
 
 /**
  * Classe principale de l'application Puissance 4. Cette classe gère les
@@ -170,6 +172,8 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreMulti() {
         fenetreMenu.setScene(sceneMulti);
+        redistribuerCouleurs();
+        redistribuerNoms();
     }
 
     /**
@@ -177,6 +181,8 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreOrdi() {
         fenetreMenu.setScene(sceneOrdi);
+        redistribuerCouleurs();
+        redistribuerNoms();
     }
 
     /**
@@ -206,10 +212,10 @@ public class VueJeu extends Application {
      * @param le nom du joueur1 à transmettre
      * @param le nom du joueur2 à transmettre
      */
-    public static void activerFenetreJeu(String nomJoueur1, String nomJoueur2,
-    									 String couleur1, String couleur2) {
+    public static void activerFenetreJeu() {
         fenetreMenu.setScene(sceneJeu);
-        controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2); // Mise à jour des labels
+        redistribuerNoms();
+        redistribuerCouleurs();
         
     }
 
@@ -284,14 +290,30 @@ public class VueJeu extends Application {
     public static void mettreAJourCouleurJoueur1(String couleur1) {
         controleurMulti.mettreAJourCouleur(couleur1, null);
         controleurOrdi.mettreAJourCouleur(couleur1, null);
-        controleurJeu.mettreAJourCouleur(couleur1, null);
     }
 
     public static void mettreAJourCouleurJoueur2(String couleur2) {
         controleurMulti.mettreAJourCouleur(null, couleur2);
         controleurOrdi.mettreAJourCouleur(null, couleur2);
-        controleurJeu.mettreAJourCouleur(null, couleur2);
     }
+    
+    public static void redistribuerCouleurs() {
+        String couleur1 = CouleursGlobales.getCouleurJoueur1();
+        String couleur2 = CouleursGlobales.getCouleurJoueur2();
+
+        controleurMulti.mettreAJourCouleur(couleur1, couleur2);
+        controleurOrdi.mettreAJourCouleur(couleur1, couleur2);
+        controleurJeu.mettreAJourCouleur(couleur1, couleur2);
+    }
+    
+	public static void redistribuerNoms() {
+		String nomJoueur1 = NomsGlobals.getNomJoueur1();
+		String nomJoueur2 = NomsGlobals.getNomJoueur2();
+
+		controleurMulti.mettreAJourLabels(nomJoueur1, nomJoueur2);
+		controleurOrdi.mettreAJourLabels(nomJoueur1, nomJoueur2);
+		controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2);
+	}
     
     /**
      * Point d'entrée de l'application JavaFX.

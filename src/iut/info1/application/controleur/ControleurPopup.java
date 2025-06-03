@@ -11,6 +11,7 @@ import javafx.scene.control.ButtonType;
 import java.util.Optional;
 
 import iut.info1.application.VueJeu;
+import iut.info1.application.utils.CouleursGlobales;
 
 /**
  * Contrôleur de la vue "couleurPopup"
@@ -101,11 +102,13 @@ public class ControleurPopup {
     
     @FXML
     private void appliquerCouleurJoueur1(String couleur) {
-        VueJeu.mettreAJourCouleurJoueur1(couleur); 
+        CouleursGlobales.setCouleurJoueur1(couleur);
+        VueJeu.mettreAJourCouleurJoueur1(couleur);
     }
 
     @FXML
     private void appliquerCouleurJoueur2(String couleur) {
-        VueJeu.mettreAJourCouleurJoueur2(couleur); 
+        CouleursGlobales.setCouleurJoueur2(couleur);
+        VueJeu.mettreAJourCouleurJoueur2(couleur);
     }
 }

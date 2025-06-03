@@ -30,7 +30,7 @@
          <font>
             <Font size="60.0" />
          </font></Button>
-      <TextField fx:id="nomJoueur1" maxWidth="400.0" prefHeight="150.0" prefWidth="400.0" promptText="JOUEUR 1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <TextField fx:id="nomJoueur1" maxWidth="400.0" onKeyTyped="#gererToucheNomJoueur1" prefHeight="150.0" prefWidth="400.0" promptText="JOUEUR 1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
@@ -38,7 +38,7 @@
             <Font size="60.0" />
          </font>
       </TextField>
-      <TextField fx:id="nomJoueur2" alignment="CENTER_RIGHT" maxWidth="400.0" prefHeight="150.0" prefWidth="400.0" promptText="JOUEUR 2" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <TextField fx:id="nomJoueur2" alignment="CENTER_RIGHT" maxWidth="400.0" onKeyTyped="#gererToucheNomJoueur2" prefHeight="150.0" prefWidth="400.0" promptText="JOUEUR 2" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>

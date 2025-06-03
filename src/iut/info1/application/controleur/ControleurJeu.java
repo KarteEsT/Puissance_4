@@ -18,6 +18,9 @@ import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
 import javafx.scene.control.ButtonType;
 
+import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.CouleursGlobales;
+
 /**
  * Contrôleur de la vue "fenetreJeu"
  * 
@@ -54,10 +57,12 @@ public class ControleurJeu {
         matriceCercle[5] = new Circle[] { F6, F5, F4, F3, F2, F1 };
         matriceCercle[6] = new Circle[] { G6, G5, G4, G3, G2, G1 };
         
+        couleurJoueur1 = CouleursGlobales.getCouleurJoueur1();
+        couleurJoueur2 = CouleursGlobales.getCouleurJoueur2();
         mettreAJourCouleur(couleurJoueur1, couleurJoueur2);
         configurerPrevisualisation();
     }
-
+    
     /*
      * Méthode pour mettre à jour la grille visuelle
      */

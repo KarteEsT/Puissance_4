@@ -5,6 +5,8 @@
 package iut.info1.application.controleur;
 
 import iut.info1.application.VueJeu;
+import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.utils.NomsGlobals;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -40,6 +42,12 @@ public class ControleurMultijoueur {
 
     @FXML
     private TextField nomJoueur2;
+    
+    public void initialize() {
+        String couleur1 = CouleursGlobales.getCouleurJoueur1();
+        String couleur2 = CouleursGlobales.getCouleurJoueur2();
+        mettreAJourCouleur(couleur1, couleur2);
+    }
 
     /**
      * Permet de retourner au Menu principal
@@ -82,6 +90,13 @@ public class ControleurMultijoueur {
                                                 : nomJoueur1.getText();
         joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
                                                 : nomJoueur2.getText();
+        
+        if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
+            NomsGlobals.setNomJoueur1("JOUEUR 1");
+        }
+        if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
+            NomsGlobals.setNomJoueur2("JOUEUR 2");
+        }
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -93,13 +108,32 @@ public class ControleurMultijoueur {
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2, 
-                                            couleur1, couleur2);
+                    VueJeu.activerFenetreJeu();
                 }
             });
         } else {
-            VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
+            VueJeu.activerFenetreJeu();
         }
+    }
+    
+    @FXML
+    public void gererToucheNomJoueur1() {
+        NomsGlobals.setNomJoueur1(nomJoueur1.getText());
+    }
+
+    @FXML
+    public void gererToucheNomJoueur2() {
+        NomsGlobals.setNomJoueur2(nomJoueur2.getText());
+    }
+    
+    /**
+     * Méthode pour mettre à jour les labels des joueurs
+     * @param nomJoueur1 nom du joueur 1
+     * @param nomJoueur2 nom du joueur 2
+     */
+    public void mettreAJourLabels(String joueur1, String joueur2) {
+    	nomJoueur1.setText(joueur1);;
+    	nomJoueur2.setText(joueur2);
     }
     
     /**
@@ -109,6 +143,7 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
+    	
         if (couleur1 != null) {
             buttonCouleur1.setStyle("-fx-background-color: " + couleur1 + ";");
         }
