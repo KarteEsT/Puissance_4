@@ -1,3 +1,4 @@
+
 /*
  * ControleurJeu.java                                              16 mai 2025
  * IUT de Rodez, Info 1 2024 - 2025 TP2, pas de copyright
@@ -8,9 +9,8 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
-
 import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
 
@@ -23,33 +23,48 @@ import iut.info1.application.Joueur;
  * @author Esteban Roveri
  */
 public class ControleurJeu {
-	
+
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
     @FXML private Label joueur2;
-    
+
     private Grille grille;
-    
+
     private String couleurJoueur1 = "red";
     private String couleurJoueur2 = "yellow";
-    
-    @FXML
+
     public void initialize() {
-    	Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1 );
-    	Joueur j2 = new Joueur(2, "Joueur", couleurJoueur2 );
-    	
-    	grille = new Grille(6, 7, j1, j2);
+        Joueur j1 = new Joueur(1, "Joueur", couleurJoueur1);
+        Joueur j2 = new Joueur(2, "Joueur", couleurJoueur2);
+
+        grille = new Grille(6, 7, j1, j2);
+
+        matriceCercle[0] = new Circle[] { A6, A5, A4, A3, A2, A1 }; 
+        matriceCercle[1] = new Circle[] { B6, B5, B4, B3, B2, B1 };
+        matriceCercle[2] = new Circle[] { C6, C5, C4, C3, C2, C1 };
+        matriceCercle[3] = new Circle[] { D6, D5, D4, D3, D2, D1 };
+        matriceCercle[4] = new Circle[] { E6, E5, E4, E3, E2, E1 };
+        matriceCercle[5] = new Circle[] { F6, F5, F4, F3, F2, F1 };
+        matriceCercle[6] = new Circle[] { G6, G5, G4, G3, G2, G1 };
     }
-   
-    
+
+    private void mettreAJourGrille(int ligne, int colonne) {
+        Circle cercle = matriceCercle[colonne][ligne];
+        int joueurId = grille.getMatrice()[ligne][colonne];
+
+        String couleur = (joueurId == 1) ? couleurJoueur1 : couleurJoueur2;
+        cercle.setFill(javafx.scene.paint.Color.web(couleur));
+    }
+
+
     public void mettreAJourLabels(String nomJoueur1, String nomJoueur2) {
-    	joueur1.setText(nomJoueur1);
-    	joueur2.setText(nomJoueur2);
+        joueur1.setText(nomJoueur1);
+        joueur2.setText(nomJoueur2);
     }
-    
+
     @FXML
     private ProgressBar progressBar1;
-    
+
     @FXML
     private ProgressBar progressBar2;
 
@@ -108,62 +123,104 @@ public class ControleurJeu {
     @FXML private Circle G4;
     @FXML private Circle G5;
     @FXML private Circle G6;
-    
+
     /* Matrice des cercles */
     @FXML private Circle[][] matriceCercle = new Circle[7][6];
-    {
-		matriceCercle[0] = new Circle[] { A1, A2, A3, A4, A5, A6 };
-		matriceCercle[1] = new Circle[] { B1, B2, B3, B4, B5, B6 };
-		matriceCercle[2] = new Circle[] { C1, C2, C3, C4, C5, C6 };
-		matriceCercle[3] = new Circle[] { D1, D2, D3, D4, D5, D6 };
-		matriceCercle[4] = new Circle[] { E1, E2, E3, E4, E5, E6 };
-		matriceCercle[5] = new Circle[] { F1, F2, F3, F4, F5, F6 };
-		matriceCercle[6] = new Circle[] { G1, G2, G3, G4, G5, G6 };
-	}
+    
+    
 
     /* Boutons pour jouer dans une colonne */
-    
+
     @FXML
     public void activerColonne1() {
-    	grille.poserPion(0);
+        int ligne = grille.poserPion(0);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 0);
+            verifierFinDePartie();
+        }
     }
-    
+
     @FXML
-	public void activerColonne2() {
-    	grille.poserPion(1);
-	}
-    
+    public void activerColonne2() {
+        int ligne = grille.poserPion(1);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 1); 
+            verifierFinDePartie();
+        }
+    }
+
     @FXML
     public void activerColonne3() {
-    	grille.poserPion(2);
+        int ligne = grille.poserPion(2);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 2);
+            verifierFinDePartie();
+        }
     }
-    
+
     @FXML
-	public void activerColonne4() {
-    	grille.poserPion(3);
-	}
-    
+    public void activerColonne4() {
+        int ligne = grille.poserPion(3);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 3);
+            verifierFinDePartie();
+        }
+    }
+
     @FXML
-	public void activerColonne5() {
-    	grille.poserPion(4);
-	}
-    
+    public void activerColonne5() {
+        int ligne = grille.poserPion(4);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 4);
+            verifierFinDePartie();
+        }
+    }
+
     @FXML
-	public void activerColonne6() {
-    	grille.poserPion(5);
-	}
-    
+    public void activerColonne6() {
+        int ligne = grille.poserPion(5);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 5);
+            verifierFinDePartie();
+        }
+    }
+
     @FXML
-	public void activerColonne7() {
-    	grille.poserPion(6);
-	}
-    
+    public void activerColonne7() {
+        int ligne = grille.poserPion(6);
+        if (ligne != -1) {
+            mettreAJourGrille(ligne, 6);
+            verifierFinDePartie();
+        }
+    }
+
+    private void verifierFinDePartie() {
+    	System.out.println(grille.getCompteTour());
+        if (grille.verifierVictoire()) {
+            int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
+            String nomGagnant = (gagnant == 1) ? grille.getJ1().getNom() : grille.getJ2().getNom();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Partie terminée !");
+            alert.setHeaderText("Victoire !");
+            alert.setContentText(nomGagnant + " a gagné !");
+            alert.showAndWait();
+            // Optionnel : désactiver les boutons ou relancer
+        } else if (grille.isGrilleRemplie()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Égalité !");
+            alert.setHeaderText(null);
+            alert.setContentText("La grille est pleine. Match nul !");
+            alert.showAndWait();
+        }
+    }
+
     /**
      * Méthode appelée lors du clic sur le bouton "Options"
      * pour ouvrir les options du jeu.
      */
     @FXML
     public void gererClicOption() {
-    	VueJeu.activerFenetreOption();
+        VueJeu.activerFenetreOption();
     }
 }

@@ -113,28 +113,26 @@ public class Grille {
     /**
      * On va remonter la matrice en partant du bas de la colonne
      * afin de chercher une place libre, si on la trouve on pose le pion
-     * sinon on renvoie false (le joueur doit rejouer sur une colonne libre)
-     * @param colonneJouee 
-     * @return true si le pion a pu être posé
-     *         false sinon
-     * @throws ArrayIndexOutOfBoundsException
+     * sinon on -1 false (le joueur doit rejouer sur une colonne libre)
+     * @param colonneJouee
+     * @return la ligne où le pion a été posé, ou -1 si la colonne est pleine
      */
-    public boolean poserPion(int colonneJouee) {
-        if (colonneJouee < 0 || colonneJouee >= getColonne()) {
-            throw new ArrayIndexOutOfBoundsException("Colonne invalide");
-        }
-        
-        int[][] mat = matrice;
-        
-        for (int IndiceLigne = getLigne()-1; IndiceLigne >= 0; IndiceLigne--) {
-            if (mat[IndiceLigne][colonneJouee] == 0 ) {
-                mat[IndiceLigne][colonneJouee] = (compteTour %2) +1;
-                compteTour++;
-                return true;
-            }
-        }
-        return false;
+    public int poserPion(int colonneJouee) {
+    	if (colonneJouee < 0 || colonneJouee >= getColonne()) {
+    		throw new ArrayIndexOutOfBoundsException("Colonne invalide");
+    	}
+
+    	for (int ligne = getLigne() - 1; ligne >= 0; ligne--) {
+    		if (matrice[ligne][colonneJouee] == 0) {
+    			matrice[ligne][colonneJouee] = (compteTour % 2) + 1;
+    			compteTour++;
+    			return ligne;
+    		}
+    	}
+
+    	return -1; // Colonne pleine
     }
+
     
     
     /**

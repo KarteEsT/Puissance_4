@@ -131,7 +131,7 @@ class TestGrille {
         
         grille.poserPion(3);
         
-        assertTrue(grille.poserPion(3));
+        assertTrue(grille.poserPion(3)!=-1);
         
         int[][] matrice = grille.getMatrice();
         assertEquals(1, matrice[5][3]); // Vérifie que le pion est posé à la bonne position
@@ -159,7 +159,7 @@ class TestGrille {
             grille.poserPion(3); 
             
         }
-        assertFalse(grille.poserPion(3));
+        assertFalse(grille.poserPion(3)!=-1);
     }
     
     /**

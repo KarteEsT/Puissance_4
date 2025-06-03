@@ -84,7 +84,7 @@ public class Main {
 			} else {
 				int colonne = entree.nextInt();
 				try {
-					if (!grille.poserPion(colonne-1)) {
+					if (grille.poserPion(colonne-1)==-1) {
 						System.out.println("Colonne pleine, veuillez en choisir une autre.");
 						continue;
 					};
