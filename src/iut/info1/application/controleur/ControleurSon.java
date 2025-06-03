@@ -18,7 +18,7 @@ import iut.info1.application.VueJeu;
 public class ControleurSon {
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre des options de jeu
      */
     @FXML
     public void gererClicRetourMenu() {

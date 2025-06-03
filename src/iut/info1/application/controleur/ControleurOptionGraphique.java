@@ -1,5 +1,5 @@
 /*
- * ControleurOptionGraphique.java                                                       19 mai 2025
+ * ControleurOptionGraphique.java                                   19 mai 2025
  * IUT de Rodez, Info 1 2024 - 2025 TP2, pas de copyright
  */
 package iut.info1.application.controleur;
@@ -17,7 +17,7 @@ import javafx.fxml.FXML;
 public class ControleurOptionGraphique {
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Méthode appelée lors du clic sur le bouton "Retour au menu"
      */
     @FXML
     public void gererClicRetourMenu() {

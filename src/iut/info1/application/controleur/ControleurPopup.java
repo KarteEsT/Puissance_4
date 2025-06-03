@@ -90,7 +90,9 @@ public class ControleurPopup {
     
     private void ouvrirConfirmation(String couleur) {
         Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
-            "Êtes-vous sûr de vouloir changer la couleur de " + joueurLabel.getText() + " ?", ButtonType.YES, ButtonType.NO);
+        					"Êtes-vous sûr de vouloir changer la couleur de " + 
+        					joueurLabel.getText() + 
+        					" ?", ButtonType.YES, ButtonType.NO);
         boiteAlerte.setTitle("Confirmation");
         Optional<ButtonType> option = boiteAlerte.showAndWait();
         if (option.isPresent() && option.get() == ButtonType.YES) {
@@ -104,11 +106,11 @@ public class ControleurPopup {
     
     @FXML
     private void appliquerCouleurJoueur1(String couleur) {
-        VueJeu.mettreAJourCouleurJoueur1(couleur); // Met à jour la couleur du joueur 1
+        VueJeu.mettreAJourCouleurJoueur1(couleur); 
     }
 
     @FXML
     private void appliquerCouleurJoueur2(String couleur) {
-        VueJeu.mettreAJourCouleurJoueur2(couleur); // Met à jour la couleur du joueur 2
+        VueJeu.mettreAJourCouleurJoueur2(couleur); 
     }
 }

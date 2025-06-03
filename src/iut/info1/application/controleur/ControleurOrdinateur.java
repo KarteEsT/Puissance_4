@@ -42,7 +42,7 @@ public class ControleurOrdinateur {
     private Button buttonCouleur2;
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre de menu
      */
     @FXML
     public void gererClicRetourMenu() {
@@ -50,7 +50,8 @@ public class ControleurOrdinateur {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre de sélection du chrono 
+     * pour le lancement de l'ordinateur.
      */
     @FXML
     public void gererClicChrono() {
@@ -58,7 +59,7 @@ public class ControleurOrdinateur {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre de sélection de couleur pour le joueur 1.
      */
     @FXML
     public void gererClicCouleurJoueur1() {
@@ -66,7 +67,7 @@ public class ControleurOrdinateur {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre de sélection de couleur pour le joueur 2.
      */
     @FXML
     public void gererClicCouleurJoueur2() {
@@ -78,18 +79,23 @@ public class ControleurOrdinateur {
      */
     @FXML
     public void gererClicLancer() {
-        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" : nomJoueur1.getText();
-        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" : nomJoueur2.getText();
+        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
+        									     : nomJoueur1.getText();
+        joueur2 = nomJoueur2.getText().isEmpty() ? "JOUEUR 2" 
+        										 : nomJoueur2.getText();
 
         if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Champs vides");
             alert.setHeaderText("Un ou plusieurs champs sont vides.");
-            alert.setContentText("Les noms par défaut seront utilisés : " + joueur1 + " et " + joueur2 + ". Voulez-vous continuer ?");
+            alert.setContentText("Les noms par défaut seront utilisés : " + 
+            					 joueur1 + " et " + joueur2 
+            					 + ". Voulez-vous continuer ?");
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == javafx.scene.control.ButtonType.OK) {
-                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1, couleur2);
+                    VueJeu.activerFenetreJeu(joueur1, joueur2, couleur1,
+                    									   	   couleur2);
                 }
             });
         } else {

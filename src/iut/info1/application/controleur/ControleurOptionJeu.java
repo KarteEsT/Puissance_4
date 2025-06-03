@@ -17,7 +17,7 @@ import javafx.fxml.FXML;
 public class ControleurOptionJeu {
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre des options graphiques
      */
     @FXML
     public void gererClicRetourOption() {
@@ -25,7 +25,7 @@ public class ControleurOptionJeu {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre des options de jeu
      */
     @FXML
     public void gererClicChronometre() {
@@ -33,7 +33,7 @@ public class ControleurOptionJeu {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre des options de son
      */
     @FXML
     public void gererClicSon() {
@@ -41,11 +41,13 @@ public class ControleurOptionJeu {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active la fenêtre d'aide
      */
     @FXML
     public void gererAide() {
-        //TODO Permet d'activer et de désactiver l'aide avec une fenêtre pop-up
+        //TODO Permet d'activer et de désactiver l'aide
+    	//avec une fenêtre pop-up
+    	//TODO a faire
     }
 
 }

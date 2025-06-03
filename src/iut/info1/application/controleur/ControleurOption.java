@@ -23,7 +23,7 @@ import javafx.scene.control.ButtonType;
 public class ControleurOption {
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * active la fenêtre des options graphiques
      */
     @FXML
     public void gererClicOptionGraphique() {
@@ -31,7 +31,7 @@ public class ControleurOption {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * active la fenêtre des options de jeu
      */
     @FXML
     public void gererClicOptionJeu() {
@@ -39,7 +39,7 @@ public class ControleurOption {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * 
      */
     @FXML
     public void gererClicReprendre() {
@@ -47,7 +47,8 @@ public class ControleurOption {
     }
 
     /**
-     * TODO commenter le rôle de cette méthode (SRP)
+     * Active une boite d'alerte de confirmation pour quitter le jeu.
+     * Si l'utilisateur confirme, le programme se ferme.
      */
     @FXML
     public void gererClicQuitter() {
