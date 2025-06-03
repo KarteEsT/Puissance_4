@@ -236,6 +236,18 @@ public class Grille {
                verifierVictoireDiagonaleDescendante();
     }
     
+    /**
+     * méthode pour réinitialiser la grille
+     */
+    public void reinitialiserGrille() {
+    	for (int i = 0; i < matrice.length; i++) {
+            for (int j = 0; j < matrice[i].length; j++) {
+                matrice[i][j] = 0;
+            }
+        }
+        compteTour = 0;
+    }
+    
 
     /* non javadoc - @see java.lang.Object#toString() */
     @Override
