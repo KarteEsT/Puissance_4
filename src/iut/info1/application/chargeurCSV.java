@@ -30,7 +30,9 @@ public class chargeurCSV {
      * @return la grille chargée
      */
 	public static Grille chargerGrille(String nomFichier, String emplacement) {
-	    try (BufferedReader reader = new BufferedReader(new FileReader(emplacement + File.separator + nomFichier))) {
+	    try (BufferedReader reader = 
+	                new BufferedReader(new FileReader(emplacement + 
+	                File.separator + nomFichier))) {
 	        // Lire les noms des joueurs
 	        String nomJoueur1 = reader.readLine();
 	        String nomJoueur2 = reader.readLine();
@@ -51,7 +53,6 @@ public class chargeurCSV {
 	            int[] ligneMatrice = new int[valeurs.length];
 	            for (int i = 0; i < valeurs.length; i++) {
 	                ligneMatrice[i] = Integer.parseInt(valeurs[i]);
-	                // Mettre à jour la couleur dans l'interface graphique
 	            }
 	            matrice.add(ligneMatrice);
 	        }
@@ -71,6 +72,9 @@ public class chargeurCSV {
 	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
 	        }
 	        grille.setCompteTour(compteTour);
+
+	        // Mettre à jour l'instance globale de la grille
+	        Grille.setInstance(grille);
 
 	        return grille;
 	    } catch (IOException e) {
