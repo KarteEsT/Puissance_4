@@ -130,6 +130,11 @@ public class ControleurJeu {
     private int tempsEcouleGlobal = 0;
     /* Chronomètre global pour la partie */
     private Timeline chronoGlobalTimeline;
+    
+    /* Progression du joueur 1 au niveau du temps */
+    private double progressionJoueur1 = 1.0;
+    /* Progression du joueur 2 au niveau du temps */
+    private double progressionJoueur2 = 1.0;
 
     /**
      * Méthode pour initialiser le jeu avec les joueurs et la grille
@@ -240,7 +245,7 @@ public class ControleurJeu {
                 progressionActuelle = progressBar.getProgress();
                 if (progressionActuelle > 0) {
                     progressBar.setProgress(progressionActuelle - decrement);
-                } else if (progressionActuelle == 0) {
+                } else if (progressionActuelle <= 0) {
                     // Si la barre est vide, afficher une alerte
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -266,12 +271,7 @@ public class ControleurJeu {
                         }
                     });
                     timeline.stop(); // Arrêter la timeline
-                    } else if (progressionActuelle < 0) {
-                        progressBar1.setVisible(false);
-                        progressBar1.setManaged(false);
-                        progressBar2.setVisible(false);
-                        progressBar2.setManaged(false);
-                    }
+                }
             })
         );
 
@@ -605,6 +605,7 @@ public class ControleurJeu {
      */
     @FXML
     public void gererClicOption() {
+        mettreEnPauseChronos();
         VueJeu.activerFenetreOption();
     }
 
@@ -648,7 +649,7 @@ public class ControleurJeu {
      * réinitialiser la barre de progression
      */
     public void changementChrono() {
-        // Arrêter les deux chronos s'ils existent
+     // Arrêter les deux chronos s'ils existent
         if (chronoJoueur1 != null) {
             chronoJoueur1.stop();
             chronoJoueur1 = null;
@@ -662,11 +663,13 @@ public class ControleurJeu {
         progressBar1.setProgress(1.0);
         progressBar2.setProgress(1.0);
 
-        // Démarrer le chrono du joueur courant
-        if (grille.getCompteTour() % 2 == 0) {
-            chronoJoueur1 = demarrerBarreDeProgression(progressBar1);
-        } else {
-            chronoJoueur2 = demarrerBarreDeProgression(progressBar2);
+        // Démarrer le chrono uniquement si un pion a été posé
+        if (grille.getCompteTour() > 0) {
+            if (grille.getCompteTour() % 2 == 0) {
+                chronoJoueur1 = demarrerBarreDeProgression(progressBar1);
+            } else {
+                chronoJoueur2 = demarrerBarreDeProgression(progressBar2);
+            }
         }
     }
     
@@ -789,6 +792,58 @@ public class ControleurJeu {
     public void arreterChronoGlobal() {
         if (chronoGlobalTimeline != null) {
             chronoGlobalTimeline.stop();
+        }
+    }
+    
+    /**
+     * Met en pause tous les chronomètres de la partie.
+     */
+    public void mettreEnPauseChronos() {
+        // Sauvegarder l'état actuel des barres de progression
+        if (progressBar1 != null) {
+            progressionJoueur1 = progressBar1.getProgress();
+        }
+        if (progressBar2 != null) {
+            progressionJoueur2 = progressBar2.getProgress();
+        }
+
+        // Mettre en pause les chronomètres des joueurs
+        if (chronoJoueur1 != null) {
+            chronoJoueur1.pause();
+        }
+        if (chronoJoueur2 != null) {
+            chronoJoueur2.pause();
+        }
+
+        // Mettre en pause le chronomètre global
+        if (chronoGlobalTimeline != null) {
+            chronoGlobalTimeline.pause();
+        }
+    }
+    
+    /**
+     * Reprendre les chronomètres de la partie après une pause.
+     */
+    public void reprendreChronos() {
+        // Restaurer l'état des barres de progression
+        if (progressBar1 != null) {
+            progressBar1.setProgress(progressionJoueur1);
+        }
+        if (progressBar2 != null) {
+            progressBar2.setProgress(progressionJoueur2);
+        }
+
+        // Reprendre les chronomètres des joueurs
+        if (chronoJoueur1 != null) {
+            chronoJoueur1.play();
+        }
+        if (chronoJoueur2 != null) {
+            chronoJoueur2.play();
+        }
+
+        // Reprendre le chronomètre global
+        if (chronoGlobalTimeline != null) {
+            chronoGlobalTimeline.play();
         }
     }
     

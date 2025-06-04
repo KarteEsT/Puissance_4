@@ -264,6 +264,7 @@ public class VueJeu extends Application {
         redistribuerCompteTour();
         distribuerBooleanChoroGlobal();
         DistribuerBooleanAide();
+        controleurJeu.reprendreChronos();
     }
     
     /**
@@ -289,6 +290,7 @@ public class VueJeu extends Application {
      * Permet d'activer la fenêtre des options du jeu.
      */
     public static void activerFenetreOptionJeu() {
+        controleurJeu.mettreEnPauseChronos();
         fenetreMenu.setScene(sceneOptionJeu);
     }
 

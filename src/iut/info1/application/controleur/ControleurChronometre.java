@@ -81,11 +81,10 @@ public class ControleurChronometre {
         
         ControleurJeu controleurJeu = VueJeu.getControleurJeu();
         
-        int duree;
+        int duree = 0;
         switch (tempsSelectionne) {
             case DESACTIVER:
                 desactiverChronometre(controleurJeu);
-                duree = 0;
                 break;
             case CINQ_MIN:
                 activerChronometre(controleurJeu, DUREE_5_MINUTES);
@@ -109,7 +108,6 @@ public class ControleurChronometre {
                 break;
             default:
                 desactiverChronometre(controleurJeu);
-                duree = 0;
         }
         ChronosGlobales.setTempsChrono(duree);
     }
