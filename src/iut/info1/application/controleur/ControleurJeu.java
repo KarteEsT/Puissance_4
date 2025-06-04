@@ -35,6 +35,9 @@ import iut.info1.application.utils.CouleursGlobales;
  */
 public class ControleurJeu {
 
+	/* Boolean de l'aide au joueur */
+	private boolean aideJoueur;
+	
 	/* Chronomètre Global */
 	@FXML private Label chronoGlobal;
 	
@@ -272,6 +275,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 0);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
 
@@ -285,6 +291,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 1); 
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
 
@@ -298,6 +307,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 2);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
 
@@ -311,6 +323,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 3);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
 
@@ -324,6 +339,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 4);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
     
@@ -337,6 +355,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 5);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
 
@@ -350,6 +371,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 6);
             verifierFinDePartie();
             changementChrono();
+            if (aideJoueur) {
+            	mettreAJourPionAide();
+            }
         }
     }
     
@@ -449,8 +473,8 @@ public class ControleurJeu {
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
                         cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.TRANSPARENT);
-                        cercle.setStroke(null);
+                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
+                        cercle.setStrokeWidth(1);
                     }
                 }
                 
@@ -513,6 +537,21 @@ public class ControleurJeu {
                 }
             }
             if (option.get() == menuPrincipal) {
+            	grille.reinitialiserGrille();
+                jetonsAlignes.clear();
+                
+                for (Circle[] colonne : matriceCercle) {
+                    for (Circle cercle : colonne) {
+                        cercle.setFill(javafx.scene.paint.Color.web("white"));
+                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
+                        cercle.setStrokeWidth(1);
+                    }
+                }
+                
+                
+                // Relancer le chrono pour le joueur 1 (début de partie)
+                changementChrono();
+
                 VueJeu.activerFenetreMenu();
             }
             if (option.get() == quitter) {
@@ -643,13 +682,32 @@ public class ControleurJeu {
      */
     public void mettreAJourChronoGlobal(boolean booleanChrono) {
     	chronoGlobal.setVisible(booleanChrono);
-    	
-    	if (booleanChrono == true) {
-    		System.out.println("Chrono activer");
-    	} else if ( booleanChrono == false) {
-    		System.out.println("Chrono désactiver");
-    	}
     }
+    
+    /**
+     * Met à jour la matrice avec le pion d'aide
+     */
+    public void mettreAJourPionAide() {
+
+    	int[] coordonneesAide = grille.aideVerifierVictoire();
+        if (coordonneesAide != null) {
+	        int ligne = coordonneesAide[0];
+	        int colonne = coordonneesAide[1];
+	        Circle cercleAide = matriceCercle[colonne][ligne];
+	        cercleAide.setStroke(javafx.scene.paint.Color.web("white"));
+            cercleAide.setStrokeWidth(3);
+        } else {
+        	for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
+                for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
+                    if (grille.getMatrice()[ligne][colonne] == 0) {
+                        matriceCercle[colonne][ligne].setStroke(javafx.scene.paint.Color.web("black"));
+                        matriceCercle[colonne][ligne].setStrokeWidth(1);
+                    }
+                }
+            }
+        }
+    }
+    
     
     /**
      * Méthode pour visualisé les pions de la méthode Aide
@@ -657,14 +715,7 @@ public class ControleurJeu {
      * désactive l'aide au joueur
      */
     public void mettreAJourAide(boolean aideJoueur) {
-    	if (aideJoueur == true) {
-    		System.out.println("Aide activer");
-    	} else if ( aideJoueur == false) {
-    		System.out.println("Aide désactiver");
-    	}
-    	
-    	//TODO
-    	
+    	this.aideJoueur = aideJoueur;
     }
     
 }

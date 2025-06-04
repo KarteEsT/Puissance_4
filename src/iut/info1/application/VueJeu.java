@@ -226,6 +226,18 @@ public class VueJeu extends Application {
         distribuerBooleanChoroGlobal();
         DistribuerBooleanAide();
     }
+    
+    /**
+     * Permet d'activer la fenêtre du jeu sans re mettre la matrice
+     * et le compte tour
+     */
+    public static void activerFenetreJeuSansMatrice() {
+    	fenetreMenu.setScene(sceneJeu);
+        redistribuerNoms();
+        redistribuerCouleurs();
+        distribuerBooleanChoroGlobal();
+        DistribuerBooleanAide();
+    }
 
     /**
      * Permet d'activer la fenêtre des options générales du jeu.
@@ -246,13 +258,6 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreSon() {
         fenetreMenu.setScene(sceneSon);
-    }
-
-    /**
-     * Permet d'activer la fenêtre de jeu sans refaire les couleurs
-     */
-    public static void activerFenetreJeuSansModification() {
-        fenetreMenu.setScene(sceneJeu);
     }
 
     /**

@@ -43,7 +43,8 @@ public class ControleurOption {
      */
     @FXML
     public void gererClicReprendre() {
-    	VueJeu.activerFenetreJeuSansModification();    }
+    	VueJeu.activerFenetreJeuSansMatrice();    
+    }
 
     /**
      * Active une boite d'alerte de confirmation pour quitter le jeu.
