@@ -17,6 +17,7 @@ import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.utils.GrilleGlobales;
 import iut.info1.application.controleur.ControleurRegles;
 import iut.info1.application.utils.NomsGlobals;
 
@@ -223,7 +224,7 @@ public class VueJeu extends Application {
         fenetreMenu.setScene(sceneJeu);
         redistribuerNoms();
         redistribuerCouleurs();
-        
+        redistribuerMatrice();
     }
 
     /**
@@ -382,6 +383,15 @@ public class VueJeu extends Application {
 		controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2);
 	}
     
+	/**
+	 * Redistribue la matrice de jeu à tous les contrôleurs.
+	 */
+	public static void redistribuerMatrice() {
+	    int[][] matrice = GrilleGlobales.getMatrice();
+	    controleurJeu.mettreAJourMatrice(matrice);
+	}
+
+	
     /**
      * Point d'entrée de l'application JavaFX.
      * @param args non utilisé

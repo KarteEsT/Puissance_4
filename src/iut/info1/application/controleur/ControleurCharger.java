@@ -4,7 +4,7 @@
  */
 package iut.info1.application.controleur;
 
-import iut.info1.application.chargeurCSV;
+import iut.info1.application.ChargeurCSV;
 import iut.info1.application.Grille;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -40,7 +40,7 @@ public class ControleurCharger {
 	    try {
 
 	        // Charger la grille depuis le fichier CSV
-	        Grille grille = chargeurCSV.chargerGrille(nom, emplacement);
+	        Grille grille = ChargeurCSV.chargerGrille(nom, emplacement);
 
 	        if (grille == null) {
 	            throw new Exception("Le fichier CSV est invalide ou introuvable.");

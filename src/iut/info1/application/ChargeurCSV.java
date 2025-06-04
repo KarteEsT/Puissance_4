@@ -6,6 +6,7 @@ package iut.info1.application;
 
 import iut.info1.application.utils.NomsGlobals;
 import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.utils.GrilleGlobales;
 import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.Grille;
 
@@ -20,7 +21,7 @@ import java.util.List;
  * @author Mael Massicard
  * @author Esteban Roveri
  */
-public class chargeurCSV {
+public class ChargeurCSV {
 
 	/**
      * Charge une grille depuis un fichier CSV
@@ -72,6 +73,10 @@ public class chargeurCSV {
 	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
 	        }
 	        grille.setCompteTour(compteTour);
+	        
+
+	        GrilleGlobales.setMatrice(matriceFinale);
+	        GrilleGlobales.setCompteTour(compteTour);
 
 	        // Mettre à jour l'instance globale de la grille
 	        Grille.setInstance(grille);

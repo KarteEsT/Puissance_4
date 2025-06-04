@@ -128,7 +128,7 @@ public class Main {
             System.out.print("Entrez l'emplacement pour sauvegarder le fichier CSV : ");
             String emplacementSauvegarde = scanner.hasNextLine() ? scanner.nextLine() : "";
 
-            chargeurCSV.sauvegarderGrille(grilleTest, nomFichierSauvegarde, emplacementSauvegarde);
+            ChargeurCSV.sauvegarderGrille(grilleTest, nomFichierSauvegarde, emplacementSauvegarde);
 
             // Charger la grille
             System.out.print("Entrez le nom du fichier CSV pour charger la grille : ");
@@ -137,7 +137,7 @@ public class Main {
             System.out.print("Entrez l'emplacement pour charger le fichier CSV : ");
             String emplacementCharge = scanner.hasNextLine() ? scanner.nextLine() : "";
 
-            Grille grilleChargee = chargeurCSV.chargerGrille(nomFichierCharge, emplacementCharge);
+            Grille grilleChargee = ChargeurCSV.chargerGrille(nomFichierCharge, emplacementCharge);
 
             // Récupérer les noms et couleurs des joueurs depuis les classes globales
             String nomJoueur1 = NomsGlobals.getNomJoueur1();

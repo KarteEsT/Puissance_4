@@ -4,7 +4,7 @@
  */
 package iut.info1.application.controleur;
 
-import iut.info1.application.chargeurCSV;
+import iut.info1.application.ChargeurCSV;
 import iut.info1.application.Grille;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -48,7 +48,7 @@ public class ControleurSauvegarde {
 
 	    try {
 	        Grille grille = Grille.getInstance();
-	        chargeurCSV.sauvegarderGrille(grille, nom, emplacement);
+	        ChargeurCSV.sauvegarderGrille(grille, nom, emplacement);
 	        nomSauvegarde.getScene().getWindow().hide();
 	    } catch (Exception e) {
 	        Alert alert = new Alert(Alert.AlertType.ERROR);

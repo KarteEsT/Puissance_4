@@ -348,4 +348,15 @@ public class ControleurJeu {
     public void gererClicOption() {
         VueJeu.activerFenetreOption();
     }
+
+	public void mettreAJourMatrice(int[][] matrice) {
+		for (int i = 0; i < matrice.length; i++) {
+			for (int j = 0; j < matrice[i].length; j++) {
+				grille.getMatrice()[i][j] = matrice[i][j];
+				if (matrice[i][j] != 0) {
+					mettreAJourGrille(i, j);
+				}
+			}
+		}
+	}
 }
