@@ -8,7 +8,6 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.Pane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -61,26 +60,31 @@ public class ControleurChronometre {
                 break;
             case "5 min":
                 controleurJeu.setDureeTotale(300.0);
+                ChronosGlobales.setTempsChrono(300);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "2 min":
                 controleurJeu.setDureeTotale(120.0);
+                ChronosGlobales.setTempsChrono(120);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "1 min":
                 controleurJeu.setDureeTotale(60.0);
+                ChronosGlobales.setTempsChrono(60);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "30 sec":
                 controleurJeu.setDureeTotale(30.0);
+                ChronosGlobales.setTempsChrono(30);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "10 sec":
                 controleurJeu.setDureeTotale(10);
+                ChronosGlobales.setTempsChrono(10);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
@@ -122,18 +126,20 @@ public class ControleurChronometre {
         desactiverChronoGlobal.setDisable(false);
         desactiverChronoGlobal.setVisible(true);
         labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
+        ChronosGlobales.setChronoPartie(true);
     }
     
-        /**
-         * Désactiver le chronomètre de la partie
-         */
-        public void gererClicDesactiver() {
-                activerChronoGlobal.setDisable(false);
-                activerChronoGlobal.setVisible(true);
-                desactiverChronoGlobal.setDisable(true);
-                desactiverChronoGlobal.setVisible(false);
-                labelChronoGlobal.setText("Activer le choronomètre de la partie");
-        }
+    /**
+     * Désactiver le chronomètre de la partie
+     */
+    public void gererClicDesactiver() {
+        activerChronoGlobal.setDisable(false);
+        activerChronoGlobal.setVisible(true);
+        desactiverChronoGlobal.setDisable(true);
+        desactiverChronoGlobal.setVisible(false);
+        labelChronoGlobal.setText("Activer le choronomètre de la partie");
+        ChronosGlobales.setChronoPartie(false);
+    }
     
     /**
      * Permet de lancer la vue des règles

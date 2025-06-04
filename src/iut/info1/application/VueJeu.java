@@ -22,6 +22,7 @@ import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
 import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.ChronosGlobales;
 
 /**
  * Classe principale de l'application Puissance 4. Cette classe gère les
@@ -221,6 +222,7 @@ public class VueJeu extends Application {
         redistribuerCouleurs();
         redistribuerMatrice();
         redistribuerCompteTour();
+        distribuerBooleanChoroGlobal();
     }
 
     /**
@@ -417,6 +419,15 @@ public class VueJeu extends Application {
         controleurMulti.mettreAJourLabels(nomJoueur1, nomJoueur2);
         controleurOrdi.mettreAJourLabels(nomJoueur1, nomJoueur2);
         controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2);
+    }
+    
+    /**
+     * Distribue si l'utilisateur active ou désactive 
+     * le chronomètre global du jeu
+     */
+    public static void distribuerBooleanChoroGlobal() {
+    	boolean booleanChronoPartie = ChronosGlobales.getChronoPartie();
+    	controleurJeu.mettreAJourChronoGlobal(booleanChronoPartie);
     }
 
     /**

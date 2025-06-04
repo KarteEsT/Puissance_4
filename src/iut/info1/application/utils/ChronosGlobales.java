@@ -18,7 +18,31 @@ public class ChronosGlobales {
      * Temps du chronomètre, en secondes.
      */
     private static int tempsChrono;
+    
+    /**
+     * Boolean pour savoir si le chronomètre de la partie est activé ou non
+     */
+    private static boolean chronoPartie;
 
+    
+    /**
+     * Retourne le boolean du chronomètre de la partie
+     * @return chronoPartie le boolean du chronomètre de la partie
+     */
+    public static boolean getChronoPartie() {
+    	return chronoPartie;
+    }
+    
+    /**
+     * Définit le boolean du chronomètre de la partie
+     * @param booleanPartie le boolean du chronomètre de la partie
+     */
+    public static void setChronoPartie(boolean booleanPartie) {
+    	chronoPartie = booleanPartie;
+    }
+    
+    
+    
     /**
      * Retourne le temps du chronomètre
      * @return le temps du chronomètre

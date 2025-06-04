@@ -637,4 +637,12 @@ public class ControleurJeu {
         return chronoJoueur2;
     }
     
+    /**
+     * Mettre à jour le chronomètre de la partie selon le choix de l'utilisateur
+     * @param booleanChrono true si chrono actif false sinon
+     */
+    public void mettreAJourChronoGlobal(boolean booleanChrono) {
+    	chronoGlobal.setVisible(booleanChrono);
+    }
+    
 }
