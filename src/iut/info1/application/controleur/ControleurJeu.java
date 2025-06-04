@@ -185,8 +185,6 @@ public class ControleurJeu {
      * Met à jour les couleurs des boutons de sélection
      * @param couleur1 
      * @param couleur2 
-     * @param couleur du joueur 1
-     * @param couleur du joueur 2
      */
     public void mettreAJourCouleur(String couleur1, String couleur2) {
         if (couleur1 != null) {
@@ -204,7 +202,6 @@ public class ControleurJeu {
     /**
      * Méthode pour démarrer la barre de progression pour un joueur
      * @param progressBar la barre de progression à démarrer
-     * @param value la valeur initiale de la barre de progression
      * @return un objet Timeline qui gère la progression de la barre
      */
     public Timeline demarrerBarreDeProgression(ProgressBar progressBar) {
@@ -504,7 +501,7 @@ public class ControleurJeu {
     }
 
 	/**
-	 * TODO commenter le rôle de cette méthode (SRP)
+	 * Met à jour la matrice de la grille avec les valeurs fournies.
 	 * @param matrice
 	 */
 	public void mettreAJourMatrice(int[][] matrice) {

@@ -23,6 +23,9 @@ public class ControleurRegles {
 	@FXML
 	private Button idFermer;
 	
+	/**
+	 * Permet de fermer la vue
+	 */
 	@FXML
 	public void gererClicFermer() {
 		idFermer.getScene().getWindow().hide();

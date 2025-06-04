@@ -16,18 +16,34 @@ public class NomsGlobals {
 	private static String nomJoueur1 = ""; // Nom par défaut
 	private static String nomJoueur2 = ""; // Nom par défaut
 	
+	/**
+	 * Getter pour le nom du joueur 1
+	 * @return le nom du joueur 1
+	 */
 	public static String getNomJoueur1() {
 		return nomJoueur1;
 	}
 
+	/**
+	 * Setter pour le nom du joueur 1
+	 * @param nom le nouveau nom du joueur 1
+	 */
 	public static void setNomJoueur1(String nom) {
 		nomJoueur1 = nom;
 	}
 
+	/**
+	 * Getter pour le nom du joueur 2
+	 * @return le nom du joueur 2
+	 */
 	public static String getNomJoueur2() {
 		return nomJoueur2;
 	}
 
+	/**
+	 * Setter pour le nom du joueur 2
+	 * @param nom le nouveau nom du joueur 2
+	 */
 	public static void setNomJoueur2(String nom) {
 		nomJoueur2 = nom;
 	}
