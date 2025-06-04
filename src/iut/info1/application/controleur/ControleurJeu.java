@@ -88,7 +88,6 @@ public class ControleurJeu {
      * @param couleur du joueur 1
      * @param couleur du joueur 2
      */
-    @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
         if (couleur1 != null) {
             joueur1.setStyle("-fx-background-color: " + couleur1 + ";");
