@@ -131,9 +131,9 @@ public class ControleurJeu {
      */
     public void initialize() {
         
-        // Réinitialiser les barres de progression
-        progressBar1.setProgress(1.0);
-        progressBar2.setProgress(1.0);
+        // Les barres de progression n'aparaissent pas au début
+        progressBar1.setVisible(false);
+        progressBar2.setVisible(false);
 
         // Arrêter les chronomètres s'ils existent
         if (chronoJoueur1 != null) {

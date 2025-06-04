@@ -1,5 +1,5 @@
 /*
- * ControleurChronometre.java                                        16 mai 2025
+ * ControleurChronometre.java                                 16 mai 2025
  * IUT de Rodez, Info 1 2024 - 2025 TP2, pas de copyright
  */
 package iut.info1.application.controleur;
@@ -15,6 +15,7 @@ import iut.info1.application.utils.ChronosGlobales;
 
 /**
  * Contrôleur de la vue "optionChrono"
+ * Gère les paramètres de chronomètre pour les parties de jeu
  * 
  * @author Gabriel Robache
  * @author Gabriel Le Goff
@@ -33,64 +34,83 @@ public class ControleurChronometre {
     
     @FXML private Label labelChronoGlobal;
 
+    /* Constantes pour les durées */
+    private static final int DUREE_5_MINUTES = 300;
+    private static final int DUREE_2_MINUTES = 120;
+    private static final int DUREE_1_MINUTE = 60;
+    private static final int DUREE_30_SECONDES = 30;
+    private static final int DUREE_10_SECONDES = 10;
+
+    /* Constantes pour les textes */
+    private static final String DESACTIVER = "Désactiver";
+    private static final String CINQ_MIN = "5 min";
+    private static final String DEUX_MIN = "2 min";
+    private static final String UNE_MIN = "1 min";
+    private static final String TRENTE_SEC = "30 sec";
+    private static final String DIX_SEC = "10 sec";
+    
+    private static final String LABEL_ACTIVER
+    = "Activer le chronomètre de la partie";
+    private static final String LABEL_DESACTIVER
+    = "Désactiver le chronomètre de la partie";
+
     /**
      * Initialisation de la vue "optionChrono"
      */
     @FXML
     public void initialize() {
+        // Remplir la ComboBox avec les options de temps
+        choixTemps.getItems().addAll(DESACTIVER, CINQ_MIN, DEUX_MIN, UNE_MIN,
+                                     TRENTE_SEC, DIX_SEC);
         
-        // Remplir la ComboBox (affichés sous forme de texte)
-        choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min",
-                                         "30 sec", "10 sec");
+        // Initialiser l'état des boutons
+        activerDesactiverChronoGlobal();
     }
     
     /**
-     *  Permet de mettre à jour la durée du chronomètre
+     * Permet de mettre à jour la durée du chronomètre
      */
     @FXML
     public void gererClicValider() {
         String tempsSelectionne = choixTemps.getValue();
-        ControleurJeu controleurJeu = VueJeu.getControleurJeu();
-
-        switch (tempsSelectionne) {
-            case "Désactiver":
-                
-                ControleurJeu.progressionActuelle = -1.0;
-                
-                break;
-            case "5 min":
-                controleurJeu.setDureeTotale(300.0);
-                ChronosGlobales.setTempsChrono(300);
-                controleurJeu.progressBar1.setVisible(true);
-                controleurJeu.progressBar2.setVisible(true);
-                break;
-            case "2 min":
-                controleurJeu.setDureeTotale(120.0);
-                ChronosGlobales.setTempsChrono(120);
-                controleurJeu.progressBar1.setVisible(true);
-                controleurJeu.progressBar2.setVisible(true);
-                break;
-            case "1 min":
-                controleurJeu.setDureeTotale(60.0);
-                ChronosGlobales.setTempsChrono(60);
-                controleurJeu.progressBar1.setVisible(true);
-                controleurJeu.progressBar2.setVisible(true);
-                break;
-            case "30 sec":
-                controleurJeu.setDureeTotale(30.0);
-                ChronosGlobales.setTempsChrono(30);
-                controleurJeu.progressBar1.setVisible(true);
-                controleurJeu.progressBar2.setVisible(true);
-                break;
-            case "10 sec":
-                controleurJeu.setDureeTotale(10);
-                ChronosGlobales.setTempsChrono(10);
-                controleurJeu.progressBar1.setVisible(true);
-                controleurJeu.progressBar2.setVisible(true);
-                break;
-            default:
-                break;
+        
+        // Vérification de sélection
+        if (tempsSelectionne == null) {
+            return;
         }
+        
+        ControleurJeu controleurJeu = VueJeu.getControleurJeu();
+        
+        switch (tempsSelectionne) {
+            case DESACTIVER -> desactiverChronometre(controleurJeu);
+            case CINQ_MIN -> activerChronometre(controleurJeu, DUREE_5_MINUTES);
+            case DEUX_MIN -> activerChronometre(controleurJeu, DUREE_2_MINUTES);
+            case UNE_MIN -> activerChronometre(controleurJeu, DUREE_1_MINUTE);
+            case TRENTE_SEC -> activerChronometre(controleurJeu, DUREE_30_SECONDES);
+            case DIX_SEC -> activerChronometre(controleurJeu, DUREE_10_SECONDES);
+            default -> desactiverChronometre(controleurJeu);
+        }
+    }
+    
+    /**
+     * Active le chronomètre avec la durée spécifiée
+     * @param controleurJeu le contrôleur du jeu
+     * @param duree la durée en secondes
+     */
+    private static void activerChronometre(ControleurJeu controleurJeu, int duree) {
+        controleurJeu.setDureeTotale(duree);
+        ChronosGlobales.setTempsChrono(duree);
+        controleurJeu.progressBar1.setVisible(true);
+        controleurJeu.progressBar2.setVisible(true);
+    }
+    
+    /**
+     * Désactive le chronomètre
+     * @param controleurJeu le contrôleur du jeu
+     */
+    private static void desactiverChronometre(ControleurJeu controleurJeu) {
+        controleurJeu.progressBar1.setVisible(false);
+        controleurJeu.progressBar2.setVisible(false);
     }
 
     /**
@@ -118,46 +138,49 @@ public class ControleurChronometre {
     }
     
     /**
-     * Activer le chronomètre de la partie
+     * Active le chronomètre de la partie
      */
+    @FXML
     public void gererClicActiver() {
         ChronosGlobales.setChronoPartie(true);
         activerDesactiverChronoGlobal();
     }
     
     /**
-     * Désactiver le chronomètre de la partie
+     * Désactive le chronomètre de la partie
      */
+    @FXML
     public void gererClicDesactiver() {
         ChronosGlobales.setChronoPartie(false);
         activerDesactiverChronoGlobal();
     }
     
     /**
-     * Permet d'activer et de désactiver les boutons
+     * Met à jour l'état d'activation/désactivation des boutons de chronomètre global
+     * selon l'état actuel du chronomètre de partie
      */
     public void activerDesactiverChronoGlobal() {
-    	
-    	if (ChronosGlobales.getChronoPartie()) {
-    		activerChronoGlobal.setDisable(true);
-            activerChronoGlobal.setVisible(false);
-            desactiverChronoGlobal.setDisable(false);
-            desactiverChronoGlobal.setVisible(true);
-            labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
-            System.out.println("Activer Chrono");
-    	} else {
-    		activerChronoGlobal.setDisable(false);
-            activerChronoGlobal.setVisible(true);
-            desactiverChronoGlobal.setDisable(true);
-            desactiverChronoGlobal.setVisible(false);
-            labelChronoGlobal.setText("Activer le choronomètre de la partie");
-            System.out.println("Désactiver Chrono");
-    	}
+        boolean chronoActif = ChronosGlobales.getChronoPartie();
+        
+        // Gestion du bouton d'activation
+        activerChronoGlobal.setDisable(chronoActif);
+        activerChronoGlobal.setVisible(!chronoActif);
+        
+        // Gestion du bouton de désactivation
+        desactiverChronoGlobal.setDisable(!chronoActif);
+        desactiverChronoGlobal.setVisible(chronoActif);
+        
+        // Mise à jour du label (correction de la faute de frappe)
+        labelChronoGlobal.setText(chronoActif ? LABEL_DESACTIVER : LABEL_ACTIVER);
+        
+        // Log pour le débogage (considérer l'utilisation d'un vrai système de log)
+        System.out.println(chronoActif ? "Chronomètre activé" : "Chronomètre désactivé");
     }
     
     /**
      * Permet de lancer la vue des règles
      */
+    @FXML
     public void gererClicInfo() {       
         VueJeu.activerFenetreRegles();
     }
