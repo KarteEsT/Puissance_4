@@ -19,13 +19,6 @@
 }
 
 /* === Style des titres principaux === */
-#titre200 {
-    -fx-text-fill: white;
-    -fx-font-size: 200px;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(one-pass-box, black, 5, 0.0, 2, 2);
-}
-
 #titre150 {
     -fx-text-fill: white;
     -fx-font-size: 150px;
@@ -58,7 +51,7 @@
 /* === Style du bouton options === */
 #buttonBleu {
     -fx-background-color: blue;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -66,7 +59,7 @@
 }
 
 #button {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 60px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -75,7 +68,7 @@
 
 #buttonRouge {
     -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -93,7 +86,7 @@
 
 #buttonJaune {
     -fx-background-color: yellow;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -102,7 +95,7 @@
 
 #buttonVert {
     -fx-background-color: #00FF15;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;

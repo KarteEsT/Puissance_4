@@ -26,9 +26,9 @@
       <RowConstraints maxHeight="314.79999389648435" minHeight="10.0" prefHeight="270.4000427246093" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label id="titre150" text="Sons" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label id="titre100" text="Sons" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="150.0" />
+            <Font size="100.0" />
          </font>
       </Label>
       <Label text="Musique de fond" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">

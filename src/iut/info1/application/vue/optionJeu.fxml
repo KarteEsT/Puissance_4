@@ -32,9 +32,9 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Label id="titre150" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label id="titre100" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="150.0" />
+            <Font size="100.0" />
          </font>
       </Label>
       <Button id="button" fx:id="aideActiver" mnemonicParsing="false" onAction="#gererAideActiver" prefWidth="600.0" text="Activer l'aide" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">

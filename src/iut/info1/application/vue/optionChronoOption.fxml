@@ -24,9 +24,9 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label id="titre150" text="Chronomètre" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label id="titre100" text="Chronomètre" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="150.0" />
+            <Font size="100.0" />
          </font>
       </Label>
       <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">

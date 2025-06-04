@@ -24,9 +24,9 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label id="titre150" text="Menu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label id="titre100" text="Menu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="150.0" />
+            <Font size="100.0" />
          </font></Label>
       <Button id="button" mnemonicParsing="false" onAction="#gererClicQuitter" text="Quitter le jeu" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <font>
