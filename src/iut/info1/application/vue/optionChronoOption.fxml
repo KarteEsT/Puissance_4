@@ -44,7 +44,7 @@
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
       </Button>
-      <Label id="texte" text="Limite  de temps par tour" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Label id="texte" text="Limite de temps par tour" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>
