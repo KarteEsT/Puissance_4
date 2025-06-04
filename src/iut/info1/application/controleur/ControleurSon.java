@@ -24,6 +24,13 @@ public class ControleurSon {
     public void gererClicRetourMenu() {
         VueJeu.activerFenetreOptionJeu();
     }
+    
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
 
     //TODO ajouter les méthodes pour gérer le son
 }

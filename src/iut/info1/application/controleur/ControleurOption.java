@@ -61,4 +61,11 @@ public class ControleurOption {
             Platform.exit();
         }
     }
+    
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
 }

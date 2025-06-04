@@ -162,4 +162,11 @@ public class ControleurOrdinateur {
             buttonCouleur2.setStyle("-fx-background-color: " + couleur2 + ";");
         }
     }
+    
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
 }

@@ -94,4 +94,11 @@ public class ControleurChronometre {
     public void gererClicRetourMultijoueur() {
         VueJeu.activerFenetreMulti();
     }
+    
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
 }

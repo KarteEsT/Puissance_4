@@ -64,4 +64,11 @@ public class ControleurOptionJeu {
         //TODO 
     }
 
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
+    
 }

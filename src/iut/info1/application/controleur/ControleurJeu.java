@@ -359,4 +359,11 @@ public class ControleurJeu {
 			}
 		}
 	}
+	
+	/**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
+    }
 }
