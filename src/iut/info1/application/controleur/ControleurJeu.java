@@ -436,12 +436,18 @@ public class ControleurJeu {
             
             if (option.get() == relancer) {
                 // Réinitialiser la grille et les cercles
+            	
+            	grille.reinitialiserGrille();
+                jetonsAlignes.clear();
+            	
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
-                        cercle.setFill(javafx.scene.paint.Color.web("white"));
+                    	cercle.setFill(javafx.scene.paint.Color.web("white"));
+                        cercle.setStroke(javafx.scene.paint.Color.TRANSPARENT);
+                        cercle.setStroke(null);
                     }
                 }
-                grille.reinitialiserGrille();
+                
                 
                 // Relancer le chrono pour le joueur 1 (début de partie)
                 changementChrono();

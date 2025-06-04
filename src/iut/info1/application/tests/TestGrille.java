@@ -185,25 +185,96 @@ class TestGrille {
      */
     @Test
     final void testVerifierVictoireVerticale() {
-        
-        // Test de la méthode verifierVictoireVerticale
-        Joueur j1 = new Joueur(1,"Joueur","Jaune");
-        Joueur j2 = new Joueur(2,"Joueur","Rouge");
-        
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
         Grille grille = new Grille(6, 7, j1, j2);
-        
-        grille.poserPion(0);
-        grille.poserPion(1);
 
         grille.poserPion(0);
         grille.poserPion(1);
-        
         grille.poserPion(0);
         grille.poserPion(1);
-        
         grille.poserPion(0);
-        
-        assertTrue(grille.verifierVictoireVerticale());
+        grille.poserPion(1);
+        grille.poserPion(0);
+
+        assertFalse(grille.verifierVictoireVerticale().isEmpty());
+    }
+
+    /**
+     * Test method for
+     * {@link iut.info1.application.Grille#verifierVictoireHorizontale()}.
+     */
+    @Test
+    final void testVerifierVictoireHorizontale() {
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+        Grille grille = new Grille(6, 7, j1, j2);
+
+        grille.poserPion(0);
+        grille.poserPion(0);
+        grille.poserPion(1);
+        grille.poserPion(1);
+        grille.poserPion(2);
+        grille.poserPion(2);
+        grille.poserPion(3);
+
+        assertFalse(grille.verifierVictoireHorizontale().isEmpty());
+    }
+
+	/**
+	 * Test method for
+	 * {@link iut.info1.application.Grille#verifierVictoireDiagonaleMontante()}.
+	 */
+    @Test
+    final void testVerifierVictoireDiagonaleMontante() {
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+        Grille grille = new Grille(6, 7, j1, j2);
+
+        grille.poserPion(0);
+        grille.poserPion(1);
+        grille.poserPion(1);
+        grille.poserPion(2);
+        grille.poserPion(2);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(2);
+        grille.poserPion(1);
+        grille.poserPion(3);
+
+        assertFalse(grille.verifierVictoireDiagonaleMontante().isEmpty());
+    }
+
+	/**
+	 * Test method for
+	 * {@link iut.info1.application.Grille#verifierVictoireDiagonaleDescendante()}.
+	 */
+    @Test
+    final void testVerifierVictoireDiagonaleDescendante() {
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+        Grille grille = new Grille(6, 7, j1, j2);
+
+        grille.poserPion(0);
+        grille.poserPion(1);
+        grille.poserPion(1);
+        grille.poserPion(2);
+        grille.poserPion(2);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(3);
+        grille.poserPion(4);
+        grille.poserPion(4);
+        grille.poserPion(2);
+        grille.poserPion(1);
+        grille.poserPion(1);
+
+        assertFalse(grille.verifierVictoireDiagonaleDescendante().isEmpty());
     }
     
     /**
@@ -225,113 +296,6 @@ class TestGrille {
                 + "0 0 0 0 0 0 0 \n");
         assertEquals(expected, grille.toString());
     }
-    
-    /**
-     * Test method for
-     * {@link iut.info1.application.Grille#verifierVictoireHorizontale()}.
-     */
-    @Test
-    final void testVerifierVictoireHorizontale() {
-        
-        // Test de la méthode verifierVictoireHorizontale
-        Joueur j1 = new Joueur(1,"Joueur","Jaune");
-        Joueur j2 = new Joueur(2,"Joueur","Rouge");
-        
-        Grille grille = new Grille(6,7,j1,j2);
-        
-        /* Test victoire horizontale */
-        
-        grille.poserPion(0);
-        grille.poserPion(0);
-        
-        grille.poserPion(1);
-        grille.poserPion(1);
-        
-        grille.poserPion(2);
-        grille.poserPion(2);
-        
-        grille.poserPion(3);
-        
-        assertTrue(grille.verifierVictoireHorizontale());
-
-    }
-    
-    /**
-     * Test method for
-     * {@link iut.info1.application.Grille#verifierVictoireDiagonaleMontante()}.
-     */
-    @Test
-    final void testVerifierVictoireDiagonaleMontante() {
-
-        // Test de la méthode verifierVictoireDiagonaleMontante
-        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
-        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
-
-        Grille grille = new Grille(6, 7, j1, j2);
-
-        /* Test victoire diagonale montante */
-
-        grille.poserPion(0);
-        grille.poserPion(1);
-        
-        grille.poserPion(1);
-        grille.poserPion(2);
-        
-        grille.poserPion(2);
-        grille.poserPion(3);
-        
-        grille.poserPion(3);
-        grille.poserPion(3);
-        
-        grille.poserPion(2);
-        grille.poserPion(1);
-        
-        grille.poserPion(3);
-        
-        assertTrue(grille.verifierVictoireDiagonaleMontante());
-    }
-    
-    /**
-     * Test method for
-     * {@link iut.info1.application.Grille
-     * #verifierVictoireDiagonaleDescendante()}.
-     */
-    @Test
-    final void testVerifierVictoireDiagonaleDescendante() {
-
-        // Test de la méthode verifierVictoireDiagonaleDescendante
-        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
-        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
-
-        Grille grille = new Grille(6, 7, j1, j2);
-
-        /* Test victoire diagonale descendante */
-
-        grille.poserPion(0);
-        grille.poserPion(1);
-
-        grille.poserPion(1);
-        grille.poserPion(2);
-
-        grille.poserPion(2);
-        grille.poserPion(3);
-
-        grille.poserPion(3);
-        grille.poserPion(3);
-
-        grille.poserPion(4);
-        grille.poserPion(4);
-
-        grille.poserPion(2);
-        grille.poserPion(1);
-        
-        grille.poserPion(1);
-        
-
-        System.out.println(grille);
-        assertTrue(grille.verifierVictoireDiagonaleDescendante());
-    }
-    
     
     /**
      * Test method for {@link iut.info1.application.Grille#isGrilleRemplie()}.
