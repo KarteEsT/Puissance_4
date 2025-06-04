@@ -242,6 +242,12 @@ public class ControleurJeu {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().addAll(
             new KeyFrame(Duration.seconds(intervalle), event -> {
+                // Vérifier si le chronomètre est activé
+                if (!ChronosGlobales.getChronoPartie()) {
+                    timeline.stop(); // Arrêter la timeline si le chrono est désactivé
+                    return;
+                }
+
                 progressionActuelle = progressBar.getProgress();
                 if (progressionActuelle > 0) {
                     progressBar.setProgress(progressionActuelle - decrement);
