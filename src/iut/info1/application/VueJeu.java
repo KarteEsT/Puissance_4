@@ -320,6 +320,26 @@ public class VueJeu extends Application {
 	}
     
     /**
+     * Activer la fenêtre des règles du jeu.
+     */
+    public static void activerFenetreRegles() {
+    	try {
+    		FXMLLoader loaderRegles = new FXMLLoader(VueJeu.class.getResource
+                    ("/iut/info1/application/vue/regles.fxml"));
+    		
+    		Parent root = loaderRegles.load();
+    		Stage popupStage = new Stage();
+    		popupStage.setTitle("Règles du jeu");
+    		popupStage.initModality(Modality.APPLICATION_MODAL);
+    		popupStage.setScene(new Scene(root));
+    		popupStage.showAndWait();
+    	} catch (Exception e) {
+			System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
+			e.printStackTrace();
+    	}
+    }
+    
+    /**
      * Activer ou désactiver le chronomètre
      * @param actif true pour activer, false pour désactiver
      * @param temps le temps en secondes si actif, sinon ignoré
