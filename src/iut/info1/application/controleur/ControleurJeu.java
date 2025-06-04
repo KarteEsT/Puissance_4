@@ -168,6 +168,7 @@ public class ControleurJeu {
 
         String couleur = (joueurId == 1) ? couleurJoueur1 : couleurJoueur2;
         cercle.setFill(javafx.scene.paint.Color.web(couleur));
+        System.out.println("MAJ Grille : compteur = " + grille.getCompteTour());
     }
 
     /**

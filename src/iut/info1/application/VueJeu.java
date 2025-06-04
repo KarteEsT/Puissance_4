@@ -401,7 +401,6 @@ public class VueJeu extends Application {
         controleurJeu.mettreAJourMatrice(matrice);
     }
 
-
     /**
      * Point d'entrée de l'application JavaFX.
      * @param args non utilisé
