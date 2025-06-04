@@ -319,4 +319,110 @@ class TestGrille {
         assertTrue(grille.isGrilleRemplie());
     }
     
+    /**
+     * Test method for {@link iut.info1.application.Grille
+     * #aideVerifierVictoire()}.
+     */
+    @Test
+    final void testAideVerifierVictoire() {
+
+        // Test de la méthode aideVerifierVictoire en verticale
+        Joueur j1 = new Joueur(1, "Joueur", "Jaune");
+        Joueur j2 = new Joueur(2, "Joueur", "Rouge");
+
+        Grille grille = new Grille(6, 7, j1, j2);
+
+        // Placement de pions pour créer une situation gagnante en verticale
+        
+        grille.poserPion(0);
+        grille.poserPion(1);
+        
+        grille.poserPion(0);
+        grille.poserPion(1);
+        
+        grille.poserPion(0);
+        grille.poserPion(1);
+        
+        
+        int[] resultatVertical = grille.aideVerifierVictoire(); 
+        
+        assertNotNull(resultatVertical);
+        assertEquals(2, resultatVertical[0]); // Ligne
+        assertEquals(0, resultatVertical[1]); // Colonne
+        
+        // Test de la méthode aideVerifierVictoire en horizontale
+        
+        Grille grille1 = new Grille(6, 7, j1, j2);
+        
+        grille1.poserPion(0);
+        grille1.poserPion(0);
+        
+        grille1.poserPion(1);
+        grille1.poserPion(1);
+        
+        grille1.poserPion(2);
+        grille1.poserPion(2);
+        
+        
+        int[] resultatHorizontal = grille1.aideVerifierVictoire();
+        
+        assertNotNull(resultatHorizontal);
+        assertEquals(5, resultatHorizontal[0]); // Ligne
+        assertEquals(3, resultatHorizontal[1]); // Colonne
+        
+        // Test de la méthode aideVerifierVictoire en diagonale montante
+        
+        Grille grille2 = new Grille(6, 7, j1, j2);
+     
+        grille2.poserPion(0);
+        grille2.poserPion(1);
+        
+        grille2.poserPion(1);
+        grille2.poserPion(2);
+        
+        grille2.poserPion(2);
+        grille2.poserPion(3);
+        
+        grille2.poserPion(2);
+        grille2.poserPion(3);
+        
+        grille2.poserPion(3);
+        grille2.poserPion(1);
+
+        
+        int[] resultatDiagonaleMontante = grille2.aideVerifierVictoire();
+        
+        assertNotNull(resultatDiagonaleMontante);
+        assertEquals(2, resultatDiagonaleMontante[0]); // Ligne
+        assertEquals(3, resultatDiagonaleMontante[1]); // Colonne
+        
+        // Test de la méthode aideVerifierVictoire en diagonale descendante
+        
+        Grille grille3 = new Grille(6, 7, j1, j2);
+        
+        grille3.poserPion(0);
+        grille3.poserPion(0);
+        
+        grille3.poserPion(0);
+        grille3.poserPion(0);
+        
+        grille3.poserPion(2);
+        grille3.poserPion(3);
+        
+        grille3.poserPion(1);
+        grille3.poserPion(2);
+        
+        grille3.poserPion(1);
+        
+        System.out.println(grille3);
+        
+        int[] resultatDiagonaleDescendante = grille3.aideVerifierVictoire();
+        
+        System.out.println(resultatDiagonaleDescendante[0] + " " + resultatDiagonaleDescendante[1]);   
+        
+        assertNotNull(resultatDiagonaleDescendante);
+        assertEquals(3, resultatDiagonaleDescendante[0]); // Ligne
+        assertEquals(1, resultatDiagonaleDescendante[1]); // Colonne
+    }
+    
 }

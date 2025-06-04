@@ -340,5 +340,163 @@ public class Grille {
         return grille;
     }
 
+    /**
+     * Méthode d'aide pour vérifier s'il y a une victoire
+     * @return un tableau de coordonnées où un pion peut être placé pour gagner,
+     * ou null si aucune victoire n'est possible
+     */
+
+    public int[] aideVerifierVictoire() {
+        int[][] mat = matrice;
+        int joueurActuel = (compteTour % 2) + 1;
+        int nbLignes = getLigne();
+        int nbColonnes = getColonne();
+
+        // Vérification verticale
+        for (int j = 0; j < nbColonnes; j++) {
+            for (int i = nbLignes - 1; i >= 3; i--) {
+                if (mat[i][j] == joueurActuel &&
+                    mat[i - 1][j] == joueurActuel &&
+                    mat[i - 2][j] == joueurActuel &&
+                    mat[i - 3][j] == 0) {
+                    return new int[]{i - 3, j};
+                }
+                if (mat[i][j] == 0 &&
+                    mat[i - 1][j] == joueurActuel &&
+                    mat[i - 2][j] == joueurActuel &&
+                    mat[i - 3][j] == joueurActuel) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+
+        // Vérification horizontale
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j <= nbColonnes - 4; j++) {
+
+                // J J J 0
+                if (mat[i][j] == joueurActuel &&
+                    mat[i][j + 1] == joueurActuel &&
+                    mat[i][j + 2] == joueurActuel &&
+                    mat[i][j + 3] == 0 &&
+                    (i == nbLignes - 1 || mat[i + 1][j + 3] != 0)) {
+                    return new int[]{i, j + 3};
+                }
+
+                // 0 J J J
+                if (mat[i][j] == 0 &&
+                    mat[i][j + 1] == joueurActuel &&
+                    mat[i][j + 2] == joueurActuel &&
+                    mat[i][j + 3] == joueurActuel &&
+                    (i == nbLignes - 1 || mat[i + 1][j] != 0)) {
+                    return new int[]{i, j};
+                }
+
+                // J 0 J J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i][j + 1] == 0 &&
+                    mat[i][j + 2] == joueurActuel &&
+                    mat[i][j + 3] == joueurActuel &&
+                    (i == nbLignes - 1 || mat[i + 1][j + 1] != 0)) {
+                    return new int[]{i, j + 1};
+                }
+
+                // J J 0 J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i][j + 1] == joueurActuel &&
+                    mat[i][j + 2] == 0 &&
+                    mat[i][j + 3] == joueurActuel &&
+                    (i == nbLignes - 1 || mat[i + 1][j + 2] != 0)) {
+                    return new int[]{i, j + 2};
+                }
+            }
+        }
+
+        // Vérification diagonale montante ( ↗ )
+        for (int i = 3; i < nbLignes; i++) {
+            for (int j = 0; j <= nbColonnes - 4; j++) {
+
+                // Motif : J J J 0
+                if (mat[i][j] == joueurActuel &&
+                    mat[i - 1][j + 1] == joueurActuel &&
+                    mat[i - 2][j + 2] == joueurActuel &&
+                    mat[i - 3][j + 3] == 0 &&
+                    (i - 3 == nbLignes - 1 || mat[i - 2][j + 3] != 0)) {
+                    return new int[]{i - 3, j + 3};
+                }
+
+                // Motif : 0 J J J
+                if (mat[i][j] == 0 &&
+                    mat[i - 1][j + 1] == joueurActuel &&
+                    mat[i - 2][j + 2] == joueurActuel &&
+                    mat[i - 3][j + 3] == joueurActuel &&
+                    (i == nbLignes - 1 || mat[i + 1][j] != 0)) {
+                    return new int[]{i, j};
+                }
+
+                // Motif : J 0 J J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i - 1][j + 1] == 0 &&
+                    mat[i - 2][j + 2] == joueurActuel &&
+                    mat[i - 3][j + 3] == joueurActuel &&
+                    (i - 1 == nbLignes - 1 || mat[i][j + 1] != 0)) {
+                    return new int[]{i - 1, j + 1};
+                }
+
+                // Motif : J J 0 J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i - 1][j + 1] == joueurActuel &&
+                    mat[i - 2][j + 2] == 0 &&
+                    mat[i - 3][j + 3] == joueurActuel &&
+                    (i - 2 == nbLignes - 1 || mat[i - 1][j + 2] != 0)) {
+                    return new int[]{i - 2, j + 2};
+                }
+            }
+        }
+
+        // Vérification diagonale descendante ( ↘ )
+        for (int i = 0; i <= nbLignes - 4; i++) {
+            for (int j = 0; j <= nbColonnes - 4; j++) {
+
+                // Motif : J J J 0
+                if (mat[i][j] == joueurActuel &&
+                    mat[i + 1][j + 1] == joueurActuel &&
+                    mat[i + 2][j + 2] == joueurActuel &&
+                    mat[i + 3][j + 3] == 0 &&
+                    (i + 3 == nbLignes - 1 || mat[i + 4][j + 3] != 0)) {
+                    return new int[]{i + 3, j + 3};
+                }
+
+                // Motif : 0 J J J
+                if (mat[i][j] == 0 &&
+                    mat[i + 1][j + 1] == joueurActuel &&
+                    mat[i + 2][j + 2] == joueurActuel &&
+                    mat[i + 3][j + 3] == joueurActuel &&
+                    (i == nbLignes - 1 || mat[i + 1][j] != 0)) {
+                    return new int[]{i, j};
+                }
+
+                // Motif : J 0 J J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i + 1][j + 1] == 0 &&
+                    mat[i + 2][j + 2] == joueurActuel &&
+                    mat[i + 3][j + 3] == joueurActuel &&
+                    (i + 1 == nbLignes - 1 || mat[i + 2][j + 1] != 0)) {
+                    return new int[]{i + 1, j + 1};
+                }
+
+                // Motif : J J 0 J
+                if (mat[i][j] == joueurActuel &&
+                    mat[i + 1][j + 1] == joueurActuel &&
+                    mat[i + 2][j + 2] == 0 &&
+                    mat[i + 3][j + 3] == joueurActuel &&
+                    (i + 2 == nbLignes - 1 || mat[i + 3][j + 2] != 0)) {
+                    return new int[]{i + 2, j + 2};
+                }
+            }
+        }
+
+        return null; // Aucun coup gagnant détecté
+    }
 
 }
