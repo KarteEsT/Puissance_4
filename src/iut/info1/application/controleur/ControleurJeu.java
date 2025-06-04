@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
 
+import java.util.List;
+
 import java.util.Optional;
 
 import iut.info1.application.Grille;
@@ -386,13 +388,27 @@ public class ControleurJeu {
         }
     }
     
+    /**
+     * Méthode pour afficher les jetons alignés en cas de victoire.
+     * @param jetonsAlignes Liste des positions des jetons alignés
+     */
+    private void afficherJetonsAlignes(List<int[]> jetonsAlignes) {
+        for (int[] position : jetonsAlignes) {
+            int ligne = position[0];
+            int colonne = position[1];
+            Circle cercle = matriceCercle[colonne][ligne];
+            cercle.setStroke(javafx.scene.paint.Color.web("white")); // Contour noir
+            cercle.setStrokeWidth(3); // Épaisseur du contour
+        }
+    }
     
     /**
      * Méthode pour vérifier si la partie est terminée et afficher une alerte en
      * conséquence.
      */
     private void verifierFinDePartie() {
-        if (grille.verifierVictoire()) {
+    	List<int[]> jetonsAlignes = grille.verifierVictoire();
+        if (!jetonsAlignes.isEmpty()) {
             
             // Arrêter les chronomètres
             if (chronoJoueur1 != null) chronoJoueur1.stop();
@@ -401,6 +417,8 @@ public class ControleurJeu {
             int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
             String nomGagnant = (gagnant == 1) ? joueur1.getText() 
                                                 : joueur2.getText();
+            
+            afficherJetonsAlignes(jetonsAlignes);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Victoire !");

@@ -4,6 +4,9 @@
  */
 package iut.info1.application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import iut.info1.application.controleur.ControleurJeu;
 
 /**
@@ -189,41 +192,52 @@ public class Grille {
      * @return true si il y a une victoire 
      *         false sinon
      */
-    public boolean verifierVictoireVerticale() {
+    public List<int[]> verifierVictoireVerticale() {
+        List<int[]> jetonsAlignes = new ArrayList<>();
         int[][] mat = matrice;
-        boolean isGagne = false;
-        for (int i = 0 ; i < getLigne() - 3 ; i++) {
-			for (int j = 0 ; j < getColonne() ; j++) {
-				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 1][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 2][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 3][j] == ((compteTour-1) % 2) + 1) {
-					isGagne = true;
-				}
-			}
-		}
-        return isGagne;
+        int joueur = ((compteTour - 1) % 2) + 1;
+
+        for (int i = 0; i < getLigne() - 3; i++) {
+            for (int j = 0; j < getColonne(); j++) {
+                if (mat[i][j] == joueur &&
+                    mat[i + 1][j] == joueur &&
+                    mat[i + 2][j] == joueur &&
+                    mat[i + 3][j] == joueur) {
+                    jetonsAlignes.add(new int[] { i, j });
+                    jetonsAlignes.add(new int[] { i + 1, j });
+                    jetonsAlignes.add(new int[] { i + 2, j });
+                    jetonsAlignes.add(new int[] { i + 3, j });
+                }
+            }
+        }
+        return jetonsAlignes;
     }
+
     
     /**
      * On va verifier si il y a une victoire dans une ligne
      * 
      * @return true si il y a une victoire false sinon
      */
-    public boolean verifierVictoireHorizontale() {
-        int[][] mat = getMatrice();
-        boolean isGagne = false;
-        for (int i = 0 ; i < getLigne() ; i++) {
-			for (int j = 0 ; j < getColonne() - 3 ; j++) {
-				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i][j + 1] == ((compteTour-1) % 2) + 1 &&
-					mat[i][j + 2] == ((compteTour-1) % 2) + 1 &&
-					mat[i][j + 3] == ((compteTour-1) % 2) + 1) {
-					isGagne = true;
-				}
-			}
-		}
-        return isGagne;
+    public List<int[]> verifierVictoireHorizontale() {
+        List<int[]> jetonsAlignes = new ArrayList<>();
+        int[][] mat = matrice;
+        int joueur = ((compteTour - 1) % 2) + 1;
+
+        for (int i = 0; i < getLigne(); i++) {
+            for (int j = 0; j < getColonne() - 3; j++) {
+                if (mat[i][j] == joueur &&
+                    mat[i][j + 1] == joueur &&
+                    mat[i][j + 2] == joueur &&
+                    mat[i][j + 3] == joueur) {
+                    jetonsAlignes.add(new int[] { i, j });
+                    jetonsAlignes.add(new int[] { i, j + 1 });
+                    jetonsAlignes.add(new int[] { i, j + 2 });
+                    jetonsAlignes.add(new int[] { i, j + 3 });
+                }
+            }
+        }
+        return jetonsAlignes;
     }
     
     /**
@@ -232,21 +246,25 @@ public class Grille {
      * @return true si il y a une victoire
      *         false sinon
      */
-    public boolean verifierVictoireDiagonaleMontante() {
-        int[][] mat = getMatrice();
-        boolean isGagne = false;
-        for (int i = 3 ; i < getLigne() ; i++ ) {
-			for (int j = 0; j < getColonne() - 4 ; j++ ) {
-				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i - 1][j + 1] == ((compteTour-1) % 2) + 1 &&
-					mat[i - 2][j + 2] == ((compteTour-1) % 2) + 1 &&
-					mat[i - 3][j + 3] == ((compteTour-1) % 2) + 1) {
-					isGagne = true;
-				}
-			}
+    public List<int[]> verifierVictoireDiagonaleMontante() {
+        List<int[]> jetonsAlignes = new ArrayList<>();
+        int[][] mat = matrice;
+        int joueur = ((compteTour - 1) % 2) + 1;
+
+        for (int i = 3; i < getLigne(); i++) {
+            for (int j = 0; j < getColonne() - 3; j++) {
+                if (mat[i][j] == joueur &&
+                    mat[i - 1][j + 1] == joueur &&
+                    mat[i - 2][j + 2] == joueur &&
+                    mat[i - 3][j + 3] == joueur) {
+                    jetonsAlignes.add(new int[] { i, j });
+                    jetonsAlignes.add(new int[] { i - 1, j + 1 });
+                    jetonsAlignes.add(new int[] { i - 2, j + 2 });
+                    jetonsAlignes.add(new int[] { i - 3, j + 3 });
+                }
+            }
         }
-        
-        return isGagne;
+        return jetonsAlignes;
     }
     
     /**
@@ -255,20 +273,25 @@ public class Grille {
      * @return true si il y a une victoire
      *         false sinon
      */
-    public boolean verifierVictoireDiagonaleDescendante() {
-        int[][] mat = getMatrice();
-        boolean isGagne = false;
-        for (int i = 0 ; i < getLigne() - 3 ; i++) {
-        	for (int j = 0; j < getColonne() - 3; j++) {
-				if (mat[i][j] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 1][j + 1] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 2][j + 2] == ((compteTour-1) % 2) + 1 &&
-					mat[i + 3][j + 3] == ((compteTour-1) % 2) + 1) {
-					isGagne = true;
-				}
-			}
+    public List<int[]> verifierVictoireDiagonaleDescendante() {
+        List<int[]> jetonsAlignes = new ArrayList<>();
+        int[][] mat = matrice;
+        int joueur = ((compteTour - 1) % 2) + 1;
+
+        for (int i = 0; i < getLigne() - 3; i++) {
+            for (int j = 0; j < getColonne() - 3; j++) {
+                if (mat[i][j] == joueur &&
+                    mat[i + 1][j + 1] == joueur &&
+                    mat[i + 2][j + 2] == joueur &&
+                    mat[i + 3][j + 3] == joueur) {
+                    jetonsAlignes.add(new int[] { i, j });
+                    jetonsAlignes.add(new int[] { i + 1, j + 1 });
+                    jetonsAlignes.add(new int[] { i + 2, j + 2 });
+                    jetonsAlignes.add(new int[] { i + 3, j + 3 });
+                }
+            }
         }
-        return isGagne;
+        return jetonsAlignes;
     }
     
     /**
@@ -277,11 +300,13 @@ public class Grille {
      * 
      * @return true si il y a une victoire false sinon
      */
-    public boolean verifierVictoire() {
-        return verifierVictoireVerticale() || 
-               verifierVictoireHorizontale() || 
-               verifierVictoireDiagonaleMontante() || 
-               verifierVictoireDiagonaleDescendante();
+    public List<int[]> verifierVictoire() {
+        List<int[]> jetonsAlignes = new ArrayList<>();
+        jetonsAlignes.addAll(verifierVictoireVerticale());
+        jetonsAlignes.addAll(verifierVictoireHorizontale());
+        jetonsAlignes.addAll(verifierVictoireDiagonaleMontante());
+        jetonsAlignes.addAll(verifierVictoireDiagonaleDescendante());
+        return jetonsAlignes;
     }
     
     /**
