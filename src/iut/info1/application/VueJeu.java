@@ -8,8 +8,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.Parent;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
+
+import java.io.File;
 
 import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
@@ -277,42 +281,73 @@ public class VueJeu extends Application {
     /**
      * Activer la fenêtre de sauvegarde du jeu.
      */
-    public static void activerFenetreSauvegarde() {
-        try {
-            FXMLLoader loaderSauvegarde = new FXMLLoader(VueJeu.class.getResource
-                    ("/iut/info1/application/vue/sauvegarde.fxml"));
+	public static void activerFenetreSauvegarde() {
+	    FileChooser fileChooser = new FileChooser();
+	    fileChooser.setTitle("Enregistrer la partie");
+	    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+	
+	    Stage stage = new Stage();
+	    File fichierSelectionne = fileChooser.showSaveDialog(stage);
+	
+	    if (fichierSelectionne != null) {
+	        try {
+	            String chemin = fichierSelectionne.getParent();
+	            String nom = fichierSelectionne.getName();
+	
+	            // Vérifier si l'extension .csv est présente, sinon l'ajouter
+	            if (!nom.toLowerCase().endsWith(".csv")) {
+	                nom += ".csv";
+	            }
+	
+	            Grille grille = Grille.getInstance();
+	            ChargeurCSV.sauvegarderGrille(grille, nom, chemin);
+	        } catch (Exception e) {
+	            Alert alert = new Alert(Alert.AlertType.ERROR);
+	            alert.setTitle("Erreur de sauvegarde");
+	            alert.setHeaderText("Échec de la sauvegarde");
+	            alert.setContentText("Impossible de sauvegarder le fichier. Veuillez vérifier l'emplacement.");
+	            alert.showAndWait();
+	            e.printStackTrace();
+	        }
+	    }
+	}
 
-            Parent root = loaderSauvegarde.load();
-            Stage popupStage = new Stage();
-            popupStage.setTitle("Sauvegarde du jeu");
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setScene(new Scene(root));
-            popupStage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Activer la fenêtre de chargement du jeu.
      */
-    public static void activerFenetreChargement() {
-        try {
-            FXMLLoader loaderCharger = new FXMLLoader(VueJeu.class.getResource
-                    ("/iut/info1/application/vue/charger.fxml"));
-
-            Parent root = loaderCharger.load();
-            Stage popupStage = new Stage();
-            popupStage.setTitle("Chargement du jeu");
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setScene(new Scene(root));
-            popupStage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+	public static void activerFenetreChargement() {
+	    FileChooser fileChooser = new FileChooser();
+	    fileChooser.setTitle("Sélectionner un fichier CSV");
+	    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+	
+	    Stage stage = new Stage();
+	    File fichierSelectionne = fileChooser.showOpenDialog(stage);
+	
+	    if (fichierSelectionne != null) {
+	        try {
+	            String chemin = fichierSelectionne.getParent();
+	            String nom = fichierSelectionne.getName();
+	
+	            // Charger la grille depuis le fichier CSV
+	            Grille grille = ChargeurCSV.chargerGrille(nom, chemin);
+	
+	            if (grille == null) {
+	                throw new Exception("Le fichier CSV est invalide ou introuvable.");
+	            }
+	
+	            // Lancer la partie
+	            VueJeu.activerFenetreJeu();
+	        } catch (Exception e) {
+	            // Afficher une boîte d'alerte en cas d'erreur
+	            Alert alert = new Alert(Alert.AlertType.ERROR);
+	            alert.setTitle("Erreur de chargement");
+	            alert.setHeaderText("Le chargement a échoué");
+	            alert.setContentText(e.getMessage());
+	            alert.showAndWait();
+	        }
+	    }
+	}
 
     /**
      * Activer la fenêtre des règles du jeu.
