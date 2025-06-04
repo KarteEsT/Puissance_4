@@ -285,7 +285,15 @@ public class VueJeu extends Application {
 	    FileChooser fileChooser = new FileChooser();
 	    fileChooser.setTitle("Enregistrer la partie");
 	    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
-	
+
+	    fileChooser.setInitialFileName("partie_puissance4.csv");
+	    File defaultDir = new File(System.getProperty("user.home") + "/Documents");
+	    if (defaultDir.exists() && defaultDir.isDirectory()) {
+	        fileChooser.setInitialDirectory(defaultDir);
+	    } else {
+	        // Si le dossier n'existe pas, on reste sur le répertoire utilisateur
+	        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+	    }
 	    Stage stage = new Stage();
 	    File fichierSelectionne = fileChooser.showSaveDialog(stage);
 	
@@ -417,7 +425,6 @@ public class VueJeu extends Application {
     public static void redistribuerMatrice() {
         int[][] matrice = GrilleGlobales.getMatrice();
         controleurJeu.mettreAJourMatrice(matrice);
-        System.out.println("Matrice redistribuée : ");
     }
 
     /**
@@ -426,7 +433,6 @@ public class VueJeu extends Application {
     public static void redistribuerCompteTour() {
         int compteTour = GrilleGlobales.getCompteTour();
         controleurJeu.mettreAJourCompteTour(compteTour);
-        System.out.println("Compte tour redistribué : " + compteTour);
     }
 
     /**
