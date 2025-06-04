@@ -743,7 +743,7 @@ public class ControleurJeu {
 	        int colonne = coordonneesAide[1];
 	        Circle cercleAide = matriceCercle[colonne][ligne];
 	        cercleAide.setStroke(javafx.scene.paint.Color.web("white"));
-            cercleAide.setStrokeWidth(3);
+            cercleAide.setStrokeWidth(5);
         } else {
         	for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
                 for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
