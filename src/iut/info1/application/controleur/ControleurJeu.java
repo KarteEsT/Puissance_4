@@ -35,6 +35,9 @@ import iut.info1.application.utils.CouleursGlobales;
  */
 public class ControleurJeu {
 
+	/* Chronomètre Global */
+	@FXML private Label chronoGlobal;
+	
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
     @FXML private Label joueur2;
