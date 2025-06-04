@@ -43,6 +43,7 @@ public class Grille {
         this.j2 = j2;
         compteTour = 0;
         matrice = new int[ligne][colonne];
+        setInstance(this);
     }
         
     /**
@@ -292,6 +293,7 @@ public class Grille {
                 matrice[i][j] = 0;
             }
         }
+		setInstance(this);
         compteTour = 0;
     }
     
