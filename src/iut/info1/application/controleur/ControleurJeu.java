@@ -504,7 +504,6 @@ public class ControleurJeu {
 	 * @param matrice la matrice utilisée pour mettre à jour
 	 * la grille
 	 * Met à jour la matrice de la grille avec les valeurs fournies.
-	 * @param matrice
 	 */
 	public void mettreAJourMatrice(int[][] matrice) {
 		for (int i = 0; i < matrice.length; i++) {

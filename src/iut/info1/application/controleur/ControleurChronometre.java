@@ -8,6 +8,8 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import iut.info1.application.utils.ChronosGlobales;
 
@@ -25,6 +27,11 @@ public class ControleurChronometre {
 	@FXML private ProgressBar progressBar2;
 	
     @FXML private ComboBox<String> choixTemps;
+    
+    @FXML private Button activerChronoGlobal;
+    @FXML private Button desactiverChronoGlobal;
+    
+    @FXML private Label labelChronoGlobal;
 
     /**
      * Initialisation de la vue "optionChrono"
@@ -128,6 +135,28 @@ public class ControleurChronometre {
     	
     	choixTemps.setValue(tempsAffiche);
     }
+    
+    /**
+     * Activer le chronomètre de la partie
+     */
+    public void gererClicActiver() {
+    	activerChronoGlobal.setDisable(true);
+    	activerChronoGlobal.setVisible(false);
+    	desactiverChronoGlobal.setDisable(false);
+    	desactiverChronoGlobal.setVisible(true);
+    	labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
+    }
+    
+	/**
+	 * Désactiver le chronomètre de la partie
+	 */
+	public void gererClicDesactiver() {
+		activerChronoGlobal.setDisable(false);
+		activerChronoGlobal.setVisible(true);
+		desactiverChronoGlobal.setDisable(true);
+		desactiverChronoGlobal.setVisible(false);
+		labelChronoGlobal.setText("Activer le choronomètre de la partie");
+	}
     
     /**
      * Permet de lancer la vue des règles

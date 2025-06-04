@@ -14,6 +14,10 @@
     -fx-background-color: #A7A7A7;
 }
 
+#texte {
+    -fx-text-fill: white;
+}
+
 /* === Style des titres principaux === */
 #titre200 {
     -fx-text-fill: white;
