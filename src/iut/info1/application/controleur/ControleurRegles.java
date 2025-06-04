@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 
+
+
 /**
  * Contrôleur pour la vue des règles du jeu.
  * 
@@ -17,11 +19,13 @@ import javafx.scene.control.Button;
  * @author Esteban Roveri
  */
 public class ControleurRegles {
-
-	@FXML private Button fermer;
 	
 	@FXML
-	private void gererClicFermer() {
-		fermer.getScene().getWindow().hide();
+	private Button idFermer;
+	
+	@FXML
+	public void gererClicFermer() {
+		idFermer.getScene().getWindow().hide();
 	}
+	
 }

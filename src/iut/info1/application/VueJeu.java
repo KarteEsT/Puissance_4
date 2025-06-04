@@ -17,6 +17,7 @@ import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
+import iut.info1.application.controleur.ControleurRegles;
 import iut.info1.application.utils.NomsGlobals;
 
 /**
@@ -304,10 +305,10 @@ public class VueJeu extends Application {
 	 */
     public static void activerFenetreChargement() {
     	try {
-			FXMLLoader loaderChargement = new FXMLLoader(VueJeu.class.getResource
+			FXMLLoader loaderCharger = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/charger.fxml"));
 
-			Parent root = loaderChargement.load();
+			Parent root = loaderCharger.load();
 			Stage popupStage = new Stage();
 			popupStage.setTitle("Chargement du jeu");
 			popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -324,19 +325,19 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreRegles() {
     	try {
-    		FXMLLoader loaderRegles = new FXMLLoader(VueJeu.class.getResource
+			FXMLLoader loaderRegles = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/regles.fxml"));
-    		
-    		Parent root = loaderRegles.load();
-    		Stage popupStage = new Stage();
-    		popupStage.setTitle("Règles du jeu");
-    		popupStage.initModality(Modality.APPLICATION_MODAL);
-    		popupStage.setScene(new Scene(root));
-    		popupStage.showAndWait();
-    	} catch (Exception e) {
+
+			Parent root = loaderRegles.load();
+			Stage popupStage = new Stage();
+			popupStage.setTitle("Règles du jeu");
+			popupStage.initModality(Modality.APPLICATION_MODAL);
+			popupStage.setScene(new Scene(root));
+			popupStage.showAndWait();
+		} catch (Exception e) {
 			System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
 			e.printStackTrace();
-    	}
+		}
     }
     
     /**

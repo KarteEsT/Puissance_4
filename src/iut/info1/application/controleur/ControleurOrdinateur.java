@@ -8,6 +8,7 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 import iut.info1.application.utils.CouleursGlobales;
@@ -88,36 +89,43 @@ public class ControleurOrdinateur {
      */
     @FXML
     public void gererClicLancer() {
-        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
-                                                : nomJoueur1.getText();
-        joueur2 = nomJoueur2.getText().isEmpty() ? "ROBOT" 
-                                                : nomJoueur2.getText();
-        
-        if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
-        	
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Champs vides");
-            alert.setHeaderText("Un ou plusieurs champs sont vides.");
-            alert.setContentText("Les noms par défaut seront utilisés : " 
-                                    + joueur1 + " et " + joueur2 
-                                    + ". Voulez-vous continuer ?");
-
-            alert.showAndWait().ifPresent(response -> {
-                if (response == javafx.scene.control.ButtonType.OK) {
-                	
-                	if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
-                        NomsGlobals.setNomJoueur1("JOUEUR 1");
-                    }
-                    if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
-                        NomsGlobals.setNomJoueur2("JOUEUR 2");
-                    }
-                	
-                    VueJeu.activerFenetreJeu();
-                }
-            });
-        } else {
-            VueJeu.activerFenetreJeu();
-        }
+    	
+        Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
+        		"Cette fonctionnalité est en cours de développement.\n"
+        		+ "Merci de votre compréhension.", ButtonType.OK);
+        boiteAlerte.setTitle("En travaux");
+        boiteAlerte.showAndWait(); // ctrl + shift + /
+    	
+//        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
+//                                                : nomJoueur1.getText();
+//        joueur2 = nomJoueur2.getText().isEmpty() ? "ROBOT" 
+//                                                : nomJoueur2.getText();
+//        
+//        if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
+//        	
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Champs vides");
+//            alert.setHeaderText("Un ou plusieurs champs sont vides.");
+//            alert.setContentText("Les noms par défaut seront utilisés : " 
+//                                    + joueur1 + " et " + joueur2 
+//                                    + ". Voulez-vous continuer ?");
+//
+//            alert.showAndWait().ifPresent(response -> {
+//                if (response == javafx.scene.control.ButtonType.OK) {
+//                	
+//                	if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
+//                        NomsGlobals.setNomJoueur1("JOUEUR 1");
+//                    }
+//                    if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
+//                        NomsGlobals.setNomJoueur2("JOUEUR 2");
+//                    }
+//                	
+//                    VueJeu.activerFenetreJeu();
+//                }
+//            });
+//        } else {
+//            VueJeu.activerFenetreJeu();
+//        }
     }
     
     /**

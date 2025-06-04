@@ -46,12 +46,6 @@ public class ControleurMenuPrincipal {
      */
     @FXML
     public void gererClicOrdinateur() {
-//        Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
-//        		"Cette fonctionnalité est en cours de développement.\n"
-//        		+ "Merci de votre compréhension.", ButtonType.OK);
-//        boiteAlerte.setTitle("En travaux");
-//        boiteAlerte.showAndWait(); // ctrl + shift + /
-
         VueJeu.activerFenetreOrdi();
     }
 
@@ -74,5 +68,12 @@ public class ControleurMenuPrincipal {
         if (option.get() == ButtonType.YES) {
             Platform.exit();
         }
+    }
+    
+    /**
+     * Permet de lancer la vue des règles
+     */
+    public void gererClicInfo() {  	
+    	VueJeu.activerFenetreRegles();
     }
 }
