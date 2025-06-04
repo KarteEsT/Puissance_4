@@ -397,8 +397,8 @@ public class ControleurJeu {
             int ligne = position[0];
             int colonne = position[1];
             Circle cercle = matriceCercle[colonne][ligne];
-            cercle.setStroke(javafx.scene.paint.Color.web("white")); // Contour noir
-            cercle.setStrokeWidth(3); // Épaisseur du contour
+            cercle.setStroke(javafx.scene.paint.Color.web("white"));
+            cercle.setStrokeWidth(3);
         }
     }
     
@@ -469,12 +469,17 @@ public class ControleurJeu {
             
             if (option.get() == relancer) {
                 // Réinitialiser la grille et les cercles
+            	
+                grille.reinitialiserGrille();
+                jetonsAlignes.clear();
+            	
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
                         cercle.setFill(javafx.scene.paint.Color.web("white"));
+                        cercle.setStroke(javafx.scene.paint.Color.TRANSPARENT);
+                        cercle.setStroke(null);
                     }
                 }
-                grille.reinitialiserGrille();
             }
             if (option.get() == quitter) {
                 Platform.exit();
