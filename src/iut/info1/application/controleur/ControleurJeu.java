@@ -168,7 +168,6 @@ public class ControleurJeu {
 
         String couleur = (joueurId == 1) ? couleurJoueur1 : couleurJoueur2;
         cercle.setFill(javafx.scene.paint.Color.web(couleur));
-        System.out.println("MAJ Grille : compteur = " + grille.getCompteTour());
     }
 
     /**
@@ -504,8 +503,9 @@ public class ControleurJeu {
     }
 
 	/**
-	 * TODO commenter le rôle de cette méthode (SRP)
-	 * @param matrice
+	 * Méthode pour mettre à jour la matrice de la grille
+	 * @param matrice la matrice utilisée pour mettre à jour
+	 * la grille
 	 */
 	public void mettreAJourMatrice(int[][] matrice) {
 		for (int i = 0; i < matrice.length; i++) {
@@ -516,6 +516,16 @@ public class ControleurJeu {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Méthode pour mettre à jour le compte de tours
+	 * 
+	 * @param compteTour le compte de tours à mettre à jour
+	 */
+	public void mettreAJourCompteTour(int compteTour) {
+		grille.setCompteTour(compteTour);
+		
 	}
 	
 	/**

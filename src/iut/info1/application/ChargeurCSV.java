@@ -73,7 +73,6 @@ public class ChargeurCSV {
 	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
 	        }
 	        grille.setCompteTour(compteTour);
-	        System.out.println("Grille setCOmpteTOur = " + compteTour);
 	        
 
 	        GrilleGlobales.setMatrice(matriceFinale);
@@ -81,7 +80,6 @@ public class ChargeurCSV {
 
 	        // Mettre à jour l'instance globale de la grille
 	        Grille.setInstance(grille);
-	        Grille.getInstance().setCompteTour(compteTour);
 	        return grille;
 	    } catch (IOException e) {
 	        e.printStackTrace();

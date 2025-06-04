@@ -220,6 +220,7 @@ public class VueJeu extends Application {
         redistribuerNoms();
         redistribuerCouleurs();
         redistribuerMatrice();
+        redistribuerCompteTour();
     }
 
     /**
@@ -399,7 +400,17 @@ public class VueJeu extends Application {
     public static void redistribuerMatrice() {
         int[][] matrice = GrilleGlobales.getMatrice();
         controleurJeu.mettreAJourMatrice(matrice);
+        System.out.println("Matrice redistribuée : ");
     }
+	
+	/**
+	 * Redistribue le compte de tour à la grille.
+	 */
+	public static void redistribuerCompteTour() {
+	    int compteTour = GrilleGlobales.getCompteTour();
+	    controleurJeu.mettreAJourCompteTour(compteTour);
+	    System.out.println("Compte tour redistribué : " + compteTour);
+	}
 
     /**
      * Point d'entrée de l'application JavaFX.
