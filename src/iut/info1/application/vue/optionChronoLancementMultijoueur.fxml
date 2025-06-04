@@ -28,7 +28,7 @@
             <Font size="150.0" />
          </font>
       </Label>
-      <ComboBox id="button" fx:id="choixTemps" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

@@ -16,8 +16,10 @@ import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
+import iut.info1.application.controleur.ControleurChronometre;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
+import iut.info1.application.utils.ChronosGlobales;
 import iut.info1.application.utils.NomsGlobals;
 
 /**
@@ -45,6 +47,7 @@ public class VueJeu extends Application {
     private static ControleurJeu controleurJeu; // Instance du contrôleur
     private static ControleurMultijoueur controleurMulti;
     private static ControleurOrdinateur controleurOrdi;
+    private static ControleurChronometre controleurChrono;
     
     private static Stage fenetreMenu;
 
@@ -193,6 +196,7 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoLancementMultijoueur() {
         fenetreMenu.setScene(sceneChronoLancementMultijoueur);
+        redistribuerChrono();
     }
 
     /**
@@ -201,6 +205,7 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoLancementOrdinateur() {
         fenetreMenu.setScene(sceneChronoLancementOrdinateur);
+        redistribuerChrono();
     }
 
     /**
@@ -208,6 +213,7 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoOption() {
         fenetreMenu.setScene(sceneChronoOption);
+        redistribuerChrono();
     }
 
     /**
@@ -342,24 +348,34 @@ public class VueJeu extends Application {
      * @param temps le temps en secondes si actif, sinon ignoré
      */
     public static void activerChronometre(boolean actif, int temps) {
-    	
-    	if (actif == true) {
-			
-		} else {
-			
-		}
+        if (actif) {
+            ChronosGlobales.setTempsChrono(temps);
+        } else {
+            ChronosGlobales.setTempsChrono(0);
+        }
     }
 
+    /**
+     * Met à jour la couleur du joueur 1 dans les contrôleurs.
+     * @param couleur1 la nouvelle couleur du joueur 1
+     */
     public static void mettreAJourCouleurJoueur1(String couleur1) {
         controleurMulti.mettreAJourCouleur(couleur1, null);
         controleurOrdi.mettreAJourCouleur(couleur1, null);
     }
 
+	/**
+	 * Met à jour la couleur du joueur 2 dans les contrôleurs.
+	 * @param couleur2 la nouvelle couleur du joueur 2
+	 */
     public static void mettreAJourCouleurJoueur2(String couleur2) {
         controleurMulti.mettreAJourCouleur(null, couleur2);
         controleurOrdi.mettreAJourCouleur(null, couleur2);
     }
     
+	/**
+	 * Redistribue les couleurs des joueurs à tous les contrôleurs.
+	 */
     public static void redistribuerCouleurs() {
         String couleur1 = CouleursGlobales.getCouleurJoueur1();
         String couleur2 = CouleursGlobales.getCouleurJoueur2();
@@ -369,6 +385,9 @@ public class VueJeu extends Application {
         controleurJeu.mettreAJourCouleur(couleur1, couleur2);
     }
     
+    /**
+     * Redistribue les noms des joueurs à tous les contrôleurs.
+     */
 	public static void redistribuerNoms() {
 		String nomJoueur1 = NomsGlobals.getNomJoueur1();
 		String nomJoueur2 = NomsGlobals.getNomJoueur2();
@@ -384,6 +403,15 @@ public class VueJeu extends Application {
 	public static void redistribuerMatrice() {
 	    int[][] matrice = GrilleGlobales.getMatrice();
 	    controleurJeu.mettreAJourMatrice(matrice);
+	}
+	
+	/**
+	 * Redistribue le temps du chronomètre à tous les contrôleurs.
+	 */
+	public static void redistribuerChrono() {
+		int tempsChrono = ChronosGlobales.getTempsChrono();
+		controleurChrono.mettreAJourChrono(tempsChrono);
+		
 	}
 
 	
