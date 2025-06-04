@@ -22,7 +22,7 @@ public class ChronosGlobales {
     /**
      * Boolean pour savoir si le chronomètre de la partie est activé ou non
      */
-    private static boolean chronoPartie;
+    private static boolean chronoPartie = false;
 
     
     /**

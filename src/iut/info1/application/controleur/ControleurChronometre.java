@@ -106,7 +106,7 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourOrdinateur() {
-        VueJeu.activerFenetreOrdi();
+        VueJeu.activerFenetreOptionOrdinateur();
     }
 
     /**
@@ -114,31 +114,45 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourMultijoueur() {
-        VueJeu.activerFenetreMulti();
+        VueJeu.activerFenetreOptionMultijoueur();
     }
     
     /**
      * Activer le chronomètre de la partie
      */
     public void gererClicActiver() {
-        activerChronoGlobal.setDisable(true);
-        activerChronoGlobal.setVisible(false);
-        desactiverChronoGlobal.setDisable(false);
-        desactiverChronoGlobal.setVisible(true);
-        labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
         ChronosGlobales.setChronoPartie(true);
+        activerDesactiverChronoGlobal();
     }
     
     /**
      * Désactiver le chronomètre de la partie
      */
     public void gererClicDesactiver() {
-        activerChronoGlobal.setDisable(false);
-        activerChronoGlobal.setVisible(true);
-        desactiverChronoGlobal.setDisable(true);
-        desactiverChronoGlobal.setVisible(false);
-        labelChronoGlobal.setText("Activer le choronomètre de la partie");
         ChronosGlobales.setChronoPartie(false);
+        activerDesactiverChronoGlobal();
+    }
+    
+    /**
+     * Permet d'activer et de désactiver les boutons
+     */
+    public void activerDesactiverChronoGlobal() {
+    	
+    	if (ChronosGlobales.getChronoPartie()) {
+    		activerChronoGlobal.setDisable(true);
+            activerChronoGlobal.setVisible(false);
+            desactiverChronoGlobal.setDisable(false);
+            desactiverChronoGlobal.setVisible(true);
+            labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
+            System.out.println("Activer Chrono");
+    	} else {
+    		activerChronoGlobal.setDisable(false);
+            activerChronoGlobal.setVisible(true);
+            desactiverChronoGlobal.setDisable(true);
+            desactiverChronoGlobal.setVisible(false);
+            labelChronoGlobal.setText("Activer le choronomètre de la partie");
+            System.out.println("Désactiver Chrono");
+    	}
     }
     
     /**

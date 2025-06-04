@@ -64,8 +64,8 @@ public class ControleurMultijoueur {
      * Permet de lancer l'interface de gestion du chrono
      */
     @FXML
-    public void gererClicChrono() {
-        VueJeu.activerFenetreChronoLancementMultijoueur();
+    public void gererClicOptionJeu() {
+        VueJeu.activerFenetreOptionMultijoueur();
     }
 
     /**

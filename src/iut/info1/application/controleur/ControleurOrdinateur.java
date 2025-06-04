@@ -67,8 +67,8 @@ public class ControleurOrdinateur {
      * pour le lancement de l'ordinateur.
      */
     @FXML
-    public void gererClicChrono() {
-        VueJeu.activerFenetreChronoLancementOrdinateur();
+    public void gererClicOptionJeu() {
+        VueJeu.activerFenetreOptionOrdinateur();
     }
 
     /**

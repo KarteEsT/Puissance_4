@@ -24,11 +24,11 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicLancer" prefHeight="116.0" prefWidth="459.0" text="Lancer" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicLancer" prefHeight="128.0" prefWidth="500.0" text="Lancer" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="60.0" />
          </font></Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicChrono" prefHeight="166.0" prefWidth="1032.0" text="Paramètres des chronomètres" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionJeu" prefHeight="128.0" prefWidth="500.0" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="60.0" />
          </font></Button>
@@ -53,7 +53,7 @@
             <Font size="150.0" />
          </font>
       </Label>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="83.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="18.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>

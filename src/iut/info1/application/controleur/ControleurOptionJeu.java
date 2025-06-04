@@ -31,6 +31,22 @@ public class ControleurOptionJeu {
     public void gererClicRetourOption() {
         VueJeu.activerFenetreOption();
     }
+    
+    /**
+     * Active la fenêtre multijoueur
+     */
+    @FXML
+    public void gererClicRetourMultijoueur() {
+    	VueJeu.activerFenetreMulti();
+    }
+    
+    /**
+     * Active la fenêtre Ordinateur
+     */
+    @FXML
+    public void gererClicRetourOrdinateur() {
+    	VueJeu.activerFenetreOrdi();
+    }
 
     /**
      * Active la fenêtre des options de jeu
@@ -38,6 +54,22 @@ public class ControleurOptionJeu {
     @FXML
     public void gererClicChronometre() {
         VueJeu.activerFenetreChronoOption();
+    }
+    
+    /**
+     * Active la fenêtre Chronomètre depuis multijoueur
+     */
+    @FXML
+    public void gererClicChronometreMulti() {
+    	VueJeu.activerFenetreChronoOptionMulti();
+    }
+    
+    /**
+     * Active la fenêtre Chronomètre depuis Ordinateur
+     */
+    @FXML
+    public void gererClicChronometreOrdi() {
+    	VueJeu.activerFenetreChronoOptionOrdi();
     }
 
     /**
