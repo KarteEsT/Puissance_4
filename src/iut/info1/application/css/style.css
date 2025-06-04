@@ -51,7 +51,7 @@
 /* === Style du bouton options === */
 #buttonBleu {
     -fx-background-color: blue;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -68,7 +68,7 @@
 
 #buttonRouge {
     -fx-background-color: red;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -86,7 +86,7 @@
 
 #buttonJaune {
     -fx-background-color: yellow;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -95,7 +95,7 @@
 
 #buttonVert {
     -fx-background-color: #00FF15;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
