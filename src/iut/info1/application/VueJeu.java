@@ -277,6 +277,7 @@ public class VueJeu extends Application {
         redistribuerCouleurs();
         distribuerBooleanChoroGlobal();
         DistribuerBooleanAide();
+        controleurJeu.reprendreChronos();
     }
 
     /**

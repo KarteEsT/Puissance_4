@@ -122,7 +122,7 @@ public class ControleurJeu {
     private Timeline chronoJoueur2;
     
     /** Durée totale du chronomètre */
-    private double dureeTotale;
+    private double dureeTotaleParTour;
     /** Progression actuelle de la barre de progression */
     public static double progressionActuelle;
     
@@ -142,14 +142,6 @@ public class ControleurJeu {
     public void initialize() {
         
         int tempsChrono = ChronosGlobales.getTempsChrono();
-        if (tempsChrono > 0) {
-            setDureeTotale(tempsChrono);
-            progressBar1.setVisible(true);
-            progressBar2.setVisible(true);
-        } else {
-            progressBar1.setVisible(false);
-            progressBar2.setVisible(false);
-        }
         
         // Les barres de progression n'aparaissent pas au début
         progressBar1.setVisible(false);
@@ -232,7 +224,7 @@ public class ControleurJeu {
      */
     public Timeline demarrerBarreDeProgression(ProgressBar progressBar) {
         final double intervalle = 0.1;  // Intervalle en secondes
-        final double decrement = intervalle / dureeTotale;
+        final double decrement = intervalle / dureeTotaleParTour;
 
         int joueurPerdant = (grille.getCompteTour() % 2 == 0) ? 1 : 2;
         String nomPerdant = (joueurPerdant == 1) ? joueur1.getText() : joueur2.getText();
@@ -242,11 +234,6 @@ public class ControleurJeu {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().addAll(
             new KeyFrame(Duration.seconds(intervalle), event -> {
-                // Vérifier si le chronomètre est activé
-                if (!ChronosGlobales.getChronoPartie()) {
-                    timeline.stop(); // Arrêter la timeline si le chrono est désactivé
-                    return;
-                }
 
                 progressionActuelle = progressBar.getProgress();
                 if (progressionActuelle > 0) {
@@ -682,16 +669,16 @@ public class ControleurJeu {
     /**
      * @return la durée totale du chronomètre
      */
-    public double getDureeTotale() {
-        return dureeTotale;
+    public double getDureeTotaleParTour() {
+        return dureeTotaleParTour;
     }
 
     /**
      * Permet de définir la durée totale du chronomètre.
      * @param duree la durée totale à définir
      */
-    public void setDureeTotale(double duree) {
-        this.dureeTotale = duree;
+    public void setDureeTotaleParTour(double duree) {
+        this.dureeTotaleParTour = duree;
     }
     
     /**

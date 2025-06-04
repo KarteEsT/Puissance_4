@@ -121,7 +121,7 @@
             <Insets left="20.0" top="20.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="chronoGlobal" text="00:00:00" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+      <Label fx:id="chronoGlobal" text="00:00" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>

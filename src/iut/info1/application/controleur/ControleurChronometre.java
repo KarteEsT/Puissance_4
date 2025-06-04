@@ -118,7 +118,7 @@ public class ControleurChronometre {
      * @param duree la durée en secondes
      */
     private static void activerChronometre(ControleurJeu controleurJeu, int duree) {
-        controleurJeu.setDureeTotale(duree);
+        controleurJeu.setDureeTotaleParTour(duree);
         ChronosGlobales.setTempsChrono(duree);
         controleurJeu.progressBar1.setVisible(true);
         controleurJeu.progressBar2.setVisible(true);
