@@ -643,6 +643,28 @@ public class ControleurJeu {
      */
     public void mettreAJourChronoGlobal(boolean booleanChrono) {
     	chronoGlobal.setVisible(booleanChrono);
+    	
+    	if (booleanChrono == true) {
+    		System.out.println("Chrono activer");
+    	} else if ( booleanChrono == false) {
+    		System.out.println("Chrono désactiver");
+    	}
+    }
+    
+    /**
+     * Méthode pour visualisé les pions de la méthode Aide
+     * @param aideJoueur Boolean pour savoir si l'utilisateur active ou
+     * désactive l'aide au joueur
+     */
+    public void mettreAJourAide(boolean aideJoueur) {
+    	if (aideJoueur == true) {
+    		System.out.println("Aide activer");
+    	} else if ( aideJoueur == false) {
+    		System.out.println("Aide désactiver");
+    	}
+    	
+    	//TODO
+    	
     }
     
 }

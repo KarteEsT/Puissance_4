@@ -22,6 +22,7 @@ import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
 import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.AideTampon;
 import iut.info1.application.utils.ChronosGlobales;
 
 /**
@@ -223,6 +224,7 @@ public class VueJeu extends Application {
         redistribuerMatrice();
         redistribuerCompteTour();
         distribuerBooleanChoroGlobal();
+        DistribuerBooleanAide();
     }
 
     /**
@@ -428,6 +430,15 @@ public class VueJeu extends Application {
     public static void distribuerBooleanChoroGlobal() {
     	boolean booleanChronoPartie = ChronosGlobales.getChronoPartie();
     	controleurJeu.mettreAJourChronoGlobal(booleanChronoPartie);
+    }
+    
+    /**
+     * Distribue si l'utilisateur active ou désactive
+     * l'aide au joueur
+     */
+    public static void DistribuerBooleanAide() {
+    	boolean aideBoolean = AideTampon.getAideBoolean();
+    	controleurJeu.mettreAJourAide(aideBoolean);
     }
 
     /**

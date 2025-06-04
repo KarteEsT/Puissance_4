@@ -37,7 +37,7 @@
             <Font size="150.0" />
          </font>
       </Label>
-      <Button id="button" mnemonicParsing="false" onAction="#gererAide" prefWidth="600.0" text="Activer l'aide" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button id="button" fx:id="aideActiver" mnemonicParsing="false" onAction="#gererAideActiver" prefWidth="600.0" text="Activer l'aide" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>
@@ -60,5 +60,10 @@
             <Insets left="20.0" top="20.0" />
          </GridPane.margin>
       </ImageView>
+      <Button id="button" fx:id="aideDesactiver" disable="true" layoutX="560.0" layoutY="203.0" mnemonicParsing="false" onAction="#gererAideDesactiver" prefWidth="600.0" text="Desactiver l'aide" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Button>
    </children>
 </GridPane>
