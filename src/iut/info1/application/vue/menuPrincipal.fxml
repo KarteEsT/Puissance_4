@@ -39,7 +39,7 @@
             <Font size="50.0" />
          </font>
       </Button>
-      <Button id="buttonJaune" fx:id="ButtonCharger" alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="651.0" mnemonicParsing="false" onAction="#gererClicCharger" prefHeight="100.0" prefWidth="650.0" text="💾 Charger une partie" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Button id="buttonOrange" fx:id="ButtonCharger" alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="651.0" mnemonicParsing="false" onAction="#gererClicCharger" prefHeight="100.0" prefWidth="650.0" text="💾 Charger une partie" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font size="50.0" />
          </font>
