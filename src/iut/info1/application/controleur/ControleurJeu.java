@@ -299,7 +299,6 @@ public class ControleurJeu {
      * conséquence.
      */
     private void verifierFinDePartie() {
-    	System.out.println(grille.getCompteTour());
         if (grille.verifierVictoire()) {
             int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
             String nomGagnant = (gagnant == 1) ? joueur1.getText() 
