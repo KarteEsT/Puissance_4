@@ -642,7 +642,7 @@ public class ControleurJeu {
      * réinitialiser la barre de progression
      */
     public void changementChrono() {
-     // Arrêter les deux chronos s'ils existent
+        // Arrêter les deux chronos s'ils existent
         if (chronoJoueur1 != null) {
             chronoJoueur1.stop();
             chronoJoueur1 = null;
@@ -656,8 +656,8 @@ public class ControleurJeu {
         progressBar1.setProgress(1.0);
         progressBar2.setProgress(1.0);
 
-        // Démarrer le chrono uniquement si un pion a été posé
-        if (grille.getCompteTour() > 0) {
+        // Démarrer le chrono uniquement si un pion a été posé ET si la durée est > 0
+        if (grille.getCompteTour() > 0 && this.dureeTotaleParTour > 0) { // Vérification ajoutée
             if (grille.getCompteTour() % 2 == 0) {
                 chronoJoueur1 = demarrerBarreDeProgression(progressBar1);
             } else {

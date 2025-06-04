@@ -129,6 +129,7 @@ public class ControleurChronometre {
      * @param controleurJeu le contrôleur du jeu
      */
     private static void desactiverChronometre(ControleurJeu controleurJeu) {
+        controleurJeu.setDureeTotaleParTour(0);
         controleurJeu.progressBar1.setVisible(false);
         controleurJeu.progressBar2.setVisible(false);
     }
