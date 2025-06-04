@@ -8,6 +8,7 @@ import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.Pane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -54,33 +55,31 @@ public class ControleurChronometre {
 
         switch (tempsSelectionne) {
             case "Désactiver":
+                
+                ControleurJeu.progressionActuelle = -1.0;
+                
                 break;
             case "5 min":
-                // VueJeu.activerChronometre(true, 300);
                 controleurJeu.setDureeTotale(300.0);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "2 min":
-                // VueJeu.activerChronometre(true, 120);
                 controleurJeu.setDureeTotale(120.0);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "1 min":
-                // VueJeu.activerChronometre(true, 60);
                 controleurJeu.setDureeTotale(60.0);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "30 sec":
-                // VueJeu.activerChronometre(true, 30);
                 controleurJeu.setDureeTotale(30.0);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
                 break;
             case "10 sec":
-                // VueJeu.activerChronometre(true, 10);
                 controleurJeu.setDureeTotale(10);
                 controleurJeu.progressBar1.setVisible(true);
                 controleurJeu.progressBar2.setVisible(true);
@@ -112,41 +111,6 @@ public class ControleurChronometre {
     @FXML
     public void gererClicRetourMultijoueur() {
         VueJeu.activerFenetreMulti();
-    }
-    
-        /**
-         * Met à jour le temps du chronomètre.
-         * @param temps Le temps restant en secondes.
-         */
-    public void mettreAJourChrono(int temps) {
-        
-        String tempsAffiche ="";
-        
-        switch (temps) {
-        case 0 :
-                tempsAffiche = "Désactiver";
-            break;
-        case 300 :
-                tempsAffiche = "5 min";
-            break;
-        case 120 :
-                        tempsAffiche = "2 min";
-                        break;
-        case 60 :
-                tempsAffiche = "1 min";
-            break;
-        case 30 :
-                tempsAffiche = "30 sec";
-            break;
-        case 10 :
-                tempsAffiche = "10 sec";
-            break;
-        default:
-            // Ne devrait pas arriver
-            break;
-        }
-        
-        choixTemps.setValue(tempsAffiche);
     }
     
     /**

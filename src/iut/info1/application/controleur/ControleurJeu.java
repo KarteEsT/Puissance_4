@@ -117,6 +117,8 @@ public class ControleurJeu {
     
     /** Durée totale du chronomètre */
     private double dureeTotale;
+    /** Progression actuelle de la barre de progression */
+    public static double progressionActuelle;
 
     /**
      * Méthode pour initialiser le jeu avec les joueurs et la grille
@@ -214,10 +216,10 @@ public class ControleurJeu {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().addAll(
             new KeyFrame(Duration.seconds(intervalle), event -> {
-                double progressionActuelle = progressBar.getProgress();
+                progressionActuelle = progressBar.getProgress();
                 if (progressionActuelle > 0) {
                     progressBar.setProgress(progressionActuelle - decrement);
-                } else {
+                } else if (progressionActuelle == 0) {
                     // Si la barre est vide, afficher une alerte
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -243,7 +245,12 @@ public class ControleurJeu {
                         }
                     });
                     timeline.stop(); // Arrêter la timeline
-                }
+                    } else if (progressionActuelle < 0) {
+                        progressBar1.setVisible(false);
+                        progressBar1.setManaged(false);
+                        progressBar2.setVisible(false);
+                        progressBar2.setManaged(false);
+                    }
             })
         );
 
@@ -572,6 +579,36 @@ public class ControleurJeu {
      */
     public void setDureeTotale(double duree) {
         this.dureeTotale = duree;
+    }
+    
+    /**
+     * Permet de définir le chronomètre pour le joueur 1.
+     * @param chrono le chronomètre à définir pour le joueur 1
+     */
+    public void setChronoJoueur1(Timeline chrono) {
+        this.chronoJoueur1 = chrono;
+    }
+
+    /**
+     * Permet de définir le chronomètre pour le joueur 2.
+     * @param chrono le chronomètre à définir pour le joueur 2
+     */
+    public void setChronoJoueur2(Timeline chrono) {
+        this.chronoJoueur2 = chrono;
+    }
+    
+    /**
+     * @return le chronomètre du joueur 1
+     */
+    public Timeline getChronoJoueur1() {
+        return chronoJoueur1;
+    }
+
+    /**
+     * @return le chronomètre du joueur 2
+     */
+    public Timeline getChronoJoueur2() {
+        return chronoJoueur2;
     }
     
 }
