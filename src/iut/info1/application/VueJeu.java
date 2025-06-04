@@ -18,7 +18,6 @@ import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
-import iut.info1.application.controleur.ControleurRegles;
 import iut.info1.application.utils.NomsGlobals;
 
 /**
@@ -154,10 +153,6 @@ public class VueJeu extends Application {
             primaryStage.setWidth(1500);
             primaryStage.setScene(sceneMenu);
             fenetreMenu = primaryStage;
-            
-            primaryStage.setFullScreen(true);
-            primaryStage.setFullScreenExitHint("");
-            primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
             
             primaryStage.show();
 
