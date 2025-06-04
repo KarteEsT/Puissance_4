@@ -426,13 +426,14 @@ public class ControleurJeu {
             alert.setHeaderText("Victoire !");
             alert.setTitle("Partie terminée !");
             
+            ButtonType menuPrincipal = new ButtonType("Menu principal");
             ButtonType relancer = new ButtonType("Relancer");
             ButtonType quitter = new ButtonType("Quitter");
             
             alert.setContentText(nomGagnant + " a gagné !");
             
             alert.getButtonTypes().clear(); // Efface les boutons par défaut
-            alert.getButtonTypes().addAll(relancer, quitter);
+            alert.getButtonTypes().addAll(menuPrincipal, relancer, quitter);
             
             Optional<ButtonType> option = alert.showAndWait();
             
@@ -457,6 +458,24 @@ public class ControleurJeu {
             if (option.get() == quitter) {
                 Platform.exit();
             }
+            if (option.get() == menuPrincipal) {
+                grille.reinitialiserGrille();
+                jetonsAlignes.clear();
+                
+                for (Circle[] colonne : matriceCercle) {
+                    for (Circle cercle : colonne) {
+                        cercle.setFill(javafx.scene.paint.Color.web("white"));
+                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
+                        cercle.setStrokeWidth(1);
+                    }
+                }
+                
+                
+                // Relancer le chrono pour le joueur 1 (début de partie)
+                changementChrono();
+
+                VueJeu.activerFenetreMenu();
+            }
             
             // Optionnel : désactiver les boutons ou relancer
         } else if (grille.isGrilleRemplie()) {
@@ -465,13 +484,14 @@ public class ControleurJeu {
             alert.setHeaderText("Égalité !");
             alert.setTitle("Partie terminée !");
             
+            ButtonType menuPrincipal = new ButtonType("Menu principal");
             ButtonType relancer = new ButtonType("Relancer");
             ButtonType quitter = new ButtonType("Quitter");
             
             alert.setContentText("La grille est pleine. Match nul !");
             
             alert.getButtonTypes().clear(); // Efface les boutons par défaut
-            alert.getButtonTypes().addAll(relancer, quitter);
+            alert.getButtonTypes().addAll(menuPrincipal, relancer, quitter);
             
             Optional<ButtonType> option = alert.showAndWait();
             
@@ -484,10 +504,13 @@ public class ControleurJeu {
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
                         cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.TRANSPARENT);
-                        cercle.setStroke(null);
+                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
+                        cercle.setStrokeWidth(1);
                     }
                 }
+            }
+            if (option.get() == menuPrincipal) {
+                VueJeu.activerFenetreMenu();
             }
             if (option.get() == quitter) {
                 Platform.exit();
