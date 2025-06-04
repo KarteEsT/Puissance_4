@@ -81,15 +81,37 @@ public class ControleurChronometre {
         
         ControleurJeu controleurJeu = VueJeu.getControleurJeu();
         
+        int duree;
         switch (tempsSelectionne) {
-            case DESACTIVER -> desactiverChronometre(controleurJeu);
-            case CINQ_MIN -> activerChronometre(controleurJeu, DUREE_5_MINUTES);
-            case DEUX_MIN -> activerChronometre(controleurJeu, DUREE_2_MINUTES);
-            case UNE_MIN -> activerChronometre(controleurJeu, DUREE_1_MINUTE);
-            case TRENTE_SEC -> activerChronometre(controleurJeu, DUREE_30_SECONDES);
-            case DIX_SEC -> activerChronometre(controleurJeu, DUREE_10_SECONDES);
-            default -> desactiverChronometre(controleurJeu);
+            case DESACTIVER:
+                desactiverChronometre(controleurJeu);
+                duree = 0;
+                break;
+            case CINQ_MIN:
+                activerChronometre(controleurJeu, DUREE_5_MINUTES);
+                duree = DUREE_5_MINUTES;
+                break;
+            case DEUX_MIN:
+                activerChronometre(controleurJeu, DUREE_2_MINUTES);
+                duree = DUREE_2_MINUTES;
+                break;
+            case UNE_MIN:
+                activerChronometre(controleurJeu, DUREE_1_MINUTE);
+                duree = DUREE_1_MINUTE;
+                break;
+            case TRENTE_SEC:
+                activerChronometre(controleurJeu, DUREE_30_SECONDES);
+                duree = DUREE_30_SECONDES;
+                break;
+            case DIX_SEC:
+                activerChronometre(controleurJeu, DUREE_10_SECONDES);
+                duree = DUREE_10_SECONDES;
+                break;
+            default:
+                desactiverChronometre(controleurJeu);
+                duree = 0;
         }
+        ChronosGlobales.setTempsChrono(duree);
     }
     
     /**
@@ -170,11 +192,8 @@ public class ControleurChronometre {
         desactiverChronoGlobal.setDisable(!chronoActif);
         desactiverChronoGlobal.setVisible(chronoActif);
         
-        // Mise à jour du label (correction de la faute de frappe)
+        // Mise à jour du label
         labelChronoGlobal.setText(chronoActif ? LABEL_DESACTIVER : LABEL_ACTIVER);
-        
-        // Log pour le débogage (considérer l'utilisation d'un vrai système de log)
-        System.out.println(chronoActif ? "Chronomètre activé" : "Chronomètre désactivé");
     }
     
     /**

@@ -14,14 +14,10 @@ package iut.info1.application.utils;
  */
 public class ChronosGlobales {
 
-    /**
-     * Temps du chronomètre, en secondes.
-     */
+    /* Temps du chronomètre, en secondes */
     private static int tempsChrono;
     
-    /**
-     * Boolean pour savoir si le chronomètre de la partie est activé ou non
-     */
+    /* Boolean pour savoir si le chronomètre de la partie est activé ou non */
     private static boolean chronoPartie = false;
 
     
@@ -58,5 +54,4 @@ public class ChronosGlobales {
     public static void setTempsChrono(int temps) {
         tempsChrono = temps;
     }
-
 }

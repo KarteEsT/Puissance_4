@@ -22,7 +22,7 @@ import java.util.Optional;
 import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
 import javafx.scene.control.ButtonType;
-
+import iut.info1.application.utils.ChronosGlobales;
 import iut.info1.application.utils.CouleursGlobales;
 
 /**
@@ -35,11 +35,11 @@ import iut.info1.application.utils.CouleursGlobales;
  */
 public class ControleurJeu {
 
-	/* Boolean de l'aide au joueur */
-	private boolean aideJoueur;
+    /* Boolean de l'aide au joueur */
+    private boolean aideJoueur;
 	
-	/* Chronomètre Global */
-	@FXML private Label chronoGlobal;
+    /* Chronomètre Global */
+    @FXML private Label chronoGlobal;
 	
     /* Labels pour afficher les noms des joueurs */
     @FXML private Label joueur1;
@@ -125,11 +125,26 @@ public class ControleurJeu {
     private double dureeTotale;
     /** Progression actuelle de la barre de progression */
     public static double progressionActuelle;
+    
+    /* Temps écoulé global en secondes */
+    private int tempsEcouleGlobal = 0;
+    /* Chronomètre global pour la partie */
+    private Timeline chronoGlobalTimeline;
 
     /**
      * Méthode pour initialiser le jeu avec les joueurs et la grille
      */
     public void initialize() {
+        
+        int tempsChrono = ChronosGlobales.getTempsChrono();
+        if (tempsChrono > 0) {
+            setDureeTotale(tempsChrono);
+            progressBar1.setVisible(true);
+            progressBar2.setVisible(true);
+        } else {
+            progressBar1.setVisible(false);
+            progressBar2.setVisible(false);
+        }
         
         // Les barres de progression n'aparaissent pas au début
         progressBar1.setVisible(false);
@@ -275,6 +290,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 0);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -291,6 +309,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 1); 
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -307,6 +328,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 2);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -323,6 +347,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 3);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -339,6 +366,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 4);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -355,6 +385,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 5);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -371,6 +404,9 @@ public class ControleurJeu {
             mettreAJourGrille(ligne, 6);
             verifierFinDePartie();
             changementChrono();
+            if (grille.getCompteTour() == 1) {
+                demarrerChronoGlobal();
+            }
             if (aideJoueur) {
             	mettreAJourPionAide();
             }
@@ -442,6 +478,7 @@ public class ControleurJeu {
             // Arrêter les chronomètres
             if (chronoJoueur1 != null) chronoJoueur1.stop();
             if (chronoJoueur2 != null) chronoJoueur2.stop();
+            arreterChronoGlobal();
             
             int gagnant = (grille.getCompteTour() - 1) % 2 + 1;
             String nomGagnant = (gagnant == 1) ? joueur1.getText() 
@@ -506,6 +543,8 @@ public class ControleurJeu {
             
             // Optionnel : désactiver les boutons ou relancer
         } else if (grille.isGrilleRemplie()) {
+            
+            arreterChronoGlobal();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Égalité !");
@@ -716,6 +755,41 @@ public class ControleurJeu {
      */
     public void mettreAJourAide(boolean aideJoueur) {
     	this.aideJoueur = aideJoueur;
+    }
+    
+    /**
+     * Démarre le chronomètre global pour la partie.
+     */
+    public void demarrerChronoGlobal() {
+        // Arrêter le chrono global s'il existe déjà
+        if (chronoGlobalTimeline != null) {
+            chronoGlobalTimeline.stop();
+        }
+
+        // Initialiser le temps écoulé
+        tempsEcouleGlobal = 0;
+
+        // Créer un Timeline pour incrémenter le temps chaque seconde
+        chronoGlobalTimeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            tempsEcouleGlobal++;
+            Platform.runLater(() -> {
+                int minutes = tempsEcouleGlobal / 60;
+                int secondes = tempsEcouleGlobal % 60;
+                chronoGlobal.setText(String.format("%02d:%02d", minutes, secondes));
+            });
+        }));
+
+        chronoGlobalTimeline.setCycleCount(Timeline.INDEFINITE);
+        chronoGlobalTimeline.play();
+    }
+
+    /**
+     * Arrête le chronomètre global pour la partie.
+     */
+    public void arreterChronoGlobal() {
+        if (chronoGlobalTimeline != null) {
+            chronoGlobalTimeline.stop();
+        }
     }
     
 }
