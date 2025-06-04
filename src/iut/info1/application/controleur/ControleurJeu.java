@@ -39,13 +39,9 @@ public class ControleurJeu {
     @FXML private Label joueur1;
     @FXML private Label joueur2;
 
-    /* ProgressBar pour afficher le temps restant du joueur 1 */
-    @FXML
-    private ProgressBar progressBar1;
-
-    /* ProgressBar pour afficher le temps restant du joueur 2 */
-    @FXML
-    private ProgressBar progressBar2;
+    /* ProgressBar pour afficher le temps restant pour chaque joueur */
+    @FXML ProgressBar progressBar1;
+    @FXML ProgressBar progressBar2;
 
     /* Cercle de la colonne A */
     @FXML private Circle A1;
@@ -118,13 +114,16 @@ public class ControleurJeu {
     private Timeline chronoJoueur1;
     /** Chronomètre du joueur n°2 */
     private Timeline chronoJoueur2;
+    
+    /** Durée totale du chronomètre */
+    private double dureeTotale;
 
     /**
      * Méthode pour initialiser le jeu avec les joueurs et la grille
      */
     public void initialize() {
         
-     // Réinitialiser les barres de progression
+        // Réinitialiser les barres de progression
         progressBar1.setProgress(1.0);
         progressBar2.setProgress(1.0);
 
@@ -204,7 +203,6 @@ public class ControleurJeu {
      * @return un objet Timeline qui gère la progression de la barre
      */
     public Timeline demarrerBarreDeProgression(ProgressBar progressBar) {
-        final double dureeTotale = 10.0; // Durée totale en secondes
         final double intervalle = 0.1;  // Intervalle en secondes
         final double decrement = intervalle / dureeTotale;
 
@@ -345,10 +343,10 @@ public class ControleurJeu {
         }
     }
     
-	/**
-	 * Méthode pour configurer la prévisualisation des cercles lorsqu'on survole une
-	 * colonne.
-	 */
+        /**
+         * Méthode pour configurer la prévisualisation des cercles lorsqu'on survole une
+         * colonne.
+         */
     private void configurerPrevisualisation() {
         for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
             for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
@@ -404,7 +402,7 @@ public class ControleurJeu {
      * conséquence.
      */
     private void verifierFinDePartie() {
-    	List<int[]> jetonsAlignes = grille.verifierVictoire();
+        List<int[]> jetonsAlignes = grille.verifierVictoire();
         if (!jetonsAlignes.isEmpty()) {
             
             // Arrêter les chronomètres
@@ -433,13 +431,13 @@ public class ControleurJeu {
             
             if (option.get() == relancer) {
                 // Réinitialiser la grille et les cercles
-            	
-            	grille.reinitialiserGrille();
+                
+                grille.reinitialiserGrille();
                 jetonsAlignes.clear();
-            	
+                
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
-                    	cercle.setFill(javafx.scene.paint.Color.web("white"));
+                        cercle.setFill(javafx.scene.paint.Color.web("white"));
                         cercle.setStroke(javafx.scene.paint.Color.TRANSPARENT);
                         cercle.setStroke(null);
                     }
@@ -472,10 +470,10 @@ public class ControleurJeu {
             
             if (option.get() == relancer) {
                 // Réinitialiser la grille et les cercles
-            	
+                
                 grille.reinitialiserGrille();
                 jetonsAlignes.clear();
-            	
+                
                 for (Circle[] colonne : matriceCercle) {
                     for (Circle cercle : colonne) {
                         cercle.setFill(javafx.scene.paint.Color.web("white"));
@@ -499,38 +497,38 @@ public class ControleurJeu {
         VueJeu.activerFenetreOption();
     }
 
-	/**
-	 * Méthode pour mettre à jour la matrice de la grille
-	 * @param matrice la matrice utilisée pour mettre à jour
-	 * la grille
-	 * Met à jour la matrice de la grille avec les valeurs fournies.
-	 */
-	public void mettreAJourMatrice(int[][] matrice) {
-		for (int i = 0; i < matrice.length; i++) {
-			for (int j = 0; j < matrice[i].length; j++) {
-				grille.getMatrice()[i][j] = matrice[i][j];
-				if (matrice[i][j] != 0) {
-					mettreAJourGrille(i, j);
-				}
-			}
-		}
-	}
+        /**
+         * Méthode pour mettre à jour la matrice de la grille
+         * @param matrice la matrice utilisée pour mettre à jour
+         * la grille
+         * Met à jour la matrice de la grille avec les valeurs fournies.
+         */
+        public void mettreAJourMatrice(int[][] matrice) {
+                for (int i = 0; i < matrice.length; i++) {
+                        for (int j = 0; j < matrice[i].length; j++) {
+                                grille.getMatrice()[i][j] = matrice[i][j];
+                                if (matrice[i][j] != 0) {
+                                        mettreAJourGrille(i, j);
+                                }
+                        }
+                }
+        }
 
-	/**
-	 * Méthode pour mettre à jour le compte de tours
-	 * 
-	 * @param compteTour le compte de tours à mettre à jour
-	 */
-	public void mettreAJourCompteTour(int compteTour) {
-		grille.setCompteTour(compteTour);
-		
-	}
-	
-	/**
+        /**
+         * Méthode pour mettre à jour le compte de tours
+         * 
+         * @param compteTour le compte de tours à mettre à jour
+         */
+        public void mettreAJourCompteTour(int compteTour) {
+                grille.setCompteTour(compteTour);
+                
+        }
+        
+        /**
      * Permet de lancer la vue des règles
      */
-    public void gererClicInfo() {  	
-    	VueJeu.activerFenetreRegles();
+    public void gererClicInfo() {       
+        VueJeu.activerFenetreRegles();
     }
     
     /**
@@ -560,4 +558,20 @@ public class ControleurJeu {
             chronoJoueur2 = demarrerBarreDeProgression(progressBar2);
         }
     }
+    
+    /**
+     * @return la durée totale du chronomètre
+     */
+    public double getDureeTotale() {
+        return dureeTotale;
+    }
+
+    /**
+     * Permet de définir la durée totale du chronomètre.
+     * @param duree la durée totale à définir
+     */
+    public void setDureeTotale(double duree) {
+        this.dureeTotale = duree;
+    }
+    
 }

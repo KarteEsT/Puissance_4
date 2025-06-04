@@ -384,15 +384,29 @@ public class VueJeu extends Application {
         controleurJeu.mettreAJourMatrice(matrice);
         System.out.println("Matrice redistribuée : ");
     }
-	
-	/**
-	 * Redistribue le compte de tour à la grille.
-	 */
-	public static void redistribuerCompteTour() {
-	    int compteTour = GrilleGlobales.getCompteTour();
-	    controleurJeu.mettreAJourCompteTour(compteTour);
-	    System.out.println("Compte tour redistribué : " + compteTour);
-	}
+
+    /**
+     * Redistribue le compte de tour à la grille.
+     */
+    public static void redistribuerCompteTour() {
+        int compteTour = GrilleGlobales.getCompteTour();
+        controleurJeu.mettreAJourCompteTour(compteTour);
+        System.out.println("Compte tour redistribué : " + compteTour);
+    }
+
+    /**
+     * @return le contrôleur de jeu
+     */
+    public static ControleurJeu getControleurJeu() {
+        return controleurJeu;
+    }
+
+    /**
+     * @param controleur le contrôleur de jeu à définir
+     */
+    public static void setControleurJeu(ControleurJeu controleur) {
+        controleurJeu = controleur;
+    }
 
     /**
      * Point d'entrée de l'application JavaFX.

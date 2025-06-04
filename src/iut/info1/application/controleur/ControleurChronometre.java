@@ -23,9 +23,9 @@ import iut.info1.application.utils.ChronosGlobales;
  */
 public class ControleurChronometre {
 
-	@FXML private ProgressBar progressBar1;
-	@FXML private ProgressBar progressBar2;
-	
+    @FXML private ProgressBar progressBar1;
+    @FXML private ProgressBar progressBar2;
+        
     @FXML private ComboBox<String> choixTemps;
     
     @FXML private Button activerChronoGlobal;
@@ -49,32 +49,45 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicValider() {
-        
-       	String tempsSelectionne = choixTemps.getValue();
-        
-       	switch (tempsSelectionne) {
-       	case "Désactiver":
-       	    ChronosGlobales.setTempsChrono(0);
-       	    break;
-       	case "5 min":
-       	    ChronosGlobales.setTempsChrono(300);
-       	    break;
-       	case "2 min":
-  	    	ChronosGlobales.setTempsChrono(120);
-  	    break;
-        case "1 min":
-            ChronosGlobales.setTempsChrono(60);
-            break;
-        case "30 sec":
-            ChronosGlobales.setTempsChrono(30);
-            break;
-        case "10 sec":
-            ChronosGlobales.setTempsChrono(10);
-            break;
-        default:
-            // Ne devrait pas arriver
-            break;
-       	}
+        String tempsSelectionne = choixTemps.getValue();
+        ControleurJeu controleurJeu = VueJeu.getControleurJeu();
+
+        switch (tempsSelectionne) {
+            case "Désactiver":
+                break;
+            case "5 min":
+                // VueJeu.activerChronometre(true, 300);
+                controleurJeu.setDureeTotale(300.0);
+                controleurJeu.progressBar1.setVisible(true);
+                controleurJeu.progressBar2.setVisible(true);
+                break;
+            case "2 min":
+                // VueJeu.activerChronometre(true, 120);
+                controleurJeu.setDureeTotale(120.0);
+                controleurJeu.progressBar1.setVisible(true);
+                controleurJeu.progressBar2.setVisible(true);
+                break;
+            case "1 min":
+                // VueJeu.activerChronometre(true, 60);
+                controleurJeu.setDureeTotale(60.0);
+                controleurJeu.progressBar1.setVisible(true);
+                controleurJeu.progressBar2.setVisible(true);
+                break;
+            case "30 sec":
+                // VueJeu.activerChronometre(true, 30);
+                controleurJeu.setDureeTotale(30.0);
+                controleurJeu.progressBar1.setVisible(true);
+                controleurJeu.progressBar2.setVisible(true);
+                break;
+            case "10 sec":
+                // VueJeu.activerChronometre(true, 10);
+                controleurJeu.setDureeTotale(10);
+                controleurJeu.progressBar1.setVisible(true);
+                controleurJeu.progressBar2.setVisible(true);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -90,7 +103,7 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourOrdinateur() {
-    	VueJeu.activerFenetreOrdi();
+        VueJeu.activerFenetreOrdi();
     }
 
     /**
@@ -101,67 +114,67 @@ public class ControleurChronometre {
         VueJeu.activerFenetreMulti();
     }
     
-	/**
-	 * Met à jour le temps du chronomètre.
-	 * @param temps Le temps restant en secondes.
-	 */
+        /**
+         * Met à jour le temps du chronomètre.
+         * @param temps Le temps restant en secondes.
+         */
     public void mettreAJourChrono(int temps) {
-    	
-    	String tempsAffiche ="";
-    	
-    	switch (temps) {
-       	case 0 :
-       		tempsAffiche = "Désactiver";
-       	    break;
-       	case 300 :
-       		tempsAffiche = "5 min";
-       	    break;
-       	case 120 :
-			tempsAffiche = "2 min";
-			break;
+        
+        String tempsAffiche ="";
+        
+        switch (temps) {
+        case 0 :
+                tempsAffiche = "Désactiver";
+            break;
+        case 300 :
+                tempsAffiche = "5 min";
+            break;
+        case 120 :
+                        tempsAffiche = "2 min";
+                        break;
         case 60 :
-        	tempsAffiche = "1 min";
+                tempsAffiche = "1 min";
             break;
         case 30 :
-        	tempsAffiche = "30 sec";
+                tempsAffiche = "30 sec";
             break;
         case 10 :
-        	tempsAffiche = "10 sec";
+                tempsAffiche = "10 sec";
             break;
         default:
             // Ne devrait pas arriver
             break;
-       	}
-    	
-    	choixTemps.setValue(tempsAffiche);
+        }
+        
+        choixTemps.setValue(tempsAffiche);
     }
     
     /**
      * Activer le chronomètre de la partie
      */
     public void gererClicActiver() {
-    	activerChronoGlobal.setDisable(true);
-    	activerChronoGlobal.setVisible(false);
-    	desactiverChronoGlobal.setDisable(false);
-    	desactiverChronoGlobal.setVisible(true);
-    	labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
+        activerChronoGlobal.setDisable(true);
+        activerChronoGlobal.setVisible(false);
+        desactiverChronoGlobal.setDisable(false);
+        desactiverChronoGlobal.setVisible(true);
+        labelChronoGlobal.setText("Désactiver le choronomètre de la partie");
     }
     
-	/**
-	 * Désactiver le chronomètre de la partie
-	 */
-	public void gererClicDesactiver() {
-		activerChronoGlobal.setDisable(false);
-		activerChronoGlobal.setVisible(true);
-		desactiverChronoGlobal.setDisable(true);
-		desactiverChronoGlobal.setVisible(false);
-		labelChronoGlobal.setText("Activer le choronomètre de la partie");
-	}
+        /**
+         * Désactiver le chronomètre de la partie
+         */
+        public void gererClicDesactiver() {
+                activerChronoGlobal.setDisable(false);
+                activerChronoGlobal.setVisible(true);
+                desactiverChronoGlobal.setDisable(true);
+                desactiverChronoGlobal.setVisible(false);
+                labelChronoGlobal.setText("Activer le choronomètre de la partie");
+        }
     
     /**
      * Permet de lancer la vue des règles
      */
-    public void gererClicInfo() {  	
-    	VueJeu.activerFenetreRegles();
+    public void gererClicInfo() {       
+        VueJeu.activerFenetreRegles();
     }
 }
