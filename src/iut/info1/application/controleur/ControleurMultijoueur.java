@@ -43,6 +43,9 @@ public class ControleurMultijoueur {
     @FXML
     private TextField nomJoueur2;
     
+	/**
+	 * Initialisation de la vue "multijoueur"
+	 */
     public void initialize() {
         String couleur1 = CouleursGlobales.getCouleurJoueur1();
         String couleur2 = CouleursGlobales.getCouleurJoueur2();
@@ -118,11 +121,17 @@ public class ControleurMultijoueur {
         }
     }
     
+	/**
+	 * Permet de gérer la touche "Entrée" pour valider le nom du joueur 1
+	 */
     @FXML
     public void gererToucheNomJoueur1() {
         NomsGlobals.setNomJoueur1(nomJoueur1.getText());
     }
 
+	/**
+	 * Permet de gérer la touche "Entrée" pour valider le nom du joueur 2
+	 */
     @FXML
     public void gererToucheNomJoueur2() {
         NomsGlobals.setNomJoueur2(nomJoueur2.getText());
@@ -130,8 +139,8 @@ public class ControleurMultijoueur {
     
     /**
      * Méthode pour mettre à jour les labels des joueurs
-     * @param nomJoueur1 nom du joueur 1
-     * @param nomJoueur2 nom du joueur 2
+     * @param joueur1 nom du joueur 1
+     * @param joueur2 nom du joueur 2
      */
     public void mettreAJourLabels(String joueur1, String joueur2) {
     	nomJoueur1.setText(joueur1);;
@@ -140,8 +149,8 @@ public class ControleurMultijoueur {
     
     /**
      * Met à jour les couleurs des boutons de sélection
-     * @param couleur du joueur 1
-     * @param couleur du joueur 2
+     * @param couleur1 du joueur 1
+     * @param couleur2 du joueur 2
      */
     @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {

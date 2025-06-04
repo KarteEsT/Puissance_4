@@ -198,8 +198,7 @@ public class Grille {
     /**
      * On va verifier si il y a une victoire verticale
      * 
-     * @return true si il y a une victoire 
-     *         false sinon
+     * @return la liste des jetons alignés
      */
     public List<int[]> verifierVictoireVerticale() {
         List<int[]> jetonsAlignes = new ArrayList<>();
@@ -226,7 +225,7 @@ public class Grille {
     /**
      * On va verifier si il y a une victoire dans une ligne
      * 
-     * @return true si il y a une victoire false sinon
+     * @return la liste des jetons alignés
      */
     public List<int[]> verifierVictoireHorizontale() {
         List<int[]> jetonsAlignes = new ArrayList<>();
@@ -252,8 +251,7 @@ public class Grille {
     /**
      * On va verifier si il y a une victoire dans la diagonale montante
      * 
-     * @return true si il y a une victoire
-     *         false sinon
+     * @return la liste des jetons alignés
      */
     public List<int[]> verifierVictoireDiagonaleMontante() {
         List<int[]> jetonsAlignes = new ArrayList<>();
@@ -279,8 +277,7 @@ public class Grille {
     /**
      * On va verifier si il y a une victoire dans la diagonale descendante
      * 
-     * @return true si il y a une victoire
-     *         false sinon
+     * @return la liste des jetons alignés
      */
     public List<int[]> verifierVictoireDiagonaleDescendante() {
         List<int[]> jetonsAlignes = new ArrayList<>();
@@ -305,9 +302,7 @@ public class Grille {
 
     /**
      * On va verifier si il y a une victoire dans la grille
-     * @param colonneJouee par le joueur
-     * 
-     * @return true si il y a une victoire false sinon
+     * @return la liste des jetons alignés
      */
     public List<int[]> verifierVictoire() {
         List<int[]> jetonsAlignes = new ArrayList<>();

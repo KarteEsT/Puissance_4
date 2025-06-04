@@ -13,8 +13,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
-import iut.info1.application.utils.CouleursGlobales;
-
 /**
  * Contrôleur de la vue "menuPrincipal"
  * 
@@ -49,6 +47,9 @@ public class ControleurMenuPrincipal {
         VueJeu.activerFenetreOrdi();
     }
 
+	/**
+	 * Permet de lancer la vue de création de partie
+	 */
     @FXML
     public void gererClicCharger() {
     	VueJeu.activerFenetreChargement();

@@ -8,7 +8,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 
@@ -48,7 +47,6 @@ public class VueJeu extends Application {
 
     private static Stage fenetreMenu;
 
-    //TODO Modularité
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -212,8 +210,6 @@ public class VueJeu extends Application {
 
     /**
      * Permet d'activer la fenêtre du jeu.
-     * @param le nom du joueur1 à transmettre
-     * @param le nom du joueur2 à transmettre
      */
     public static void activerFenetreJeu() {
         fenetreMenu.setScene(sceneJeu);
@@ -335,20 +331,6 @@ public class VueJeu extends Application {
         } catch (Exception e) {
             System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
             e.printStackTrace();
-        }
-    }
-
-    /**
-     * Activer ou désactiver le chronomètre
-     * @param actif true pour activer, false pour désactiver
-     * @param temps le temps en secondes si actif, sinon ignoré
-     */
-    public static void activerChronometre(boolean actif, int temps) {
-
-        if (actif == true) {
-
-        } else {
-
         }
     }
 
