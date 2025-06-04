@@ -16,10 +16,8 @@ import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
 import iut.info1.application.controleur.ControleurPopup;
-import iut.info1.application.controleur.ControleurChronometre;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
-import iut.info1.application.utils.ChronosGlobales;
 import iut.info1.application.utils.NomsGlobals;
 
 /**
@@ -43,12 +41,11 @@ public class VueJeu extends Application {
     private static Scene sceneOption;
     private static Scene sceneOptionJeu;
     private static Scene sceneSon;
-    
+
     private static ControleurJeu controleurJeu; // Instance du contrôleur
     private static ControleurMultijoueur controleurMulti;
     private static ControleurOrdinateur controleurOrdi;
-    private static ControleurChronometre controleurChrono;
-    
+
     private static Stage fenetreMenu;
 
     //TODO Modularité
@@ -93,11 +90,11 @@ public class VueJeu extends Application {
             // Paramètres Chronomètre Lancement Multijoueur
             FXMLLoader chargeurFXMLChronoLancementMultijoueur =
                     new FXMLLoader(getClass().getResource("/iut/info1/"
-                    + "application/vue/optionChronoLancementMultijoueur.fxml"));
+                            + "application/vue/optionChronoLancementMultijoueur.fxml"));
             Parent conteneurChronoLancementMultijoueur = 
-                                  chargeurFXMLChronoLancementMultijoueur.load();
+                    chargeurFXMLChronoLancementMultijoueur.load();
             sceneChronoLancementMultijoueur = 
-                      new Scene(conteneurChronoLancementMultijoueur, 800, 1700);
+                    new Scene(conteneurChronoLancementMultijoueur, 800, 1700);
             sceneChronoLancementMultijoueur.getStylesheets().add(getClass()
                     .getResource("/iut/info1/application/css/style.css")
                     .toExternalForm());
@@ -105,7 +102,7 @@ public class VueJeu extends Application {
             // Paramètres Chronomètre Lancement Ordinateur
             FXMLLoader chargeurFXMLChronoLancementOrdinateur =
                     new FXMLLoader(getClass().getResource("/iut/info1/"
-                    + "application/vue/optionChronoLancementOrdinateur.fxml"));
+                            + "application/vue/optionChronoLancementOrdinateur.fxml"));
             Parent conteneurChronoLancementOrdinateur =
                     chargeurFXMLChronoLancementOrdinateur.load();
             sceneChronoLancementOrdinateur = 
@@ -117,7 +114,7 @@ public class VueJeu extends Application {
             // Paramètres Chronomètre Option
             FXMLLoader chargeurFXMLChronoOption =
                     new FXMLLoader(getClass().getResource
-                        ("/iut/info1/application/vue/optionChronoOption.fxml"));
+                            ("/iut/info1/application/vue/optionChronoOption.fxml"));
             Parent conteneurChronoOption = chargeurFXMLChronoOption.load();
             sceneChronoOption = new Scene(conteneurChronoOption, 800, 1700);
             sceneChronoOption.getStylesheets().add(getClass().getResource
@@ -126,7 +123,7 @@ public class VueJeu extends Application {
             // Paramètres Options
             FXMLLoader chargeurFXMLOption =
                     new FXMLLoader(getClass().getResource
-                                    ("/iut/info1/application/vue/option.fxml"));
+                            ("/iut/info1/application/vue/option.fxml"));
             Parent conteneurOption = chargeurFXMLOption.load();
             sceneOption = new Scene(conteneurOption, 800, 1700);
             sceneOption.getStylesheets().add(getClass().getResource
@@ -135,7 +132,7 @@ public class VueJeu extends Application {
             // Paramètres Options Jeu
             FXMLLoader chargeurFXMLOptionJeu =
                     new FXMLLoader(getClass().getResource
-                                 ("/iut/info1/application/vue/optionJeu.fxml"));
+                            ("/iut/info1/application/vue/optionJeu.fxml"));
             Parent conteneurOptionJeu = chargeurFXMLOptionJeu.load();
             sceneOptionJeu = new Scene(conteneurOptionJeu, 800, 1700);
             sceneOptionJeu.getStylesheets().add(getClass().getResource
@@ -144,7 +141,7 @@ public class VueJeu extends Application {
             // Paramètres Son
             FXMLLoader chargeurFXMLOptionSon = 
                     new FXMLLoader(getClass().getResource
-                                 ("/iut/info1/application/vue/optionSon.fxml"));
+                            ("/iut/info1/application/vue/optionSon.fxml"));
             Parent conteneurOptionSon = chargeurFXMLOptionSon.load();
             sceneSon = new Scene(conteneurOptionSon, 800, 1700);
             sceneSon.getStylesheets().add(getClass().getResource
@@ -156,16 +153,16 @@ public class VueJeu extends Application {
             primaryStage.setWidth(1500);
             primaryStage.setScene(sceneMenu);
             fenetreMenu = primaryStage;
-            
+
             primaryStage.show();
 
         } catch (Exception e) {
             System.err.println("Erreur lors du chargement des fichiers FXML : "
-                              + e.getMessage());
+                    + e.getMessage());
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Permet d'activer la fenêtre du menu principal de l'application.
      */
@@ -196,7 +193,6 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoLancementMultijoueur() {
         fenetreMenu.setScene(sceneChronoLancementMultijoueur);
-        redistribuerChrono();
     }
 
     /**
@@ -205,7 +201,6 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoLancementOrdinateur() {
         fenetreMenu.setScene(sceneChronoLancementOrdinateur);
-        redistribuerChrono();
     }
 
     /**
@@ -213,7 +208,6 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreChronoOption() {
         fenetreMenu.setScene(sceneChronoOption);
-        redistribuerChrono();
     }
 
     /**
@@ -248,18 +242,19 @@ public class VueJeu extends Application {
     public static void activerFenetreSon() {
         fenetreMenu.setScene(sceneSon);
     }
-    
+
     /**
      * Permet d'activer la fenêtre de jeu sans refaire les couleurs
      */
     public static void activerFenetreJeuSansModification() {
-    	fenetreMenu.setScene(sceneJeu);
+        fenetreMenu.setScene(sceneJeu);
     }
 
     /**
      * Active une fenêtre de choix de couleur pour un joueur spécifique.
      * @param joueur le nom du joueur pour lequel
      * la fenêtre de choix de couleur est activée.
+     * @param idButton l'identifiant du bouton qui a été cliqué pour ouvrir la fenêtre.
      */
     public static void activerFenetreCouleur(String joueur, String idButton) {
         try {
@@ -269,7 +264,7 @@ public class VueJeu extends Application {
 
             ControleurPopup controleurPopup = loader.getController();
             controleurPopup.setInformations(joueur, idButton); // Initialise les informations
-            
+
             Stage popupStage = new Stage();
             popupStage.setTitle("Choix de couleur - " + joueur);
             popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -277,105 +272,106 @@ public class VueJeu extends Application {
             popupStage.showAndWait();
         } catch (Exception erreurLancement) {
             System.err.println("Erreur lors du chargement du popup FXML : "
-                              + erreurLancement.getMessage());
+                    + erreurLancement.getMessage());
             erreurLancement.printStackTrace();
         }
     }
-    
-	/**
-	 * Activer la fenêtre de sauvegarde du jeu.
-	 */
+
+    /**
+     * Activer la fenêtre de sauvegarde du jeu.
+     */
     public static void activerFenetreSauvegarde() {
-    	try {
-			FXMLLoader loaderSauvegarde = new FXMLLoader(VueJeu.class.getResource
+        try {
+            FXMLLoader loaderSauvegarde = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/sauvegarde.fxml"));
 
-			Parent root = loaderSauvegarde.load();
-			Stage popupStage = new Stage();
-			popupStage.setTitle("Sauvegarde du jeu");
-			popupStage.initModality(Modality.APPLICATION_MODAL);
-			popupStage.setScene(new Scene(root));
-			popupStage.showAndWait();
-		} catch (Exception e) {
-			System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
-			e.printStackTrace();
-		}
+            Parent root = loaderSauvegarde.load();
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Sauvegarde du jeu");
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setScene(new Scene(root));
+            popupStage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-    
-	/**
-	 * Activer la fenêtre de chargement du jeu.
-	 */
+
+    /**
+     * Activer la fenêtre de chargement du jeu.
+     */
     public static void activerFenetreChargement() {
-    	try {
-			FXMLLoader loaderCharger = new FXMLLoader(VueJeu.class.getResource
+        try {
+            FXMLLoader loaderCharger = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/charger.fxml"));
 
-			Parent root = loaderCharger.load();
-			Stage popupStage = new Stage();
-			popupStage.setTitle("Chargement du jeu");
-			popupStage.initModality(Modality.APPLICATION_MODAL);
-			popupStage.setScene(new Scene(root));
-			popupStage.showAndWait();
-		} catch (Exception e) {
-			System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-    
+            Parent root = loaderCharger.load();
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Chargement du jeu");
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setScene(new Scene(root));
+            popupStage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("Erreur lors du chargement du popup de sauvegarde : " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Activer la fenêtre des règles du jeu.
      */
     public static void activerFenetreRegles() {
-    	try {
-			FXMLLoader loaderRegles = new FXMLLoader(VueJeu.class.getResource
+        try {
+            FXMLLoader loaderRegles = new FXMLLoader(VueJeu.class.getResource
                     ("/iut/info1/application/vue/regles.fxml"));
 
-			Parent root = loaderRegles.load();
-			Stage popupStage = new Stage();
-			popupStage.setTitle("Règles du jeu");
-			popupStage.initModality(Modality.APPLICATION_MODAL);
-			popupStage.setScene(new Scene(root));
-			popupStage.showAndWait();
-		} catch (Exception e) {
-			System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
-			e.printStackTrace();
-		}
+            Parent root = loaderRegles.load();
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Règles du jeu");
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setScene(new Scene(root));
+            popupStage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-    
+
     /**
      * Activer ou désactiver le chronomètre
      * @param actif true pour activer, false pour désactiver
      * @param temps le temps en secondes si actif, sinon ignoré
      */
     public static void activerChronometre(boolean actif, int temps) {
-        if (actif) {
-            ChronosGlobales.setTempsChrono(temps);
+
+        if (actif == true) {
+
         } else {
-            ChronosGlobales.setTempsChrono(0);
+
         }
     }
 
     /**
-     * Met à jour la couleur du joueur 1 dans les contrôleurs.
-     * @param couleur1 la nouvelle couleur du joueur 1
+     * Met à jour la couleur du joueur 1 dans tous les contrôleurs.
+     * @param couleur1 la couleur du joueur 1
      */
     public static void mettreAJourCouleurJoueur1(String couleur1) {
         controleurMulti.mettreAJourCouleur(couleur1, null);
         controleurOrdi.mettreAJourCouleur(couleur1, null);
     }
 
-	/**
-	 * Met à jour la couleur du joueur 2 dans les contrôleurs.
-	 * @param couleur2 la nouvelle couleur du joueur 2
-	 */
+    /**
+     * Met à jour la couleur du joueur 2 dans tous les contrôleurs.
+     * @param couleur2 la couleur du joueur 2
+     */
     public static void mettreAJourCouleurJoueur2(String couleur2) {
         controleurMulti.mettreAJourCouleur(null, couleur2);
         controleurOrdi.mettreAJourCouleur(null, couleur2);
     }
-    
-	/**
-	 * Redistribue les couleurs des joueurs à tous les contrôleurs.
-	 */
+
+    /**
+     * Redistribue les couleurs des joueurs à tous les contrôleurs.
+     */
     public static void redistribuerCouleurs() {
         String couleur1 = CouleursGlobales.getCouleurJoueur1();
         String couleur2 = CouleursGlobales.getCouleurJoueur2();
@@ -384,37 +380,28 @@ public class VueJeu extends Application {
         controleurOrdi.mettreAJourCouleur(couleur1, couleur2);
         controleurJeu.mettreAJourCouleur(couleur1, couleur2);
     }
-    
+
     /**
      * Redistribue les noms des joueurs à tous les contrôleurs.
      */
-	public static void redistribuerNoms() {
-		String nomJoueur1 = NomsGlobals.getNomJoueur1();
-		String nomJoueur2 = NomsGlobals.getNomJoueur2();
+    public static void redistribuerNoms() {
+        String nomJoueur1 = NomsGlobals.getNomJoueur1();
+        String nomJoueur2 = NomsGlobals.getNomJoueur2();
 
-		controleurMulti.mettreAJourLabels(nomJoueur1, nomJoueur2);
-		controleurOrdi.mettreAJourLabels(nomJoueur1, nomJoueur2);
-		controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2);
-	}
-    
-	/**
-	 * Redistribue la matrice de jeu à tous les contrôleurs.
-	 */
-	public static void redistribuerMatrice() {
-	    int[][] matrice = GrilleGlobales.getMatrice();
-	    controleurJeu.mettreAJourMatrice(matrice);
-	}
-	
-	/**
-	 * Redistribue le temps du chronomètre à tous les contrôleurs.
-	 */
-	public static void redistribuerChrono() {
-		int tempsChrono = ChronosGlobales.getTempsChrono();
-		controleurChrono.mettreAJourChrono(tempsChrono);
-		
-	}
+        controleurMulti.mettreAJourLabels(nomJoueur1, nomJoueur2);
+        controleurOrdi.mettreAJourLabels(nomJoueur1, nomJoueur2);
+        controleurJeu.mettreAJourLabels(nomJoueur1, nomJoueur2);
+    }
 
-	
+    /**
+     * Redistribue la matrice de jeu à tous les contrôleurs.
+     */
+    public static void redistribuerMatrice() {
+        int[][] matrice = GrilleGlobales.getMatrice();
+        controleurJeu.mettreAJourMatrice(matrice);
+    }
+
+
     /**
      * Point d'entrée de l'application JavaFX.
      * @param args non utilisé

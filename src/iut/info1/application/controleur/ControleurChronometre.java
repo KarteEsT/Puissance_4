@@ -7,9 +7,8 @@ package iut.info1.application.controleur;
 import iut.info1.application.VueJeu;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
-
-import iut.info1.application.utils.ChronosGlobales;
 
 /**
  * Contrôleur de la vue "optionChrono"
@@ -33,8 +32,10 @@ public class ControleurChronometre {
     public void initialize() {
         
         // Remplir la ComboBox (affichés sous forme de texte)
-        choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min",
-                                         "30 sec", "10 sec");
+        choixTemps.getItems().addAll("Désactiver", "5 min", "2 min", "1 min"
+                                        , "30 sec", "10 sec");
+        choixTemps.setValue("Désactiver"); // Valeur par défaut
+        
     }
     
     /**
@@ -43,31 +44,31 @@ public class ControleurChronometre {
     @FXML
     public void gererClicValider() {
         
-       	String tempsSelectionne = choixTemps.getValue();
+        String tempsSelectionne = choixTemps.getValue();
         
-       	switch (tempsSelectionne) {
-       	case "Désactiver":
-       	    ChronosGlobales.setTempsChrono(0);
-       	    break;
-       	case "5 min":
-       	    ChronosGlobales.setTempsChrono(300);
-       	    break;
-       	case "2 min":
-  	    	ChronosGlobales.setTempsChrono(120);
-  	    break;
+        switch (tempsSelectionne) {
+        case "Désactiver":
+            VueJeu.activerChronometre(false, 0);
+            break;
+        case "5 min":
+            VueJeu.activerChronometre(true, 300);
+            break;
+        case "2 min":
+            VueJeu.activerChronometre(true, 120);
+            break;
         case "1 min":
-            ChronosGlobales.setTempsChrono(60);
+            VueJeu.activerChronometre(true, 60);
             break;
         case "30 sec":
-            ChronosGlobales.setTempsChrono(30);
+            VueJeu.activerChronometre(true, 30);
             break;
         case "10 sec":
-            ChronosGlobales.setTempsChrono(10);
+            VueJeu.activerChronometre(true, 10);
             break;
         default:
             // Ne devrait pas arriver
             break;
-       	}
+        }
     }
 
     /**
@@ -83,7 +84,7 @@ public class ControleurChronometre {
      */
     @FXML
     public void gererClicRetourOrdinateur() {
-    	VueJeu.activerFenetreOrdi();
+    	VueJeu.activerFenetreMulti();
     }
 
     /**
@@ -92,40 +93,6 @@ public class ControleurChronometre {
     @FXML
     public void gererClicRetourMultijoueur() {
         VueJeu.activerFenetreMulti();
-    }
-    
-	/**
-	 * Met à jour le temps du chronomètre.
-	 */
-    public void mettreAJourChrono(int temps) {
-    	
-    	String tempsAffiche ="";
-    	
-    	switch (temps) {
-       	case 0 :
-       		tempsAffiche = "Désactiver";
-       	    break;
-       	case 300 :
-       		tempsAffiche = "5 min";
-       	    break;
-       	case 120 :
-			tempsAffiche = "2 min";
-			break;
-        case 60 :
-        	tempsAffiche = "1 min";
-            break;
-        case 30 :
-        	tempsAffiche = "30 sec";
-            break;
-        case 10 :
-        	tempsAffiche = "10 sec";
-            break;
-        default:
-            // Ne devrait pas arriver
-            break;
-       	}
-    	
-    	choixTemps.setValue(tempsAffiche);
     }
     
     /**

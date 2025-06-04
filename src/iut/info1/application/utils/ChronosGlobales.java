@@ -13,24 +13,24 @@ package iut.info1.application.utils;
  * @author Esteban Roveri
  */
 public class ChronosGlobales {
-	
-	/**
-	 * Temps du chronomètre, en secondes.
-	 */
-	private static int tempsChrono;
-	
-	/**
-	 * Retourne le temps du chronomètre
-	 * @return le temps du chronomètre
-	 */
-	public static int getTempsChrono() {
+
+    /**
+     * Temps du chronomètre, en secondes.
+     */
+    private static int tempsChrono;
+
+    /**
+     * Retourne le temps du chronomètre
+     * @return le temps du chronomètre
+     */
+    public static int getTempsChrono() {
         return tempsChrono;
     }
 
-	/**
-	 * Définit le temps des chronomètres
-	 * @param temps le temps à définir pour le chronomètre
-	 */
+    /**
+     * Définit le temps des chronomètres
+     * @param temps le temps à définir pour le chronomètre
+     */
     public static void setTempsChrono(int temps) {
         tempsChrono = temps;
     }
