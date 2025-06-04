@@ -332,11 +332,33 @@ public class ControleurJeu {
             
             // Optionnel : désactiver les boutons ou relancer
         } else if (grille.isGrilleRemplie()) {
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Égalité !");
-            alert.setHeaderText(null);
+            alert.setHeaderText("Égalité !");
+            alert.setTitle("Partie terminée !");
+            
+            ButtonType relancer = new ButtonType("Relancer");
+            ButtonType quitter = new ButtonType("Quitter");
+            
             alert.setContentText("La grille est pleine. Match nul !");
-            alert.showAndWait();
+            
+            alert.getButtonTypes().clear(); // Efface les boutons par défaut
+            alert.getButtonTypes().addAll(relancer, quitter);
+            
+            Optional<ButtonType> option = alert.showAndWait();
+            
+            if (option.get() == relancer) {
+                // Réinitialiser la grille et les cercles
+                for (Circle[] colonne : matriceCercle) {
+                    for (Circle cercle : colonne) {
+                        cercle.setFill(javafx.scene.paint.Color.web("white"));
+                    }
+                }
+                grille.reinitialiserGrille();
+            }
+            if (option.get() == quitter) {
+                Platform.exit();
+            }
         }
     }
     

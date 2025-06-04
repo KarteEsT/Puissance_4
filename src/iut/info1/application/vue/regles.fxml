@@ -12,16 +12,15 @@
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Chaque joueur à son tour insère un pion par le haut dans n'importe quelle colonne de la grille." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Label text="Il faut tout à la fois gérer l'avancement de ses lignes et empêcher l'adversaire de conclure." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Label text="Quand un joueur aligne 4 de ses pions horizontalement, verticalement ou en diagonale, il gagne la partie." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <Button fx:id="idFermer" mnemonicParsing="false" onAction="#gererClicFermer" text="Fermer" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <Label text="Chaque joueur à son tour insère un pion par le haut dans n'importe quelle colonne de la grille." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+      <Label text="Il faut tout à la fois gérer l'avancement de ses lignes et empêcher l'adversaire de conclure." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label text="Quand un joueur aligne 4 de ses pions horizontalement, verticalement ou en diagonale, il gagne la partie." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Button id="button" fx:id="idFermer" mnemonicParsing="false" onAction="#gererClicFermer" text="Fermer" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
    </children>
 </GridPane>
