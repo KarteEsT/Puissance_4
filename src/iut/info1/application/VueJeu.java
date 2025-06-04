@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 
@@ -151,6 +152,11 @@ public class VueJeu extends Application {
             primaryStage.setWidth(1500);
             primaryStage.setScene(sceneMenu);
             fenetreMenu = primaryStage;
+            
+            primaryStage.setFullScreen(true);
+            primaryStage.setFullScreenExitHint("");
+            primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+            
             primaryStage.show();
 
         } catch (Exception e) {
