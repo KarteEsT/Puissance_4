@@ -28,12 +28,12 @@
          <font>
             <Font size="100.0" />
          </font></Label>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicQuitter" text="Quitter le jeu" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicQuitter" prefHeight="128.0" prefWidth="650.0" text="Quitter le jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="20.0" left="20.0" />
+            <Insets bottom="20.0" />
          </GridPane.margin></Button>
       <Button id="button" mnemonicParsing="false" onAction="#gererClicReprendre" prefHeight="128.0" prefWidth="650.0" text="Reprendre" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
