@@ -54,7 +54,7 @@
     -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
 }
 
@@ -62,7 +62,7 @@
     -fx-text-fill: black;
     -fx-font-size: 45px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
 }
 
@@ -71,7 +71,7 @@
     -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
 }
 
@@ -80,16 +80,7 @@
     -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
-    -fx-cursor: hand;
-}
-
-#buttonJaune {
-    -fx-background-color: yellow;
-    -fx-text-fill: white;
-    -fx-font-size: 50px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
 }
 
@@ -98,7 +89,7 @@
     -fx-text-fill: white;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
 }
 

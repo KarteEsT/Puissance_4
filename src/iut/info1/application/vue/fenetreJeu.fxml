@@ -91,7 +91,7 @@
             <Circle fx:id="G6" accessibleRole="BUTTON" fill="WHITE" onMouseClicked="#activerColonne7" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <Button id="buttonOrange" alignment="CENTER" contentDisplay="CENTER" maxHeight="90.0" minHeight="8.0" mnemonicParsing="false" onAction="#gererClicOption" prefHeight="90.0" prefWidth="303.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button id="buttonOrange" alignment="CENTER" contentDisplay="CENTER" maxHeight="100.0" minHeight="8.0" mnemonicParsing="false" onAction="#gererClicOption" prefHeight="90.0" prefWidth="303.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="45.0" />
          </font>
