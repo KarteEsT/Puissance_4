@@ -14,9 +14,7 @@ package iut.info1.application.utils;
  */
 public class AideTampon {
 
-	/**
-	 * Boolean pour savoir si l'aide est activer ou non
-	 */
+	/** Boolean pour savoir si l'aide est activer ou non */
 	private static boolean aide;
 	
 	/**

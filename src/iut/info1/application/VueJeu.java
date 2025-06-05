@@ -37,6 +37,7 @@ import iut.info1.application.utils.ChronosGlobales;
  */
 public class VueJeu extends Application {
 
+    /* Création des scènes */
     private static Scene sceneJeu;
     private static Scene sceneMenu;
     private static Scene sceneMulti;
@@ -46,12 +47,15 @@ public class VueJeu extends Application {
     private static Scene sceneOptionJeu;
     private static Scene sceneSon;
 
-    private static ControleurJeu controleurJeu; // Instance du contrôleur
+    /* Instance de contrôleur */
+    private static ControleurJeu controleurJeu;
     private static ControleurMultijoueur controleurMulti;
     private static ControleurOrdinateur controleurOrdi;
-    private static ControleurChronometre controleurChrono;
 
+    /* Création du Stage */
     private static Stage fenetreMenu;
+
+	/* Chargement des fichiers fxml */
 
     @Override
     public void start(Stage primaryStage) {
@@ -145,6 +149,8 @@ public class VueJeu extends Application {
             e.printStackTrace();
         }
     }
+
+    /* Activation des fenêtres */
 
     /**
      * Permet d'activer la fenêtre du menu principal de l'application.
@@ -353,6 +359,8 @@ public class VueJeu extends Application {
             e.printStackTrace();
         }
     }
+	
+	/* Transfert de données */
 
     /**
      * Met à jour la couleur du joueur 1 dans tous les contrôleurs.
@@ -430,6 +438,8 @@ public class VueJeu extends Application {
         controleurJeu.mettreAJourCompteTour(compteTour);
     }
 
+    /* Méthodes */
+
     /**
      * @return le contrôleur de jeu
      */
@@ -443,6 +453,8 @@ public class VueJeu extends Application {
     public static void setControleurJeu(ControleurJeu controleur) {
         controleurJeu = controleur;
     }
+
+    /* Lancement */ 
 
     /**
      * Point d'entrée de l'application JavaFX.

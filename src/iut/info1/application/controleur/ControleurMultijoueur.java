@@ -25,70 +25,47 @@ public class ControleurMultijoueur {
 
     private String joueur1;
     private String joueur2;
-    private String couleur1;
-    private String couleur2;
 
     /** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
     
+    /** Identifiant du bouton de couleur du joueur 1 */
     @FXML
     private Button buttonCouleur1;
     
+    /** Identifiant du bouton de couleur du joueur 2 */
     @FXML
     private Button buttonCouleur2;
 
+    /** Identifiant du textfield du joueur 1 */
     @FXML
     private TextField nomJoueur1;
 
+    /** Identifiant du textfield du joueur 2 */
     @FXML
     private TextField nomJoueur2;
     
-	/**
-	 * Initialisation de la vue "multijoueur"
-	 */
+	/** Initialisation de la vue "multijoueur" */
     public void initialize() {
         String couleur1 = CouleursGlobales.getCouleurJoueur1();
         String couleur2 = CouleursGlobales.getCouleurJoueur2();
         mettreAJourCouleur(couleur1, couleur2);
     }
 
-    /**
-     * Permet de retourner au Menu principal
-     */
-    @FXML
-    public void gererClicRetourMenu() {
-        VueJeu.activerFenetreMenu();
-    }
-
-    /**
-     * Permet de lancer l'interface de gestion du chrono
-     */
-    @FXML
-    public void gererClicOptionJeu() {
-        VueJeu.activerFenetreOptionJeu();
-        SauvegardeCheminOption.setChemin("Multi");
-    }
-
-    /**
-     * Permet de lancer l'interface de gestion des couleurs du joueur 1
-     */
+    /** Permet de lancer l'interface de gestion des couleurs du joueur 1 */
     @FXML
     public void gererClicCouleurJoueur1() {
         VueJeu.activerFenetreCouleur(nomJoueur1.getText(), buttonCouleur1.getId());
     }
 
-    /**
-     * Permet de lancer l'interface de gestion des couleurs du joueur 2
-     */
+    /** Permet de lancer l'interface de gestion des couleurs du joueur 2 */
     @FXML
     public void gererClicCouleurJoueur2() {
         VueJeu.activerFenetreCouleur(nomJoueur2.getText(), buttonCouleur2.getId());
     }
 
-    /**
-     * Permet de lancer la partie en transmettant les noms des joueurs.
-     */
+    /** Permet de lancer la partie en transmettant les noms des joueurs. */
     @FXML
     public void gererClicLancer() {
         joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
@@ -123,17 +100,13 @@ public class ControleurMultijoueur {
         }
     }
     
-	/**
-	 * Permet de gérer la touche "Entrée" pour valider le nom du joueur 1
-	 */
+	/** Permet de gérer la touche "Entrée" pour valider le nom du joueur 1 */
     @FXML
     public void gererToucheNomJoueur1() {
         NomsGlobals.setNomJoueur1(nomJoueur1.getText());
     }
 
-	/**
-	 * Permet de gérer la touche "Entrée" pour valider le nom du joueur 2
-	 */
+	/** Permet de gérer la touche "Entrée" pour valider le nom du joueur 2 */
     @FXML
     public void gererToucheNomJoueur2() {
         NomsGlobals.setNomJoueur2(nomJoueur2.getText());
@@ -163,6 +136,21 @@ public class ControleurMultijoueur {
         if (couleur2 != null) {
             buttonCouleur2.setStyle("-fx-background-color: " + couleur2 + ";");
         }
+    }
+    
+    /* Changer de vue */
+    
+    /** Permet de retourner au Menu principal */
+    @FXML
+    public void gererClicRetourMenu() {
+        VueJeu.activerFenetreMenu();
+    }
+
+    /** Permet de lancer l'interface de gestion du chrono */
+    @FXML
+    public void gererClicOptionJeu() {
+        VueJeu.activerFenetreOptionJeu();
+        SauvegardeCheminOption.setChemin("Multi");
     }
     
     /**

@@ -24,40 +24,35 @@ import iut.info1.application.utils.SauvegardeCheminOption;
  * @author Esteban Roveri
  */
 public class ControleurOrdinateur {
-
-	private String joueur1;
-	private String joueur2;
-	private String couleur1;
-	private String couleur2;
 	
     /** Bouton pour retourner au Menu */
     @FXML
     private Button retourMenu;
 
+    /** identifiant du textfield du joueur 1*/
     @FXML
     private TextField nomJoueur1;
 
+    /** identifiant du textfield du joueur 2 */
     @FXML
     private TextField nomJoueur2;
     
+    /** identifiant du bouton de couleur du joueur 1 */
     @FXML
     private Button buttonCouleur1;
     
+    /** identifiant du bouton de couleur du joueur 2 */
     @FXML
     private Button buttonCouleur2;
 
-	/**
-	 * Initialisation de la vue "contreOrdi"
-	 */
+	/** Initialisation de la vue "contreOrdi" */
     public void initialize() {
         String couleur1 = CouleursGlobales.getCouleurJoueur1();
         String couleur2 = CouleursGlobales.getCouleurJoueur2();
         mettreAJourCouleur(couleur1, couleur2);
     }
     
-    /**
-     * Active la fenêtre de menu
-     */
+    /** Active la fenêtre de menu */
     @FXML
     public void gererClicRetourMenu() {
         VueJeu.activerFenetreMenu();
@@ -73,64 +68,26 @@ public class ControleurOrdinateur {
         SauvegardeCheminOption.setChemin("Ordi");
     }
 
-    /**
-     * Permet de lancer l'interface de gestion des couleurs du joueur 1
-     */
+    /** Permet de lancer l'interface de gestion des couleurs du joueur 1 */
     @FXML
     public void gererClicCouleurJoueur1() {
         VueJeu.activerFenetreCouleur(nomJoueur1.getText(), buttonCouleur1.getId());
     }
 
-    /**
-     * Permet de lancer l'interface de gestion des couleurs du joueur 2
-     */
+    /** Permet de lancer l'interface de gestion des couleurs du joueur 2 */
     @FXML
     public void gererClicCouleurJoueur2() {
         VueJeu.activerFenetreCouleur(nomJoueur2.getText(), buttonCouleur2.getId());
     }
 
-    /**
-     * Permet de lancer la partie en transmettant les noms des joueurs.
-     */
+    /** Permet de lancer la partie en transmettant les noms des joueurs. */
     @FXML
     public void gererClicLancer() {
-    	
         Alert boiteAlerte = new Alert(Alert.AlertType.INFORMATION,
         		"Cette fonctionnalité est en cours de développement.\n"
         		+ "Merci de votre compréhension.", ButtonType.OK);
         boiteAlerte.setTitle("En travaux");
         boiteAlerte.showAndWait(); // ctrl + shift + /
-    	
-//        joueur1 = nomJoueur1.getText().isEmpty() ? "JOUEUR 1" 
-//                                                : nomJoueur1.getText();
-//        joueur2 = nomJoueur2.getText().isEmpty() ? "ROBOT" 
-//                                                : nomJoueur2.getText();
-//        
-//        if (nomJoueur1.getText().isEmpty() || nomJoueur2.getText().isEmpty()) {
-//        	
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//            alert.setTitle("Champs vides");
-//            alert.setHeaderText("Un ou plusieurs champs sont vides.");
-//            alert.setContentText("Les noms par défaut seront utilisés : " 
-//                                    + joueur1 + " et " + joueur2 
-//                                    + ". Voulez-vous continuer ?");
-//
-//            alert.showAndWait().ifPresent(response -> {
-//                if (response == javafx.scene.control.ButtonType.OK) {
-//                	
-//                	if (NomsGlobals.getNomJoueur1() == null || NomsGlobals.getNomJoueur1().isEmpty()) {
-//                        NomsGlobals.setNomJoueur1("JOUEUR 1");
-//                    }
-//                    if (NomsGlobals.getNomJoueur2() == null || NomsGlobals.getNomJoueur2().isEmpty()) {
-//                        NomsGlobals.setNomJoueur2("JOUEUR 2");
-//                    }
-//                	
-//                    VueJeu.activerFenetreJeu();
-//                }
-//            });
-//        } else {
-//            VueJeu.activerFenetreJeu();
-//        }
     }
     
     /**
@@ -143,17 +100,13 @@ public class ControleurOrdinateur {
     	nomJoueur2.setText(joueur2);
     }
     
-	/**
-	 * Permet de gérer la touche "Entrée" pour valider le nom du joueur 1
-	 */
+	/** Permet de gérer la touche "Entrée" pour valider le nom du joueur 1 */
     @FXML
     public void gererToucheNomJoueur1() {
         NomsGlobals.setNomJoueur1(nomJoueur1.getText());
     }
 
-    /**
-     * Permet de gérer la touche "Entrée" pour valider le nom du joueur 2
-     */
+    /** Permet de gérer la touche "Entrée" pour valider le nom du joueur 2 */
     @FXML
     public void gererToucheNomJoueur2() {
         NomsGlobals.setNomJoueur2(nomJoueur2.getText());
@@ -174,9 +127,7 @@ public class ControleurOrdinateur {
         }
     }
     
-    /**
-     * Permet de lancer la vue des règles
-     */
+    /** Permet de lancer la vue des règles */
     public void gererClicInfo() {  	
     	VueJeu.activerFenetreRegles();
     }

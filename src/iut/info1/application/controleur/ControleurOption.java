@@ -12,7 +12,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.shape.Circle;
 
 /**
  * Contrôleur de la vue "option"
@@ -24,34 +23,26 @@ import javafx.scene.shape.Circle;
  */
 public class ControleurOption {
 
-    /**
-     * active la fenêtre des options graphiques
-     */
+    /** Active la fenêtre des options graphiques */
     @FXML
     public void gererClicSauvegarder() {
     	VueJeu.activerFenetreSauvegarde();
     }
 
-    /**
-     * active la fenêtre des options de jeu
-     */
+    /** Active la fenêtre des options de jeu */
     @FXML
     public void gererClicOptionJeu() {
         VueJeu.activerFenetreOptionJeu();
         SauvegardeCheminOption.setChemin("Menu");
     }
 
-    /**
-     * Gère le clic sur le bouton "Reprendre"
-     */
+    /** Gère le clic sur le bouton "Reprendre" */
     @FXML
     public void gererClicReprendre() {
     	VueJeu.activerFenetreJeuSansMatrice();    
     }
     
-    /**
-     * Bouton pour retourner au menu principal
-     */
+    /** Bouton pour retourner au menu principal */
     @FXML
     public void gererClicRetourMenu() {
     	Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
@@ -84,9 +75,7 @@ public class ControleurOption {
         }
     }
     
-    /**
-     * Permet de lancer la vue des règles
-     */
+    /** Permet de lancer la vue des règles */
     public void gererClicInfo() {  	
     	VueJeu.activerFenetreRegles();
     }

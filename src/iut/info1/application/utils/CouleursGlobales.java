@@ -20,6 +20,8 @@ public class CouleursGlobales {
     /** couleur par défaut du joueur 2 */
     private static String couleurJoueur2 = "#FFFF00";
 
+    /* Getters */
+    
     /**
      * Getter pour la couleur du joueur 1
      * @return la couleur du joueur 1
@@ -27,6 +29,16 @@ public class CouleursGlobales {
     public static String getCouleurJoueur1() {
         return couleurJoueur1;
     }
+    
+    /**
+	 * Getter pour la couleur du joueur 2
+	 * @return la couleur du joueur 2
+	 */
+    public static String getCouleurJoueur2() {
+        return couleurJoueur2;
+    }
+    
+    /* Setters */
 
 	/**
 	 * Setter pour la couleur du joueur 1
@@ -34,14 +46,6 @@ public class CouleursGlobales {
 	 */
     public static void setCouleurJoueur1(String couleur) {
         couleurJoueur1 = couleur;
-    }
-
-	/**
-	 * Getter pour la couleur du joueur 2
-	 * @return la couleur du joueur 2
-	 */
-    public static String getCouleurJoueur2() {
-        return couleurJoueur2;
     }
     
 	/**
