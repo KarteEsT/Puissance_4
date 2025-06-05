@@ -174,6 +174,7 @@ public class ControleurJeu {
         couleurJoueur2 = CouleursGlobales.getCouleurJoueur2();
         mettreAJourCouleur(couleurJoueur1, couleurJoueur2);
         configurerPrevisualisation();
+        reinitialiserJeu();
     }
     
     /**
@@ -460,6 +461,30 @@ public class ControleurJeu {
         }
     }
     
+	/**
+	 * Méthode pour réinitialiser le jeu en cas de relance. 
+	 * Réinitialise la
+	 * grille, les cercles et les chronomètres.
+	 */
+    public void reinitialiserJeu() {
+    	List<int[]> jetonsAlignes = grille.verifierVictoire();
+
+    	grille.reinitialiserGrille();
+        jetonsAlignes.clear();
+        
+        for (Circle[] colonne : matriceCercle) {
+            for (Circle cercle : colonne) {
+                cercle.setFill(javafx.scene.paint.Color.web("white"));
+                cercle.setStroke(javafx.scene.paint.Color.web("black"));
+                cercle.setStrokeWidth(1);
+            }
+        }
+        
+        
+        // Relancer le chrono pour le joueur 1 (début de partie)
+        changementChrono();
+    }
+    
     /**
      * Méthode pour vérifier si la partie est terminée et afficher une alerte en
      * conséquence.
@@ -495,22 +520,7 @@ public class ControleurJeu {
             Optional<ButtonType> option = alert.showAndWait();
             
             if (option.get() == relancer) {
-                // Réinitialiser la grille et les cercles
-                
-                grille.reinitialiserGrille();
-                jetonsAlignes.clear();
-                
-                for (Circle[] colonne : matriceCercle) {
-                    for (Circle cercle : colonne) {
-                        cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
-                        cercle.setStrokeWidth(1);
-                    }
-                }
-                
-                
-                // Relancer le chrono pour le joueur 1 (début de partie)
-                changementChrono();
+                reinitialiserJeu();
             }
             if (option.get() == quitter) {
                 Platform.exit();
@@ -599,37 +609,38 @@ public class ControleurJeu {
     @FXML
     public void gererClicOption() {
         mettreEnPauseChronos();
+        Grille.setInstance(grille);
         VueJeu.activerFenetreOption();
     }
 
-        /**
-         * Méthode pour mettre à jour la matrice de la grille
-         * @param matrice la matrice utilisée pour mettre à jour
-         * la grille
-         * Met à jour la matrice de la grille avec les valeurs fournies.
-         */
-        public void mettreAJourMatrice(int[][] matrice) {
-                for (int i = 0; i < matrice.length; i++) {
-                        for (int j = 0; j < matrice[i].length; j++) {
-                                grille.getMatrice()[i][j] = matrice[i][j];
-                                if (matrice[i][j] != 0) {
-                                        mettreAJourGrille(i, j);
-                                }
-                        }
-                }
-        }
+    /**
+     * Méthode pour mettre à jour la matrice de la grille avec les 
+     * valeurs fournies
+     * @param matrice la matrice utilisée pour mettre à jour
+     * 			la grille
+     */
+    public void mettreAJourMatrice(int[][] matrice) {
+    	for (int i = 0; i < matrice.length; i++) {
+    		for (int j = 0; j < matrice[i].length; j++) {
+    			grille.getMatrice()[i][j] = matrice[i][j];
+    			if (matrice[i][j] != 0) {
+    				mettreAJourGrille(i, j);
+    			}
+    		}
+    	}
+    }
 
-        /**
-         * Méthode pour mettre à jour le compte de tours
-         * 
-         * @param compteTour le compte de tours à mettre à jour
-         */
-        public void mettreAJourCompteTour(int compteTour) {
-                grille.setCompteTour(compteTour);
-                
-        }
-        
-        /**
+    /**
+     * Méthode pour mettre à jour le compte de tours
+     * 
+     * @param compteTour le compte de tours à mettre à jour
+     */
+    public void mettreAJourCompteTour(int compteTour) {
+    	grille.setCompteTour(compteTour);
+
+    }
+
+    /**
      * Permet de lancer la vue des règles
      */
     public void gererClicInfo() {       

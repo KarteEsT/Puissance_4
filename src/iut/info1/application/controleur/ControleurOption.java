@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.shape.Circle;
 
 /**
  * Contrôleur de la vue "option"
@@ -41,11 +42,25 @@ public class ControleurOption {
     }
 
     /**
-     * 
+     * Gère le clic sur le bouton "Reprendre"
      */
     @FXML
     public void gererClicReprendre() {
     	VueJeu.activerFenetreJeuSansMatrice();    
+    }
+    
+    @FXML
+    public void gererClicRetourMenu() {
+    	Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
+                "Êtes-vous sur de vouloir retourner au menu ?",
+                ButtonType.YES, ButtonType.NO);
+        boiteAlerte.setTitle("Retour menu");
+
+        Optional<ButtonType> option = boiteAlerte.showAndWait();
+        if (option.get() == ButtonType.YES) {
+    		VueJeu.activerFenetreMenu();
+    	}
+		
     }
 
     /**

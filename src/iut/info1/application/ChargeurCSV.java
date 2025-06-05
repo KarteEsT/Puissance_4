@@ -5,10 +5,9 @@
 package iut.info1.application;
 
 import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.ChronosGlobales;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
-import iut.info1.application.controleur.ControleurJeu;
-import iut.info1.application.Grille;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -79,7 +78,7 @@ public class ChargeurCSV {
 	        GrilleGlobales.setCompteTour(compteTour);
 
 	        // Mettre à jour l'instance globale de la grille
-	        Grille.setInstance(grille);
+	        Grille.setInstance(grille);  
 	        return grille;
 	    } catch (IOException e) {
 	        e.printStackTrace();
@@ -122,6 +121,10 @@ public class ChargeurCSV {
 
             // Écrire le compteTour
             writer.write("compteTour:" + grille.getCompteTour());
+            writer.newLine();
+            writer.write("dureeChrono:" + (ChronosGlobales.getChronoPartie() ? ChronosGlobales.getChronoPartie() : -1));
+            writer.newLine();
+            writer.write("tempsParTour:" + ChronosGlobales.getTempsChrono());
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
