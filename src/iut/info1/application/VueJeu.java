@@ -41,13 +41,9 @@ public class VueJeu extends Application {
     private static Scene sceneMenu;
     private static Scene sceneMulti;
     private static Scene sceneOrdi;
-    private static Scene sceneChronoOption;
-    private static Scene sceneChronoLancementMultijoueur;
-    private static Scene sceneChronoLancementOrdinateur;
+    private static Scene sceneChrono;
     private static Scene sceneOption;
     private static Scene sceneOptionJeu;
-    private static Scene sceneOptionJeuMulti;
-    private static Scene sceneOptionJeuOrdi;
     private static Scene sceneSon;
 
     private static ControleurJeu controleurJeu; // Instance du contrôleur
@@ -95,39 +91,17 @@ public class VueJeu extends Application {
             sceneJeu.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
 
-            // Paramètres Chronomètre Lancement Multijoueur
+            // Paramètres Chronomètre
             FXMLLoader chargeurFXMLChronoLancementMultijoueur =
                     new FXMLLoader(getClass().getResource("/iut/info1/"
-                            + "application/vue/optionChronoLancementMultijoueur.fxml"));
+                            + "application/vue/optionChrono.fxml"));
             Parent conteneurChronoLancementMultijoueur = 
                     chargeurFXMLChronoLancementMultijoueur.load();
-            sceneChronoLancementMultijoueur = 
+            sceneChrono = 
                     new Scene(conteneurChronoLancementMultijoueur, 800, 1700);
-            sceneChronoLancementMultijoueur.getStylesheets().add(getClass()
+            sceneChrono.getStylesheets().add(getClass()
                     .getResource("/iut/info1/application/css/style.css")
                     .toExternalForm());
-
-            // Paramètres Chronomètre Lancement Ordinateur
-            FXMLLoader chargeurFXMLChronoLancementOrdinateur =
-                    new FXMLLoader(getClass().getResource("/iut/info1/"
-                            + "application/vue/optionChronoLancementOrdinateur.fxml"));
-            Parent conteneurChronoLancementOrdinateur =
-                    chargeurFXMLChronoLancementOrdinateur.load();
-            sceneChronoLancementOrdinateur = 
-                    new Scene(conteneurChronoLancementOrdinateur, 800, 1700);
-            sceneChronoLancementOrdinateur.getStylesheets().add(getClass()
-                    .getResource("/iut/info1/application/css/style.css")
-                    .toExternalForm());
-
-            // Paramètres Chronomètre Option
-            FXMLLoader chargeurFXMLChronoOption =
-                    new FXMLLoader(getClass().getResource
-                            ("/iut/info1/application/vue/optionChronoOption.fxml"));
-            Parent conteneurChronoOption = chargeurFXMLChronoOption.load();
-            controleurChrono = chargeurFXMLChronoOption.getController();
-            sceneChronoOption = new Scene(conteneurChronoOption, 800, 1700);
-            sceneChronoOption.getStylesheets().add(getClass().getResource
-                    ("/iut/info1/application/css/style.css").toExternalForm());
 
             // Paramètres Options
             FXMLLoader chargeurFXMLOption =
@@ -138,7 +112,7 @@ public class VueJeu extends Application {
             sceneOption.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
 
-            // Paramètres Options Jeu depuis Option
+            // Paramètres Options Jeu
             FXMLLoader chargeurFXMLOptionJeu =
                     new FXMLLoader(getClass().getResource
                             ("/iut/info1/application/vue/optionJeu.fxml"));
@@ -146,26 +120,6 @@ public class VueJeu extends Application {
             sceneOptionJeu = new Scene(conteneurOptionJeu, 800, 1700);
             sceneOptionJeu.getStylesheets().add(getClass().getResource
                     ("/iut/info1/application/css/style.css").toExternalForm());
-            
-            // Paramètres Options Jeu depuis Multijoueur
-            FXMLLoader chargeurFXMLOptionJeuMulti =
-                    new FXMLLoader(getClass().getResource
-                            ("/iut/info1/application/vue/optionJeuMultijoueur.fxml"));
-            Parent conteneurOptionJeuMulti = chargeurFXMLOptionJeuMulti.load();
-            sceneOptionJeuMulti = new Scene(conteneurOptionJeuMulti, 800, 1700);
-            sceneOptionJeuMulti.getStylesheets().add(getClass().getResource
-                    ("/iut/info1/application/css/style.css").toExternalForm());
-            
-            // Paramètres Options Jeu depuis Ordinateur
-            FXMLLoader chargeurFXMLOptionJeuOrdi =
-                    new FXMLLoader(getClass().getResource
-                            ("/iut/info1/application/vue/optionJeuOrdinateur.fxml"));
-            Parent conteneurOptionJeuOrdi = chargeurFXMLOptionJeuOrdi.load();
-            sceneOptionJeuOrdi = new Scene(conteneurOptionJeuOrdi, 800, 1700);
-            sceneOptionJeuOrdi.getStylesheets().add(getClass().getResource
-                    ("/iut/info1/application/css/style.css").toExternalForm());
-            
-            
 
             // Paramètres Son
             FXMLLoader chargeurFXMLOptionSon = 
@@ -218,39 +172,10 @@ public class VueJeu extends Application {
     }
 
     /**
-     * Permet d'activer la fenêtre du chronomètre pour le lancement multijoueur.
-     */
-    public static void activerFenetreOptionMultijoueur() {
-        fenetreMenu.setScene(sceneOptionJeuMulti);
-    }
-
-    /**
-     * Permet d'activer la fenêtre du chronomètre pour le
-     * lancement contre l'ordinateur.
-     */
-    public static void activerFenetreOptionOrdinateur() {
-        fenetreMenu.setScene(sceneOptionJeuOrdi);
-    }
-
-    /**
      * Permet d'activer la fenêtre des options du chronomètre depuis option.
      */
-    public static void activerFenetreChronoOption() {
-        fenetreMenu.setScene(sceneChronoOption);
-    }
-    
-    /**
-     * Permet d'activer la fenêtre des options du chronomètre depuis option.
-     */
-    public static void activerFenetreChronoOptionMulti() {
-        fenetreMenu.setScene(sceneChronoLancementMultijoueur);
-    }
-    
-    /**
-     * Permet d'activer la fenêtre des options du chronomètre depuis option.
-     */
-    public static void activerFenetreChronoOptionOrdi() {
-        fenetreMenu.setScene(sceneChronoLancementOrdinateur);
+    public static void activerFenetreChrono() {
+        fenetreMenu.setScene(sceneChrono);
     }
 
     /**

@@ -7,6 +7,7 @@ package iut.info1.application.controleur;
 import iut.info1.application.VueJeu;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.SauvegardeCheminOption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -65,7 +66,8 @@ public class ControleurMultijoueur {
      */
     @FXML
     public void gererClicOptionJeu() {
-        VueJeu.activerFenetreOptionMultijoueur();
+        VueJeu.activerFenetreOptionJeu();
+        SauvegardeCheminOption.setChemin("Multi");
     }
 
     /**

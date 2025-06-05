@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Button;
 
 import iut.info1.application.utils.AideTampon;
+import iut.info1.application.utils.SauvegardeCheminOption;
 
 /**
  * Contrôleur de la vue "optionJeu"
@@ -28,24 +29,16 @@ public class ControleurOptionJeu {
      * Active la fenêtre des options graphiques
      */
     @FXML
-    public void gererClicRetourOption() {
-        VueJeu.activerFenetreOption();
-    }
+    public void gererClicRetour() {
+    	
+    	if (SauvegardeCheminOption.getChemin() == "Menu") {
+    		VueJeu.activerFenetreOption();
+    	} else if (SauvegardeCheminOption.getChemin() == "Multi") {
+    		VueJeu.activerFenetreMulti();
+    	} else if (SauvegardeCheminOption.getChemin() == "Ordi") {
+    		VueJeu.activerFenetreOrdi();
+    	}
     
-    /**
-     * Active la fenêtre multijoueur
-     */
-    @FXML
-    public void gererClicRetourMultijoueur() {
-    	VueJeu.activerFenetreMulti();
-    }
-    
-    /**
-     * Active la fenêtre Ordinateur
-     */
-    @FXML
-    public void gererClicRetourOrdinateur() {
-    	VueJeu.activerFenetreOrdi();
     }
 
     /**
@@ -53,23 +46,7 @@ public class ControleurOptionJeu {
      */
     @FXML
     public void gererClicChronometre() {
-        VueJeu.activerFenetreChronoOption();
-    }
-    
-    /**
-     * Active la fenêtre Chronomètre depuis multijoueur
-     */
-    @FXML
-    public void gererClicChronometreMulti() {
-    	VueJeu.activerFenetreChronoOptionMulti();
-    }
-    
-    /**
-     * Active la fenêtre Chronomètre depuis Ordinateur
-     */
-    @FXML
-    public void gererClicChronometreOrdi() {
-    	VueJeu.activerFenetreChronoOptionOrdi();
+        VueJeu.activerFenetreChrono();
     }
 
     /**

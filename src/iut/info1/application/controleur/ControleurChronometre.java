@@ -50,9 +50,9 @@ public class ControleurChronometre {
     private static final String DIX_SEC = "10 sec";
     
     private static final String LABEL_ACTIVER
-    = "Activer le chronomètre de la partie";
+    = "Le chronomètre de la partie est désactivé";
     private static final String LABEL_DESACTIVER
-    = "Désactiver le chronomètre de la partie";
+    = "Le chronomètre de la partie est activé";
 
     /**
      * Initialisation de la vue "optionChrono"
@@ -138,24 +138,8 @@ public class ControleurChronometre {
      * Permet de revenir sur le menu du jeu
      */
     @FXML
-    public void gererClicRetourMenu() {
+    public void gererClicRetour() {
         VueJeu.activerFenetreOptionJeu();
-    }
-
-    /**
-     * Permet de revenir à la fenêtre de lancement du jeu contre l'ordinateur
-     */
-    @FXML
-    public void gererClicRetourOrdinateur() {
-        VueJeu.activerFenetreOptionOrdinateur();
-    }
-
-    /**
-     * Permet de revenir à la fenêtre de lancement du jeu en multijoueur
-     */
-    @FXML
-    public void gererClicRetourMultijoueur() {
-        VueJeu.activerFenetreOptionMultijoueur();
     }
     
     /**

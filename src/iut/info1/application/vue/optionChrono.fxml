@@ -36,7 +36,7 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ComboBox>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMultijoueur" prefHeight="100.0" prefWidth="274.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetour" prefHeight="100.0" prefWidth="274.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <font>
             <Font size="64.0" />
          </font>
@@ -70,7 +70,7 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Label id="texte" fx:id="labelChronoGlobal" text="Activer le choronomètre de la partie" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Label id="texte" fx:id="labelChronoGlobal" text="Le chronomètre de la partie est activé" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="60.0" />
          </font>

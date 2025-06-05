@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.NomsGlobals;
+import iut.info1.application.utils.SauvegardeCheminOption;
 
 /**
  * Contrôleur de la vue "contreOrdi"
@@ -68,7 +69,8 @@ public class ControleurOrdinateur {
      */
     @FXML
     public void gererClicOptionJeu() {
-        VueJeu.activerFenetreOptionOrdinateur();
+        VueJeu.activerFenetreOptionJeu();
+        SauvegardeCheminOption.setChemin("Ordi");
     }
 
     /**

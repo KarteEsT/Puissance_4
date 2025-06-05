@@ -7,6 +7,7 @@ package iut.info1.application.controleur;
 import java.util.Optional;
 
 import iut.info1.application.VueJeu;
+import iut.info1.application.utils.SauvegardeCheminOption;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -36,6 +37,7 @@ public class ControleurOption {
     @FXML
     public void gererClicOptionJeu() {
         VueJeu.activerFenetreOptionJeu();
+        SauvegardeCheminOption.setChemin("Menu");
     }
 
     /**
