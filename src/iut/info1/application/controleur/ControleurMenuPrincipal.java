@@ -4,9 +4,10 @@
  */
 package iut.info1.application.controleur;
 
+import iut.info1.application.VueJeu;
+
 import java.util.Optional;
 
-import iut.info1.application.VueJeu;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

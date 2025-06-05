@@ -4,7 +4,12 @@
  */
 package iut.info1.application.controleur;
 
+import iut.info1.application.Grille;
+import iut.info1.application.Joueur;
+import iut.info1.application.utils.ChronosGlobales;
+import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.VueJeu;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -14,16 +19,10 @@ import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ButtonType;
 
 import java.util.List;
-
 import java.util.Optional;
-
-import iut.info1.application.Grille;
-import iut.info1.application.Joueur;
-import javafx.scene.control.ButtonType;
-import iut.info1.application.utils.ChronosGlobales;
-import iut.info1.application.utils.CouleursGlobales;
 
 /**
  * Contrôleur de la vue "fenetreJeu"
@@ -111,17 +110,17 @@ public class ControleurJeu {
     /* Grille du jeu */
     private Grille grille;
 
-    /** Couleurs du joueur n°1 */
+    /* Couleurs du joueur n°1 */
     private String couleurJoueur1 = "red";
-    /** Couleurs du joueur n°2 */
+    /* Couleurs du joueur n°2 */
     private String couleurJoueur2 = "yellow";
     
-    /** Chronomètre du joueur n°1 */
+    /* Chronomètre du joueur n°1 */
     private Timeline chronoJoueur1;
-    /** Chronomètre du joueur n°2 */
+    /* Chronomètre du joueur n°2 */
     private Timeline chronoJoueur2;
     
-    /** Durée totale du chronomètre */
+    /* Durée totale du chronomètre */
     private double dureeTotaleParTour;
     /** Progression actuelle de la barre de progression */
     public static double progressionActuelle;
@@ -142,7 +141,6 @@ public class ControleurJeu {
     public void initialize() {
         
         int tempsChrono = ChronosGlobales.getTempsChrono();
-        
         // Les barres de progression n'aparaissent pas au début
         progressBar1.setVisible(false);
         progressBar2.setVisible(false);
@@ -227,7 +225,8 @@ public class ControleurJeu {
         final double decrement = intervalle / dureeTotaleParTour;
 
         int joueurPerdant = (grille.getCompteTour() % 2 == 0) ? 1 : 2;
-        String nomPerdant = (joueurPerdant == 1) ? joueur1.getText() : joueur2.getText();
+        String nomPerdant = (joueurPerdant == 1) ? joueur1.getText()
+                                                 : joueur2.getText();
 
         progressBar.setProgress(1.0); // Initialiser la barre à pleine capacité
 
@@ -243,18 +242,20 @@ public class ControleurJeu {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Temps écoulé !");
-                        alert.setContentText(nomPerdant + " a perdu car son temps est écoulé !");
+                        alert.setContentText(nomPerdant
+                                       + " a perdu car son temps est écoulé !");
 
                         ButtonType relancer = new ButtonType("Relancer");
                         ButtonType quitter = new ButtonType("Quitter");
-                        alert.getButtonTypes().clear(); // Efface les boutons par défaut
+                        alert.getButtonTypes().clear(); //Efface boutons de base
                         alert.getButtonTypes().addAll(relancer, quitter);
                         Optional<ButtonType> option = alert.showAndWait();
                         if (option.isPresent() && option.get() == relancer) {
                             // Réinitialiser la grille et les cercles
                             grille.reinitialiserGrille();
-                            changementChrono(); // Relancer le chrono pour le joueur 1 (début de partie)
-                        } else if (option.isPresent() && option.get() == quitter) {
+                            changementChrono(); // Relance le chrono pour le j1
+                        } else if (option.isPresent() &&
+                                   option.get() == quitter) {
                             Platform.exit(); // Quitter l'application
                         }
                     });
@@ -265,7 +266,7 @@ public class ControleurJeu {
 
         timeline.setCycleCount(Timeline.INDEFINITE); // Répéter indéfiniment
         timeline.play();
-        return timeline; // Retourne l'objet Timeline
+        return timeline;
     }
     
     /**
@@ -402,12 +403,12 @@ public class ControleurJeu {
     }
     
         /**
-         * Méthode pour configurer la prévisualisation des cercles lorsqu'on survole une
-         * colonne.
+         * Méthode pour configurer la prévisualisation des cercles
+         * lorsqu'on survole une colonne.
          */
     private void configurerPrevisualisation() {
         for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
-            for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
+            for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++){
                 final int colonneFinale = colonne; // Capturer la colonne
                 Circle cercle = matriceCercle[colonne][ligne];
 
@@ -423,9 +424,13 @@ public class ControleurJeu {
 
                     // Si une ligne est disponible, afficher la prévisualisation
                     if (ligneDisponible != -1) {
-                        Circle cerclePrevisualisation = matriceCercle[colonneFinale][ligneDisponible];
-                        String couleur = (grille.getCompteTour() % 2 == 0) ? couleurJoueur1 : couleurJoueur2;
-                        cerclePrevisualisation.setFill(javafx.scene.paint.Color.web(couleur, 0.8)); // Couleur avec transparence
+                        Circle cerclePrevisualisation
+                                = matriceCercle[colonneFinale][ligneDisponible];
+                        String couleur = (grille.getCompteTour() % 2 == 0)
+                                          ? couleurJoueur1
+                                          : couleurJoueur2;
+                        cerclePrevisualisation.setFill(javafx.scene.paint.
+                                                       Color.web(couleur, 0.8));
                     }
                 });
 
@@ -433,7 +438,8 @@ public class ControleurJeu {
                     // Réinitialiser la couleur des cercles dans la colonne
                     for (int i = 0; i < grille.getLigne(); i++) {
                         if (grille.getMatrice()[i][colonneFinale] == 0) {
-                            matriceCercle[colonneFinale][i].setFill(javafx.scene.paint.Color.web("white"));
+                            matriceCercle[colonneFinale][i].setFill(javafx.
+                                                scene.paint.Color.web("white"));
                         }
                     }
                 });
@@ -622,8 +628,11 @@ public class ControleurJeu {
         progressBar1.setProgress(1.0);
         progressBar2.setProgress(1.0);
 
-        // Démarrer le chrono uniquement si un pion a été posé ET si la durée est > 0
-        if (grille.getCompteTour() > 0 && this.dureeTotaleParTour > 0) { // Vérification ajoutée
+        /**
+         *  Démarrer le chrono uniquement si un pion a été posé
+         *  ET si la durée est > 0
+         */
+        if (grille.getCompteTour() > 0 && this.dureeTotaleParTour > 0) {
             if (grille.getCompteTour() % 2 == 0) {
                 chronoJoueur1 = demarrerBarreDeProgression(progressBar1);
             } else {
@@ -698,10 +707,12 @@ public class ControleurJeu {
 	        cercleAide.setStroke(javafx.scene.paint.Color.web("white"));
             cercleAide.setStrokeWidth(5);
         } else {
-        	for (int colonne = 0; colonne < matriceCercle.length; colonne++) {
-                for (int ligne = 0; ligne < matriceCercle[colonne].length; ligne++) {
+        	for (int colonne = 0;colonne < matriceCercle.length;colonne++) {
+                for (int ligne = 0; ligne < matriceCercle[colonne].length;
+                                                                   ligne++) {
                     if (grille.getMatrice()[ligne][colonne] == 0) {
-                        matriceCercle[colonne][ligne].setStroke(javafx.scene.paint.Color.web("black"));
+                        matriceCercle[colonne][ligne].setStroke(javafx.
+                                                scene.paint.Color.web("black"));
                         matriceCercle[colonne][ligne].setStrokeWidth(1);
                     }
                 }
@@ -732,12 +743,14 @@ public class ControleurJeu {
         tempsEcouleGlobal = 0;
 
         // Créer un Timeline pour incrémenter le temps chaque seconde
-        chronoGlobalTimeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+        chronoGlobalTimeline = new Timeline(new KeyFrame(Duration.seconds(1),
+                                                                    event -> {
             tempsEcouleGlobal++;
             Platform.runLater(() -> {
                 int minutes = tempsEcouleGlobal / 60;
                 int secondes = tempsEcouleGlobal % 60;
-                chronoGlobal.setText(String.format("%02d:%02d", minutes, secondes));
+                chronoGlobal.setText(String.
+                                     format("%02d:%02d", minutes, secondes));
             });
         }));
 

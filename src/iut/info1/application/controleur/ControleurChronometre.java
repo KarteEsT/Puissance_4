@@ -74,7 +74,7 @@ public class ControleurChronometre {
     public void gererClicValider() {
         String tempsSelectionne = choixTemps.getValue();
         
-        // Vérification de sélection
+        // Si aucune option n'est sélectionnée, on ne fait rien
         if (tempsSelectionne == null) {
             return;
         }
@@ -117,7 +117,8 @@ public class ControleurChronometre {
      * @param controleurJeu le contrôleur du jeu
      * @param duree la durée en secondes
      */
-    private static void activerChronometre(ControleurJeu controleurJeu, int duree) {
+    private static void activerChronometre(ControleurJeu controleurJeu
+                                          , int duree) {
         controleurJeu.setDureeTotaleParTour(duree);
         ChronosGlobales.setTempsChrono(duree);
         controleurJeu.progressBar1.setVisible(true);
@@ -161,8 +162,8 @@ public class ControleurChronometre {
     }
     
     /**
-     * Met à jour l'état d'activation/désactivation des boutons de chronomètre global
-     * selon l'état actuel du chronomètre de partie
+     * Met à jour l'état d'activation/désactivation des boutons
+     * du chronomètre global selon l'état actuel du chronomètre de partie.
      */
     public void activerDesactiverChronoGlobal() {
         boolean chronoActif = ChronosGlobales.getChronoPartie();
@@ -176,7 +177,8 @@ public class ControleurChronometre {
         desactiverChronoGlobal.setVisible(chronoActif);
         
         // Mise à jour du label
-        labelChronoGlobal.setText(chronoActif ? LABEL_DESACTIVER : LABEL_ACTIVER);
+        labelChronoGlobal.setText(chronoActif ? LABEL_DESACTIVER
+                                              : LABEL_ACTIVER);
     }
     
     /**
