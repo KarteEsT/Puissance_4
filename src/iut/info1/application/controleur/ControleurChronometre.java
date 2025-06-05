@@ -15,7 +15,7 @@ import iut.info1.application.utils.ChronosGlobales;
 
 /**
  * Contrôleur de la vue "optionChrono"
- * Gère les paramètres de chronomètre pour les parties de jeu
+ * Gère les paramètres de chronomètre pour les parties de jeu.
  * 
  * @author Gabriel Robache
  * @author Gabriel Le Goff
