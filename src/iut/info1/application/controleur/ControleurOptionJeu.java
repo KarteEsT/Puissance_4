@@ -25,8 +25,10 @@ public class ControleurOptionJeu {
 	@FXML private Button aideActiver;
 	@FXML private Button aideDesactiver;
 
-    /**
-     * Active la fenêtre des options graphiques
+    /** 
+     * Active la fenêtre des options graphiques 
+     * Présence d'un if pour connaître la position de l'utilisateur
+     * avant son clic.
      */
     @FXML
     public void gererClicRetour() {
@@ -41,17 +43,13 @@ public class ControleurOptionJeu {
     
     }
 
-    /**
-     * Active la fenêtre des options de jeu
-     */
+    /** Active la fenêtre des options de jeu */
     @FXML
     public void gererClicChronometre() {
         VueJeu.activerFenetreChrono();
     }
 
-    /**
-     * Active la fenêtre des options de son
-     */
+    /** Active la fenêtre des options de son */
     @FXML
     public void gererClicSon() {
     	
@@ -64,9 +62,7 @@ public class ControleurOptionJeu {
         //VueJeu.activerFenetreSon();
     }
 
-    /**
-     * Active l'aide au joueur
-     */
+    /** Active l'aide au joueur */
     @FXML
     public void gererAideActiver() {
     	aideActiver.setVisible(false);
@@ -76,9 +72,7 @@ public class ControleurOptionJeu {
     	AideTampon.setAideBoolean(true);
     }
     
-    /**
-     * Désactive l'aide au joueur
-     */
+    /** Désactive l'aide au joueur */
     @FXML
     public void gererAideDesactiver() {
     	aideActiver.setVisible(true);
@@ -88,9 +82,7 @@ public class ControleurOptionJeu {
     	AideTampon.setAideBoolean(false);
     }
 
-    /**
-     * Permet de lancer la vue des règles
-     */
+    /** Permet de lancer la vue des règles */
     public void gererClicInfo() {  	
     	VueJeu.activerFenetreRegles();
     }

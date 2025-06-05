@@ -17,17 +17,13 @@ import iut.info1.application.VueJeu;
  */
 public class ControleurSon {
 
-    /**
-     * Active la fenêtre des options de jeu
-     */
+    /** Active la fenêtre des options de jeu */
     @FXML
     public void gererClicRetourMenu() {
         VueJeu.activerFenetreOptionJeu();
     }
     
-    /**
-     * Permet de lancer la vue des règles
-     */
+    /** Permet de lancer la vue des règles */
     public void gererClicInfo() {  	
     	VueJeu.activerFenetreRegles();
     }

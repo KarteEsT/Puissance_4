@@ -14,12 +14,13 @@ package iut.info1.application.utils;
  */
 public class ChronosGlobales {
 
-    /* Temps du chronomètre, en secondes */
+    /** Temps du chronomètre, en secondes */
     private static int tempsChrono;
     
-    /* Boolean pour savoir si le chronomètre de la partie est activé ou non */
+    /** Boolean pour savoir si le chronomètre de la partie est activé ou non */
     private static boolean chronoPartie = false;
 
+    /* Getters */
     
     /**
      * Retourne le boolean du chronomètre de la partie
@@ -30,21 +31,21 @@ public class ChronosGlobales {
     }
     
     /**
-     * Définit le boolean du chronomètre de la partie
-     * @param booleanPartie le boolean du chronomètre de la partie
-     */
-    public static void setChronoPartie(boolean booleanPartie) {
-    	chronoPartie = booleanPartie;
-    }
-    
-    
-    
-    /**
      * Retourne le temps du chronomètre
      * @return le temps du chronomètre
      */
     public static int getTempsChrono() {
         return tempsChrono;
+    }
+    
+    /* Setters */
+    
+    /**
+     * Définit le boolean du chronomètre de la partie
+     * @param booleanPartie le boolean du chronomètre de la partie
+     */
+    public static void setChronoPartie(boolean booleanPartie) {
+    	chronoPartie = booleanPartie;
     }
 
     /**

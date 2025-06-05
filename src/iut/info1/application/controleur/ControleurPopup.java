@@ -133,9 +133,7 @@ public class ControleurPopup {
         }
     }
     
-    /**
-     * Fenêtre d'erreur quand deux joueurs ont la même couleur
-     */
+    /** Fenêtre d'erreur quand deux joueurs ont la même couleur */
     private void afficherErreurCouleursIdentiques() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Erreur de couleur");
@@ -144,12 +142,14 @@ public class ControleurPopup {
         alert.showAndWait();
     }
     
+    /** Méthode pour envoyer la couleur du joueur 1 dans le tampon */
     @FXML
     private void appliquerCouleurJoueur1(String couleur) {
         CouleursGlobales.setCouleurJoueur1(couleur);
         VueJeu.mettreAJourCouleurJoueur1(couleur);
     }
 
+    /** Méthode pour envoyer la couleur du joueur 2 dans le tampon */
     @FXML
     private void appliquerCouleurJoueur2(String couleur) {
         CouleursGlobales.setCouleurJoueur2(couleur);

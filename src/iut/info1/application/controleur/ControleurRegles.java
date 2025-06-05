@@ -7,11 +7,8 @@ package iut.info1.application.controleur;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-
-
-
 /**
- * Contrôleur pour la vue des règles du jeu.
+ * Contrôleur pour la vue "regles".
  * 
  * @author Gabriel Robache
  * @author Gabriel Le Goff
@@ -20,12 +17,11 @@ import javafx.scene.control.Button;
  */
 public class ControleurRegles {
 	
+	/** Identifiant du bouton fermer */
 	@FXML
 	private Button idFermer;
 	
-	/**
-	 * Permet de fermer la vue
-	 */
+	/** Permet de fermer la vue */
 	@FXML
 	public void gererClicFermer() {
 		idFermer.getScene().getWindow().hide();

@@ -14,21 +14,35 @@ package iut.info1.application.utils;
  * @author Esteban Roveri
  */
 public class GrilleGlobales {
-    private static int[][] matrice = new int[0][0]; // Matrice par défaut
-    private static int compteTour = 0; // Compteur de tours par défaut
+	
+	/** Matrice par défaut */
+    private static int[][] matrice = new int[0][0];
+    
+    /** Compteur de tours par défaut */
+    private static int compteTour = 0;
 
+    /* Getters */
+    
     /**
      * Récupère la matrice de la grille.
-     *
      * @return la matrice de la grille
      */
     public static int[][] getMatrice() {
         return matrice;
     }
+    
+    /**
+     * Récupère le compteur de tours.
+     * @return le compteur de tours
+     */
+    public static int getCompteTour() {
+        return compteTour;
+    }
 
+    /* Setters */
+    
     /**
      * Modifie la matrice de la grille.
-     *
      * @param nouvelleMatrice la nouvelle matrice à définir
      */
     public static void setMatrice(int[][] nouvelleMatrice) {
@@ -36,17 +50,7 @@ public class GrilleGlobales {
     }
 
     /**
-     * Récupère le compteur de tours.
-     *
-     * @return le compteur de tours
-     */
-    public static int getCompteTour() {
-        return compteTour;
-    }
-
-    /**
      * Modifie le compteur de tours.
-     *
      * @param nouveauCompteTour le nouveau compteur de tours à définir
      */
     public static void setCompteTour(int nouveauCompteTour) {

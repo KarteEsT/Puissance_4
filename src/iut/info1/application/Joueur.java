@@ -16,10 +16,17 @@ package iut.info1.application;
  */
 public class Joueur {
     
+	/* identifiant du joueur */
     private int id;
+	
+	/* pseudo du joueur */
     private String nom;
+	
+	/* couleur du joueur */
     private String couleur;
     
+	/* Constructeur d'un joueur */
+	
     /**
      * Initialise un nouveau joueur avec l'identifiant,
      * le nom et la couleur spécifiés.
@@ -44,6 +51,34 @@ public class Joueur {
         this.nom = nom;
         this.couleur = couleur;
     }
+	
+	/* getters */
+	
+    /**
+	 * Getter de l'identifiant du joueur
+     * @return id du joueur
+     */
+    public int getId() {
+        return id;
+    }
+
+    /** 
+     * Getter du pseudo du joueur
+     * @return nom du joueur
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * Getter de la couleur du joueur
+     * @return couleur du joueur
+     */
+    public String getCouleur() {
+        return couleur;
+    }
+	
+	/* Méthodes */
 
     /**
      * Valide l'identifiant du joueur. L'identifiant doit être soit 1 soit 2.
@@ -106,26 +141,5 @@ public class Joueur {
             throw new IllegalArgumentException
             ("La couleur du joueur ne peut pas dépasser 30 caractères.");
         }
-    }
-    
-    /** 
-     * @return id du joueur
-     */
-    public int getId() {
-        return id;
-    }
-
-    /** 
-     * @return nom du joueur
-     */
-    public String getNom() {
-        return nom;
-    }
-
-    /**
-     * @return couleur du joueur
-     */
-    public String getCouleur() {
-        return couleur;
     }
 }
