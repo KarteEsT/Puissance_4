@@ -190,6 +190,7 @@ public class VueJeu extends Application {
         distribuerBooleanChoroGlobal();
         DistribuerBooleanAide();
         controleurJeu.reprendreChronos();
+        controleurJeu.reinitialiserJeu();
     }
     
     /**

@@ -49,6 +49,9 @@ public class ControleurOption {
     	VueJeu.activerFenetreJeuSansMatrice();    
     }
     
+    /**
+     * Bouton pour retourner au menu principal
+     */
     @FXML
     public void gererClicRetourMenu() {
     	Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION,
@@ -59,6 +62,7 @@ public class ControleurOption {
         Optional<ButtonType> option = boiteAlerte.showAndWait();
         if (option.get() == ButtonType.YES) {
     		VueJeu.activerFenetreMenu();
+    		
     	}
 		
     }

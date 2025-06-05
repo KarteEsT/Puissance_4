@@ -174,7 +174,6 @@ public class ControleurJeu {
         couleurJoueur2 = CouleursGlobales.getCouleurJoueur2();
         mettreAJourCouleur(couleurJoueur1, couleurJoueur2);
         configurerPrevisualisation();
-        reinitialiserJeu();
     }
     
     /**
@@ -253,11 +252,6 @@ public class ControleurJeu {
                         Optional<ButtonType> option = alert.showAndWait();
                         if (option.isPresent() && option.get() == relancer) {
                             // Réinitialiser la grille et les cercles
-                            for (Circle[] colonne : matriceCercle) {
-                                for (Circle cercle : colonne) {
-                                    cercle.setFill(javafx.scene.paint.Color.web("white"));
-                                }
-                            }
                             grille.reinitialiserGrille();
                             changementChrono(); // Relancer le chrono pour le joueur 1 (début de partie)
                         } else if (option.isPresent() && option.get() == quitter) {
@@ -526,21 +520,7 @@ public class ControleurJeu {
                 Platform.exit();
             }
             if (option.get() == menuPrincipal) {
-                grille.reinitialiserGrille();
-                jetonsAlignes.clear();
-                
-                for (Circle[] colonne : matriceCercle) {
-                    for (Circle cercle : colonne) {
-                        cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
-                        cercle.setStrokeWidth(1);
-                    }
-                }
-                
-                
-                // Relancer le chrono pour le joueur 1 (début de partie)
-                changementChrono();
-
+            	reinitialiserJeu();
                 VueJeu.activerFenetreMenu();
             }
             
@@ -565,35 +545,10 @@ public class ControleurJeu {
             Optional<ButtonType> option = alert.showAndWait();
             
             if (option.get() == relancer) {
-                // Réinitialiser la grille et les cercles
-                
-                grille.reinitialiserGrille();
-                jetonsAlignes.clear();
-                
-                for (Circle[] colonne : matriceCercle) {
-                    for (Circle cercle : colonne) {
-                        cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
-                        cercle.setStrokeWidth(1);
-                    }
-                }
+                reinitialiserJeu();
             }
             if (option.get() == menuPrincipal) {
-            	grille.reinitialiserGrille();
-                jetonsAlignes.clear();
-                
-                for (Circle[] colonne : matriceCercle) {
-                    for (Circle cercle : colonne) {
-                        cercle.setFill(javafx.scene.paint.Color.web("white"));
-                        cercle.setStroke(javafx.scene.paint.Color.web("black"));
-                        cercle.setStrokeWidth(1);
-                    }
-                }
-                
-                
-                // Relancer le chrono pour le joueur 1 (début de partie)
-                changementChrono();
-
+            	reinitialiserJeu();
                 VueJeu.activerFenetreMenu();
             }
             if (option.get() == quitter) {

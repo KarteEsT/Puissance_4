@@ -29,16 +29,16 @@
             <Font size="100.0" />
          </font>
       </Label>
-      <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="66.0" prefWidth="257.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="70.0" prefWidth="260.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ComboBox>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetour" prefHeight="100.0" prefWidth="274.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetour" prefHeight="70.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="64.0" />
+            <Font size="45.0" />
          </font>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" />
@@ -60,14 +60,14 @@
             <Image url="@../css/info.png" />
          </image>
       </ImageView>
-      <Button fx:id="activerChronoGlobal" mnemonicParsing="false" onAction="#gererClicActiver" text="Activer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="activerChronoGlobal" maxHeight="70.0" maxWidth="260.0" mnemonicParsing="false" onAction="#gererClicActiver" prefHeight="70.0" text="Activer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="40.0" />
+            <Font size="45.0" />
          </font>
       </Button>
-      <Button fx:id="desactiverChronoGlobal" disable="true" mnemonicParsing="false" onAction="#gererClicDesactiver" text="Désactiver" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="desactiverChronoGlobal" disable="true" maxWidth="260.0" mnemonicParsing="false" onAction="#gererClicDesactiver" prefHeight="70.0" text="Désactiver" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="40.0" />
+            <Font size="45.0" />
          </font>
       </Button>
       <Label id="texte" fx:id="labelChronoGlobal" text="Le chronomètre de la partie est activé" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">

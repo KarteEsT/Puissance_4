@@ -24,12 +24,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetour" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetour" prefHeight="70.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
       <Label id="titre100" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -37,19 +37,19 @@
             <Font size="100.0" />
          </font>
       </Label>
-      <Button id="button" fx:id="aideActiver" mnemonicParsing="false" onAction="#gererAideActiver" prefWidth="600.0" text="Activer l'aide" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button id="button" fx:id="aideActiver" mnemonicParsing="false" onAction="#gererAideActiver" prefHeight="70.0" prefWidth="580.0" text="Activer l'aide" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicChronometre" prefHeight="128.0" prefWidth="600.0" text="Chronomètres" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicChronometre" prefHeight="70.0" prefWidth="580.0" text="Chronomètres" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicSon" prefHeight="128.0" prefWidth="600.0" text="Paramètre de son" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicSon" prefHeight="70.0" prefWidth="580.0" text="Paramètre de son" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
       <ImageView fitHeight="90.0" fitWidth="100.0" onMouseClicked="#gererClicInfo" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">

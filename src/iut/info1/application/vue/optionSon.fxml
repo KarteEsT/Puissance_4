@@ -43,12 +43,12 @@
       </Label>
       <Slider maxWidth="300.0" minHeight="30.0" value="100.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
       <Slider blockIncrement="5.0" maxWidth="300.0" minHeight="30.0" value="100.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+      <Button id="button" maxHeight="70.0" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="70.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
       <ImageView fitHeight="90.0" fitWidth="100.0" onMouseClicked="#gererClicInfo" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">

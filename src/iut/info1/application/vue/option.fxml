@@ -31,14 +31,14 @@
          </font></Label>
       <Button id="button" mnemonicParsing="false" onAction="#gererClicQuitter" prefHeight="70.0" prefWidth="500.0" text="Quitter le jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="40.0" />
+            <Font size="45.0" />
          </font>
          <GridPane.margin>
             <Insets bottom="20.0" />
          </GridPane.margin></Button>
       <Button id="button" mnemonicParsing="false" onAction="#gererClicReprendre" prefHeight="70.0" prefWidth="580.0" text="Reprendre" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
-            <Font size="42.0" />
+            <Font size="45.0" />
          </font>
          <GridPane.margin>
             <Insets />
@@ -59,7 +59,7 @@
             <Insets left="20.0" top="20.0" />
          </GridPane.margin>
       </ImageView>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="70.0" prefWidth="580.0" text="Retour au menu principal" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="70.0" prefWidth="580.0" text="Retour au menu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="45.0" />
          </font>

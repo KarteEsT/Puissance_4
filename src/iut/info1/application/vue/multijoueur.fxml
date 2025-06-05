@@ -24,13 +24,13 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicLancer" prefHeight="128.0" prefWidth="500.0" text="Lancer" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicLancer" prefHeight="70.0" prefWidth="500.0" text="Lancer" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font></Button>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionJeu" prefHeight="128.0" prefWidth="500.0" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicOptionJeu" prefHeight="70.0" prefWidth="500.0" text="Options de jeu" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font></Button>
       <TextField fx:id="nomJoueur1" maxWidth="400.0" onKeyTyped="#gererToucheNomJoueur1" prefHeight="150.0" prefWidth="400.0" promptText="JOUEUR 1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
@@ -53,12 +53,12 @@
             <Font size="100.0" />
          </font>
       </Label>
-      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="18.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button id="button" mnemonicParsing="false" onAction="#gererClicRetourMenu" prefHeight="70.0" prefWidth="300.0" text="Retour" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
          <font>
-            <Font size="60.0" />
+            <Font size="45.0" />
          </font>
       </Button>
       <Button id="buttonCouleur1" fx:id="buttonCouleur1" mnemonicParsing="false" onAction="#gererClicCouleurJoueur1" style="-fx-background-color: red;" text="⬜​" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
