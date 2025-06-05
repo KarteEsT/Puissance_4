@@ -122,10 +122,6 @@ public class ChargeurCSV {
             // Écrire le compteTour
             writer.write("compteTour:" + grille.getCompteTour());
             writer.newLine();
-            writer.write("dureeChrono:" + (ChronosGlobales.getChronoPartie() ? ChronosGlobales.getChronoPartie() : -1));
-            writer.newLine();
-            writer.write("tempsParTour:" + ChronosGlobales.getTempsChrono());
-            writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }

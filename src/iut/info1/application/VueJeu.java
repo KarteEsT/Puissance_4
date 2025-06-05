@@ -151,6 +151,7 @@ public class VueJeu extends Application {
      */
     public static void activerFenetreMenu() {
         fenetreMenu.setScene(sceneMenu);
+        controleurJeu.reinitialiserJeu();
     }
 
     /**
@@ -190,7 +191,6 @@ public class VueJeu extends Application {
         distribuerBooleanChoroGlobal();
         DistribuerBooleanAide();
         controleurJeu.reprendreChronos();
-        controleurJeu.reinitialiserJeu();
     }
     
     /**
