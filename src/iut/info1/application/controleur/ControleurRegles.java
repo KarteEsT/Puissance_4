@@ -1,5 +1,5 @@
 /*
- * ControleurRegles.java                                                       4 juin 2025
+ * ControleurRegles.java                                         4 juin 2025
  * IUT de Rodez, Info 1 2024 - 2025 TP2, pas de copyright
  */
 package iut.info1.application.controleur;

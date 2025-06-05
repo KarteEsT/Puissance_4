@@ -5,7 +5,6 @@
 package iut.info1.application;
 
 import iut.info1.application.utils.NomsGlobals;
-import iut.info1.application.utils.ChronosGlobales;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
 
@@ -29,7 +28,8 @@ public class ChargeurCSV {
      * @param emplacement l'emplacement du fichier CSV
      * @return la grille chargée
      */
-	public static Grille chargerGrille(String nomFichier, String emplacement) {
+	public static Grille chargerGrille(String nomFichier,
+	                                   String emplacement) {
 	    try (BufferedReader reader = 
 	                new BufferedReader(new FileReader(emplacement + 
 	                File.separator + nomFichier))) {
@@ -48,7 +48,8 @@ public class ChargeurCSV {
 	        // Lire la matrice de la grille
 	        List<int[]> matrice = new ArrayList<>();
 	        String ligne;
-	        while ((ligne = reader.readLine()) != null && !ligne.startsWith("compteTour")) {
+	        while ((ligne = reader.readLine()) != null &&
+	                !ligne.startsWith("compteTour")) {
 	            String[] valeurs = ligne.split(",");
 	            int[] ligneMatrice = new int[valeurs.length];
 	            for (int i = 0; i < valeurs.length; i++) {
@@ -62,14 +63,18 @@ public class ChargeurCSV {
 
 	        // Créer une grille avec les données chargées
 	        int[][] matriceFinale = matrice.toArray(new int[0][]);
-	        Grille grille = new Grille(matriceFinale.length, matriceFinale[0].length,
-	                                   new Joueur(1, nomJoueur1, couleurJoueur1),
-	                                   new Joueur(2, nomJoueur2, couleurJoueur2));
+	        Grille grille = new Grille(matriceFinale.length,
+	                                   matriceFinale[0].length,
+	                                   new Joueur(1, nomJoueur1,
+	                                                 couleurJoueur1),
+	                                   new Joueur(2, nomJoueur2,
+	                                                 couleurJoueur2));
 
 	        // Mettre à jour la matrice et le compteTour de la grille
 	        int[][] matriceGrille = grille.getMatrice();
 	        for (int i = 0; i < matriceFinale.length; i++) {
-	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i], 0, matriceFinale[i].length);
+	            System.arraycopy(matriceFinale[i], 0, matriceGrille[i],
+	                                            0, matriceFinale[i].length);
 	        }
 	        grille.setCompteTour(compteTour);
 	        
@@ -93,8 +98,11 @@ public class ChargeurCSV {
      * @param nomFichier le nom du fichier CSV
      * @param emplacement l'emplacement pour sauvegarder le fichier CSV
      */
-    public static void sauvegarderGrille(Grille grille, String nomFichier, String emplacement) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(emplacement + File.separator + nomFichier))) {
+    public static void sauvegarderGrille(Grille grille, String nomFichier,
+                                                        String emplacement) {
+        try (BufferedWriter writer = new BufferedWriter(
+                                     new FileWriter(emplacement +
+                                                File.separator + nomFichier))) {
             // Écrire les noms des joueurs
             writer.write(NomsGlobals.getNomJoueur1());
             writer.newLine();

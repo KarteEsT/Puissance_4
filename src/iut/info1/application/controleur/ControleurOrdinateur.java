@@ -71,13 +71,15 @@ public class ControleurOrdinateur {
     /** Permet de lancer l'interface de gestion des couleurs du joueur 1 */
     @FXML
     public void gererClicCouleurJoueur1() {
-        VueJeu.activerFenetreCouleur(nomJoueur1.getText(), buttonCouleur1.getId());
+        VueJeu.activerFenetreCouleur(nomJoueur1.getText(),
+                                     buttonCouleur1.getId());
     }
 
     /** Permet de lancer l'interface de gestion des couleurs du joueur 2 */
     @FXML
     public void gererClicCouleurJoueur2() {
-        VueJeu.activerFenetreCouleur(nomJoueur2.getText(), buttonCouleur2.getId());
+        VueJeu.activerFenetreCouleur(nomJoueur2.getText(),
+                                     buttonCouleur2.getId());
     }
 
     /** Permet de lancer la partie en transmettant les noms des joueurs. */
@@ -100,13 +102,13 @@ public class ControleurOrdinateur {
     	nomJoueur2.setText(joueur2);
     }
     
-	/** Permet de gérer la touche "Entrée" pour valider le nom du joueur 1 */
+	/** Permet de gérer la touche "Entrée" pour valider le nom du J1 */
     @FXML
     public void gererToucheNomJoueur1() {
         NomsGlobals.setNomJoueur1(nomJoueur1.getText());
     }
 
-    /** Permet de gérer la touche "Entrée" pour valider le nom du joueur 2 */
+    /** Permet de gérer la touche "Entrée" pour valider le nom du J2 */
     @FXML
     public void gererToucheNomJoueur2() {
         NomsGlobals.setNomJoueur2(nomJoueur2.getText());
@@ -117,7 +119,6 @@ public class ControleurOrdinateur {
      * @param couleur1 du joueur 1
      * @param couleur2 du joueur 2
      */
-    @FXML
     public void mettreAJourCouleur(String couleur1, String couleur2) {
         if (buttonCouleur1 != null && couleur1 != null) {
             buttonCouleur1.setStyle("-fx-background-color: " + couleur1 + ";");

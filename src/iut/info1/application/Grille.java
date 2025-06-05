@@ -192,9 +192,11 @@ public class Grille {
      * fonction de la matrice de la grille.
      * 
      * @param grille La grille dont on veut remettre les couleurs des pions.
-     * @param controleur Le contrôleur du jeu qui permet de mettre à jour la grille visuelle.
+     * @param controleur Le contrôleur du jeu qui permet
+     * de mettre à jour la grille visuelle.
      */
-    public static void remettreCouleursPions(Grille grille, ControleurJeu controleur) {
+    public static void remettreCouleursPions(Grille grille,
+                                             ControleurJeu controleur) {
         int[][] matrice = grille.getMatrice();
 
         for (int ligne = 0; ligne < matrice.length; ligne++) {

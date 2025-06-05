@@ -418,7 +418,8 @@ class TestGrille {
         
         int[] resultatDiagonaleDescendante = grille3.aideVerifierVictoire();
         
-        System.out.println(resultatDiagonaleDescendante[0] + " " + resultatDiagonaleDescendante[1]);   
+        System.out.println(resultatDiagonaleDescendante[0] + " " 
+                                             + resultatDiagonaleDescendante[1]);   
         
         assertNotNull(resultatDiagonaleDescendante);
         assertEquals(3, resultatDiagonaleDescendante[0]); // Ligne

@@ -31,7 +31,7 @@ public class ControleurPopup {
 	/** pseudo du joueur sélectionner */
 	private String joueur;
 	
-	/** Identifiant utiliser pour fermer la fenêtre Popup */
+	/** Identifiant utiliser pour fermer la fenêtre pop-pup */
 	@FXML
 	private Button rouge;
 	
@@ -99,12 +99,15 @@ public class ControleurPopup {
      * @param idButton identifiant du bouton qui active la fenêtre
      * @param couleur couleur du joueur
      */
-    private void ouvrirConfirmation(String joueur, String idButton, String couleur) {
+    private void ouvrirConfirmation(String joueur, String idButton,
+                                                   String couleur) {
         // Vérification des couleurs
-        if ("buttonCouleur1".equals(idButton) && couleur.equals(CouleursGlobales.getCouleurJoueur2())) {
+        if ("buttonCouleur1".equals(idButton) && 
+                couleur.equals(CouleursGlobales.getCouleurJoueur2())) {
             afficherErreurCouleursIdentiques();
             return;
-        } else if ("buttonCouleur2".equals(idButton) && couleur.equals(CouleursGlobales.getCouleurJoueur1())) {
+        } else if ("buttonCouleur2".equals(idButton) && 
+                couleur.equals(CouleursGlobales.getCouleurJoueur1())) {
             afficherErreurCouleursIdentiques();
             return;
         }
@@ -138,7 +141,8 @@ public class ControleurPopup {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Erreur de couleur");
         alert.setTitle("Couleurs identiques");
-        alert.setContentText("Les deux joueurs ne peuvent pas avoir la même couleur. Veuillez en choisir une autre.");
+        alert.setContentText("Les deux joueurs ne peuvent pas avoir " +
+                            " la même couleur. Veuillez en choisir une autre.");
         alert.showAndWait();
     }
     

@@ -18,7 +18,6 @@ import java.io.File;
 import iut.info1.application.controleur.ControleurJeu;
 import iut.info1.application.controleur.ControleurMultijoueur;
 import iut.info1.application.controleur.ControleurOrdinateur;
-import iut.info1.application.controleur.ControleurChronometre;
 import iut.info1.application.controleur.ControleurPopup;
 import iut.info1.application.utils.CouleursGlobales;
 import iut.info1.application.utils.GrilleGlobales;
@@ -238,7 +237,8 @@ public class VueJeu extends Application {
      * Active une fenêtre de choix de couleur pour un joueur spécifique.
      * @param joueur le nom du joueur pour lequel
      * la fenêtre de choix de couleur est activée.
-     * @param idButton l'identifiant du bouton qui a été cliqué pour ouvrir la fenêtre.
+     * @param idButton l'identifiant du bouton qui a été cliqué
+     * pour ouvrir la fenêtre.
      */
     public static void activerFenetreCouleur(String joueur, String idButton) {
         try {
@@ -247,7 +247,8 @@ public class VueJeu extends Application {
             Parent root = loader.load();
 
             ControleurPopup controleurPopup = loader.getController();
-            controleurPopup.setInformations(joueur, idButton); // Initialise les informations
+            // Initialise les informations
+            controleurPopup.setInformations(joueur, idButton);
 
             Stage popupStage = new Stage();
             popupStage.setTitle("Choix de couleur - " + joueur);
@@ -267,15 +268,18 @@ public class VueJeu extends Application {
 	public static void activerFenetreSauvegarde() {
 	    FileChooser fileChooser = new FileChooser();
 	    fileChooser.setTitle("Enregistrer la partie");
-	    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+	    fileChooser.getExtensionFilters().add(new FileChooser.
+	                              ExtensionFilter("Fichiers CSV", "*.csv"));
 
 	    fileChooser.setInitialFileName("partie_puissance4.csv");
-	    File defaultDir = new File(System.getProperty("user.home") + "/Documents");
+	    File defaultDir = new File(System.getProperty("user.home")
+	                                                 + "/Documents");
 	    if (defaultDir.exists() && defaultDir.isDirectory()) {
 	        fileChooser.setInitialDirectory(defaultDir);
 	    } else {
-	        // Si le dossier n'existe pas, on reste sur le répertoire utilisateur
-	        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+	        // Si le dossier n'existe pas on reste sur répertoire du user
+	        fileChooser.setInitialDirectory(new File(System.
+	                                             getProperty("user.home")));
 	    }
 	    Stage stage = new Stage();
 	    File fichierSelectionne = fileChooser.showSaveDialog(stage);
@@ -285,7 +289,7 @@ public class VueJeu extends Application {
 	            String chemin = fichierSelectionne.getParent();
 	            String nom = fichierSelectionne.getName();
 	
-	            // Vérifier si l'extension .csv est présente, sinon l'ajouter
+	            // Vérifier si l'extension .csv est présente sinon l'ajouter
 	            if (!nom.toLowerCase().endsWith(".csv")) {
 	                nom += ".csv";
 	            }
@@ -296,7 +300,8 @@ public class VueJeu extends Application {
 	            Alert alert = new Alert(Alert.AlertType.ERROR);
 	            alert.setTitle("Erreur de sauvegarde");
 	            alert.setHeaderText("Échec de la sauvegarde");
-	            alert.setContentText("Impossible de sauvegarder le fichier. Veuillez vérifier l'emplacement.");
+	            alert.setContentText("Impossible de sauvegarder le " + 
+	                          " fichier. Veuillez vérifier l'emplacement.");
 	            alert.showAndWait();
 	            e.printStackTrace();
 	        }
@@ -310,7 +315,8 @@ public class VueJeu extends Application {
 	public static void activerFenetreChargement() {
 	    FileChooser fileChooser = new FileChooser();
 	    fileChooser.setTitle("Sélectionner un fichier CSV");
-	    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+	    fileChooser.getExtensionFilters().add(new FileChooser.
+	                              ExtensionFilter("Fichiers CSV", "*.csv"));
 	
 	    Stage stage = new Stage();
 	    File fichierSelectionne = fileChooser.showOpenDialog(stage);
@@ -324,7 +330,8 @@ public class VueJeu extends Application {
 	            Grille grille = ChargeurCSV.chargerGrille(nom, chemin);
 	
 	            if (grille == null) {
-	                throw new Exception("Le fichier CSV est invalide ou introuvable.");
+	                throw new Exception("Le fichier CSV est " +
+	                                    " invalide ou introuvable.");
 	            }
 	
 	            // Lancer la partie
@@ -354,9 +361,10 @@ public class VueJeu extends Application {
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setScene(new Scene(root));
             popupStage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("Erreur lors du chargement du popup des règles : " + e.getMessage());
-            e.printStackTrace();
+        } catch (Exception erreurLancement) {
+            System.err.println("Erreur lors du chargement popup des règles :"
+                              + erreurLancement.getMessage());
+            erreurLancement.printStackTrace();
         }
     }
 	
