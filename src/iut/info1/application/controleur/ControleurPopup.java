@@ -25,11 +25,15 @@ import javafx.scene.control.Button;
  */
 public class ControleurPopup {
 
+	/** identifiant des boutons */
 	private String idButton;
+	
+	/** pseudo du joueur sélectionner */
 	private String joueur;
 	
+	/** Identifiant utiliser pour fermer la fenêtre Popup */
 	@FXML
-	private Button rouge; //utiliser pour la fermeture de la fenêtre
+	private Button rouge;
 	
 	/**
      * Initialise les informations nécessaires pour la gestion des couleurs.
@@ -41,47 +45,70 @@ public class ControleurPopup {
         this.idButton = idButton;
     }
 	
+    /** Active la couleur rouge */
     @FXML
     private void activerRouge() {
     	ouvrirConfirmation(joueur, idButton, "#FF0000");
     }
 
+    /** Active la couleur orange */
     @FXML
     private void activerOrange() {
     	ouvrirConfirmation(joueur, idButton, "#FFBF00");
     }
 
+    /** Active la couleur bleu */
     @FXML
     private void activerBleu() {
     	ouvrirConfirmation(joueur, idButton, "#2600FF");
     }
 
+    /** Active la couleur rose */
     @FXML
     private void activerRose() {
     	ouvrirConfirmation(joueur, idButton, "#FF0088");
     }
 
+    /** Active la couleur vert */
     @FXML
     private void activerVert() {
     	ouvrirConfirmation(joueur, idButton, "#00FF11");
     }
 
+    /** Active la couleur violette */
     @FXML
     private void activerViolet() {
     	ouvrirConfirmation(joueur, idButton, "#FF00FD");
     }
 
+    /** Active la couleur jaune */ 
     @FXML
     private void activerJaune() {
-    	ouvrirConfirmation(joueur, idButton, "#E5FF00");
+    	ouvrirConfirmation(joueur, idButton, "#FFFF00");
     }
 
+    /** Active la couleur Turquoise */
     @FXML
     private void activerTurquoise() {
     	ouvrirConfirmation(joueur, idButton, "#00D1C7");
     }
     
+    /**
+     * Cette méthode permet de mettre une couleur à un joueur
+     * @param joueur pseudo du joueur
+     * @param idButton identifiant du bouton qui active la fenêtre
+     * @param couleur couleur du joueur
+     */
     private void ouvrirConfirmation(String joueur, String idButton, String couleur) {
+        // Vérification des couleurs
+        if ("buttonCouleur1".equals(idButton) && couleur.equals(CouleursGlobales.getCouleurJoueur2())) {
+            afficherErreurCouleursIdentiques();
+            return;
+        } else if ("buttonCouleur2".equals(idButton) && couleur.equals(CouleursGlobales.getCouleurJoueur1())) {
+            afficherErreurCouleursIdentiques();
+            return;
+        }
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Confirmation de couleur");
         alert.setTitle("Confirmation de couleur");
@@ -89,21 +116,32 @@ public class ControleurPopup {
         ButtonType oui = new ButtonType("Oui");
         ButtonType annuler = new ButtonType("Annuler");
 
-		alert.setContentText("Voulez-vous appliquer la couleur " + couleur
-											+ " au joueur " + joueur + " ?");
+        alert.setContentText("Voulez-vous appliquer la couleur " + couleur
+                + " au joueur " + joueur + " ?");
         alert.getButtonTypes().clear(); // Efface les boutons par défaut
         alert.getButtonTypes().addAll(oui, annuler);
 
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == oui) {
-        	rouge.getScene().getWindow().hide();
+            rouge.getScene().getWindow().hide();
             if ("buttonCouleur1".equals(idButton)) {
                 appliquerCouleurJoueur1(couleur);
             } else if ("buttonCouleur2".equals(idButton)) {
                 appliquerCouleurJoueur2(couleur);
             }
         }
+    }
+    
+    /**
+     * Fenêtre d'erreur quand deux joueurs ont la même couleur
+     */
+    private void afficherErreurCouleursIdentiques() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("Erreur de couleur");
+        alert.setTitle("Couleurs identiques");
+        alert.setContentText("Les deux joueurs ne peuvent pas avoir la même couleur. Veuillez en choisir une autre.");
+        alert.showAndWait();
     }
     
     @FXML

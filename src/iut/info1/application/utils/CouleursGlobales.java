@@ -13,8 +13,12 @@ package iut.info1.application.utils;
  * @author Esteban Roveri
  */
 public class CouleursGlobales {
-    private static String couleurJoueur1 = "#FF0000"; // Couleur par défaut
-    private static String couleurJoueur2 = "#FFFF00"; // Couleur par défaut
+	
+	/** couleur par défaut du joueur 1 */
+    private static String couleurJoueur1 = "#FF0000";
+    
+    /** couleur par défaut du joueur 2 */
+    private static String couleurJoueur2 = "#FFFF00";
 
     /**
      * Getter pour la couleur du joueur 1
