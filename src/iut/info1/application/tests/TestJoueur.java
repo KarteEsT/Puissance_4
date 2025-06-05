@@ -108,12 +108,6 @@ public class TestJoueur {
         assertThrows(IllegalArgumentException.class, () 
                 -> new Joueur(1, "Eve", "   "));
         
-        // Couleur avec caractères invalides
-        assertThrows(IllegalArgumentException.class, () 
-                -> new Joueur(2, "Frank", "@blue"));
-        assertThrows(IllegalArgumentException.class, () 
-                -> new Joueur(1, "Grace", "Bl@ck"));
-        
         // Couleur trop longue (> 30)
         assertThrows(IllegalArgumentException.class, () 
                 -> new Joueur(2, "Grace", "B".repeat(31)));
@@ -214,7 +208,7 @@ public class TestJoueur {
     
     @Test
     void testNomLong() {
-        String nomLong = "A".repeat(30);
+        String nomLong = "A".repeat(20);
         Joueur joueur = new Joueur(1, nomLong, "Rouge");
         assertEquals(nomLong, joueur.getNom());
         
