@@ -27,6 +27,11 @@ class TestChargeurCSV {
             assertNotNull(grille, "La grille ne doit pas être null après le chargement.");
             assertEquals(7, grille.getColonne(), "La largeur de la grille doit être correcte.");
             assertEquals(6, grille.getLigne(), "La hauteur de la grille doit être correcte.");
+            assertEquals("Alice", grille.getJ1().getNom(), "Le nom du joueur 1 doit être correct.");
+            assertEquals("Bob", grille.getJ2().getNom(), "Le nom du joueur 2 doit être correct.");
+            assertEquals("#FF0000", grille.getJ1().getCouleur(), "La couleur du joueur 1 doit être correcte.");
+            assertEquals("#FFFF00", grille.getJ2().getCouleur(), "La couleur du joueur 2 doit être correcte.");
+            assertEquals(0, grille.getCompteTour(), "Le compteTour doit être correct.");
         } catch (Exception e) {
             fail("Une exception a été levée lors du chargement de la grille : " + e.getMessage());
         }
