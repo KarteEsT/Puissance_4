@@ -29,7 +29,7 @@
             <Font size="100.0" />
          </font>
       </Label>
-      <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="70.0" prefWidth="260.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <ComboBox id="button" fx:id="choixTemps" onAction="#gererClicValider" prefHeight="70.0" prefWidth="280.0" promptText="Désactiver" style="-fx-font-size: 30;" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -60,12 +60,12 @@
             <Image url="@../css/info.png" />
          </image>
       </ImageView>
-      <Button fx:id="activerChronoGlobal" maxHeight="70.0" maxWidth="260.0" mnemonicParsing="false" onAction="#gererClicActiver" prefHeight="70.0" text="Activer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="activerChronoGlobal" maxHeight="70.0" maxWidth="280.0" mnemonicParsing="false" onAction="#gererClicActiver" prefHeight="70.0" text="Activer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="45.0" />
          </font>
       </Button>
-      <Button fx:id="desactiverChronoGlobal" disable="true" maxWidth="260.0" mnemonicParsing="false" onAction="#gererClicDesactiver" prefHeight="70.0" text="Désactiver" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="desactiverChronoGlobal" disable="true" maxWidth="280.0" mnemonicParsing="false" onAction="#gererClicDesactiver" prefHeight="70.0" text="Désactiver" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font size="45.0" />
          </font>
