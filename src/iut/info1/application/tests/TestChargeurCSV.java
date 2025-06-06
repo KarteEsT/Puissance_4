@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import iut.info1.application.ChargeurCSV;
 import iut.info1.application.Grille;
 import iut.info1.application.Joueur;
+import iut.info1.application.utils.NomsGlobals;
 
 class TestChargeurCSV {
 
@@ -37,6 +38,8 @@ class TestChargeurCSV {
             // Création d'une grille de test
         	Joueur joueur1 = new Joueur(1, "Alice", "red");
         	Joueur joueur2 = new Joueur(2, "Bob", "yellow");
+        	NomsGlobals.setNomJoueur1(joueur1.getNom());
+        	NomsGlobals.setNomJoueur2(joueur2.getNom());
             Grille grille = new Grille(6, 7, joueur1, joueur2);
 
             // Chemin et nom du fichier de sauvegarde
